@@ -1,0 +1,47 @@
+/** \page Coding-Conventions
+
+Since this project is intended for public viewing, I will strive for the code in the project to be of production quality. As such I will follow some coding conventions:
+
+Indentation in code will be decided based on the default for CLion 
+
+Structures in C will be used to represent "classes" in object oriented programming.
+
+Structures will be given a name like "bbName"
+
+These will usually be declared and defined in files like "bbName.h" and "bbName.c"
+In some cases multiple, closely linked classes will be declared and defined in a single .h and .c file,
+Such as those pertaining to 2d screen coordinates and 3d map coordinates.
+
+Elements of structures represent the classes' attributes and will have names like "m_AttributeName"
+
+Functions that act of these structures represent methods in OOP
+
+These will be given names like bbName_Action(self, args);
+
+Some classes exist that have multiple types, such as AI state machines.
+Different behaviors for different types of AI state machine will be available for lookup in a vtable.
+Indices in this vtable will be defined as macros with names like "AI_TORTOISE",
+and they will be defined in that class's header file and separate header files containing that type's functionality will be included in the class's code file.
+
+Macro definitions such as those just mentioned will be preferred over enums.
+
+As much as possible methods will return a non-negative integer value for a successful run and other values will be returned by reference. Negative values will be reserved for flags describing the nature of the failure. A list of objects may be iterated over, calling one of the object's methods. Taking an action such as deleting the object while it's being iterated over could cause the iterator to fail, to get around this the method returns a flag to tell the code to delete the object after it has been passed over by the iterator. (Being careful not to delete an object that exists in multiple linked lists?)
+
+Flags will be represented as macros defined with names like "F_NONE" if you've reached the end of a list, or "F_DELETE" to delete the object just iterated over. These will be defined in the file flags.h
+
+The command pattern will be implemented with a function call such as bbClassName_OnCommand(target_object, int command, void* data);
+
+Where "int command" is a defined macro such as "#define C_SET_TARGET_LOCATION 2"
+
+Object pools will be used extensively in this project. As such in most places objects will be referenced based on their location in the pool.
+
+Use of global data will be minimized but there will be at least one global variable, g_game, which is the root of all data stored by the game.
+
+The use of floating point numbers will be strictly avoided. Instead values will be declared such as POINTS_PER_PIXEL, PIXELS_PER_TILE, TILES_PER_SQUARE and SQUARES_PER_MAP for implementing fixed-point mathematics. These will defined on loading of a game map.
+
+Constants that have to do with compilation, like N_MAPS, the maximum number of maps that can be open simultaneously, are stored in constants.h
+
+#include guards will be used and will look like #ifndef BBGAME_H\n#define BBGAME_H\n ... \n#endif //BBGAME_H
+
+Integer types will be used from inttypes.h rather than type "int"
+*/

@@ -1,0 +1,102 @@
+\hypertarget{structbbWidget}{}\doxysection{bb\+Widget Struct Reference}
+\label{structbbWidget}\index{bbWidget@{bbWidget}}
+
+
+\mbox{\hyperlink{structbbWidget}{bb\+Widget}} includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy \mbox{\hyperlink{structbbWidgets}{bb\+Widgets}} is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered.  
+
+
+
+
+{\ttfamily \#include $<$bb\+Widget.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{Indent}\textbf{ Pool Stuff}\par
+{\em Stuff for including object in pool }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbWidget_a73646779321eb575f5efd7f0b899928f}\label{structbbWidget_a73646779321eb575f5efd7f0b899928f}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Self}
+\item 
+\mbox{\Hypertarget{structbbWidget_aedc8076cb875b437dcf22aec0a5819af}\label{structbbWidget_aedc8076cb875b437dcf22aec0a5819af}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Prev}
+\item 
+\mbox{\Hypertarget{structbbWidget_a49ab4c5f0e663e48560c188c0d2ef207}\label{structbbWidget_a49ab4c5f0e663e48560c188c0d2ef207}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Next}
+\item 
+\mbox{\Hypertarget{structbbWidget_a18f810669383020298538ca4f9b96c36}\label{structbbWidget_a18f810669383020298538ca4f9b96c36}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+In\+\_\+\+Use}
+\item 
+\mbox{\Hypertarget{structbbWidget_a1134130338e2f3866bbccac9eb422aaf}\label{structbbWidget_a1134130338e2f3866bbccac9eb422aaf}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Map}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Graphics Stuff}\par
+{\em What map was being loaded when this object was constructed?
+
+Stuff for drawing widgets to the screen }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbWidget_abcc0103d814b3a392f9308fd518440fa}\label{structbbWidget_abcc0103d814b3a392f9308fd518440fa}} 
+bool {\bfseries m\+\_\+\+Visible}
+\begin{DoxyCompactList}\small\item\em $\ast$/ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structbbWidget_a975f4919d89f2e97ff2b354aded8b51c}\label{structbbWidget_a975f4919d89f2e97ff2b354aded8b51c}} 
+bool {\bfseries m\+\_\+\+Subwidgets\+Visible}
+\item 
+\mbox{\Hypertarget{structbbWidget_a929c34156f309b745b01d059a66641b7}\label{structbbWidget_a929c34156f309b745b01d059a66641b7}} 
+bb\+Screen\+Coords {\bfseries m\+\_\+\+Screen\+Coords}
+\item 
+\mbox{\Hypertarget{structbbWidget_ad70e4a7dab0d5c824364121f685501d6}\label{structbbWidget_ad70e4a7dab0d5c824364121f685501d6}} 
+char $\ast$ {\bfseries m\+\_\+\+Text}
+\item 
+\mbox{\Hypertarget{structbbWidget_a6a497ea16433519e2a627c763d6c1ab8}\label{structbbWidget_a6a497ea16433519e2a627c763d6c1ab8}} 
+char $\ast$ {\bfseries m\+\_\+\+Sprite\+Label}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Interactive Stuff}\par
+{\em Look up sprite label in dictionary to draw to screen.
+
+Stuff for interacting with the game. Integers refer to a location in a vtable. }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbWidget_a374f45ad84a31979d35b4705be122fa5}\label{structbbWidget_a374f45ad84a31979d35b4705be122fa5}} 
+char $\ast$ {\bfseries m\+\_\+\+Code}
+\begin{DoxyCompactList}\small\item\em $\ast$/ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structbbWidget_a6e28413881e36d42c50bce4a5ad34bad}\label{structbbWidget_a6e28413881e36d42c50bce4a5ad34bad}} 
+int32\+\_\+t {\bfseries m\+\_\+\+On\+Command}
+\begin{DoxyCompactList}\small\item\em Enter this code to activate spell without clicking on it. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structbbWidget_a7804393b17785e2b07acf65538f34a25}\label{structbbWidget_a7804393b17785e2b07acf65538f34a25}} 
+int32\+\_\+t {\bfseries m\+\_\+\+On\+Draw}
+\item 
+\mbox{\Hypertarget{structbbWidget_a9a93a2be546d246881d77e05267f7a90}\label{structbbWidget_a9a93a2be546d246881d77e05267f7a90}} 
+int32\+\_\+t {\bfseries m\+\_\+\+On\+Delete}
+\item 
+\mbox{\Hypertarget{structbbWidget_a8e953c52268cfffd64ec3a4749355cd4}\label{structbbWidget_a8e953c52268cfffd64ec3a4749355cd4}} 
+int32\+\_\+t {\bfseries m\+\_\+\+On\+Click}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Hierarchy Stuff}\par
+{\em Stuff for storing widgets in a hierarchy }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbWidget_a7fcd5cacc91c051428ca5411ff70f028}\label{structbbWidget_a7fcd5cacc91c051428ca5411ff70f028}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Parent\+Widget}
+\begin{DoxyCompactList}\small\item\em $\ast$/ \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structbbWidget_a0046ce0b62536133e9eca1cf14014359}\label{structbbWidget_a0046ce0b62536133e9eca1cf14014359}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Subwidget\+Head}
+\item 
+\mbox{\Hypertarget{structbbWidget_a35b9cbec3a93845d72003757c721154d}\label{structbbWidget_a35b9cbec3a93845d72003757c721154d}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Subwidget\+Tail}
+\item 
+\mbox{\Hypertarget{structbbWidget_a4a659428ff80112debe49788e665a93e}\label{structbbWidget_a4a659428ff80112debe49788e665a93e}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Widget\+Next}
+\item 
+\mbox{\Hypertarget{structbbWidget_a21c68878085e4135bf4310b62157a621}\label{structbbWidget_a21c68878085e4135bf4310b62157a621}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Widget\+Previous}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structbbWidget}{bb\+Widget}} includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy \mbox{\hyperlink{structbbWidgets}{bb\+Widgets}} is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered. 
+
+\mbox{\hyperlink{structbbWidget}{bb\+Widget}} includes things like menus and buttons. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/bb\+Widget.\+h\end{DoxyCompactItemize}

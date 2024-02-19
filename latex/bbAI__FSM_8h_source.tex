@@ -1,0 +1,54 @@
+\hypertarget{bbAI__FSM_8h_source}{}\doxysection{bb\+AI\+\_\+\+FSM.\+h}
+\label{bbAI__FSM_8h_source}\index{headers/bbAI\_FSM.h@{headers/bbAI\_FSM.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef BBAI\_FSM\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define BBAI\_FSM\_H}}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}../headers/system\_includes.h"{}}}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{ \textcolor{comment}{//bbAI\_FSM}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{16     int32\_t m\_Pool\_Self;}
+\DoxyCodeLine{17     int32\_t m\_Pool\_Prev;}
+\DoxyCodeLine{18     int32\_t m\_Pool\_Next;}
+\DoxyCodeLine{19     int32\_t m\_Pool\_In\_Use;}
+\DoxyCodeLine{20     int32\_t m\_Map;  }
+\DoxyCodeLine{22 }
+\DoxyCodeLine{27     bbSquareCoords m\_SquareCoords;}
+\DoxyCodeLine{28     bbMapCoords    m\_MapCoords;}
+\DoxyCodeLine{29     int32\_t        m\_Drawables[DRAWBLES\_PER\_AI];}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{32     int32\_t \mbox{\hyperlink{structbbAI__FSM_a0a8184752baccf9ec6108bfe96d24617}{m\_ExternalState}};}
+\DoxyCodeLine{34     int32\_t \mbox{\hyperlink{structbbAI__FSM_a6eb6ccc99f3ebfee8956d1bd5410bb0a}{m\_InternalState}};}
+\DoxyCodeLine{36     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structbbAI__FSM_a666cc7b1e086d7a074f9d16fcc3e90b3}{m\_StateTransition}};}
+\DoxyCodeLine{38     int32\_t \mbox{\hyperlink{structbbAI__FSM_a6b5a14b555aff9cc4ceb9ed016b08742}{m\_Clock}};}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{41     int32\_t \mbox{\hyperlink{structbbAI__FSM_acfa86b703b5a41fac475c8a3f5880ed9}{m\_Clock2}};}
+\DoxyCodeLine{45     bbMapCoords \mbox{\hyperlink{structbbAI__FSM_a08f3a264800607d5db24090220d7afe8}{attack\_centre}};}
+\DoxyCodeLine{47 \} \mbox{\hyperlink{structbbAI__FSM}{bbAI\_FSM}};}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{comment}{/* Functions:}}
+\DoxyCodeLine{51 \textcolor{comment}{ *  Update by memory address}}
+\DoxyCodeLine{52 \textcolor{comment}{ *  Update integer address in pool}}
+\DoxyCodeLine{53 \textcolor{comment}{ *  Update everything in pool}}
+\DoxyCodeLine{54 \textcolor{comment}{ */}}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{57 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{ \textcolor{comment}{//bbAI\_FSMs}}
+\DoxyCodeLine{58 }
+\DoxyCodeLine{59     bbAI\_FSM\_Pool* m\_Pool;}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61 \} \mbox{\hyperlink{structbbAI__FSMs}{bbAI\_FSMs}};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63 }
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#endif }\textcolor{comment}{// BBAI\_FSM\_H}}
+
+\end{DoxyCode}

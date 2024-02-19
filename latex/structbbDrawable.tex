@@ -1,0 +1,117 @@
+\hypertarget{structbbDrawable}{}\doxysection{bb\+Drawable Struct Reference}
+\label{structbbDrawable}\index{bbDrawable@{bbDrawable}}
+
+
+{\ttfamily \#include $<$bb\+Drawable.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{Indent}\textbf{ Pool Stuff}\par
+{\em Stuff for including object in pool }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a580329e7f4622b0d2dbc426346438adc}\label{structbbDrawable_a580329e7f4622b0d2dbc426346438adc}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Self}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a8eb4cfc4673d8535ede0266578110853}\label{structbbDrawable_a8eb4cfc4673d8535ede0266578110853}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Prev}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a30e94d9a189cbedba88535d90223a4dc}\label{structbbDrawable_a30e94d9a189cbedba88535d90223a4dc}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+Next}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a65c27a4a100b192a15b741de1d4b92cd}\label{structbbDrawable_a65c27a4a100b192a15b741de1d4b92cd}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Pool\+\_\+\+In\+\_\+\+Use}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a7b1f7f4a0bdb65e7c173b1e5e88bd299}\label{structbbDrawable_a7b1f7f4a0bdb65e7c173b1e5e88bd299}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Map}
+\begin{DoxyCompactList}\small\item\em What map was m\+\_\+\+Current\+Map when this object was constructed? \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Square Stuff}\par
+{\em Linked list of drawables belonging to one \mbox{\hyperlink{structbbDrawableSquare}{bb\+Drawable\+Square}} }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a4fb102e319faed0fbfde3b5f23a885dd}\label{structbbDrawable_a4fb102e319faed0fbfde3b5f23a885dd}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Square\+Next}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a52c7d3dbf63f5b448c72988ce6b2dc1b}\label{structbbDrawable_a52c7d3dbf63f5b448c72988ce6b2dc1b}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Square\+Prev}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Costmetic Data}\par
+{\em Stuff for drawing the drawable to the viewport }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_ad83a61304abaef0a9d9a47214767a879}\label{structbbDrawable_ad83a61304abaef0a9d9a47214767a879}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Health}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a95f63c6600bace68a74e960e13c3735c}\label{structbbDrawable_a95f63c6600bace68a74e960e13c3735c}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Max\+Health}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a80381dbb4006553aafdf3cbc17df7714}\label{structbbDrawable_a80381dbb4006553aafdf3cbc17df7714}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Display\+Health\+Until}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a26afa94e3eaeead840eb22e9f37a1dd9}\label{structbbDrawable_a26afa94e3eaeead840eb22e9f37a1dd9}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Health\+Bar\+Height}
+\item 
+\mbox{\Hypertarget{structbbDrawable_ad18704134da68bfb7e8a8250e60a2871}\label{structbbDrawable_ad18704134da68bfb7e8a8250e60a2871}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Health\+Bar\+Width}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a6014a9ff495798ee7358e368405d01b4}\label{structbbDrawable_a6014a9ff495798ee7358e368405d01b4}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Health\+Bar\+Length}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a76ca87b5e3f199c80cd414917df07580}\label{structbbDrawable_a76ca87b5e3f199c80cd414917df07580}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Cosmetic\+Radius}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Animation Data}\par
+{\em Stuff for drawing the drawable\textquotesingle{}s animations to the viewport These could all be rolled into the one sub-\/structure }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a6a756650950e35714fa2e4444a2fab47}\label{structbbDrawable_a6a756650950e35714fa2e4444a2fab47}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Start\+Time}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a71869f7f299fe10995b3ccc7d4683cb9}\label{structbbDrawable_a71869f7f299fe10995b3ccc7d4683cb9}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Animation} \mbox{[}ANIMATIONS\+\_\+\+PER\+\_\+\+DRAWABLE\mbox{]}
+\item 
+\mbox{\Hypertarget{structbbDrawable_ac1e6df1ce69f1ec185346b4142eaae82}\label{structbbDrawable_ac1e6df1ce69f1ec185346b4142eaae82}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Angle} \mbox{[}ANIMATIONS\+\_\+\+PER\+\_\+\+DRAWABLE\mbox{]}
+\item 
+\mbox{\Hypertarget{structbbDrawable_af87bc17bd49ebb6b4e4db9e42a857127}\label{structbbDrawable_af87bc17bd49ebb6b4e4db9e42a857127}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Frame} \mbox{[}ANIMATIONS\+\_\+\+PER\+\_\+\+DRAWABLE\mbox{]}
+\item 
+\mbox{\Hypertarget{structbbDrawable_aff98e1e3d08bb56bb5c1621e01579097}\label{structbbDrawable_aff98e1e3d08bb56bb5c1621e01579097}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Draw\+Function} \mbox{[}ANIMATIONS\+\_\+\+PER\+\_\+\+DRAWABLE\mbox{]}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ Skin Data}\par
+{\em Animation Data can be offloaded to a predefined set of values stored in a skin object }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a640c1c249326c6293581672cf9c819a9}\label{structbbDrawable_a640c1c249326c6293581672cf9c819a9}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Skin}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a1b0b8713d9dccc7fd0790c6c1be909de}\label{structbbDrawable_a1b0b8713d9dccc7fd0790c6c1be909de}} 
+int32\+\_\+t {\bfseries m\+\_\+\+State}
+\end{DoxyCompactItemize}
+\end{Indent}
+\begin{Indent}\textbf{ AI\+\_\+\+FSM Data}\par
+{\em Determines the behaviour of \mbox{\hyperlink{structbbAI__FSM}{bb\+AI\+\_\+\+FSM}} objects interacting with the drawable }\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawable_aeaff3e6d42f001e49dde76623280e8c7}\label{structbbDrawable_aeaff3e6d42f001e49dde76623280e8c7}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Avoidance\+Radius}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a5a5c0ffcd17d08b3bb92398f0c8989a2}\label{structbbDrawable_a5a5c0ffcd17d08b3bb92398f0c8989a2}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Avoidance\+Shape}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a3261aa1a15b2652e2bc15985cd14ac8e}\label{structbbDrawable_a3261aa1a15b2652e2bc15985cd14ac8e}} 
+bb\+Map\+Coords {\bfseries m\+\_\+\+Preferred\+Next\+Location}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a9774380a91d3f2b247e4671f00a0f24a}\label{structbbDrawable_a9774380a91d3f2b247e4671f00a0f24a}} 
+bb\+Map\+Coords {\bfseries m\+\_\+\+Target\+Location}
+\item 
+\mbox{\Hypertarget{structbbDrawable_a518623749dc176cd2be6c3a5e6649645}\label{structbbDrawable_a518623749dc176cd2be6c3a5e6649645}} 
+int32\+\_\+t {\bfseries m\+\_\+\+Target\+Drawable}
+\end{DoxyCompactItemize}
+\end{Indent}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structbbDrawable}{bb\+Drawable}} holds all the data about one object to be drawn to the viewport and to interact with with AI\+\_\+\+FSM objects. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/bb\+Drawable.\+h\end{DoxyCompactItemize}

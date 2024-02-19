@@ -1,0 +1,51 @@
+\hypertarget{bbWidget_8h_source}{}\doxysection{bb\+Widget.\+h}
+\label{bbWidget_8h_source}\index{headers/bbWidget.h@{headers/bbWidget.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#ifndef BBWIDGETS\_H}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define BBWIDGETS\_H}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}../headers/system\_includes.h"{}}}
+\DoxyCodeLine{12 }
+\DoxyCodeLine{14 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{ \textcolor{comment}{//bbWidget}}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16 }
+\DoxyCodeLine{21     int32\_t m\_Pool\_Self;}
+\DoxyCodeLine{22     int32\_t m\_Pool\_Prev;}
+\DoxyCodeLine{23     int32\_t m\_Pool\_Next;}
+\DoxyCodeLine{24     int32\_t m\_Pool\_In\_Use;}
+\DoxyCodeLine{25     int32\_t m\_Map;  }
+\DoxyCodeLine{27 }
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \textcolor{keywordtype}{bool} \mbox{\hyperlink{structbbWidget_abcc0103d814b3a392f9308fd518440fa}{m\_Visible}};}
+\DoxyCodeLine{34     \textcolor{keywordtype}{bool} m\_SubwidgetsVisible;}
+\DoxyCodeLine{35     bbScreenCoords m\_ScreenCoords;}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37     \textcolor{keywordtype}{char}* m\_Text;}
+\DoxyCodeLine{38     \textcolor{keywordtype}{char}* m\_SpriteLabel;  }
+\DoxyCodeLine{40 }
+\DoxyCodeLine{45     \textcolor{keywordtype}{char}* \mbox{\hyperlink{structbbWidget_a374f45ad84a31979d35b4705be122fa5}{m\_Code}}; }
+\DoxyCodeLine{46     int32\_t \mbox{\hyperlink{structbbWidget_a6e28413881e36d42c50bce4a5ad34bad}{m\_OnCommand}};}
+\DoxyCodeLine{47     int32\_t m\_OnDraw;}
+\DoxyCodeLine{48     int32\_t m\_OnDelete;}
+\DoxyCodeLine{49     int32\_t m\_OnClick;}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{52 }
+\DoxyCodeLine{57     int32\_t \mbox{\hyperlink{structbbWidget_a7fcd5cacc91c051428ca5411ff70f028}{m\_ParentWidget}};}
+\DoxyCodeLine{58     int32\_t m\_SubwidgetHead;}
+\DoxyCodeLine{59     int32\_t m\_SubwidgetTail;}
+\DoxyCodeLine{60     int32\_t m\_WidgetNext;}
+\DoxyCodeLine{61     int32\_t m\_WidgetPrevious;}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{64 \} \mbox{\hyperlink{structbbWidget}{bbWidget}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 }
+\DoxyCodeLine{68 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{ \textcolor{comment}{//bbWidgets}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     bbWidget\_Pool* m\_Pool;}
+\DoxyCodeLine{71 \} \mbox{\hyperlink{structbbWidgets}{bbWidgets}};}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//BBWIDGETS\_H}}
+
+\end{DoxyCode}

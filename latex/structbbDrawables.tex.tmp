@@ -1,0 +1,35 @@
+\hypertarget{structbbDrawables}{}\doxysection{bb\+Drawables Struct Reference}
+\label{structbbDrawables}\index{bbDrawables@{bbDrawables}}
+
+
+\mbox{\hyperlink{structbbDrawables}{bb\+Drawables}} contains drawables from all squares of the maps\textquotesingle{} ground surface  
+
+
+
+
+{\ttfamily \#include $<$bb\+Drawable.\+h$>$}
+
+
+
+Collaboration diagram for bb\+Drawables\+:
+% FIG 0
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structbbDrawables_a3faf65db539f248022cf1df0c21dc39b}\label{structbbDrawables_a3faf65db539f248022cf1df0c21dc39b}} 
+bb\+Drawable\+\_\+\+Pool $\ast$ {\bfseries m\+\_\+\+Pool}
+\item 
+\mbox{\Hypertarget{structbbDrawables_aa69d664749cf68d3874d47c01d2b0c41}\label{structbbDrawables_aa69d664749cf68d3874d47c01d2b0c41}} 
+\mbox{\hyperlink{structbbDrawableSquare}{bb\+Drawable\+Square}} $\ast$$\ast$ {\bfseries m\+\_\+\+Squares}
+\begin{DoxyCompactList}\small\item\em m\+\_\+\+Squares\+Per\+MapI by m\+\_\+\+Squares\+Per\+MapJ array of \mbox{\hyperlink{structbbDrawableSquare}{bb\+Drawable\+Square}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structbbDrawables_a09d5acd11d9b4017946e0450ed202031}\label{structbbDrawables_a09d5acd11d9b4017946e0450ed202031}} 
+\mbox{\hyperlink{structbbDrawableSquare}{bb\+Drawable\+Square}} {\bfseries m\+\_\+\+Lost}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{structbbDrawables}{bb\+Drawables}} contains drawables from all squares of the maps\textquotesingle{} ground surface 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+headers/bb\+Drawable.\+h\end{DoxyCompactItemize}
