@@ -1,14 +1,12 @@
-/** 
+/**
+ * @file
 * @brief
- *
- *
- *
 */
 
 #ifndef BBANIMATION_H
 #define BBANIMATION_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 /** @name bbAnimation contains an array of references to sfSprites
  * to be played in succession to give the appearance of movement
  **/

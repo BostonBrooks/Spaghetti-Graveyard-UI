@@ -1,11 +1,12 @@
 /**
+ * @file
  * @brief A bbAI_FSM (Finite State Machine) contains the code to control behaviours of things in-game
 */
 
 #ifndef BBAI_FSM_H
 #define BBAI_FSM_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 typedef struct { //bbAI_FSM
 
@@ -60,13 +61,14 @@ typedef struct { //bbAI_FSMs
 
 } bbAI_FSMs;
 
-int32_t bbAIControl_update(bbAI_FSM* fsm);
+/** Update individual AI given its location in memory */
+int32_t bbAI_FSM_update(bbAI_FSM* fsm);
 
 /** Update individual AI given its location in pool */
-int32_t bbAIControl_update_int(int32_t bbMap_int, int32_t fsm_int);
+int32_t bbAI_FSM_update_int(int32_t bbMap_int, int32_t fsm_int);
 
-/** Update all AIs in pool */
-int32_t bbAIControl_updatePool(int32_t bbMap_int);
+/** Update all AIs in bbAI_FSMs container (given map number) */
+int32_t bbAI_FSMs_update(int32_t bbMap_int);
 
 
 

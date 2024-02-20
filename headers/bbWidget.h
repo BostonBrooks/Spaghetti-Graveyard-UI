@@ -1,4 +1,5 @@
 /**
+ * @file
  * @brief bbWidget includes things like menus and buttons.
  * Each widget owns a list of subwidgets and widgets are arranged in a hierarchy
  * bbWidgets is a container for all widgets corresponding to a given map
@@ -8,7 +9,7 @@
 #ifndef BBWIDGETS_H
 #define BBWIDGETS_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 /** bbWidget includes things like menus and buttons. */
 typedef struct { //bbWidget

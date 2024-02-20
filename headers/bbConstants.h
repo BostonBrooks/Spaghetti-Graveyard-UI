@@ -1,5 +1,6 @@
 /**
- * @brief Compile time constants. Run-time loading of constants on a per-map basis is preferred
+ * @file
+ * @brief Compile time constants. Run-time loading of constants on a per-map basis is preferred. Should be able to increase these values without breaking code.
  */
 
 

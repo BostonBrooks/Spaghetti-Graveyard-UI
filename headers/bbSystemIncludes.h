@@ -1,4 +1,5 @@
-/** 
+/**
+ * @file
 * @brief bbGame is the root of all data stored by the game.
 */
 
@@ -16,5 +17,7 @@
 	#include <string.h>
 	#include <stdbool.h>
 	#include <inttypes.h>
+
+
 
 #endif //BBSYSTEM_INCLUDES_H

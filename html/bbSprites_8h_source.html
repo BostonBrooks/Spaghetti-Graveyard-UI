@@ -70,32 +70,35 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="bbSprites_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#ifndef BBSPRITES_H</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#define BBSPRITES_H</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;../headers/system_includes.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="structbbSprites.html">   12</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbSprites</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">   14</a></span>    sfSprite** <a class="code hl_variable" href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">m_Sprites</a>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">   15</a></span>    bbDictionary* <a class="code hl_variable" href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">m_Dictionary</a>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>} <a class="code hl_struct" href="structbbSprites.html">bbSprites</a>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef BBSPRITES_H</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define BBSPRITES_H</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../headers/bbSystemIncludes.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structbbSprites.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbSprites</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">   16</a></span>    sfSprite** <a class="code hl_variable" href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">m_Sprites</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">   17</a></span>    <a class="code hl_struct" href="structbbDictionary.html">bbDictionary</a>* <a class="code hl_variable" href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">m_Dictionary</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>} <a class="code hl_struct" href="structbbSprites.html">bbSprites</a>;</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">   25</a></span><span class="keyword">extern</span> <a class="code hl_struct" href="structbbSprites.html">bbSprites</a>* <a class="code hl_function" href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">bbSprites_CreateFromFile</a>(<span class="keywordtype">char</span> File[]);\</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">   27</a></span>extern sfSprite* <a class="code hl_function" href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">sfSpriteLocate</a> (<span class="keywordtype">int</span> map_int, <span class="keywordtype">int</span> animation_int, <span class="keywordtype">int</span> angle_int, <span class="keywordtype">int</span> frame_int);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">   28</a></span><span class="keyword">extern</span> sfSprite* <a class="code hl_function" href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">sfSpriteLocateWKey</a> (<span class="keywordtype">int</span> map_int, <span class="keywordtype">char</span>* animation_key, <span class="keywordtype">int</span> angle_int, <span class="keywordtype">int</span> frame_int);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif </span><span class="comment">//BBSPRITES_H</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">   27</a></span><span class="keyword">extern</span> <a class="code hl_struct" href="structbbSprites.html">bbSprites</a>* <a class="code hl_function" href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">bbSprites_CreateFromFile</a>(<span class="keywordtype">char</span> File[]);\</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">   29</a></span>extern sfSprite* <a class="code hl_function" href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">sfSpriteLocate</a> (<span class="keywordtype">int</span> map_int, <span class="keywordtype">int</span> animation_int, <span class="keywordtype">int</span> angle_int, <span class="keywordtype">int</span> frame_int);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">   30</a></span><span class="keyword">extern</span> sfSprite* <a class="code hl_function" href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">sfSpriteLocateWKey</a> (<span class="keywordtype">int</span> map_int, <span class="keywordtype">char</span>* animation_key, <span class="keywordtype">int</span> angle_int, <span class="keywordtype">int</span> frame_int);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#endif </span><span class="comment">//BBSPRITES_H</span></div>
 <div class="ttc" id="abbSprites_8h_html_a7d5314434bb18fb38fd6237d15533ded"><div class="ttname"><a href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">sfSpriteLocateWKey</a></div><div class="ttdeci">sfSprite * sfSpriteLocateWKey(int map_int, char *animation_key, int angle_int, int frame_int)</div></div>
 <div class="ttc" id="abbSprites_8h_html_af33ed1fd43e1ac8eccdd0c3b2443cb7b"><div class="ttname"><a href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">sfSpriteLocate</a></div><div class="ttdeci">sfSprite * sfSpriteLocate(int map_int, int animation_int, int angle_int, int frame_int)</div></div>
 <div class="ttc" id="abbSprites_8h_html_af9f31a2b7ac846609eb975dddb8d99ac"><div class="ttname"><a href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">bbSprites_CreateFromFile</a></div><div class="ttdeci">bbSprites * bbSprites_CreateFromFile(char File[])</div></div>
-<div class="ttc" id="astructbbSprites_html"><div class="ttname"><a href="structbbSprites.html">bbSprites</a></div><div class="ttdoc">sfSprite is the basic object drawn to the viewport bbSprites is a container for sfSprites used in a s...</div><div class="ttdef"><b>Definition:</b> bbSprites.h:12</div></div>
-<div class="ttc" id="astructbbSprites_html_aa43b485eb7f0e78c2ef06eda269293e9"><div class="ttname"><a href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">bbSprites::m_Sprites</a></div><div class="ttdeci">sfSprite ** m_Sprites</div><div class="ttdef"><b>Definition:</b> bbSprites.h:14</div></div>
-<div class="ttc" id="astructbbSprites_html_ac3cf5262781cf0e964c6bbfd4d61ca40"><div class="ttname"><a href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">bbSprites::m_Dictionary</a></div><div class="ttdeci">bbDictionary * m_Dictionary</div><div class="ttdef"><b>Definition:</b> bbSprites.h:15</div></div>
+<div class="ttc" id="astructbbDictionary_html"><div class="ttname"><a href="structbbDictionary.html">bbDictionary</a></div><div class="ttdef"><b>Definition:</b> bbDictionary.h:29</div></div>
+<div class="ttc" id="astructbbSprites_html"><div class="ttname"><a href="structbbSprites.html">bbSprites</a></div><div class="ttdoc">bbSprites is a container for sfSprites used in a single bbMap</div><div class="ttdef"><b>Definition:</b> bbSprites.h:14</div></div>
+<div class="ttc" id="astructbbSprites_html_aa43b485eb7f0e78c2ef06eda269293e9"><div class="ttname"><a href="structbbSprites.html#aa43b485eb7f0e78c2ef06eda269293e9">bbSprites::m_Sprites</a></div><div class="ttdeci">sfSprite ** m_Sprites</div><div class="ttdef"><b>Definition:</b> bbSprites.h:16</div></div>
+<div class="ttc" id="astructbbSprites_html_ac3cf5262781cf0e964c6bbfd4d61ca40"><div class="ttname"><a href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">bbSprites::m_Dictionary</a></div><div class="ttdeci">bbDictionary * m_Dictionary</div><div class="ttdef"><b>Definition:</b> bbSprites.h:17</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

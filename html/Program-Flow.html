@@ -66,20 +66,31 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p >An outline of the basic flow of the program (main.c) follows:</p>
-<p >-Open map header file and read map settings inc filenames -Load textures from filename -Load sprites from filename -Load animations from filename -Open window and display loading screen -Load Skin data -Load Terrain data, lighting or whatever else</p>
+<p >-Open map header file and read map settings inc filenames -Load textures from filename -Load sprites from filename -Load animations from filename -Open window and display loading screen -Load Skin data</p>
+<p >-Initialise VTables and their elements</p><ul>
+<li>Avoidance shape functions</li>
+<li>AI constructors</li>
+<li>AI OnUpdate</li>
+<li>AI OnCommand</li>
+<li>Drawable constructors</li>
+<li>Renderers, Shaders</li>
+<li>Draw functions for drawables/animations</li>
+<li>Messages (to drawables)</li>
+</ul>
+<p >-Load Terrain data, lighting or whatever else</p>
 <p >-If the settings indicate a curved ground surface,</p><ul>
 <li>load ground surface from file.</li>
 <li>calculate ground shading. This can be slow, so the first map loaded should have a flat ground surface to facilitate fast loading.</li>
 </ul>
 <p >-Initialise bbDrawableSquares</p>
-<p >-Initialise VTables and their elements -Initialise Pools</p>
+<p >-Initialise Pools</p>
 <p >-Load Widgets -one widget should be selected to handle text input (the prompt) -one widget should be selected as root (the decal) -one widget should be selected as the current spell. (as spell is a type of widget, that is represented by it's "click to activate" icon) -Load static Drawables -Load AI_SFMs with their own Drawables</p><ul>
 <li>Spawn player (go between input parser and player FSM), player FSM, player drawable -Initialise viewport</li>
 </ul>
 <p >-Begin main loop: </p><pre class="fragment">-Draw viewport.
 -Draw widgets.
 -Parse input
-     - Send mouse clicks to widgets
+     - Send mouse movements/clicks to widgets
      - If no widget clicked, send mouse clicks to viewport
      - Send key presses to prompt
 -Player object takes Parsed input and modifies player FSM

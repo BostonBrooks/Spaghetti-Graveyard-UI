@@ -1,4 +1,5 @@
 /**
+ * @file
  * @brief Pools pre-allocate space for objects in the game to quickly allocate and de-allocate individual objects
 */
 
@@ -9,10 +10,12 @@
  * Stuff for passing flags around when using pools
  **/
 ///@{
-#define SUCCESS                           0
-#define OBJECT_IN_USE                    -1
-#define OBJECT_NOT_IN_USE                -2
+#define f_PoolSuccess                           0
+#define f_PoolInUse                  -1
+#define f_PoolNotInUse                -2
 #define LEVEL_1_POOL_NOT_INITIALISED     -3
+
+...
 #define LEVEL_1_POOL_ALREADY_INITIALISED -4
 #define LEVEL_1_POOL_OUT_OF_BOUNDS       -5
 #define MALLOC_FAILED                    -6

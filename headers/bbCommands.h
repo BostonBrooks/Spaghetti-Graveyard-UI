@@ -1,4 +1,5 @@
 /**
+ * @file
  * @brief This header file contains all of the commands passed to objects
  */
 
@@ -20,3 +21,4 @@
 
 
 #endif //COMMANDS_H
+

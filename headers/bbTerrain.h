@@ -1,14 +1,13 @@
-/** 
-* @brief bbGame is the root of all data stored by the game.
+/**
+ * @file
+ * @brief bbGame is the root of all data stored by the game.
  *
- * ************************************
- *
-*/
+ */
 
 #ifndef BBTERRAIN_H
 #define BBTERRAIN_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 /// bbTerrainSquare holds textures from one square of the maps' ground surface
 typedef struct { //bbTerrainSquare

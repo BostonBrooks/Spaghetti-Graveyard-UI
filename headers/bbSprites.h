@@ -1,21 +1,23 @@
-
+/**
+ * @file
+ * @brief sfSprite is the basic object drawn to the viewport
+ **/
 
 #ifndef BBSPRITES_H
 #define BBSPRITES_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
-/** @brief sfSprite is the basic object drawn to the viewport
- * bbSprites is a container for sfSprites used in a single bbMap
- **/
-///@{
+
+
+/// bbSprites is a container for sfSprites used in a single bbMap
 typedef struct { //bbSprites
 
 	sfSprite** m_Sprites;
 	bbDictionary* m_Dictionary;
 
 } bbSprites;
-///@}
+
 
 
 

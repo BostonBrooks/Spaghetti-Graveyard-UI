@@ -72,7 +72,10 @@ $(function() {
   <div class="headertitle"><div class="title">bbAI_FSM.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="system__includes_8h_source.html">../headers/system_includes.h</a>&quot;</code><br />
+
+<p>A <a class="el" href="structbbAI__FSM.html">bbAI_FSM</a> (Finite State Machine) contains the code to control behaviours of things in-game.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">../headers/bbSystemIncludes.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbAI_FSM.h:</div>
 <div class="dyncontent">
@@ -84,30 +87,31 @@ Include dependency graph for bbAI_FSM.h:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAI__FSM.html">bbAI_FSM</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <a class="el" href="structbbAI__FSM.html" title="A bbAI_FSM (Finite State Machine) contains the code to control behaviours of things in-game.">bbAI_FSM</a> (Finite State Machine) contains the code to control behaviours of things in-game.  <a href="structbbAI__FSM.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAI__FSMs.html">bbAI_FSMs</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbAI__FSMs.html" title="bbAI_FSMs is a container for objects of type bbAI_FSM">bbAI_FSMs</a> is a container for objects of type <a class="el" href="structbbAI__FSM.html" title="A bbAI_FSM (Finite State Machine) contains the code to control behaviours of things in-game.">bbAI_FSM</a>  <a href="structbbAI__FSMs.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbAI__FSMs.html" title="bbAI_FSMs is a container for objects of type bbAI_FSM">bbAI_FSMs</a> is a container for objects of type <a class="el" href="structbbAI__FSM.html">bbAI_FSM</a>  <a href="structbbAI__FSMs.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4acd653ec5ef0ea76b6c33048f3cdbe9"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#a4acd653ec5ef0ea76b6c33048f3cdbe9">bbAIControl_update</a> (<a class="el" href="structbbAI__FSM.html">bbAI_FSM</a> *fsm)</td></tr>
-<tr class="separator:a4acd653ec5ef0ea76b6c33048f3cdbe9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a234ed3168579017dac3bcdb16549ba0d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#a234ed3168579017dac3bcdb16549ba0d">bbAIControl_update_int</a> (int32_t bbMap_int, int32_t fsm_int)</td></tr>
-<tr class="separator:a234ed3168579017dac3bcdb16549ba0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4195aa1ba77e9dd799f5fcc4d9900082"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#a4195aa1ba77e9dd799f5fcc4d9900082">bbAIControl_updatePool</a> (int32_t bbMap_int)</td></tr>
-<tr class="separator:a4195aa1ba77e9dd799f5fcc4d9900082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9761683111222e47f222654101f96de5"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#a9761683111222e47f222654101f96de5">bbAI_FSM_update</a> (<a class="el" href="structbbAI__FSM.html">bbAI_FSM</a> *fsm)</td></tr>
+<tr class="separator:a9761683111222e47f222654101f96de5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a8df32066dc933c8eeb49252b3015d2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#a5a8df32066dc933c8eeb49252b3015d2">bbAI_FSM_update_int</a> (int32_t bbMap_int, int32_t fsm_int)</td></tr>
+<tr class="separator:a5a8df32066dc933c8eeb49252b3015d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed13f7b753c87ab83a2c214433a6065f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAI__FSM_8h.html#aed13f7b753c87ab83a2c214433a6065f">bbAI_FSMs_update</a> (int32_t bbMap_int)</td></tr>
+<tr class="separator:aed13f7b753c87ab83a2c214433a6065f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a4acd653ec5ef0ea76b6c33048f3cdbe9" name="a4acd653ec5ef0ea76b6c33048f3cdbe9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4acd653ec5ef0ea76b6c33048f3cdbe9">&#9670;&nbsp;</a></span>bbAIControl_update()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >A <a class="el" href="structbbAI__FSM.html">bbAI_FSM</a> (Finite State Machine) contains the code to control behaviours of things in-game. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a9761683111222e47f222654101f96de5" name="a9761683111222e47f222654101f96de5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9761683111222e47f222654101f96de5">&#9670;&nbsp;</a></span>bbAI_FSM_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbAIControl_update </td>
+          <td class="memname">int32_t bbAI_FSM_update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbAI__FSM.html">bbAI_FSM</a> *&#160;</td>
           <td class="paramname"><em>fsm</em></td><td>)</td>
@@ -115,17 +119,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p >Update individual AI given its location in memory </p>
 
 </div>
 </div>
-<a id="a234ed3168579017dac3bcdb16549ba0d" name="a234ed3168579017dac3bcdb16549ba0d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a234ed3168579017dac3bcdb16549ba0d">&#9670;&nbsp;</a></span>bbAIControl_update_int()</h2>
+<a id="a5a8df32066dc933c8eeb49252b3015d2" name="a5a8df32066dc933c8eeb49252b3015d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a8df32066dc933c8eeb49252b3015d2">&#9670;&nbsp;</a></span>bbAI_FSM_update_int()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbAIControl_update_int </td>
+          <td class="memname">int32_t bbAI_FSM_update_int </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>bbMap_int</em>, </td>
@@ -147,14 +152,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4195aa1ba77e9dd799f5fcc4d9900082" name="a4195aa1ba77e9dd799f5fcc4d9900082"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4195aa1ba77e9dd799f5fcc4d9900082">&#9670;&nbsp;</a></span>bbAIControl_updatePool()</h2>
+<a id="aed13f7b753c87ab83a2c214433a6065f" name="aed13f7b753c87ab83a2c214433a6065f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed13f7b753c87ab83a2c214433a6065f">&#9670;&nbsp;</a></span>bbAI_FSMs_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbAIControl_updatePool </td>
+          <td class="memname">int32_t bbAI_FSMs_update </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>bbMap_int</em></td><td>)</td>
@@ -162,7 +167,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >Update all AIs in pool </p>
+<p >Update all AIs in <a class="el" href="structbbAI__FSMs.html" title="bbAI_FSMs is a container for objects of type bbAI_FSM">bbAI_FSMs</a> container (given map number) </p>
 
 </div>
 </div>

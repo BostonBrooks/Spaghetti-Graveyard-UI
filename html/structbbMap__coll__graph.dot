@@ -3,7 +3,7 @@ digraph "bbMap"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="bbMap",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="bbMap stores all the game data pertaining to one map in the game. There should be enough data provide..."];
+  Node1 [label="bbMap",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Drawables" ,fontname="Helvetica"];
   Node2 [label="bbDrawables",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbDrawables.html",tooltip="bbDrawables contains drawables from all squares of the maps' ground surface"];
   Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Lost\nm_Squares" ,fontname="Helvetica"];
@@ -11,15 +11,23 @@ digraph "bbMap"
   Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_AI_FSMs" ,fontname="Helvetica"];
   Node4 [label="bbAI_FSMs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAI__FSMs.html",tooltip="bbAI_FSMs is a container for objects of type bbAI_FSM"];
   Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Media" ,fontname="Helvetica"];
-  Node5 [label="bbMedia",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMedia.html",tooltip="bbMedia stores all of the graphics, etc needed to display everything drawn to the screen,..."];
+  Node5 [label="bbMedia",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMedia.html",tooltip=" "];
   Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Textures" ,fontname="Helvetica"];
-  Node6 [label="bbTextures",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbTextures.html",tooltip="sfTexture is define in SFML as raw pixel data bbTextures is a container for sfTextures"];
-  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
-  Node7 [label="bbSprites",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbSprites.html",tooltip="sfSprite is the basic object drawn to the viewport bbSprites is a container for sfSprites used in a s..."];
-  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node8 [label="bbAnimations",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
-  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node9 [label="bbAnimation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
-  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_widgets" ,fontname="Helvetica"];
-  Node10 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip="bbWidgets is a container for objects of type bbWisget"];
+  Node6 [label="bbTextures",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbTextures.html",tooltip=" "];
+  Node7 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dictionary" ,fontname="Helvetica"];
+  Node7 [label="bbDictionary",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbDictionary.html",tooltip=" "];
+  Node8 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Pool" ,fontname="Helvetica"];
+  Node8 [label="bbDictionary_entry",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbDictionary__entry.html",tooltip=" "];
+  Node9 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Available\nm_Bins" ,fontname="Helvetica"];
+  Node9 [label="bbDictionary_bin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbDictionary__bin.html",tooltip=" "];
+  Node10 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
+  Node10 [label="bbSprites",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbSprites.html",tooltip="bbSprites is a container for sfSprites used in a single bbMap"];
+  Node7 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dictionary" ,fontname="Helvetica"];
+  Node11 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
+  Node11 [label="bbAnimations",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
+  Node12 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
+  Node12 [label="bbAnimation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
+  Node7 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dictionary" ,fontname="Helvetica"];
+  Node13 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_widgets" ,fontname="Helvetica"];
+  Node13 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip="bbWidgets is a container for objects of type bbWisget"];
 }

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['pool_5ffull_0',['POOL_FULL',['../pools_8h.html#a4ab5f5ed002e9a003a4fac8dc562d9e8',1,'pools.h']]],
-  ['pools_2eh_1',['pools.h',['../pools_8h.html',1,'']]],
-  ['program_2dflow_2',['Program-Flow',['../Program-Flow.html',1,'']]],
-  ['program_2dflow_2edox_3',['Program-Flow.dox',['../Program-Flow_8dox.html',1,'']]]
+  ['sfspritelocate_0',['sfSpriteLocate',['../bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b',1,'bbSprites.h']]],
+  ['sfspritelocatewkey_1',['sfSpriteLocateWKey',['../bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded',1,'bbSprites.h']]]
 ];

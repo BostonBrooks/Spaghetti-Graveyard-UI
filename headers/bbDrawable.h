@@ -1,4 +1,5 @@
-/** 
+/**
+ * @file
 * @brief bbGame is the root of all data stored by the game.
  *
  * ************************************
@@ -8,7 +9,7 @@
 #ifndef BBDRAWABLE_H
 #define BBDRAWABLE_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 /** @name Avoidance types
  * Defines the footprint of a bbDrawable (m_AvoidanceShape) so other objects cannot walk through it.
  **/

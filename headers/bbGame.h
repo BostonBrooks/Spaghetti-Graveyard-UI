@@ -1,4 +1,5 @@
-/** 
+/**
+ * @file
 * @brief bbGame is the root of all data stored by the game.
  *
 */
@@ -6,7 +7,7 @@
 #ifndef BBGAME_H
 #define BBGAME_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 typedef struct { //bbGame
 

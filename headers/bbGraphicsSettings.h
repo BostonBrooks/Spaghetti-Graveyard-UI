@@ -1,11 +1,12 @@
 /**
+ * @file
 * @brief bbGraphicsSettings contains data pertaining to the window the game is being displayed in
 */
 
 #ifndef BBGRAPHICSSETTINGS_H
 #define BBGRAPHICSSETTINGS_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 typedef struct { //bbGraphicsSettings
 

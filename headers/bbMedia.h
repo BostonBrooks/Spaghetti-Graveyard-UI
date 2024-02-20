@@ -1,4 +1,5 @@
-/** 
+/**
+ * @file
 * @brief bbMedia stores all of the graphics, etc needed to display everything
  * drawn to the screen, pertaining to one of the game's maps
  * media is reloaded every time a new map is loaded or made current.
@@ -9,7 +10,7 @@
 #ifndef BBMEDIA_H
 #define BBMEDIA_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 typedef struct { //bbMedia
 

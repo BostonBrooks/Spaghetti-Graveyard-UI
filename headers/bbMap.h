@@ -1,4 +1,5 @@
-/** 
+/**
+ * @file
  * @brief bbMap stores all the game data pertaining to one map in the game.
  * There should be enough data provided to update the map,
  * but not display the graphics of the game.
@@ -7,7 +8,7 @@
 #ifndef BBMAP_H
 #define BBMAP_H
 
-#include "../headers/system_includes.h"
+#include "../headers/bbSystemIncludes.h"
 
 typedef struct { //bbMap
 

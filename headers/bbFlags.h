@@ -1,4 +1,5 @@
 /**
+ * @file
  * @brief This header file contains all of the flags passes by functions
  */
 
