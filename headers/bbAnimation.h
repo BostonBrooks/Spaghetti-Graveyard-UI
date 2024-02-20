@@ -7,10 +7,8 @@
 #define BBANIMATION_H
 
 #include "../headers/bbSystemIncludes.h"
-/** @name bbAnimation contains an array of references to sfSprites
- * to be played in succession to give the appearance of movement
- **/
-///@{
+
+/// bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appearance of movement.
 typedef struct { //bbAnimation
 
 	char m_Key[33];
@@ -22,11 +20,9 @@ typedef struct { //bbAnimation
 	int32_t m_Sprites[];
 
 } bbAnimation;
-///@}
 
-/** @name bbAnimations is a container for all of the animations used in a single bbMap
- **/
-///@{
+
+/// bbAnimations is a container for all of the animations used in a single bbMap
 typedef struct { //bbAnimations
 
 	bbAnimation** m_Animations;

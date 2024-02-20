@@ -8,7 +8,7 @@ Structures in C will represent \em objects of a given \em class. There will be m
 Structures will be given names like "bbStructName", and will be found in files with names like "bbStructName.h" and "bbStructName.c". Objects' \em methods will have names like bbStructName_methodName()
 
 It may make sense to define a \em namespace containing zero or more than one object.
-These will be defined in files with names like "bbNameSpace.h" and bbNameSpace.c"
+These will be defined in files with names like "bbNameSpace.h" and "bbNameSpace.c"
 
 2. Prefixes
 ========================
@@ -18,12 +18,17 @@ Prefixes will be used to describe the type of data stored in a variable or defin
  - m_ for members of a struct containing data.
  - v_ for vtable indices.
  - i_ for container indices.
- - p_ for private data (such as Self, Prev, Next and InUse for objects in a Pool).
+ - p_ for private data (such as Self, Prev, Next, InUse and Map for objects in a Pool).
+ These should not be modified except through predetermined functions (such as those in bbPool.h) 
  - g_ for globals.
  - f_ for #defined return flags.
  - c_ for #defined commands.
  - AI_ for #defined types of class bbAI_FSM (finite state machine) to be stored in a variable with v_ prefix.
- - f_Pool for #defined return flags used by bbPool objects
+ - f_Pool_ for #defined return flags used by bbPool objects
+ 
+Some structures, such as those representing vector coordinates, need not use prefixes.
+This makes sense for simple objects that are meant only to be members of more complex objects.
+
 3. Flags
 ========================
 
@@ -31,6 +36,7 @@ As mentioned above, defined constants will be used in lieu of enums.
 Definitions with prefix f_ will be defined as negative integers.
 This is done for flexibility.
 Functions may return a negative f_ value OR a non-negative i_ or v_ value.
+Most functions will return integers like these, and return other data types by reference.
 
 4. Virtual Method Tables
 ========================

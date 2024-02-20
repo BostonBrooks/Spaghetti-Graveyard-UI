@@ -9,6 +9,7 @@
 #define BBMAP_H
 
 #include "../headers/bbSystemIncludes.h"
+#include "../headers/bbGeometry.h"
 
 typedef struct { //bbMap
 
@@ -17,18 +18,21 @@ typedef struct { //bbMap
  **/
 ///@{
     ///How large things like monsters appear on screen
-    float m_3DScale;
+    float m_ViewportScale;
 	///How large things like spell buttons appear on screen
-	float m_2DScale;
+	float m_WidgetScale;
 
 	int32_t m_ElevationScale;
 	int32_t m_MaxPixelValue;
+	int32_t** m_Elevations;
 
 	int32_t m_PointsPerPixel;
 	int32_t m_PixelsPerTile;
 	int32_t m_TilesPerSquare;
 	int32_t m_SquaresPerMapI;
 	int32_t m_SquaresPerMapJ;
+
+	int32_t m_ScreenPPP;
 
 	int32_t m_FramerateLimit;
 
@@ -56,7 +60,8 @@ typedef struct { //bbMap
 	bbMedia* m_Media;
 	bbWidgets* m_widgets;
 
-
+    bbMapCoords m_Viewpoint;
+	int32_t m_ViewpointDrawable;
 
 } bbMap;
 

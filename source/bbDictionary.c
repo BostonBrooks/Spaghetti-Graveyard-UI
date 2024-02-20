@@ -25,12 +25,12 @@ bbDictionary* bbDictionary_new (int32_t n_bins){
 	bbDictionary* dict = malloc(sizeof(bbDictionary) + n_bins * sizeof(bbDictionary_bin)); //sizeof (bbDictionary) + 2*sizeof (int) * NUM_BINS;?
 	assert( dict!= NULL);
 
-	dict->m_Available.m_Head = F_NONE;
-	dict->m_Available.m_Head = F_NONE;
+	dict->m_Available.Head = F_NONE;
+	dict->m_Available.Head = F_NONE;
 
 	for(int32_t i = 0; i < n_bins; i++){
-		dict->m_Bins[i].m_Head = F_NONE;
-		dict->m_Bins[i].m_Tail = F_NONE;
+		dict->m_Bins[i].Head = F_NONE;
+		dict->m_Bins[i].Tail = F_NONE;
 	}
 
 	for (int32_t i = 0; i < 100; i++){
@@ -61,8 +61,8 @@ int bbDictionary_increase(bbDictionary* dict){
 	dict->m_Pool[i] = entry;
 
 
-	if (dict->m_Available.m_Head == F_NONE){
-		assert(dict->m_Available.m_Tail == F_NONE);
+	if (dict->m_Available.Head == F_NONE){
+		assert(dict->m_Available.Tail == F_NONE);
 
 		for (int32_t l = 0; l < 100; l++){
 			dict->m_Pool[i][l].m_Self = i * 100 + l;
@@ -76,8 +76,8 @@ int bbDictionary_increase(bbDictionary* dict){
 		dict->m_Pool[i][0].m_Prev = F_NONE;
         dict->m_Pool[i][100 - 1].m_Next = F_NONE;
 
-		dict->m_Available.m_Head = i * 100;
-        dict->m_Available.m_Head = (i+1) * 100 - 1;
+		dict->m_Available.Head = i * 100;
+        dict->m_Available.Head = (i+1) * 100 - 1;
 
 		return F_SUCCESS;
 	}
@@ -97,7 +97,7 @@ bbDictionary_entry* bbDictionary_indexLookup(bbDictionary* dict, int32_t index){
 int bbDictionary_lookupIndex(bbDictionary* dict, char* key){
 	int32_t hash_value = hash(key, dict->m_NumBins);
 	bbDictionary_entry* entry;
-	int32_t index = dict->m_Bins[hash_value].m_Head;
+	int32_t index = dict->m_Bins[hash_value].Head;
 
 	while (index != F_NONE) {
 		entry = bbDictionary_index_lookup(dict, index);

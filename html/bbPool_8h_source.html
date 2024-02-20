@@ -70,40 +70,36 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <a href="bbPool_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="bbPool_8h.html#aa9565130286fbb65a4e0d816af130e67">   13</a></span><span class="preprocessor">#define f_PoolSuccess                           0</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="bbPool_8h.html#af316aa332bf860ee6084652ae1b46a58">   14</a></span><span class="preprocessor">#define f_PoolInUse                  -1</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a51522cd7955122405b1322cb78f533c2">   15</a></span><span class="preprocessor">#define f_PoolNotInUse                -2</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="bbPool_8h.html#ae300ab2160ee52359ade4ac31eee8579">   16</a></span><span class="preprocessor">#define LEVEL_1_POOL_NOT_INITIALISED     -3</span></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>...</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="bbPool_8h.html#ab3c6591f91f06ae076d7028921e14dfa">   19</a></span>#define <a class="code hl_define" href="bbPool_8h.html#ab3c6591f91f06ae076d7028921e14dfa">LEVEL_1_POOL_ALREADY_INITIALISED</a> -4</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a9e3b4f06b42b295080fc094fe072ec46">   20</a></span><span class="preprocessor">#define LEVEL_1_POOL_OUT_OF_BOUNDS       -5</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="bbPool_8h.html#ad562f7d4c0e38abf49244bef3ee88919">   21</a></span><span class="preprocessor">#define MALLOC_FAILED                    -6</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a4ab5f5ed002e9a003a4fac8dc562d9e8">   22</a></span><span class="preprocessor">#define POOL_FULL                        -7</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a56f36e6341a43356a85e33e20bb6eff2">   23</a></span><span class="preprocessor">#define LEVEL_1_POOL_FULL                -8</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/* CLASS##_Pool will have the following data</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> *</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * A list of lists of CLASS objects</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * int size of list</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * int size of list of lists</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * int available head</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * int available tail</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * int in use head</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * int in use tail</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">/* CLASS##_Pool will have the following methods</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * new pool</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * delete pool</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * increase pool</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> * new object</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"> * delete object</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * lookup object (returns pointer to existing object)</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * lookup object sudo (returns pointer to object that may not exist)</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> */</span></div>
-<div class="ttc" id="abbPool_8h_html_ab3c6591f91f06ae076d7028921e14dfa"><div class="ttname"><a href="bbPool_8h.html#ab3c6591f91f06ae076d7028921e14dfa">LEVEL_1_POOL_ALREADY_INITIALISED</a></div><div class="ttdeci">#define LEVEL_1_POOL_ALREADY_INITIALISED</div><div class="ttdef"><b>Definition:</b> bbPool.h:19</div></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a1952b3f7a6c204abed5f02207289011d">   21</a></span><span class="preprocessor">#define f_Pool_Success                    0</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a5be6bbb36c7afeebe8797ee6cf0a9d5f">   22</a></span><span class="preprocessor">#define f_Pool_InUse                     -1</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a0568b1fb972426668b753faf35f49017">   23</a></span><span class="preprocessor">#define f_Pool_NotInUse                  -2</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a8b7ad1c473e46411125eb0e085e18605">   24</a></span><span class="preprocessor">#define f_Pool_Lvl1NotInitialised        -3</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a9f45bec86fc392968f72cdde3807e264">   25</a></span><span class="preprocessor">#define f_Pool_Lvl1AlreadyInitialised    -4</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="bbPool_8h.html#ae3afa456eb09b5cc0ef295ce0d46a608">   26</a></span><span class="preprocessor">#define f_Pool_Lvl1OutOfBounds           -5</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a3d413baff34e9de8f0af5c007e5408ab">   27</a></span><span class="preprocessor">#define f_Pool_MallocFailed              -6</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a65eaea7a56f7c926e36b0bf693707b09">   28</a></span><span class="preprocessor">#define f_Pool_Full                      -7</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="bbPool_8h.html#a33682b78654a4436399fb700f0017060">   29</a></span><span class="preprocessor">#define f_Pool_Lvl1Full                  -8</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/* CLASS##_Pool will have the following data</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * A list of lists of CLASS objects</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * int size of list</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * int size of list of lists</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> * int available head</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment"> * int available tail</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"> * int in use head</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"> * int in use tail</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/* CLASS##_Pool will have the following methods</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * new pool</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * delete pool</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * increase pool</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * new object</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * delete object</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * lookup object (returns pointer to existing object)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * lookup object sudo (returns pointer to object that may not exist)</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> */</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

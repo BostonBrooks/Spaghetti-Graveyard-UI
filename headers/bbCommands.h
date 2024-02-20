@@ -1,9 +1,8 @@
 /**
  * @file
- * @brief This header file contains all of the commands passed to objects
+ * @brief This header file contains all of the commands for use with bbStructName_onCommand()
  */
 
-///The number of maps that can be loaded at one time.
 
 #ifndef COMMANDS_H
 #define COMMANDS_H

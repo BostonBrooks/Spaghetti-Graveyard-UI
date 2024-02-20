@@ -10,8 +10,8 @@
 #include "../headers/bbSystemIncludes.h"
 
 typedef struct {
-	int32_t m_Head;
-	int32_t m_Tail;
+	int32_t Head;
+	int32_t Tail;
 } bbDictionary_bin;
 
 typedef struct {
