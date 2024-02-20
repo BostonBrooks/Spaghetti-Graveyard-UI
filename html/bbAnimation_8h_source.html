@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: headers/bbAnimation.h Source File</title>
+<title>Spaghetti Graveyard Zero: headers/bbAnimation.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Spaghetti Graveyard Zero
    </div>
   </td>
  </tr>
@@ -69,39 +69,48 @@ $(function() {
   <div class="headertitle"><div class="title">bbAnimation.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="bbAnimation_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef BBANIMATION_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define BBANIMATION_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../headers/system_includes.h&quot;</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structbbAnimation.html">   16</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbAnimation</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">char</span> m_Key[33];</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structbbAnimation.html#ab0e37d510598e68719f510f7631e23ee">   18</a></span>    <span class="keywordtype">char</span> m_Key[33];</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">   20</a></span>    int32_t <a class="code hl_variable" href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">m_DrawFunction</a>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    int32_t m_Angles;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    int32_t m_Frames;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    int32_t m_Framerate;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    int32_t m_Sprites[];</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structbbAnimation.html#a8d4970fe64f0d803092721f28cf420c2">   21</a></span>    int32_t <a class="code hl_variable" href="structbbAnimation.html#a8d4970fe64f0d803092721f28cf420c2">m_Angles</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structbbAnimation.html#a9eff7f0133339ea36d1ea9ffdb61f319">   22</a></span>    int32_t <a class="code hl_variable" href="structbbAnimation.html#a9eff7f0133339ea36d1ea9ffdb61f319">m_Frames</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structbbAnimation.html#afc9ab69010f5aa1cd4d3a77a1fac02df">   23</a></span>    int32_t <a class="code hl_variable" href="structbbAnimation.html#afc9ab69010f5aa1cd4d3a77a1fac02df">m_Framerate</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structbbAnimation.html#a228ac872310ced83213a136cca4ee6f8">   24</a></span>    int32_t m_Sprites[];</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>} <a class="code hl_struct" href="structbbAnimation.html">bbAnimation</a>;</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structbbAnimations.html">   32</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbAnimations</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <a class="code hl_struct" href="structbbAnimation.html">bbAnimation</a>** m_Animations;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    bbDictionary* m_Dictionary;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structbbAnimations.html#abf3775e96ba4275720b8d337cd938bf0">   34</a></span>    <a class="code hl_struct" href="structbbAnimation.html">bbAnimation</a>** <a class="code hl_variable" href="structbbAnimations.html#abf3775e96ba4275720b8d337cd938bf0">m_Animations</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structbbAnimations.html#a89651e0280595aaf73b8fff6371bad53">   35</a></span>    bbDictionary* <a class="code hl_variable" href="structbbAnimations.html#a89651e0280595aaf73b8fff6371bad53">m_Dictionary</a>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>} <a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* bbAnimations_CreateFromFile(<span class="keywordtype">char</span> File[]);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>int32_t bbAnimations_Destroy(<a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* animations);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>int32_t bbAnimation_Lookup(<a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* animations, <span class="keywordtype">char</span>* key);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">int</span> bbAnimation_getSprite(<a class="code hl_struct" href="structbbAnimation.html">bbAnimation</a>* animation, int32_t angle_int, int32_t frame_int);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="bbAnimation_8h.html#aa0ffef23fe02fab786def3cbc1c6a439">   39</a></span><span class="keyword">extern</span> <a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* <a class="code hl_function" href="bbAnimation_8h.html#aa0ffef23fe02fab786def3cbc1c6a439">bbAnimations_CreateFromFile</a>(<span class="keywordtype">char</span> File[]);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="bbAnimation_8h.html#a8a9e499dad59c3ee7f766c5bd6c36662">   40</a></span><span class="keyword">extern</span> int32_t <a class="code hl_function" href="bbAnimation_8h.html#a8a9e499dad59c3ee7f766c5bd6c36662">bbAnimations_Destroy</a>(<a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* animations);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="bbAnimation_8h.html#aec420f71b60d28f0fd556a8ddb0d4cb1">   41</a></span><span class="keyword">extern</span> int32_t <a class="code hl_function" href="bbAnimation_8h.html#aec420f71b60d28f0fd556a8ddb0d4cb1">bbAnimation_Lookup</a>(<a class="code hl_struct" href="structbbAnimations.html">bbAnimations</a>* animations, <span class="keywordtype">char</span>* key);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="bbAnimation_8h.html#a75c1570157e6fcb69434f7195f747e0f">   42</a></span><span class="keyword">extern</span> int32_t <a class="code hl_function" href="bbAnimation_8h.html#a75c1570157e6fcb69434f7195f747e0f">bbAnimation_getSprite</a>(<a class="code hl_struct" href="structbbAnimation.html">bbAnimation</a>* animation, int32_t angle_int, int32_t frame_int);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#endif </span><span class="comment">//BBANIMATION_H</span></div>
+<div class="ttc" id="abbAnimation_8h_html_a75c1570157e6fcb69434f7195f747e0f"><div class="ttname"><a href="bbAnimation_8h.html#a75c1570157e6fcb69434f7195f747e0f">bbAnimation_getSprite</a></div><div class="ttdeci">int32_t bbAnimation_getSprite(bbAnimation *animation, int32_t angle_int, int32_t frame_int)</div></div>
+<div class="ttc" id="abbAnimation_8h_html_a8a9e499dad59c3ee7f766c5bd6c36662"><div class="ttname"><a href="bbAnimation_8h.html#a8a9e499dad59c3ee7f766c5bd6c36662">bbAnimations_Destroy</a></div><div class="ttdeci">int32_t bbAnimations_Destroy(bbAnimations *animations)</div></div>
+<div class="ttc" id="abbAnimation_8h_html_aa0ffef23fe02fab786def3cbc1c6a439"><div class="ttname"><a href="bbAnimation_8h.html#aa0ffef23fe02fab786def3cbc1c6a439">bbAnimations_CreateFromFile</a></div><div class="ttdeci">bbAnimations * bbAnimations_CreateFromFile(char File[])</div></div>
+<div class="ttc" id="abbAnimation_8h_html_aec420f71b60d28f0fd556a8ddb0d4cb1"><div class="ttname"><a href="bbAnimation_8h.html#aec420f71b60d28f0fd556a8ddb0d4cb1">bbAnimation_Lookup</a></div><div class="ttdeci">int32_t bbAnimation_Lookup(bbAnimations *animations, char *key)</div></div>
 <div class="ttc" id="astructbbAnimation_html"><div class="ttname"><a href="structbbAnimation.html">bbAnimation</a></div><div class="ttdef"><b>Definition:</b> bbAnimation.h:16</div></div>
 <div class="ttc" id="astructbbAnimation_html_a4d747de1b35c6566c87b39b1efd3a765"><div class="ttname"><a href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">bbAnimation::m_DrawFunction</a></div><div class="ttdeci">int32_t m_DrawFunction</div><div class="ttdoc">Default DrawFunction if not specified by bbDrawable.</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:20</div></div>
+<div class="ttc" id="astructbbAnimation_html_a8d4970fe64f0d803092721f28cf420c2"><div class="ttname"><a href="structbbAnimation.html#a8d4970fe64f0d803092721f28cf420c2">bbAnimation::m_Angles</a></div><div class="ttdeci">int32_t m_Angles</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:21</div></div>
+<div class="ttc" id="astructbbAnimation_html_a9eff7f0133339ea36d1ea9ffdb61f319"><div class="ttname"><a href="structbbAnimation.html#a9eff7f0133339ea36d1ea9ffdb61f319">bbAnimation::m_Frames</a></div><div class="ttdeci">int32_t m_Frames</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:22</div></div>
+<div class="ttc" id="astructbbAnimation_html_afc9ab69010f5aa1cd4d3a77a1fac02df"><div class="ttname"><a href="structbbAnimation.html#afc9ab69010f5aa1cd4d3a77a1fac02df">bbAnimation::m_Framerate</a></div><div class="ttdeci">int32_t m_Framerate</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:23</div></div>
 <div class="ttc" id="astructbbAnimations_html"><div class="ttname"><a href="structbbAnimations.html">bbAnimations</a></div><div class="ttdef"><b>Definition:</b> bbAnimation.h:32</div></div>
+<div class="ttc" id="astructbbAnimations_html_a89651e0280595aaf73b8fff6371bad53"><div class="ttname"><a href="structbbAnimations.html#a89651e0280595aaf73b8fff6371bad53">bbAnimations::m_Dictionary</a></div><div class="ttdeci">bbDictionary * m_Dictionary</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:35</div></div>
+<div class="ttc" id="astructbbAnimations_html_abf3775e96ba4275720b8d337cd938bf0"><div class="ttname"><a href="structbbAnimations.html#abf3775e96ba4275720b8d337cd938bf0">bbAnimations::m_Animations</a></div><div class="ttdeci">bbAnimation ** m_Animations</div><div class="ttdef"><b>Definition:</b> bbAnimation.h:34</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

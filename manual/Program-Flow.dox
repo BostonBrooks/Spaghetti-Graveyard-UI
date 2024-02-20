@@ -8,17 +8,27 @@ An outline of the basic flow of the program (main.c) follows:
 -Load animations from filename
 -Open window and display loading screen
 -Load Skin data
+
+-Initialise VTables and their elements
+    - Avoidance shape functions
+    - AI constructors
+    - AI OnUpdate
+    - AI OnCommand
+    - Drawable constructors
+    - Renderers, Shaders
+    - Draw functions for drawables/animations
+    - Messages (to drawables)
+
 -Load Terrain data, lighting or whatever else
 
 -If the settings indicate a curved ground surface,
-   - load ground surface from file.
-   - calculate ground shading.
-   This can be slow, so the first map loaded should have 
-   a flat ground surface to facilitate fast loading.
+    - load ground surface from file.
+    - calculate ground shading.
+    This can be slow, so the first map loaded should have 
+    a flat ground surface to facilitate fast loading.
    
 -Initialise bbDrawableSquares
 
--Initialise VTables and their elements
 -Initialise Pools
 
 -Load Widgets
@@ -36,7 +46,7 @@ An outline of the basic flow of the program (main.c) follows:
     -Draw viewport.
     -Draw widgets.
     -Parse input
-         - Send mouse clicks to widgets
+         - Send mouse movements/clicks to widgets
          - If no widget clicked, send mouse clicks to viewport
          - Send key presses to prompt
     -Player object takes Parsed input and modifies player FSM

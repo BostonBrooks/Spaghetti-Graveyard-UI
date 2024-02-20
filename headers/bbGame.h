@@ -1,8 +1,6 @@
 /** 
 * @brief bbGame is the root of all data stored by the game.
  *
- * ************************************
- *
 */
 
 #ifndef BBGAME_H

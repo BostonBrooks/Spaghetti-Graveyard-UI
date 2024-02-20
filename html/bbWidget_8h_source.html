@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>My Project: headers/bbWidget.h Source File</title>
+<title>Spaghetti Graveyard Zero: headers/bbWidget.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">My Project
+   <div id="projectname">Spaghetti Graveyard Zero
    </div>
   </td>
  </tr>
@@ -69,7 +69,7 @@ $(function() {
   <div class="headertitle"><div class="title">bbWidget.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="bbWidget_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#ifndef BBWIDGETS_H</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#define BBWIDGETS_H</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
@@ -78,48 +78,65 @@ $(function() {
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structbbWidget.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbWidget</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    int32_t m_Pool_Self;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    int32_t m_Pool_Prev;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    int32_t m_Pool_Next;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    int32_t m_Pool_In_Use;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    int32_t m_Map;  </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structbbWidget.html#a73646779321eb575f5efd7f0b899928f">   21</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a73646779321eb575f5efd7f0b899928f">m_Pool_Self</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structbbWidget.html#aedc8076cb875b437dcf22aec0a5819af">   22</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#aedc8076cb875b437dcf22aec0a5819af">m_Pool_Prev</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structbbWidget.html#a49ab4c5f0e663e48560c188c0d2ef207">   23</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a49ab4c5f0e663e48560c188c0d2ef207">m_Pool_Next</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structbbWidget.html#a18f810669383020298538ca4f9b96c36">   24</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a18f810669383020298538ca4f9b96c36">m_Pool_In_Use</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structbbWidget.html#a1134130338e2f3866bbccac9eb422aaf">   25</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a1134130338e2f3866bbccac9eb422aaf">m_Map</a>;  </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structbbWidget.html#abcc0103d814b3a392f9308fd518440fa">   33</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structbbWidget.html#abcc0103d814b3a392f9308fd518440fa">m_Visible</a>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> m_SubwidgetsVisible;</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    bbScreenCoords m_ScreenCoords;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structbbWidget.html#a975f4919d89f2e97ff2b354aded8b51c">   34</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="structbbWidget.html#a975f4919d89f2e97ff2b354aded8b51c">m_SubwidgetsVisible</a>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structbbWidget.html#a929c34156f309b745b01d059a66641b7">   35</a></span>    bbScreenCoords <a class="code hl_variable" href="structbbWidget.html#a929c34156f309b745b01d059a66641b7">m_ScreenCoords</a>;</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">char</span>* m_Text;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">char</span>* m_SpriteLabel;  </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structbbWidget.html#ad70e4a7dab0d5c824364121f685501d6">   37</a></span>    <span class="keywordtype">char</span>* <a class="code hl_variable" href="structbbWidget.html#ad70e4a7dab0d5c824364121f685501d6">m_Text</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structbbWidget.html#a6a497ea16433519e2a627c763d6c1ab8">   38</a></span>    <span class="keywordtype">char</span>* <a class="code hl_variable" href="structbbWidget.html#a6a497ea16433519e2a627c763d6c1ab8">m_SpriteLabel</a>;  </div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="structbbWidget.html#a374f45ad84a31979d35b4705be122fa5">   45</a></span>    <span class="keywordtype">char</span>* <a class="code hl_variable" href="structbbWidget.html#a374f45ad84a31979d35b4705be122fa5">m_Code</a>; </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structbbWidget.html#a6e28413881e36d42c50bce4a5ad34bad">   46</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a6e28413881e36d42c50bce4a5ad34bad">m_OnCommand</a>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    int32_t m_OnDraw;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    int32_t m_OnDelete;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    int32_t m_OnClick;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="structbbWidget.html#a7804393b17785e2b07acf65538f34a25">   47</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a7804393b17785e2b07acf65538f34a25">m_OnDraw</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structbbWidget.html#a9a93a2be546d246881d77e05267f7a90">   48</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a9a93a2be546d246881d77e05267f7a90">m_OnDelete</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structbbWidget.html#a8e953c52268cfffd64ec3a4749355cd4">   49</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a8e953c52268cfffd64ec3a4749355cd4">m_OnClick</a>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structbbWidget.html#a7fcd5cacc91c051428ca5411ff70f028">   57</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a7fcd5cacc91c051428ca5411ff70f028">m_ParentWidget</a>;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    int32_t m_SubwidgetHead;</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    int32_t m_SubwidgetTail;</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    int32_t m_WidgetNext;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    int32_t m_WidgetPrevious;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="structbbWidget.html#a0046ce0b62536133e9eca1cf14014359">   58</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a0046ce0b62536133e9eca1cf14014359">m_SubwidgetHead</a>;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structbbWidget.html#a35b9cbec3a93845d72003757c721154d">   59</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a35b9cbec3a93845d72003757c721154d">m_SubwidgetTail</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structbbWidget.html#a4a659428ff80112debe49788e665a93e">   60</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a4a659428ff80112debe49788e665a93e">m_WidgetNext</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structbbWidget.html#a21c68878085e4135bf4310b62157a621">   61</a></span>    int32_t <a class="code hl_variable" href="structbbWidget.html#a21c68878085e4135bf4310b62157a621">m_WidgetPrevious</a>;</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>} <a class="code hl_struct" href="structbbWidget.html">bbWidget</a>;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structbbWidgets.html">   68</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{ <span class="comment">//bbWidgets</span></div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    bbWidget_Pool* m_Pool;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structbbWidgets.html#a06d0abd73629a155eaf25934bf82d1c9">   70</a></span>    bbWidget_Pool* <a class="code hl_variable" href="structbbWidgets.html#a06d0abd73629a155eaf25934bf82d1c9">m_Pool</a>;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>} <a class="code hl_struct" href="structbbWidgets.html">bbWidgets</a>;</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">#endif </span><span class="comment">//BBWIDGETS_H</span></div>
 <div class="ttc" id="astructbbWidget_html"><div class="ttname"><a href="structbbWidget.html">bbWidget</a></div><div class="ttdoc">bbWidget includes things like menus and buttons. Each widget owns a list of subwidgets and widgets ar...</div><div class="ttdef"><b>Definition:</b> bbWidget.h:14</div></div>
+<div class="ttc" id="astructbbWidget_html_a0046ce0b62536133e9eca1cf14014359"><div class="ttname"><a href="structbbWidget.html#a0046ce0b62536133e9eca1cf14014359">bbWidget::m_SubwidgetHead</a></div><div class="ttdeci">int32_t m_SubwidgetHead</div><div class="ttdef"><b>Definition:</b> bbWidget.h:58</div></div>
+<div class="ttc" id="astructbbWidget_html_a1134130338e2f3866bbccac9eb422aaf"><div class="ttname"><a href="structbbWidget.html#a1134130338e2f3866bbccac9eb422aaf">bbWidget::m_Map</a></div><div class="ttdeci">int32_t m_Map</div><div class="ttdef"><b>Definition:</b> bbWidget.h:25</div></div>
+<div class="ttc" id="astructbbWidget_html_a18f810669383020298538ca4f9b96c36"><div class="ttname"><a href="structbbWidget.html#a18f810669383020298538ca4f9b96c36">bbWidget::m_Pool_In_Use</a></div><div class="ttdeci">int32_t m_Pool_In_Use</div><div class="ttdef"><b>Definition:</b> bbWidget.h:24</div></div>
+<div class="ttc" id="astructbbWidget_html_a21c68878085e4135bf4310b62157a621"><div class="ttname"><a href="structbbWidget.html#a21c68878085e4135bf4310b62157a621">bbWidget::m_WidgetPrevious</a></div><div class="ttdeci">int32_t m_WidgetPrevious</div><div class="ttdef"><b>Definition:</b> bbWidget.h:61</div></div>
+<div class="ttc" id="astructbbWidget_html_a35b9cbec3a93845d72003757c721154d"><div class="ttname"><a href="structbbWidget.html#a35b9cbec3a93845d72003757c721154d">bbWidget::m_SubwidgetTail</a></div><div class="ttdeci">int32_t m_SubwidgetTail</div><div class="ttdef"><b>Definition:</b> bbWidget.h:59</div></div>
 <div class="ttc" id="astructbbWidget_html_a374f45ad84a31979d35b4705be122fa5"><div class="ttname"><a href="structbbWidget.html#a374f45ad84a31979d35b4705be122fa5">bbWidget::m_Code</a></div><div class="ttdeci">char * m_Code</div><div class="ttdoc">*‍/</div><div class="ttdef"><b>Definition:</b> bbWidget.h:45</div></div>
+<div class="ttc" id="astructbbWidget_html_a49ab4c5f0e663e48560c188c0d2ef207"><div class="ttname"><a href="structbbWidget.html#a49ab4c5f0e663e48560c188c0d2ef207">bbWidget::m_Pool_Next</a></div><div class="ttdeci">int32_t m_Pool_Next</div><div class="ttdef"><b>Definition:</b> bbWidget.h:23</div></div>
+<div class="ttc" id="astructbbWidget_html_a4a659428ff80112debe49788e665a93e"><div class="ttname"><a href="structbbWidget.html#a4a659428ff80112debe49788e665a93e">bbWidget::m_WidgetNext</a></div><div class="ttdeci">int32_t m_WidgetNext</div><div class="ttdef"><b>Definition:</b> bbWidget.h:60</div></div>
+<div class="ttc" id="astructbbWidget_html_a6a497ea16433519e2a627c763d6c1ab8"><div class="ttname"><a href="structbbWidget.html#a6a497ea16433519e2a627c763d6c1ab8">bbWidget::m_SpriteLabel</a></div><div class="ttdeci">char * m_SpriteLabel</div><div class="ttdef"><b>Definition:</b> bbWidget.h:38</div></div>
 <div class="ttc" id="astructbbWidget_html_a6e28413881e36d42c50bce4a5ad34bad"><div class="ttname"><a href="structbbWidget.html#a6e28413881e36d42c50bce4a5ad34bad">bbWidget::m_OnCommand</a></div><div class="ttdeci">int32_t m_OnCommand</div><div class="ttdoc">Enter this code to activate spell without clicking on it.</div><div class="ttdef"><b>Definition:</b> bbWidget.h:46</div></div>
+<div class="ttc" id="astructbbWidget_html_a73646779321eb575f5efd7f0b899928f"><div class="ttname"><a href="structbbWidget.html#a73646779321eb575f5efd7f0b899928f">bbWidget::m_Pool_Self</a></div><div class="ttdeci">int32_t m_Pool_Self</div><div class="ttdef"><b>Definition:</b> bbWidget.h:21</div></div>
+<div class="ttc" id="astructbbWidget_html_a7804393b17785e2b07acf65538f34a25"><div class="ttname"><a href="structbbWidget.html#a7804393b17785e2b07acf65538f34a25">bbWidget::m_OnDraw</a></div><div class="ttdeci">int32_t m_OnDraw</div><div class="ttdef"><b>Definition:</b> bbWidget.h:47</div></div>
 <div class="ttc" id="astructbbWidget_html_a7fcd5cacc91c051428ca5411ff70f028"><div class="ttname"><a href="structbbWidget.html#a7fcd5cacc91c051428ca5411ff70f028">bbWidget::m_ParentWidget</a></div><div class="ttdeci">int32_t m_ParentWidget</div><div class="ttdoc">*‍/</div><div class="ttdef"><b>Definition:</b> bbWidget.h:57</div></div>
+<div class="ttc" id="astructbbWidget_html_a8e953c52268cfffd64ec3a4749355cd4"><div class="ttname"><a href="structbbWidget.html#a8e953c52268cfffd64ec3a4749355cd4">bbWidget::m_OnClick</a></div><div class="ttdeci">int32_t m_OnClick</div><div class="ttdef"><b>Definition:</b> bbWidget.h:49</div></div>
+<div class="ttc" id="astructbbWidget_html_a929c34156f309b745b01d059a66641b7"><div class="ttname"><a href="structbbWidget.html#a929c34156f309b745b01d059a66641b7">bbWidget::m_ScreenCoords</a></div><div class="ttdeci">bbScreenCoords m_ScreenCoords</div><div class="ttdef"><b>Definition:</b> bbWidget.h:35</div></div>
+<div class="ttc" id="astructbbWidget_html_a975f4919d89f2e97ff2b354aded8b51c"><div class="ttname"><a href="structbbWidget.html#a975f4919d89f2e97ff2b354aded8b51c">bbWidget::m_SubwidgetsVisible</a></div><div class="ttdeci">bool m_SubwidgetsVisible</div><div class="ttdef"><b>Definition:</b> bbWidget.h:34</div></div>
+<div class="ttc" id="astructbbWidget_html_a9a93a2be546d246881d77e05267f7a90"><div class="ttname"><a href="structbbWidget.html#a9a93a2be546d246881d77e05267f7a90">bbWidget::m_OnDelete</a></div><div class="ttdeci">int32_t m_OnDelete</div><div class="ttdef"><b>Definition:</b> bbWidget.h:48</div></div>
 <div class="ttc" id="astructbbWidget_html_abcc0103d814b3a392f9308fd518440fa"><div class="ttname"><a href="structbbWidget.html#abcc0103d814b3a392f9308fd518440fa">bbWidget::m_Visible</a></div><div class="ttdeci">bool m_Visible</div><div class="ttdoc">*‍/</div><div class="ttdef"><b>Definition:</b> bbWidget.h:33</div></div>
+<div class="ttc" id="astructbbWidget_html_ad70e4a7dab0d5c824364121f685501d6"><div class="ttname"><a href="structbbWidget.html#ad70e4a7dab0d5c824364121f685501d6">bbWidget::m_Text</a></div><div class="ttdeci">char * m_Text</div><div class="ttdef"><b>Definition:</b> bbWidget.h:37</div></div>
+<div class="ttc" id="astructbbWidget_html_aedc8076cb875b437dcf22aec0a5819af"><div class="ttname"><a href="structbbWidget.html#aedc8076cb875b437dcf22aec0a5819af">bbWidget::m_Pool_Prev</a></div><div class="ttdeci">int32_t m_Pool_Prev</div><div class="ttdef"><b>Definition:</b> bbWidget.h:22</div></div>
 <div class="ttc" id="astructbbWidgets_html"><div class="ttname"><a href="structbbWidgets.html">bbWidgets</a></div><div class="ttdoc">bbWidgets is a container for objects of type bbWisget</div><div class="ttdef"><b>Definition:</b> bbWidget.h:68</div></div>
+<div class="ttc" id="astructbbWidgets_html_a06d0abd73629a155eaf25934bf82d1c9"><div class="ttname"><a href="structbbWidgets.html#a06d0abd73629a155eaf25934bf82d1c9">bbWidgets::m_Pool</a></div><div class="ttdeci">bbWidget_Pool * m_Pool</div><div class="ttdef"><b>Definition:</b> bbWidget.h:70</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

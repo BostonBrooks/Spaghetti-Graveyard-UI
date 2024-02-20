@@ -19,8 +19,11 @@ typedef struct { //bbSprites
 
 
 
+/**
+ * This function initialises sprites from data found in the given file.
+ */
+extern bbSprites* bbSprites_CreateFromFile(char File[]);\
 
-extern bbSprites* bbSprites_CreateFromFile(char File[]);
 extern sfSprite* sfSpriteLocate (int map_int, int animation_int, int angle_int, int frame_int);
 extern sfSprite* sfSpriteLocateWKey (int map_int, char* animation_key, int angle_int, int frame_int);
 #endif //BBSPRITES_H

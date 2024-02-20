@@ -9,7 +9,7 @@ digraph "bbMedia"
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
   Node3 [label="bbSprites",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbSprites.html",tooltip="sfSprite is the basic object drawn to the viewport bbSprites is a container for sfSprites used in a s..."];
   Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node4 [label="bbAnimations",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
+  Node4 [label="bbAnimations",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
   Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node5 [label="bbAnimation",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
+  Node5 [label="bbAnimation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
 }

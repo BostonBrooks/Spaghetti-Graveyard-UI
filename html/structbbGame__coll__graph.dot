@@ -21,9 +21,9 @@ digraph "bbGame"
   Node9 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
   Node9 [label="bbSprites",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbSprites.html",tooltip="sfSprite is the basic object drawn to the viewport bbSprites is a container for sfSprites used in a s..."];
   Node10 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node10 [label="bbAnimations",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
+  Node10 [label="bbAnimations",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
   Node11 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
-  Node11 [label="bbAnimation",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
+  Node11 [label="bbAnimation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
   Node12 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_widgets" ,fontname="Helvetica"];
   Node12 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip="bbWidgets is a container for objects of type bbWisget"];
 }
