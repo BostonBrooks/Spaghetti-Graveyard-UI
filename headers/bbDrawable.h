@@ -83,6 +83,7 @@ typedef struct { //bbDrawable
  * Determines the behaviour of bbAI_FSM objects interacting with the drawable
  **/
 ///@{
+bool m_Static;
 	int32_t m_AvoidanceRadius;
 	int32_t m_AvoidanceShape;
 	bbMapCoords m_PreferredNextLocation;

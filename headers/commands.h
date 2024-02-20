@@ -7,8 +7,6 @@
 #ifndef COMMANDS_H
 #define COMMANDS_H
 
-#include "../headers/system_includes.h"
-
 #define C_SET_TARGET_DRAWABLE        1
 #define C_SET_TARGET_LOCATION        2
 #define C_LEFT_CLICK                 3

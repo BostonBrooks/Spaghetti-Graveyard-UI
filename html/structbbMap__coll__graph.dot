@@ -14,6 +14,12 @@ digraph "bbMap"
   Node5 [label="bbMedia",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMedia.html",tooltip="bbMedia stores all of the graphics, etc needed to display everything drawn to the screen,..."];
   Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Textures" ,fontname="Helvetica"];
   Node6 [label="bbTextures",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbTextures.html",tooltip="sfTexture is define in SFML as raw pixel data bbTextures is a container for sfTextures"];
-  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_widgets" ,fontname="Helvetica"];
-  Node7 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip="bbWidgets is a container for objects of type bbWisget"];
+  Node7 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
+  Node7 [label="bbSprites",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbSprites.html",tooltip="sfSprite is the basic object drawn to the viewport bbSprites is a container for sfSprites used in a s..."];
+  Node8 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
+  Node8 [label="bbAnimations",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimations.html",tooltip=" "];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Animations" ,fontname="Helvetica"];
+  Node9 [label="bbAnimation",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_widgets" ,fontname="Helvetica"];
+  Node10 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip="bbWidgets is a container for objects of type bbWisget"];
 }

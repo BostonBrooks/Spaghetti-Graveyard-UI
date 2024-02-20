@@ -36,4 +36,10 @@ typedef struct { //bbAnimations
 
 } bbAnimations;
 
+extern bbAnimations* bbAnimations_CreateFromFile(char File[]);
+extern int32_t bbAnimations_Destroy(bbAnimations* animations);
+extern int32_t bbAnimation_Lookup(bbAnimations* animations, char* key);
+extern int32_t bbAnimation_getSprite(bbAnimation* animation, int32_t angle_int, int32_t frame_int);
+
+
 #endif //BBANIMATION_H

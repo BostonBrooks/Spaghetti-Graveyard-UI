@@ -1,0 +1,50 @@
+/** \page Program-Flow
+
+An outline of the basic flow of the program (main.c) follows:
+
+-Open map header file and read map settings inc filenames 
+-Load textures from filename
+-Load sprites from filename
+-Load animations from filename
+-Open window and display loading screen
+-Load Skin data
+-Load Terrain data, lighting or whatever else
+
+-If the settings indicate a curved ground surface,
+   - load ground surface from file.
+   - calculate ground shading.
+   This can be slow, so the first map loaded should have 
+   a flat ground surface to facilitate fast loading.
+   
+-Initialise bbDrawableSquares
+
+-Initialise VTables and their elements
+-Initialise Pools
+
+-Load Widgets
+    -one widget should be selected to handle text input (the prompt)
+    -one widget should be selected as root (the decal)
+    -one widget should be selected as the current spell.
+    (as spell is a type of widget, that is represented by it's "click to activate" icon)
+-Load static Drawables
+-Load AI_SFMs with their own Drawables
+- Spawn player (go between input parser and player FSM), player FSM, player drawable
+-Initialise viewport
+
+-Begin main loop:
+
+    -Draw viewport.
+    -Draw widgets.
+    -Parse input
+         - Send mouse clicks to widgets
+         - If no widget clicked, send mouse clicks to viewport
+         - Send key presses to prompt
+    -Player object takes Parsed input and modifies player FSM
+    //-May want to do some internet stuff
+    -Update AI_FSMs and send a list of commands to drawables
+    -Go though list and modify drawables
+    -Increment map time, global time
+
+-If player indicates to load a different map, clear graphics data and load new map as seen at the top of the page.
+(I do not know what I will do about data shared between maps such as player stats)
+*/

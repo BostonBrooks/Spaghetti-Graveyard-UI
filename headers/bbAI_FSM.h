@@ -60,7 +60,13 @@ typedef struct { //bbAI_FSMs
 
 } bbAI_FSMs;
 
+int32_t bbAIControl_update(bbAI_FSM* fsm);
 
+/** Update individual AI given its location in pool */
+int32_t bbAIControl_update_int(int32_t bbMap_int, int32_t fsm_int);
+
+/** Update all AIs in pool */
+int32_t bbAIControl_updatePool(int32_t bbMap_int);
 
 
 

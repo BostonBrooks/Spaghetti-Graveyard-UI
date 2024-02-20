@@ -25,7 +25,9 @@ and they will be defined in that class's header file and separate header files c
 
 Macro definitions such as those just mentioned will be preferred over enums.
 
-As much as possible methods will return a non-negative integer value for a successful run and other values will be returned by reference. Negative values will be reserved for flags describing the nature of the failure. A list of objects may be iterated over, calling one of the object's methods. Taking an action such as deleting the object while it's being iterated over could cause the iterator to fail, to get around this the method returns a flag to tell the code to delete the object after it has been passed over by the iterator. (Being careful not to delete an object that exists in multiple linked lists?)
+As much as possible methods will return a non-negative integer value for a successful run (usually an address in a vtable or pool) and other values will be returned by reference. Negative values will be reserved for flags describing the nature of the failure. 
+
+A list of objects may be iterated over, calling one of the object's methods. Taking an action such as deleting the object while it's being iterated over could cause the iterator to fail, to get around this the method returns a flag to tell the code to delete the object after it has been passed over by the iterator. (Being careful not to delete an object that exists in multiple linked lists?)
 
 Flags will be represented as macros defined with names like "F_NONE" if you've reached the end of a list, or "F_DELETE" to delete the object just iterated over. These will be defined in the file flags.h
 
@@ -44,4 +46,5 @@ Constants that have to do with compilation, like N_MAPS, the maximum number of m
 #include guards will be used and will look like #ifndef BBGAME_H\n#define BBGAME_H\n ... \n#endif //BBGAME_H
 
 Integer types will be used from inttypes.h rather than type "int"
+
 */
