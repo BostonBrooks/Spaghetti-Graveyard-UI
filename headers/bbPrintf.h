@@ -50,4 +50,8 @@ static void bbVerbose(const char* format, ...){
 
 }
 
+#define bbAssert(expression, ...) \
+    if (!(expression)) printf(__VA_ARGS__); \
+    assert(expression);
+
 #endif // BBPRINTF_H

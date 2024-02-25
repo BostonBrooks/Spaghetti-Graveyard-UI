@@ -8,17 +8,19 @@
 
 #include "../headers/bbSystemIncludes.h"
 
+///bbAI_FSM is a Finite State Machine that controls things like monsters and characters in-game
 typedef struct { //bbAI_FSM
 
 /** @name Pool Stuff
  * Stuff for including object in pool
  **/
 ///@{
-	int32_t m_Pool_Self;
-	int32_t m_Pool_Prev;
-	int32_t m_Pool_Next;
-	int32_t m_Pool_In_Use;
-	int32_t m_Map;  ///What map was being loaded when this object was constructed?
+	int32_t p_Pool_Self;
+	int32_t p_Pool_Prev;
+	int32_t p_Pool_Next;
+	int32_t p_Pool_InUse;
+	///What map was being loaded when this object was constructed?
+	int32_t p_Map;
 ///@}
 
 /** @name State Stuff
