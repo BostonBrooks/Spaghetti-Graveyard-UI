@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['n_5fmaps_0',['N_MAPS',['../bbConstants_8h.html#a259c8ee95256af2b3ec7b1715a7cbb8d',1,'bbConstants.h']]]
+  ['key_5flength_0',['KEY_LENGTH',['../bbConstants_8h.html#a5145aca5cb4a65b79b24d162d6fd72eb',1,'bbConstants.h']]]
 ];

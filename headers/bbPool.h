@@ -7,11 +7,15 @@
  * int32_t p_Pool_Prev;<br>
  * int32_t p_Pool_Next;<br>
  * int32_t p_Pool_InUse;<br>
+ * int32_t p_Pool_Allocated<br>
  * int32_t p_Map;<br>
- * TODO Write a macro that, for a given class of objects, declares a new class CLASS##_Pool<br>
- * TODO Write a macro that, for a given class of objects, defines a new class CLASS##_Pool
  */
 
+
+
+#include <inttypes.h>
+#include <stdlib.h>
+#include "../headers/bbPrintf.h"
 
 
 /** @name Pool Error Codes
@@ -19,33 +23,67 @@
  **/
 ///@{
 #define f_Pool_Success                    0
-#define f_Pool_InUse                     -1
-#define f_Pool_NotInUse                  -2
-#define f_Pool_Lvl1NotInitialised        -3
-#define f_Pool_Lvl1AlreadyInitialised    -4
-#define f_Pool_Lvl1OutOfBounds           -5
-#define f_Pool_MallocFailed              -6
-#define f_Pool_Full                      -7
-#define f_Pool_Lvl1Full                  -8
+#define f_Pool_None                      -1
+#define f_Pool_InUse                     -2
+#define f_Pool_NotInUse                  -3
+#define f_Pool_Lvl1NotInitialised        -4
+#define f_Pool_Lvl1AlreadyInitialised    -5
+#define f_Pool_Lvl1OutOfBounds           -6
+#define f_Pool_MallocFailed              -7
+#define f_Pool_Full                      -8
+#define f_Pool_Lvl1Full                  -9
+#define f_Pool_NextAvailable            -10
 ///@}
 
-/* CLASS##_Pool will have the following data
- *
- * A list of lists of CLASS objects
- * int size of list
- * int size of list of lists
- * int available head
- * int available tail
- * int in use head
- * int in use tail
- */
 
-/* CLASS##_Pool will have the following methods
- * new pool
- * delete pool
- * increase pool
- * new object
- * delete object
- * lookup object (returns pointer to existing object)
- * lookup object sudo (returns pointer to object that may not exist)
- */
+typedef struct {
+	int32_t p_Pool_Self;
+	int32_t p_Pool_Prev;
+	int32_t p_Pool_Next;
+	int32_t p_Pool_InUse;
+	int32_t p_Map;
+} bbPool_MetaData;
+
+typedef struct {
+	int32_t Head;
+	int32_t Tail;
+} bbPool_bin;
+
+typedef struct {
+	int32_t m_SizeOf;
+	bbPool_bin m_Available;
+	bbPool_bin m_InUse;
+	int32_t m_Level1;
+	int32_t m_Level2;
+	void** m_Objects;
+} bbPool;
+
+
+///Look up object at location Pool[lvl1][lvl2];
+void* bbPool_Lookup2(bbPool* Pool, int32_t lvl1, int32_t lvl2);
+
+
+///Lookup object at address, ignoring m_Pool_InUse;
+void* bbPool_Lookup_sudo(bbPool* Pool, int32_t Address);
+
+
+///Lookup object at Address, error if m_Pool_InUse == f_Pool_InUse
+void* bbPool_Lookup(bbPool* Pool, int32_t Address);
+
+///Create an new pool with object's size = Sizeof
+bbPool* bbPool_NewPool(int32_t SizeOf, int32_t Level1, int32_t Level2);
+
+///Delete entire pool
+int32_t bbPool_DeletePool(bbPool* Pool);
+
+///Delete contents of pool, but keep empty pool
+int32_t bbPool_ClearPool(bbPool* Pool);
+
+/// Allocate data in pool
+int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address);
+
+///Create object in pool
+int32_t bbPool_New(bbPool* Pool, int32_t address);
+
+///Remove object from pool
+int32_t bbPool_Delete(bbPool* Pool, int32_t address);

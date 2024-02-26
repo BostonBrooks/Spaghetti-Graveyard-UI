@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <assert.h>
 
 /**
  * This function calls printf if BBDEBUG is defined in the file this header is included in
@@ -50,8 +51,19 @@ static void bbVerbose(const char* format, ...){
 
 }
 
-#define bbAssert(expression, ...) \
-    if (!(expression)) printf(__VA_ARGS__); \
+#define bbAssert(expression, ...)                        \
+    if (!(expression)){                                  \
+        printf("ASSERTION: ");                              \
+        printf(__VA_ARGS__);                             \
+    }                                                    \
     assert(expression);
+
+
+#define bbWarning(expression, ...)                       \
+	if (!(expression)){                                  \
+        printf("WARNING: ");                             \
+        printf(__VA_ARGS__);                             \
+    }
+
 
 #endif // BBPRINTF_H

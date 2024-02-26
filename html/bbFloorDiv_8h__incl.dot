@@ -33,4 +33,5 @@ digraph "headers/bbFloorDiv.h"
   Node14 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node15 [label="stdarg.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node14 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

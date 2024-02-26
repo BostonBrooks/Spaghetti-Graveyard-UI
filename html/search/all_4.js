@@ -12,8 +12,10 @@ var searchData=
   ['f_5fpool_5flvl1notinitialised_9',['f_Pool_Lvl1NotInitialised',['../bbPool_8h.html#a8b7ad1c473e46411125eb0e085e18605',1,'bbPool.h']]],
   ['f_5fpool_5flvl1outofbounds_10',['f_Pool_Lvl1OutOfBounds',['../bbPool_8h.html#ae3afa456eb09b5cc0ef295ce0d46a608',1,'bbPool.h']]],
   ['f_5fpool_5fmallocfailed_11',['f_Pool_MallocFailed',['../bbPool_8h.html#a3d413baff34e9de8f0af5c007e5408ab',1,'bbPool.h']]],
-  ['f_5fpool_5fnotinuse_12',['f_Pool_NotInUse',['../bbPool_8h.html#a0568b1fb972426668b753faf35f49017',1,'bbPool.h']]],
-  ['f_5fpool_5fsuccess_13',['f_Pool_Success',['../bbPool_8h.html#a1952b3f7a6c204abed5f02207289011d',1,'bbPool.h']]],
-  ['f_5frepeat_14',['F_REPEAT',['../bbFlags_8h.html#a72bb32109139ba01848be982b4210d90',1,'bbFlags.h']]],
-  ['f_5fsuccess_15',['F_SUCCESS',['../bbFlags_8h.html#aa80a2b409c8b662f2ad1876890bc87ce',1,'bbFlags.h']]]
+  ['f_5fpool_5fnextavailable_12',['f_Pool_NextAvailable',['../bbPool_8h.html#a8957d2d3a514cf2cc6248981ab58e9a4',1,'bbPool.h']]],
+  ['f_5fpool_5fnone_13',['f_Pool_None',['../bbPool_8h.html#a1e03f2eb7774acc543a7b104bd7e5e35',1,'bbPool.h']]],
+  ['f_5fpool_5fnotinuse_14',['f_Pool_NotInUse',['../bbPool_8h.html#a0568b1fb972426668b753faf35f49017',1,'bbPool.h']]],
+  ['f_5fpool_5fsuccess_15',['f_Pool_Success',['../bbPool_8h.html#a1952b3f7a6c204abed5f02207289011d',1,'bbPool.h']]],
+  ['f_5frepeat_16',['F_REPEAT',['../bbFlags_8h.html#a72bb32109139ba01848be982b4210d90',1,'bbFlags.h']]],
+  ['f_5fsuccess_17',['F_SUCCESS',['../bbFlags_8h.html#aa80a2b409c8b662f2ad1876890bc87ce',1,'bbFlags.h']]]
 ];
