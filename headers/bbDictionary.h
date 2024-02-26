@@ -35,12 +35,19 @@ typedef struct {
 
 } bbDictionary;
 
+/// create a new dictionary
 bbDictionary* bbDictionary_new(int32_t n_bins);
+/// delete an existing dictionary
 int32_t bbDictionary_delete(bbDictionary* dict);
+/// add key/value pair to dictionary
 int32_t bbDictionary_add(bbDictionary* dict, char* key, int value);  //and overwrite if duplicate
+/// remove a key from dictionary
 int32_t bbDictionary_remove(bbDictionary* dict, char* key);
+/// lookup a key in dictionary
 int32_t bbDictionary_lookup(bbDictionary* dict, char* key);
+/// remove all key/value pairs in dicitonary
 int32_t bbDictionary_clear(bbDictionary* dict);
+/// print all data in dictionary
 int32_t bbDictionary_print(bbDictionary* dict);
 
 

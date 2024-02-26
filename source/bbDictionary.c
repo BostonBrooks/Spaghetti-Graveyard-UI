@@ -24,9 +24,9 @@ int32_t hash(unsigned char *str, int32_t n_bins)
 bbDictionary* bbDictionary_new (int32_t n_bins){
 	bbDictionary* dict = malloc(sizeof(bbDictionary) + n_bins * sizeof(bbDictionary_bin)); //sizeof (bbDictionary) + 2*sizeof (int) * NUM_BINS;?
 	assert( dict!= NULL);
-
+	dict->m_NumBins = n_bins;
 	dict->m_Available.Head = F_NONE;
-	dict->m_Available.Head = F_NONE;
+	dict->m_Available.Tail = F_NONE;
 
 	for(int32_t i = 0; i < n_bins; i++){
 		dict->m_Bins[i].Head = F_NONE;
@@ -40,16 +40,16 @@ bbDictionary* bbDictionary_new (int32_t n_bins){
 	return dict;
 }
 
-int bbDictionary_delete(bbDictionary* dict){
+int32_t bbDictionary_delete(bbDictionary* dict){
 	for (int32_t i = 0; i < 100; i++){
 		if (dict->m_Pool[i] != NULL) free (dict->m_Pool[i]);
 	}
 	free(dict);
 }
 
-int bbDictionary_increase(bbDictionary* dict){
+int32_t bbDictionary_increase(bbDictionary* dict){
 	int32_t i = 0;
-	while (dict->m_Pool[i] != NULL && i < 100) {
+	while (i < 100 && dict->m_Pool[i] != NULL) {
 		i++;
 	}
 	if (i == 100) {
@@ -57,12 +57,12 @@ int bbDictionary_increase(bbDictionary* dict){
 	}
 
 	bbDictionary_entry* entry = calloc(100, sizeof(bbDictionary_entry));
-	assert(entry != NULL);
+	bbAssert(entry != NULL, "malloc failed\n");
 	dict->m_Pool[i] = entry;
 
 
 	if (dict->m_Available.Head == F_NONE){
-		assert(dict->m_Available.Tail == F_NONE);
+		bbAssert(dict->m_Available.Tail == F_NONE, "Head/Tail mismatch\n");
 
 		for (int32_t l = 0; l < 100; l++){
 			dict->m_Pool[i][l].m_Self = i * 100 + l;
@@ -77,12 +77,12 @@ int bbDictionary_increase(bbDictionary* dict){
         dict->m_Pool[i][100 - 1].m_Next = F_NONE;
 
 		dict->m_Available.Head = i * 100;
-        dict->m_Available.Head = (i+1) * 100 - 1;
+        dict->m_Available.Tail = (i+1) * 100 - 1;
 
 		return F_SUCCESS;
 	}
 
-	bbDebug("Why are you increasing the pool when it's not empty?\n");
+	bbAssert(0==1, "Feature not needed / implemented\n");
 }
 
 bbDictionary_entry* bbDictionary_indexLookup(bbDictionary* dict, int32_t index){
@@ -90,17 +90,16 @@ bbDictionary_entry* bbDictionary_indexLookup(bbDictionary* dict, int32_t index){
 	int32_t level2 = index % 100;
 	bbDictionary_entry* entry = &dict->m_Pool[level1][level2];
 	assert (entry != NULL);
-	//printf("index = %d, self = %d\n", index, entry->Dict_Self);
 	return entry;
 }
 
-int bbDictionary_lookupIndex(bbDictionary* dict, char* key){
+int32_t bbDictionary_lookupIndex(bbDictionary* dict, char* key){
 	int32_t hash_value = hash(key, dict->m_NumBins);
 	bbDictionary_entry* entry;
 	int32_t index = dict->m_Bins[hash_value].Head;
 
 	while (index != F_NONE) {
-		entry = bbDictionary_index_lookup(dict, index);
+		entry = bbDictionary_indexLookup(dict, index);
 		if(strcmp(key, entry->m_Key) == 0) return index;
 		index = entry->m_Next;
 	}
@@ -108,10 +107,108 @@ int bbDictionary_lookupIndex(bbDictionary* dict, char* key){
 	return F_NONE;
 }
 
-int bbDictionary_lookup(bbDictionary* dict, char* key){
-	int index = bbDictionary_lookupIndex(dict, key);
+int32_t bbDictionary_lookup(bbDictionary* dict, char* key){
+	int32_t index = bbDictionary_lookupIndex(dict, key);
 	if (index == F_NONE) return F_NONE;
 	bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
 	return entry->m_Value;
 }
 
+/// get an unused entry from pool
+bbDictionary_entry* grab_entry (bbDictionary* dict){
+	int* Head = &dict->m_Available.Head;
+	int* Tail = &dict->m_Available.Tail;
+	if (*Head == F_NONE){
+		bbAssert(*Tail == F_NONE, "Head/Tail mismatch\n");
+		bbDictionary_increase(dict);
+	}
+	if (*Head == *Tail){
+		bbDictionary_entry* entry = bbDictionary_indexLookup(dict, Head);
+		*Head = F_NONE;
+		*Tail = F_NONE;
+
+		entry->m_Next = F_NONE;
+		entry->m_Prev = F_NONE;
+		entry->m_InUse = 1;
+
+		return entry;
+	}
+
+	bbDictionary_entry* entry = bbDictionary_indexLookup(dict, *Head);
+	*Head = entry->m_Next;
+	bbDictionary_entry* next_entry = bbDictionary_indexLookup(dict, entry->m_Next);
+	next_entry->m_Prev = F_NONE;
+
+	entry->m_Next = F_NONE;
+	entry->m_Prev = F_NONE;
+	entry->m_InUse = 1;
+
+	return entry;
+}
+
+int32_t bbDictionary_add(bbDictionary* dict, char* key, int32_t value){
+    int32_t index = bbDictionary_lookupIndex(dict, key);
+	if (index != F_NONE) {
+		bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
+		entry->m_Value = value;
+		return index;
+	}
+
+	//create new entry
+	int32_t hash_value = hash(key, dict->m_NumBins);
+	int* head = &dict->m_Bins[hash_value].Head;
+	int* tail = &dict->m_Bins[hash_value].Tail;
+	bbDictionary_entry* entry = grab_entry(dict);
+	entry->m_InUse = 1;
+	strcpy(entry->m_Key, key);
+	entry->m_Value = value;
+
+	//Insert into empty bin;
+	if (*head == F_NONE){
+		bbAssert(*tail == F_NONE, "Head/Tail mismatch\n");
+
+		*head = entry->m_Self;
+		*tail = entry->m_Self;
+		entry->m_Next = F_NONE;
+		entry->m_Prev = F_NONE;
+
+		return entry->m_Self;
+	}
+	//*head != F_NONE
+	bbAssert(*tail != F_NONE, "Head/Tail mismatch\n");
+
+	//Insert into non-empty bin, (after *tail)
+
+	bbDictionary_entry* tail_entry = bbDictionary_indexLookup(dict, dict->m_Bins[hash_value].Tail);
+	tail_entry->m_Next = entry->m_Self;
+
+	entry->m_Prev = *tail;
+	entry->m_Next = F_NONE;
+	*tail = entry->m_Self;
+
+
+	return entry->m_Self;
+}
+
+int32_t bbDictionary_print(bbDictionary* dict){
+	for (int32_t i = 0; i < dict->m_NumBins; i++){
+		printf("\nBin # %d:\n", i);
+		printf("Dict_Self,\tDict_Prev,\tDict_Next,\tDict_In_Use,\tkey,\tvalue\n");
+		int32_t index = dict->m_Bins[i].Head;
+		while (index != F_NONE){
+			bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
+
+			printf("%d\t\t%d\t\t%d\t\t%d\t\t%s\t\t%d\n",
+				   entry->m_Self,
+				   entry->m_Prev,
+				   entry->m_Next,
+				   entry->m_InUse,
+				   entry->m_Key,
+				   entry->m_Value);
+
+			index = entry->m_Next;
+		}
+	}
+	printf("\n");
+	return F_SUCCESS;
+}
