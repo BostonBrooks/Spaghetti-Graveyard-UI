@@ -84,12 +84,10 @@ typedef struct {
 	float k;
 } bbFloat3D;
 
-///Used for hitboxes & clickboxes
+///Used for hitboxes & clickboxes units of Screen Points, see bbMapConstants.m_ScreenPPP
 typedef struct {
-	int32_t top;
-	int32_t left;
-	int32_t height;
-	int32_t width;
+	bbScreenCoordsI position;
+	bbScreenCoordsI size;
 } bbIntRect;
 
 /// Return a vector parallel to foo, but with absolute value = 1
@@ -116,7 +114,7 @@ bbScreenCoordsI bbMapCoords_getScreenCoords_vector (int32_t map, bbMapCoords A, 
 /// Find the screen coordinates of a point if viewpoint is in the centre of the screen
 bbScreenCoordsI bbTileCoords_getScreenCoords_centre (int32_t map, bbMapCoords mc);
 
-bbScreenCoordsF bbScreenCoords_toFloat(bbScreenCoordsI sc);
+bbScreenCoordsF bbScreenCoordsI_toFloat(int32_t map, bbScreenCoordsI sc);
 
 ///et cetera
 

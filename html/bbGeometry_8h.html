@@ -75,8 +75,8 @@ $(function() {
 
 <p>This file describes data types and methods for dealing with 3d map coordinates and 2d screen coordinates int32_t map is included as an argument to many of these functions because important constants are defined in the <a class="el" href="structbbMap.html">bbMap</a> object.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">../headers/bbSystemIncludes.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bbFloorDiv_8h_source.html">../headers/bbFloorDiv.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbFloorDiv_8h_source.html">headers/bbFloorDiv.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbGeometry.h:</div>
 <div class="dyncontent">
@@ -146,6 +146,8 @@ Functions</h2></td></tr>
 <tr class="memitem:adeaafee5e4b2ab1311ce280b146de70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">bbTileCoords_getScreenCoords_centre</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
 <tr class="memdesc:adeaafee5e4b2ab1311ce280b146de70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the screen coordinates of a point if viewpoint is in the centre of the screen.  <a href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">More...</a><br /></td></tr>
 <tr class="separator:adeaafee5e4b2ab1311ce280b146de70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a114188097cb1aa5428845842fb659870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a114188097cb1aa5428845842fb659870">bbScreenCoords_toFloat</a> (int32_t map, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc)</td></tr>
+<tr class="separator:a114188097cb1aa5428845842fb659870"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This file describes data types and methods for dealing with 3d map coordinates and 2d screen coordinates int32_t map is included as an argument to many of these functions because important constants are defined in the <a class="el" href="structbbMap.html">bbMap</a> object. </p>
@@ -323,6 +325,34 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Find the coordinates of the tile containing the point given in map coordinates. </p>
+
+</div>
+</div>
+<a id="a114188097cb1aa5428845842fb659870" name="a114188097cb1aa5428845842fb659870"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a114188097cb1aa5428845842fb659870">&#9670;&nbsp;</a></span>bbScreenCoords_toFloat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> bbScreenCoords_toFloat </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td>
+          <td class="paramname"><em>sc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>

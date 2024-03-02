@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 11)
 include_directories(.)
 
 add_executable(Spaghetti_Graveyard_Zero
-        AI/AI_NULL.h
+        maps/demo/AI/AI_NULL.h
         headers/bbAI_FSM.h
         headers/bbAnimation.h
         headers/bbCommands.h
@@ -33,4 +33,4 @@ add_executable(Spaghetti_Graveyard_Zero
         test/Test_bbPool.c
         test/Test_bbPrintf.c
         test/Test_calloc.c
-        widgets/Widget_NULL.h)
+        maps/demo/widgets/Widget_NULL.h)

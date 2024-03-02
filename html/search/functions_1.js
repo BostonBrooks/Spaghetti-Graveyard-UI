@@ -28,13 +28,14 @@ var searchData=
   ['bbpool_5flookup2_25',['bbPool_Lookup2',['../bbPool_8h.html#afb873bbc5b7ea5f77614c5bf425dbe51',1,'bbPool.h']]],
   ['bbpool_5flookup_5fsudo_26',['bbPool_Lookup_sudo',['../bbPool_8h.html#ac86fb3721f860c19e5c87e1effd68096',1,'bbPool.h']]],
   ['bbpool_5fnew_27',['bbPool_New',['../bbPool_8h.html#a4008aea24a5b9a6692912622e206b603',1,'bbPool.h']]],
-  ['bbpool_5fnewpool_28',['bbPool_NewPool',['../bbPool_8h.html#aaef0934935072e13e1b8f7458cebdbc9',1,'bbPool.h']]],
-  ['bbsprites_5fcreatefromfile_29',['bbSprites_CreateFromFile',['../bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac',1,'bbSprites.h']]],
-  ['bbtilecoords_5fgetelevation_30',['bbTileCoords_getElevation',['../bbGeometry_8h.html#aa567141ec8de4471567ee3c6fbdf3a43',1,'bbGeometry.h']]],
-  ['bbtilecoords_5fgetscreencoords_5fcentre_31',['bbTileCoords_getScreenCoords_centre',['../bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b',1,'bbGeometry.h']]],
-  ['bbwidget_5fnull_5fdelete_32',['bbWidget_NULL_delete',['../Widget__NULL_8h.html#af4c967b6c81bba8bdb3b50cc22b34b9b',1,'Widget_NULL.h']]],
-  ['bbwidget_5fnull_5fdraw_33',['bbWidget_NULL_draw',['../Widget__NULL_8h.html#a2c59150e92592882d9b2842ee237d70e',1,'Widget_NULL.h']]],
-  ['bbwidget_5fnull_5fnew_34',['bbWidget_NULL_new',['../Widget__NULL_8h.html#a493cc5a84300e87f9de010adea89c2cc',1,'Widget_NULL.h']]],
-  ['bbwidget_5fnull_5foncommand_35',['bbWidget_NULL_onCommand',['../Widget__NULL_8h.html#a794bc37d49443529b08cb8af220c65fa',1,'Widget_NULL.h']]],
-  ['bbwidget_5fnull_5fupdate_36',['bbWidget_NULL_update',['../Widget__NULL_8h.html#a55bf7f7f050d1f878cb33cd585c187a6',1,'Widget_NULL.h']]]
+  ['bbpool_5fnewpool_28',['bbPool_NewPool',['../bbPool_8h.html#ab0bd0e6d668f20c75ab108711d93a20a',1,'bbPool.h']]],
+  ['bbscreencoords_5ftofloat_29',['bbScreenCoords_toFloat',['../bbGeometry_8h.html#a114188097cb1aa5428845842fb659870',1,'bbGeometry.h']]],
+  ['bbsprites_5fcreatefromfile_30',['bbSprites_CreateFromFile',['../bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac',1,'bbSprites.h']]],
+  ['bbtilecoords_5fgetelevation_31',['bbTileCoords_getElevation',['../bbGeometry_8h.html#aa567141ec8de4471567ee3c6fbdf3a43',1,'bbGeometry.h']]],
+  ['bbtilecoords_5fgetscreencoords_5fcentre_32',['bbTileCoords_getScreenCoords_centre',['../bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b',1,'bbGeometry.h']]],
+  ['bbwidget_5fnull_5fdelete_33',['bbWidget_NULL_delete',['../Widget__NULL_8h.html#af4c967b6c81bba8bdb3b50cc22b34b9b',1,'Widget_NULL.h']]],
+  ['bbwidget_5fnull_5fdraw_34',['bbWidget_NULL_draw',['../Widget__NULL_8h.html#a2c59150e92592882d9b2842ee237d70e',1,'Widget_NULL.h']]],
+  ['bbwidget_5fnull_5fnew_35',['bbWidget_NULL_new',['../Widget__NULL_8h.html#a493cc5a84300e87f9de010adea89c2cc',1,'Widget_NULL.h']]],
+  ['bbwidget_5fnull_5foncommand_36',['bbWidget_NULL_onCommand',['../Widget__NULL_8h.html#a794bc37d49443529b08cb8af220c65fa',1,'Widget_NULL.h']]],
+  ['bbwidget_5fnull_5fupdate_37',['bbWidget_NULL_update',['../Widget__NULL_8h.html#a55bf7f7f050d1f878cb33cd585c187a6',1,'Widget_NULL.h']]]
 ];

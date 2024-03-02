@@ -26,4 +26,6 @@ typedef struct { //bbGame
 
 } bbGame;
 
+bbGame* g_Game;
+
 #endif //BBGAME_H

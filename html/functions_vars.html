@@ -77,6 +77,7 @@ $(function() {
 
 <h3><a id="index_i" name="index_i"></a>- i -</h3><ul>
 <li>i&#160;:&#160;<a class="el" href="structbbFloat3D.html#ac58914c0237640e4ae7a7fed7506686d">bbFloat3D</a>, <a class="el" href="structbbMapCoords.html#a18d06a8a1db547f001ed9ad5704e26c3">bbMapCoords</a>, <a class="el" href="structbbSquareCoords.html#a8ba94592b694be531e86cb53c38f4036">bbSquareCoords</a>, <a class="el" href="structbbTileCoords.html#ade7a48971336e3a1b996db2c3a62c3ae">bbTileCoords</a></li>
+<li>InUse&#160;:&#160;<a class="el" href="structbbPool__data.html#a87c503a314d024fef6fd4e7e6a8c24cc">bbPool_data</a></li>
 </ul>
 
 
@@ -112,7 +113,7 @@ $(function() {
 <li>m_CurrentMap&#160;:&#160;<a class="el" href="structbbGame.html#ae520b5d7e9f570ba557a5e37624b67d9">bbGame</a></li>
 <li>m_Dictionary&#160;:&#160;<a class="el" href="structbbAnimations.html#a89651e0280595aaf73b8fff6371bad53">bbAnimations</a>, <a class="el" href="structbbSprites.html#ac3cf5262781cf0e964c6bbfd4d61ca40">bbSprites</a>, <a class="el" href="structbbTextures.html#a8d06e8ef62e1143369acfe4e8a8d4b5f">bbTextures</a></li>
 <li>m_DisplayHealthUntil&#160;:&#160;<a class="el" href="structbbDrawable.html#a80381dbb4006553aafdf3cbc17df7714">bbDrawable</a></li>
-<li>m_Drawables&#160;:&#160;<a class="el" href="structbbAI__FSM.html#a0be8f87c29546593cab24c42001b1480">bbAI_FSM</a>, <a class="el" href="structbbMap.html#aa2bb74c13f84af1cf0fcbb380c5a9228">bbMap</a></li>
+<li>m_Drawables&#160;:&#160;<a class="el" href="structbbAI__FSM.html#ab7dba3a3dd9177c5541086d8e0c94c32">bbAI_FSM</a>, <a class="el" href="structbbMap.html#aa2bb74c13f84af1cf0fcbb380c5a9228">bbMap</a></li>
 <li>m_DrawFunction&#160;:&#160;<a class="el" href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">bbAnimation</a>, <a class="el" href="structbbDrawable.html#aff98e1e3d08bb56bb5c1621e01579097">bbDrawable</a></li>
 <li>m_Elevations&#160;:&#160;<a class="el" href="structbbMap.html#aa64b62a1de6d51ac928ca85b713e4bdf">bbMap</a></li>
 <li>m_ElevationScale&#160;:&#160;<a class="el" href="structbbMap.html#a19d72bfb2fb88a28f062b48686f0fb42">bbMap</a></li>
@@ -131,11 +132,11 @@ $(function() {
 <li>m_Height&#160;:&#160;<a class="el" href="structbbGraphicsSettings.html#aef2f3c800f5c10c0e72d41a2d8b4479f">bbGraphicsSettings</a></li>
 <li>m_InternalState&#160;:&#160;<a class="el" href="structbbAI__FSM.html#a6eb6ccc99f3ebfee8956d1bd5410bb0a">bbAI_FSM</a></li>
 <li>m_InUse&#160;:&#160;<a class="el" href="structbbDictionary__entry.html#acebe8595fa31546f3bc8217ff0b58a2e">bbDictionary_entry</a>, <a class="el" href="structbbPool.html#a4b09f338815641c2f98eb0e7c062a3c7">bbPool</a></li>
-<li>m_Key&#160;:&#160;<a class="el" href="structbbAnimation.html#ab0e37d510598e68719f510f7631e23ee">bbAnimation</a>, <a class="el" href="structbbDictionary__entry.html#aab2ca641d4cf4eef8e54668897f41b5a">bbDictionary_entry</a></li>
+<li>m_Key&#160;:&#160;<a class="el" href="structbbAnimation.html#ab0e37d510598e68719f510f7631e23ee">bbAnimation</a>, <a class="el" href="structbbDictionary__entry.html#a990b473c906c115fb929f3fe583ac796">bbDictionary_entry</a></li>
 <li>m_Level1&#160;:&#160;<a class="el" href="structbbPool.html#ab66131794fba90802024e6ed75cd9ec6">bbPool</a></li>
 <li>m_Level2&#160;:&#160;<a class="el" href="structbbPool.html#aac58f76615bedcd8192ed87cdfe675a4">bbPool</a></li>
 <li>m_Lost&#160;:&#160;<a class="el" href="structbbDrawables.html#a09d5acd11d9b4017946e0450ed202031">bbDrawables</a></li>
-<li>m_Map&#160;:&#160;<a class="el" href="structbbDrawable.html#a7b1f7f4a0bdb65e7c173b1e5e88bd299">bbDrawable</a>, <a class="el" href="structbbWidget.html#a1134130338e2f3866bbccac9eb422aaf">bbWidget</a></li>
+<li>m_Map&#160;:&#160;<a class="el" href="structbbPool.html#abed191c7f52996e20bb99321349c01cb">bbPool</a></li>
 <li>m_MapCoords&#160;:&#160;<a class="el" href="structbbAI__FSM.html#ac84a40d15f371543a5753643dac0b0f7">bbAI_FSM</a></li>
 <li>m_Maps&#160;:&#160;<a class="el" href="structbbGame.html#ad25ec3211d490c06a0fe4673e517263d">bbGame</a></li>
 <li>m_MapTime&#160;:&#160;<a class="el" href="structbbMap.html#a2734956d265d65ddb3f1ee795919e548">bbMap</a></li>
@@ -155,14 +156,10 @@ $(function() {
 <li>m_PointsPerPixel&#160;:&#160;<a class="el" href="structbbMap.html#a1b106c957ed2528891ea7d89ef9093ab">bbMap</a></li>
 <li>m_PointsPerSquare&#160;:&#160;<a class="el" href="structbbMap.html#a3aecae6f84d1318b5584d13ad932d313">bbMap</a></li>
 <li>m_PointsPerTile&#160;:&#160;<a class="el" href="structbbMap.html#a9e2f906ac3ab0911f85ed05ce8ba9fb4">bbMap</a></li>
-<li>m_Pool&#160;:&#160;<a class="el" href="structbbAI__FSMs.html#a92ead88ea700acbcd616124601b65f03">bbAI_FSMs</a>, <a class="el" href="structbbDictionary.html#a87800a47baa6b8a512cca01c5ab1101e">bbDictionary</a>, <a class="el" href="structbbDrawables.html#a3faf65db539f248022cf1df0c21dc39b">bbDrawables</a>, <a class="el" href="structbbWidgets.html#a06d0abd73629a155eaf25934bf82d1c9">bbWidgets</a></li>
-<li>m_Pool_In_Use&#160;:&#160;<a class="el" href="structbbDrawable.html#a65c27a4a100b192a15b741de1d4b92cd">bbDrawable</a>, <a class="el" href="structbbWidget.html#a18f810669383020298538ca4f9b96c36">bbWidget</a></li>
-<li>m_Pool_Next&#160;:&#160;<a class="el" href="structbbDrawable.html#a30e94d9a189cbedba88535d90223a4dc">bbDrawable</a>, <a class="el" href="structbbWidget.html#a49ab4c5f0e663e48560c188c0d2ef207">bbWidget</a></li>
-<li>m_Pool_Prev&#160;:&#160;<a class="el" href="structbbDrawable.html#a8eb4cfc4673d8535ede0266578110853">bbDrawable</a>, <a class="el" href="structbbWidget.html#aedc8076cb875b437dcf22aec0a5819af">bbWidget</a></li>
-<li>m_Pool_Self&#160;:&#160;<a class="el" href="structbbDrawable.html#a580329e7f4622b0d2dbc426346438adc">bbDrawable</a>, <a class="el" href="structbbWidget.html#a73646779321eb575f5efd7f0b899928f">bbWidget</a></li>
+<li>m_Pool&#160;:&#160;<a class="el" href="structbbAI__FSMs.html#a7ff4913735c9022e1c1cdf18ed5f5b2b">bbAI_FSMs</a>, <a class="el" href="structbbDictionary.html#a87800a47baa6b8a512cca01c5ab1101e">bbDictionary</a>, <a class="el" href="structbbDrawables.html#a09ed598b82b7bdb3fc7463cc911798c9">bbDrawables</a>, <a class="el" href="structbbWidgets.html#a5fc71fd6b27a07b06194c017f1d2a845">bbWidgets</a></li>
 <li>m_PreferredNextLocation&#160;:&#160;<a class="el" href="structbbDrawable.html#a3261aa1a15b2652e2bc15985cd14ac8e">bbDrawable</a></li>
 <li>m_Prev&#160;:&#160;<a class="el" href="structbbDictionary__entry.html#a6a4d3a110dc89268ff0aaa5a6b073023">bbDictionary_entry</a></li>
-<li>m_ScreenCoords&#160;:&#160;<a class="el" href="structbbWidget.html#a929c34156f309b745b01d059a66641b7">bbWidget</a></li>
+<li>m_ScreenCoords&#160;:&#160;<a class="el" href="structbbWidget.html#a83889ca422dbc4a4d83d898ba9498074">bbWidget</a></li>
 <li>m_ScreenPPP&#160;:&#160;<a class="el" href="structbbMap.html#a6d4e0c3a38bbc6522b462ff670010273">bbMap</a></li>
 <li>m_Self&#160;:&#160;<a class="el" href="structbbDictionary__entry.html#a7f9715f51dead86a209edeab36745f68">bbDictionary_entry</a></li>
 <li>m_SizeOf&#160;:&#160;<a class="el" href="structbbPool.html#ad51a9143e33c0448cb9f21214720597e">bbPool</a></li>
@@ -202,15 +199,23 @@ $(function() {
 <li>m_WidgetScale&#160;:&#160;<a class="el" href="structbbMap.html#a21bd130b88750b3ddefaab3ed5b9ac1c">bbMap</a></li>
 <li>m_Width&#160;:&#160;<a class="el" href="structbbGraphicsSettings.html#a6324afd4675692042508aefc593f8595">bbGraphicsSettings</a></li>
 <li>m_Window&#160;:&#160;<a class="el" href="structbbGraphicsSettings.html#a5add77fc03228ee183ade68432b88925">bbGraphicsSettings</a></li>
+<li>Map&#160;:&#160;<a class="el" href="structbbPool__data.html#a6d97e5d320bed89c86ca77cdab6ac79c">bbPool_data</a></li>
+</ul>
+
+
+<h3><a id="index_n" name="index_n"></a>- n -</h3><ul>
+<li>Next&#160;:&#160;<a class="el" href="structbbPool__data.html#a54d9550ab7edcfa4fa92d6909776aeb5">bbPool_data</a></li>
 </ul>
 
 
 <h3><a id="index_p" name="index_p"></a>- p -</h3><ul>
-<li>p_Map&#160;:&#160;<a class="el" href="structbbAI__FSM.html#a8aebdc3c11bc47c8266f537f54d080e8">bbAI_FSM</a>, <a class="el" href="structbbPool__MetaData.html#ac7c6cf3d42de3de0374c315d3492ca72">bbPool_MetaData</a></li>
-<li>p_Pool_InUse&#160;:&#160;<a class="el" href="structbbAI__FSM.html#af8e645e9c1a39b70595c4ec64bc392a8">bbAI_FSM</a>, <a class="el" href="structbbPool__MetaData.html#a24b5dae7eec6104c77c2259ebdc4c37e">bbPool_MetaData</a></li>
-<li>p_Pool_Next&#160;:&#160;<a class="el" href="structbbAI__FSM.html#a1305fdf8b5164c1ee8e96af3535f2815">bbAI_FSM</a>, <a class="el" href="structbbPool__MetaData.html#a36e42423c14e5040edf328a8ea372b8d">bbPool_MetaData</a></li>
-<li>p_Pool_Prev&#160;:&#160;<a class="el" href="structbbAI__FSM.html#abd27208c49f85fc0e89c855c077ba9a8">bbAI_FSM</a>, <a class="el" href="structbbPool__MetaData.html#aef81c253552f3504212ccb1f0520da00">bbPool_MetaData</a></li>
-<li>p_Pool_Self&#160;:&#160;<a class="el" href="structbbAI__FSM.html#afca518367000f976da892f3258585758">bbAI_FSM</a>, <a class="el" href="structbbPool__MetaData.html#a80e3f133ec2971f9fba596e55d58c031">bbPool_MetaData</a></li>
+<li>p_Pool&#160;:&#160;<a class="el" href="structbbAI__FSM.html#a823a9bf51ecbff506121e731bbce8bbf">bbAI_FSM</a>, <a class="el" href="structbbDrawable.html#ac03be06dd9fb03a446f932859abd1665">bbDrawable</a>, <a class="el" href="structbbWidget.html#ae978cb58050eea14c2eec299f35e346e">bbWidget</a></li>
+<li>Prev&#160;:&#160;<a class="el" href="structbbPool__data.html#ad9181eb1433da0214a25e08d48fa731f">bbPool_data</a></li>
+</ul>
+
+
+<h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>Self&#160;:&#160;<a class="el" href="structbbPool__data.html#ae34a0845b7d2211c99b41374fc75aa3a">bbPool_data</a></li>
 </ul>
 
 

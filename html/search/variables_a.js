@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['x_0',['x',['../structbbScreenCoordsF.html#af62bc91eed401e24a8c63fd195a373d5',1,'bbScreenCoordsF::x()'],['../structbbScreenCoordsI.html#aa269db5b27f6b03e9b8c21c71470d3f7',1,'bbScreenCoordsI::x()'],['../structbbViewportCoordsF.html#a655e055e4fc133f83c2803695948beb8',1,'bbViewportCoordsF::x()'],['../structbbViewportCoordsI.html#aefac6af26a0fcfc045e068ce143e3da7',1,'bbViewportCoordsI::x()']]]
+  ['tail_0',['Tail',['../structbbDictionary__bin.html#a3a44344ce25bb6fce3fac1feed10c8b9',1,'bbDictionary_bin::Tail()'],['../structbbPool__bin.html#a60efe38576e636641e5904843a4a4ef2',1,'bbPool_bin::Tail()']]],
+  ['top_1',['top',['../structbbIntRect.html#a15395e1b33df2ec8a9b047834a5d8683',1,'bbIntRect']]]
 ];

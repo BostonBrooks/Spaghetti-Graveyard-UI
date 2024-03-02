@@ -11,11 +11,15 @@
 
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbGeometry.h"
-#include "bbPool.h"
-/** bbWidget includes things like menus and buttons. */
+#include "headers/bbPool.h"
+#include "headers/bbDictionary.h"
+
+
+///include files containing widget functions, later these will be stored in a Dynamic Linked Library
+#include "maps/demo/widgets/Widget_NULL.h"
+
+/** bbWidget includes things like menus, buttons and spells */
 typedef struct { //bbWidget
-
-
 
 	bbPool_data p_Pool;
 
@@ -38,9 +42,11 @@ typedef struct { //bbWidget
 ///@{ */
 	char* m_Code; /// Enter this code to activate spell without clicking on it
 	int32_t m_OnCommand;
+	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
-	int32_t m_OnClick;
+	int32_t m_OnMouse;
+
 
 ///@}
 
@@ -62,6 +68,31 @@ typedef struct { //bbWidget
 typedef struct { //bbWidgets
 
 	bbPool* m_Pool;
+	bbDictionary* m_Codes;
+	int32_t m_NumWidgets;
+
+	int32_t *(*m_Constructor)(int32_t map, bbScreenCoordsI SC, int32_t parent);
+	int32_t *(*m_Command)(int32_t map, int32_t self, int32_t command, void* data);
+	int32_t *(*m_OnUpdate)(int32_t map, int32_t self);
+	int32_t *(*m_OnDraw)(int32_t map, int32_t self);
+	int32_t *(*m_OnDelete)(int32_t map, int32_t self);
+	int32_t *(*m_OnMouse)(int32_t map, int32_t self /* mouse data */);
+
+
+
 } bbWidgets;
+
+/// Locate existing widget
+bbWidget* bbWidget_Locate(int32_t map, int32_t self);
+
+/// Load virtual functions into vtable
+int32_t bbWidget_PopulateVTables(/* data? */);
+/// Look up function in vtable then execute
+int32_t bbWidget_New (int32_t map, bbScreenCoordsI SC, int32_t parent, int32_t type);
+int32_t bbWidget_OnCommand(int32_t map, int32_t self, int32_t command, void* data);
+int32_t bbWidget_OnUpdate(int32_t map, int32_t self);
+int32_t bbWidget_OnDraw(int32_t map, int32_t self);
+int32_t bbWidget_OnDelete(int32_t map, int32_t self);
+int32_t bbWidget_OnMouse(int32_t map, int32_t self /* mouse data */);
 
 #endif //BBWIDGETS_H

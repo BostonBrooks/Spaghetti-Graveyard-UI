@@ -19,7 +19,7 @@ var searchData=
   ['bbmedia_16',['bbMedia',['../structbbMedia.html',1,'']]],
   ['bbpool_17',['bbPool',['../structbbPool.html',1,'']]],
   ['bbpool_5fbin_18',['bbPool_bin',['../structbbPool__bin.html',1,'']]],
-  ['bbpool_5fmetadata_19',['bbPool_MetaData',['../structbbPool__MetaData.html',1,'']]],
+  ['bbpool_5fdata_19',['bbPool_data',['../structbbPool__data.html',1,'']]],
   ['bbscreencoordsf_20',['bbScreenCoordsF',['../structbbScreenCoordsF.html',1,'']]],
   ['bbscreencoordsi_21',['bbScreenCoordsI',['../structbbScreenCoordsI.html',1,'']]],
   ['bbsprites_22',['bbSprites',['../structbbSprites.html',1,'']]],

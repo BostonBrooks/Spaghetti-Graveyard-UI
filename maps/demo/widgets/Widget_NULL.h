@@ -2,8 +2,8 @@
  * @file
  * @brief The functions in this folder define the behavior of an object with class bbWidget and type NULL
  */
-#include "../headers/bbGeometry.h"
-
+#include "headers/bbGeometry.h"
+#include "headers/bbWidget.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
 int32_t bbWidget_NULL_new(int32_t map, bbScreenCoordsI sc, int32_t parent){}

@@ -62,6 +62,8 @@ $(function() {
 
 </div><!-- top -->
 <div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle"><div class="title">bbDrawable Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -75,20 +77,8 @@ Collaboration diagram for bbDrawable:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr><td colspan="2"><div class="groupHeader">Pool Stuff</div></td></tr>
-<tr><td colspan="2"><div class="groupText"><p >Stuff for including object in pool </p>
-</div></td></tr>
-<tr class="memitem:a580329e7f4622b0d2dbc426346438adc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#a580329e7f4622b0d2dbc426346438adc">m_Pool_Self</a></td></tr>
-<tr class="separator:a580329e7f4622b0d2dbc426346438adc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eb4cfc4673d8535ede0266578110853"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#a8eb4cfc4673d8535ede0266578110853">m_Pool_Prev</a></td></tr>
-<tr class="separator:a8eb4cfc4673d8535ede0266578110853"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30e94d9a189cbedba88535d90223a4dc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#a30e94d9a189cbedba88535d90223a4dc">m_Pool_Next</a></td></tr>
-<tr class="separator:a30e94d9a189cbedba88535d90223a4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65c27a4a100b192a15b741de1d4b92cd"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#a65c27a4a100b192a15b741de1d4b92cd">m_Pool_In_Use</a></td></tr>
-<tr class="separator:a65c27a4a100b192a15b741de1d4b92cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b1f7f4a0bdb65e7c173b1e5e88bd299"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#a7b1f7f4a0bdb65e7c173b1e5e88bd299">m_Map</a></td></tr>
-<tr class="memdesc:a7b1f7f4a0bdb65e7c173b1e5e88bd299"><td class="mdescLeft">&#160;</td><td class="mdescRight">What map was m_CurrentMap when this object was constructed?  <a href="structbbDrawable.html#a7b1f7f4a0bdb65e7c173b1e5e88bd299">More...</a><br /></td></tr>
-<tr class="separator:a7b1f7f4a0bdb65e7c173b1e5e88bd299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac03be06dd9fb03a446f932859abd1665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbPool__data.html">bbPool_data</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbDrawable.html#ac03be06dd9fb03a446f932859abd1665">p_Pool</a></td></tr>
+<tr class="separator:ac03be06dd9fb03a446f932859abd1665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Square Stuff</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p >Linked list of drawables belonging to one <a class="el" href="structbbDrawableSquare.html" title="bbDrawableSquare contains drawables from one square of the maps&#39; ground surface">bbDrawableSquare</a> Sorted by distance from the screen </p>
 </div></td></tr>
@@ -320,22 +310,6 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="a7b1f7f4a0bdb65e7c173b1e5e88bd299" name="a7b1f7f4a0bdb65e7c173b1e5e88bd299"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b1f7f4a0bdb65e7c173b1e5e88bd299">&#9670;&nbsp;</a></span>m_Map</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbDrawable::m_Map</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>What map was m_CurrentMap when this object was constructed? </p>
-
-</div>
-</div>
 <a id="a95f63c6600bace68a74e960e13c3735c" name="a95f63c6600bace68a74e960e13c3735c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a95f63c6600bace68a74e960e13c3735c">&#9670;&nbsp;</a></span>m_MaxHealth</h2>
 
@@ -344,62 +318,6 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int32_t bbDrawable::m_MaxHealth</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a65c27a4a100b192a15b741de1d4b92cd" name="a65c27a4a100b192a15b741de1d4b92cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a65c27a4a100b192a15b741de1d4b92cd">&#9670;&nbsp;</a></span>m_Pool_In_Use</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbDrawable::m_Pool_In_Use</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a30e94d9a189cbedba88535d90223a4dc" name="a30e94d9a189cbedba88535d90223a4dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30e94d9a189cbedba88535d90223a4dc">&#9670;&nbsp;</a></span>m_Pool_Next</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbDrawable::m_Pool_Next</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a8eb4cfc4673d8535ede0266578110853" name="a8eb4cfc4673d8535ede0266578110853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eb4cfc4673d8535ede0266578110853">&#9670;&nbsp;</a></span>m_Pool_Prev</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbDrawable::m_Pool_Prev</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a580329e7f4622b0d2dbc426346438adc" name="a580329e7f4622b0d2dbc426346438adc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a580329e7f4622b0d2dbc426346438adc">&#9670;&nbsp;</a></span>m_Pool_Self</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbDrawable::m_Pool_Self</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -526,6 +444,20 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="structbbMapCoords.html">bbMapCoords</a> bbDrawable::m_TargetLocation</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac03be06dd9fb03a446f932859abd1665" name="ac03be06dd9fb03a446f932859abd1665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac03be06dd9fb03a446f932859abd1665">&#9670;&nbsp;</a></span>p_Pool</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbbPool__data.html">bbPool_data</a> bbDrawable::p_Pool</td>
         </tr>
       </table>
 </div><div class="memdoc">
