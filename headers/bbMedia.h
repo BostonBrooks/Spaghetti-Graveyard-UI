@@ -11,6 +11,9 @@
 #define BBMEDIA_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbTextures.h"
+#include "headers/bbSprites.h"
+#include "headers/bbAnimation.h"
 
 typedef struct { //bbMedia
 

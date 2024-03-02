@@ -8,6 +8,9 @@
 #define BBGAME_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbGraphicsSettings.h"
+#include "headers/bbMap.h"
+#include "headers/bbConstants.h"
 
 typedef struct { //bbGame
 

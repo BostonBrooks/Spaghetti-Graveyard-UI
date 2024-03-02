@@ -20,6 +20,11 @@
 
 
 
+///This object contains all the data required to be placed in a pool, but no data of it's own
+typedef struct {
+	bbPool_data p_Pool;
+} bbPool_null;
+
 
 
 ///Look up object at location Pool[lvl1][lvl2];
@@ -46,15 +51,16 @@ void* bbPool_Lookup_sudo(bbPool* Pool, int32_t Address){
 
 ///Lookup object at Address, error if m_Pool_InUse == f_Pool_InUse
 void* bbPool_Lookup(bbPool* Pool, int32_t Address){
-	bbPool_MetaData* Object = bbPool_Lookup_sudo(Pool, Address);
-	bbAssert(Object->p_Pool_InUse == f_Pool_InUse,
+	bbPool_null* Object = bbPool_Lookup_sudo(Pool, Address);
+	bbAssert(Object->p_Pool.InUse == f_Pool_InUse,
 			 "Trying to lookup non-existant member of pool\n");
 	return Object;
 }
 
-bbPool* bbPool_NewPool(int32_t SizeOf, int32_t Level1, int32_t Level2){
+bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2){
 	bbPool* Pool = malloc(sizeof(bbPool));
 	bbAssert(Pool != NULL, "malloc returned null pointer?\n");
+	Pool->m_Map = map;
 	Pool->m_SizeOf = SizeOf;
 	Pool->m_Level1 = Level1;
 	Pool->m_Level2 = Level2;
@@ -122,18 +128,18 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 
 		for (int32_t j = 0; j < Pool->m_Level2; j++) {
 
-			bbPool_MetaData *metaData = bbPool_Lookup2(Pool, i, j);
+			bbPool_null *Object = bbPool_Lookup2(Pool, i, j);
 
-			metaData->p_Pool_Self = i * Pool->m_Level2 + j;
-			metaData->p_Pool_Prev = i * Pool->m_Level2 + j - 1;
-			metaData->p_Pool_Next = i * Pool->m_Level2 + j + 1;
-			metaData->p_Pool_InUse = f_Pool_NotInUse;
-			//TODO metaData->p_Map = 0;
+			Object->p_Pool.Self = i * Pool->m_Level2 + j;
+			Object->p_Pool.Prev = i * Pool->m_Level2 + j - 1;
+			Object->p_Pool.Next = i * Pool->m_Level2 + j + 1;
+			Object->p_Pool.InUse = f_Pool_NotInUse;
+			Object->p_Pool.Map = Pool->m_Map;
 		}
-		bbPool_MetaData* metaData = bbPool_Lookup2(Pool, i, 0);
-		metaData->p_Pool_Prev = f_Pool_None;
-		metaData = bbPool_Lookup2(Pool, i, Pool->m_Level2 -1);
-		metaData->p_Pool_Next = f_Pool_None;
+		bbPool_null* Object = bbPool_Lookup2(Pool, i, 0);
+		Object->p_Pool.Prev = f_Pool_None;
+		Object = bbPool_Lookup2(Pool, i, Pool->m_Level2 -1);
+		Object->p_Pool.Next = f_Pool_None;
 
 		Pool->m_Available.Head = i * Pool->m_Level2;
 		Pool->m_Available.Tail = (i+1) * Pool->m_Level2 - 1;
@@ -154,30 +160,30 @@ int32_t bbPool_New(bbPool* Pool, int32_t address){
 
 	address = Pool->m_Available.Head;
 
-	bbPool_MetaData* Object = bbPool_Lookup_sudo(Pool, address);
-	Pool->m_Available.Head = Object->p_Pool_Next;
+	bbPool_null* Object = bbPool_Lookup_sudo(Pool, address);
+	Pool->m_Available.Head = Object->p_Pool.Next;
 	if (Pool->m_Available.Head == f_Pool_None){
 		Pool->m_Available.Tail = f_Pool_None;
 	} else {
 		//Should be able to remove sudo?
-		bbPool_MetaData* Head = bbPool_Lookup_sudo(Pool, Pool->m_InUse.Head);
-		Head->p_Pool_Prev = f_Pool_None;
+		bbPool_null* Head = bbPool_Lookup_sudo(Pool, Pool->m_InUse.Head);
+		Head->p_Pool.Prev = f_Pool_None;
 	}
-	Object->p_Pool_InUse = f_Pool_InUse;
+	Object->p_Pool.InUse = f_Pool_InUse;
 
 	if (Pool->m_InUse.Head == f_Pool_None){
 		bbAssert(Pool->m_InUse.Head == f_Pool_None, "Head/Tail mismatch\n");
 		Pool->m_InUse.Head = address;
 		Pool->m_InUse.Tail = address;
-		Object->p_Pool_Prev = f_Pool_None;
-		Object->p_Pool_Next = f_Pool_None;
+		Object->p_Pool.Prev = f_Pool_None;
+		Object->p_Pool.Next = f_Pool_None;
 		return address;
 	}
 
-	bbPool_MetaData* Tail = bbPool_Lookup(Pool, Pool->m_InUse.Tail);
-	Tail->p_Pool_Next = address;
-	Object->p_Pool_Prev = Pool->m_InUse.Tail;
-	Object->p_Pool_Next = f_Pool_None;
+	bbPool_null* Tail = bbPool_Lookup(Pool, Pool->m_InUse.Tail);
+	Tail->p_Pool.Next = address;
+	Object->p_Pool.Prev = Pool->m_InUse.Tail;
+	Object->p_Pool.Next = f_Pool_None;
 	Pool->m_InUse.Tail = address;
 	return address;
 

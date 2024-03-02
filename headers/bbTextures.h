@@ -8,6 +8,7 @@
 #define BBTEXTURES_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbDictionary.h"
 
 typedef struct { //bbTextures
 

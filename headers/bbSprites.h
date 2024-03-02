@@ -7,7 +7,7 @@
 #define BBSPRITES_H
 
 #include "headers/bbSystemIncludes.h"
-
+#include "headers/bbDictionary.h"
 
 
 /// bbSprites is a container for sfSprites used in a single bbMap

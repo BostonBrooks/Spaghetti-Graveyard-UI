@@ -7,21 +7,15 @@
 #define BBAI_FSM_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbPool.h"
+#include "headers/bbGeometry.h"
+#include "headers/bbConstants.h"
 
 ///bbAI_FSM is a Finite State Machine that controls things like monsters and characters in-game
 typedef struct { //bbAI_FSM
 
-/** @name Pool Stuff
- * Stuff for including object in pool
- **/
-///@{
-	int32_t p_Pool_Self;
-	int32_t p_Pool_Prev;
-	int32_t p_Pool_Next;
-	int32_t p_Pool_InUse;
-	///What map was being loaded when this object was constructed?
-	int32_t p_Map;
-///@}
+
+	bbPool_data p_Pool;
 
 /** @name State Stuff
  * Stuff for determining the state of the FSM
@@ -29,7 +23,7 @@ typedef struct { //bbAI_FSM
 ///@{
 	bbSquareCoords m_SquareCoords;
 	bbMapCoords    m_MapCoords;
-	int32_t        m_Drawables[DRAWBLES_PER_AI];
+	int32_t        m_Drawables[DRAWABLES_PER_AI];
 
 	/** What AI state function to call */
 	int32_t m_ExternalState;
@@ -59,7 +53,7 @@ typedef struct { //bbAI_FSM
 /// bbAI_FSMs is a container for objects of type bbAI_FSM
 typedef struct { //bbAI_FSMs
 
-	bbAI_FSM_Pool* m_Pool;
+	bbPool* m_Pool;
 
 } bbAI_FSMs;
 

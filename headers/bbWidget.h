@@ -10,21 +10,14 @@
 #define BBWIDGETS_H
 
 #include "headers/bbSystemIncludes.h"
-
+#include "headers/bbGeometry.h"
+#include "bbPool.h"
 /** bbWidget includes things like menus and buttons. */
 typedef struct { //bbWidget
 
 
-/** @name Pool Stuff
- * Stuff for including object in pool
- **/
-///@{
-	int32_t m_Pool_Self;
-	int32_t m_Pool_Prev;
-	int32_t m_Pool_Next;
-	int32_t m_Pool_In_Use;
-	int32_t m_Map;  ///What map was being loaded when this object was constructed?
-///@}
+
+	bbPool_data p_Pool;
 
 /** @name Graphics Stuff
  * Stuff for drawing widgets to the screen
@@ -33,7 +26,7 @@ typedef struct { //bbWidget
 
 	bool m_Visible;
 	bool m_SubwidgetsVisible;
-	bbScreenCoords m_ScreenCoords;
+	bbScreenCoordsI m_ScreenCoords;
 
 	char* m_Text;
 	char* m_SpriteLabel;  /// Look up sprite label in dictionary to draw to screen.
@@ -68,7 +61,7 @@ typedef struct { //bbWidget
 /// bbWidgets is a container for objects of type bbWisget
 typedef struct { //bbWidgets
 
-	bbWidget_Pool* m_Pool;
+	bbPool* m_Pool;
 } bbWidgets;
 
 #endif //BBWIDGETS_H

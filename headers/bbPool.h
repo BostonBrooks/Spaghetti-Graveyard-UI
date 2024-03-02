@@ -31,10 +31,10 @@
 
 
 typedef struct {
-	int32_t Pool_Self;
-	int32_t Pool_Prev;
-	int32_t Pool_Next;
-	int32_t Pool_InUse;
+	int32_t Self;
+	int32_t Prev;
+	int32_t Next;
+	int32_t InUse;
 	int32_t Map;
 } bbPool_data;
 
@@ -44,6 +44,7 @@ typedef struct {
 } bbPool_bin;
 
 typedef struct {
+	int32_t m_Map;
 	int32_t m_SizeOf;
 	bbPool_bin m_Available;
 	bbPool_bin m_InUse;
@@ -65,7 +66,7 @@ void* bbPool_Lookup_sudo(bbPool* Pool, int32_t Address);
 void* bbPool_Lookup(bbPool* Pool, int32_t Address);
 
 ///Create an new pool with object's size = Sizeof
-bbPool* bbPool_NewPool(int32_t SizeOf, int32_t Level1, int32_t Level2);
+bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2);
 
 ///Delete entire pool
 int32_t bbPool_DeletePool(bbPool* Pool);

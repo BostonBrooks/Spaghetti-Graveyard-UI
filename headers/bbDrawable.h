@@ -10,6 +10,9 @@
 #define BBDRAWABLE_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbPool.h"
+#include "headers/bbConstants.h"
+#include "headers/bbGeometry.h"
 /** @name Avoidance types
  * Defines the footprint of a bbDrawable (m_AvoidanceShape) so other objects cannot walk through it.
  **/
@@ -28,17 +31,8 @@
  */
 
 typedef struct { //bbDrawable
-/** @name Pool Stuff
- * Stuff for including object in pool
- **/
-///@{
-	int32_t m_Pool_Self;
-	int32_t m_Pool_Prev;
-	int32_t m_Pool_Next;
-	int32_t m_Pool_In_Use;
-	///What map was m_CurrentMap when this object was constructed?
-	int32_t m_Map;
-///@}
+
+	bbPool_data p_Pool;
 /** @name Square Stuff
  * Linked list of drawables belonging to one bbDrawableSquare
  * Sorted by distance from the screen
@@ -105,7 +99,7 @@ typedef struct { //bbDrawableSquare
 /// bbDrawables contains drawables from all squares of the maps' ground surface
 typedef struct { //bbTerrainSquare
 
-	bbDrawable_Pool* m_Pool;
+	bbPool* m_Pool;
 	///m_SquaresPerMapI by m_SquaresPerMapJ array of  bbDrawableSquare
 	bbDrawableSquare** m_Squares;
 	bbDrawableSquare m_Lost;

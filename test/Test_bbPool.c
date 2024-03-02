@@ -11,7 +11,7 @@ int main(void){
 
 	char test_str[] = "You shall not pass!\n";
 
-	bbPool* TestPool = bbPool_NewPool(sizeof (test_struct), 4, 8);
+	bbPool* TestPool = bbPool_NewPool(0, sizeof (test_struct), 4, 8);
 
 	while(1) {
 

@@ -116,6 +116,8 @@ bbScreenCoordsI bbMapCoords_getScreenCoords_vector (int32_t map, bbMapCoords A, 
 /// Find the screen coordinates of a point if viewpoint is in the centre of the screen
 bbScreenCoordsI bbTileCoords_getScreenCoords_centre (int32_t map, bbMapCoords mc);
 
+bbScreenCoordsF bbScreenCoords_toFloat(bbScreenCoordsI sc);
+
 ///et cetera
 
 #endif // BBGEOMETRY_H

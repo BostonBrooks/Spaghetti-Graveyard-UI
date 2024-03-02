@@ -8,6 +8,7 @@
 #define BBDICTIONARY_H
 
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbConstants.h"
 
 typedef struct {
 	int32_t Head;
@@ -21,7 +22,7 @@ typedef struct {
 	int32_t m_Next;
 	int32_t m_InUse;
 
-	char m_Key[33];
+	char m_Key[KEY_LENGTH];
 	int32_t m_Value;
 
 } bbDictionary_entry;
