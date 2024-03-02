@@ -15,8 +15,8 @@
 
 #include <inttypes.h>
 #include <stdlib.h>
-#include "../headers/bbPrintf.h"
-#include "../headers/bbPool.h"
+#include "headers/bbPrintf.h"
+#include "headers/bbPool.h"
 
 
 

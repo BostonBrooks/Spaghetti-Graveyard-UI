@@ -6,7 +6,7 @@
 #ifndef BBANIMATION_H
 #define BBANIMATION_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 /// bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appearance of movement.
 typedef struct { //bbAnimation

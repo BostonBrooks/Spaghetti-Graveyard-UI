@@ -10,7 +10,7 @@
 #ifndef BBMEDIA_H
 #define BBMEDIA_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 typedef struct { //bbMedia
 

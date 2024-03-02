@@ -7,7 +7,7 @@
 #ifndef BBDICTIONARY_H
 #define BBDICTIONARY_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 typedef struct {
 	int32_t Head;

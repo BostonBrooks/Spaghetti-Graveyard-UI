@@ -6,7 +6,7 @@
 #ifndef BBAI_FSM_H
 #define BBAI_FSM_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 ///bbAI_FSM is a Finite State Machine that controls things like monsters and characters in-game
 typedef struct { //bbAI_FSM

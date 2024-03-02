@@ -9,7 +9,7 @@
 #ifndef BBWIDGETS_H
 #define BBWIDGETS_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 /** bbWidget includes things like menus and buttons. */
 typedef struct { //bbWidget

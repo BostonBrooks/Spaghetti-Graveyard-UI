@@ -7,7 +7,7 @@
 #ifndef BBGAME_H
 #define BBGAME_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 typedef struct { //bbGame
 

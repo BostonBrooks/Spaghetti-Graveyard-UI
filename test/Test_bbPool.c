@@ -1,13 +1,8 @@
-#include "../headers/bbPool.h"
+#include "headers/bbPool.h"
 
 typedef struct {
 
-	int32_t p_Pool_Self;
-	int32_t p_Pool_Prev;
-	int32_t p_Pool_Next;
-	int32_t p_Pool_InUse;
-	int32_t p_Map;
-
+	bbPool_data p_PoolData;
 
 	char* test_string;
 } test_struct;
@@ -20,7 +15,7 @@ int main(void){
 
 	while(1) {
 
-		int test_int = bbPool_New(TestPool, f_Pool_NextAvailable);
+		int32_t test_int = bbPool_New(TestPool, f_Pool_NextAvailable);
 
 		test_struct* testStruct = bbPool_Lookup(TestPool, test_int);
 

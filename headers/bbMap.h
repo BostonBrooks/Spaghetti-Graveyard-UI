@@ -8,8 +8,8 @@
 #ifndef BBMAP_H
 #define BBMAP_H
 
-#include "../headers/bbSystemIncludes.h"
-#include "../headers/bbGeometry.h"
+#include "headers/bbSystemIncludes.h"
+#include "headers/bbGeometry.h"
 
 typedef struct { //bbMap
 

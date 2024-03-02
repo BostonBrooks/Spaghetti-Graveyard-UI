@@ -2,8 +2,8 @@
  * @file
 * @brief bbFloorDiv contains functions for integer division, rounding toward negative infinity.
 */
-#include "../headers/bbSystemIncludes.h"
-#include "../headers/bbPrintf.h"
+#include "headers/bbSystemIncludes.h"
+#include "headers/bbPrintf.h"
 
 /** Calculate the largest integer not greater than a/b */
 static int32_t bbFloorDiv (int32_t a , int32_t b){

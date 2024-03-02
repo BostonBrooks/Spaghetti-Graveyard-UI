@@ -7,8 +7,8 @@
 #ifndef BBGEOMETRY_H
 #define BBGEOMETRY_H
 
-#include "../headers/bbSystemIncludes.h"
-#include "../headers/bbFloorDiv.h"
+#include "headers/bbSystemIncludes.h"
+#include "headers/bbFloorDiv.h"
 
 
 ///Floating point, 2d coordinates used by CSFML

@@ -9,13 +9,13 @@
 #ifndef BBDRAWABLE_H
 #define BBDRAWABLE_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 /** @name Avoidance types
  * Defines the footprint of a bbDrawable (m_AvoidanceShape) so other objects cannot walk through it.
  **/
 ///@{
-#define AVOIDANCE_NULL              -1
-#define AVOIDANCE_CIRCULAR         0
+#define AVOIDANCE_NULL             -1
+#define AVOIDANCE_CIRCULAR          0
 #define AVOIDANCE_SQUARE            1
 #define AVOIDANCE_LINE              2
 #define AVOIDANCE_RECTANGLE         3

@@ -1,7 +1,7 @@
-#include "../headers/bbDictionary.h"
-#include "../headers/bbFlags.h"
-#include "../headers/bbPrintf.h"
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbDictionary.h"
+#include "headers/bbFlags.h"
+#include "headers/bbPrintf.h"
+#include "headers/bbSystemIncludes.h"
 
 int32_t hash(unsigned char *str, int32_t n_bins)
 {

@@ -6,7 +6,7 @@
 #ifndef BBGRAPHICSSETTINGS_H
 #define BBGRAPHICSSETTINGS_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 typedef struct { //bbGraphicsSettings
 

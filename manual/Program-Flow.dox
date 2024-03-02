@@ -9,7 +9,7 @@ An outline of the basic flow of the program (main.c) follows:
 -Open window and display loading screen
 -Load Skin data
 
--Initialise VTables and their elements
+-Initialise VTables and their elements (preferably on a per-map basis)
     - Avoidance shape functions
     - AI constructors
     - AI OnUpdate

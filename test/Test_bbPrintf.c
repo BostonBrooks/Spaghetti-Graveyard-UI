@@ -7,7 +7,7 @@
 #define BBVERBOSE
 #define BBASSERT
 
-#include "../headers/bbPrintf.h"
+#include "headers/bbPrintf.h"
 int main(void){
 
 	int call_sign = 193;

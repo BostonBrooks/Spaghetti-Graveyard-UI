@@ -2,20 +2,14 @@
  * @file
  * @brief Pools pre-allocate space for objects in the game to quickly allocate and de-allocate individual objects
  *
- * Objects in pool must contain members:<br>
- * int32_t p_Pool_Self;<br>
- * int32_t p_Pool_Prev;<br>
- * int32_t p_Pool_Next;<br>
- * int32_t p_Pool_InUse;<br>
- * int32_t p_Pool_Allocated<br>
- * int32_t p_Map;<br>
+ * The first element of an object in a pool must be "bbPool_data p_PoolData;"
  */
 
 
 
 #include <inttypes.h>
 #include <stdlib.h>
-#include "../headers/bbPrintf.h"
+#include "headers/bbPrintf.h"
 
 
 /** @name Pool Error Codes
@@ -37,12 +31,12 @@
 
 
 typedef struct {
-	int32_t p_Pool_Self;
-	int32_t p_Pool_Prev;
-	int32_t p_Pool_Next;
-	int32_t p_Pool_InUse;
-	int32_t p_Map;
-} bbPool_MetaData;
+	int32_t Pool_Self;
+	int32_t Pool_Prev;
+	int32_t Pool_Next;
+	int32_t Pool_InUse;
+	int32_t Map;
+} bbPool_data;
 
 typedef struct {
 	int32_t Head;

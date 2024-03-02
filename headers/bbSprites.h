@@ -6,7 +6,7 @@
 #ifndef BBSPRITES_H
 #define BBSPRITES_H
 
-#include "../headers/bbSystemIncludes.h"
+#include "headers/bbSystemIncludes.h"
 
 
 

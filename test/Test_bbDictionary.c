@@ -1,5 +1,5 @@
-#include "../headers/bbDictionary.h"
-#include "../headers/bbFlags.h"
+#include "headers/bbDictionary.h"
+#include "headers/bbFlags.h"
 
 int main (void){
 
