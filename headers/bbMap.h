@@ -20,16 +20,17 @@ typedef struct { //bbMap
 	bbMapConstants m_Constants;
 
 
-    bbTextures m_Textures;
-    bbSprites m_Sprites;
-    bbAnimations m_Animations;
-    bbSkins m_Skins;
+    bbTextures* m_Textures;
+    bbSprites* m_Sprites;
+    bbAnimations* m_Animations;
+    bbSkins* m_Skins;
 
 	/// Increased with every update of the map
 	int32_t m_MapTime;
 
 	char* path;
 
+    bbElevations* m_Elevations;
 	bbTerrainSquares* m_Terrain;
 	bbDrawables* m_Drawables;
 	bbAI_FSMs* m_AI_FSMs;
