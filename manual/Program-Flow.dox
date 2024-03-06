@@ -3,12 +3,13 @@
 An outline of the basic flow of the program (main.c) follows:
 
 -Make new game instance and load graphics settings, names of maps
+   -Open window and display loading screen
 
 -Open map header file and read map settings inc filenames 
 -Load textures from filename
 -Load sprites from filename
 -Load animations from filename
--Open window and display loading screen
+
 -Load Skin data
 
 -Initialise VTables and their elements (preferably on a per-map basis)
