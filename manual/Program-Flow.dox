@@ -2,6 +2,8 @@
 
 An outline of the basic flow of the program (main.c) follows:
 
+-Make new game instance and load graphics settings, names of maps
+
 -Open map header file and read map settings inc filenames 
 -Load textures from filename
 -Load sprites from filename
@@ -57,4 +59,5 @@ An outline of the basic flow of the program (main.c) follows:
 
 -If player indicates to load a different map, clear graphics data including ground surface, and load new map as seen at the top of the page.
 (I do not know what I will do about data shared between maps such as player stats)
+
 */

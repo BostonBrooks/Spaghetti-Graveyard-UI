@@ -12,8 +12,13 @@
 
 #define DRAWABLES_PER_AI        16
 #define ANIMATIONS_PER_DRAWABLE 16
+#define N_WIDGET_TYPES          16
 
 ///The maximum size of a key in a dictionary, including the zero terminator.
 #define KEY_LENGTH              33
+
+#define GAME_PATH               "game"
+
+#define COLOUR_BEIGE           {246, 224, 201, 255}
 
 #endif // CONSTANTS_H

@@ -56,4 +56,15 @@ One exception to this would be setting the scale of a sprite to be drawn to the 
 
 The coordinates of such a sprite on-screen will also be a fixed point, with each pixel being divided up into, say, 8 points.
 
+6. Member Functions:
+========================
+
+Member functions are defined in this way
+
+bbObject_method(bbObject* self, args);
+
+If it proves convenient a wrapper method will be made in this way:
+
+bbObject_methodI(int32_t map, int32_t address, args);
+
 */

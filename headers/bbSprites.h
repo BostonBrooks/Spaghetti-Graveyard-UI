@@ -18,14 +18,8 @@ typedef struct { //bbSprites
 
 } bbSprites;
 
+int32_t bbSprites_new(int32_t map, char* file, int32_t num_textures);
+int32_t bbSprites_clear(int32_t map);
+int32_t bbSprites_locate(int32_t map, char* key);
 
-
-
-/**
- * This function initialises sprites from data found in the given file.
- */
-extern bbSprites* bbSprites_CreateFromFile(char File[]);\
-
-extern sfSprite* sfSpriteLocate (int map_int, int animation_int, int angle_int, int frame_int);
-extern sfSprite* sfSpriteLocateWKey (int map_int, char* animation_key, int angle_int, int frame_int);
 #endif //BBSPRITES_H

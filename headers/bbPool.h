@@ -5,7 +5,8 @@
  * The first element of an object in a pool must be "bbPool_data p_PoolData;"
  */
 
-
+#ifndef BBPOOL_H
+#define BBPOOL_H
 
 #include <inttypes.h>
 #include <stdlib.h>
@@ -55,15 +56,15 @@ typedef struct {
 
 
 ///Look up object at location Pool[lvl1][lvl2];
-void* bbPool_Lookup2(bbPool* Pool, int32_t lvl1, int32_t lvl2);
+int32_t bbPool_Lookup2(void** return_by_reference, bbPool* Pool, int32_t lvl1, int32_t lvl2);
 
 
 ///Lookup object at address, ignoring m_Pool_InUse;
-void* bbPool_Lookup_sudo(bbPool* Pool, int32_t Address);
+int32_t bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, int32_t Address);
 
 
 ///Lookup object at Address, error if m_Pool_InUse == f_Pool_InUse
-void* bbPool_Lookup(bbPool* Pool, int32_t Address);
+int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address);
 
 ///Create an new pool with object's size = Sizeof
 bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2);
@@ -82,3 +83,5 @@ int32_t bbPool_New(bbPool* Pool, int32_t address);
 
 ///Remove object from pool
 int32_t bbPool_Delete(bbPool* Pool, int32_t address);
+
+#endif //BBPOOL_H

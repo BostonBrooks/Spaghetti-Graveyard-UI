@@ -20,4 +20,4 @@ typedef struct { //bbTerrainSquare
 	bbTerrainSquare*** m_Squares;
 } bbTerrainSquares;
 
-#endif //BBGAME_H
+#endif //BBTERRAIN_H

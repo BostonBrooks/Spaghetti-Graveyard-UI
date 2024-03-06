@@ -22,6 +22,7 @@ typedef struct { //bbMap
 	/// Increased with every update of the map
 	int32_t m_MapTime;
 
+	char* path;
 
 	bbTerrainSquares* m_Terrain;
 	bbDrawables* m_Drawables;
@@ -33,5 +34,8 @@ typedef struct { //bbMap
 	int32_t m_ViewpointDrawable;
 
 } bbMap;
+
+bbMap* bbMap_new(int32_t map, char* path);
+
 
 #endif //BBMAP_H

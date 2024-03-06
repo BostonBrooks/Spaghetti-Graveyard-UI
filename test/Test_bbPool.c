@@ -17,11 +17,13 @@ int main(void){
 
 		int32_t test_int = bbPool_New(TestPool, f_Pool_NextAvailable);
 
-		test_struct* testStruct = bbPool_Lookup(TestPool, test_int);
+		test_struct* testStruct;
+		bbPool_Lookup(&testStruct, TestPool, test_int);
 
 		testStruct->test_string = test_str;
 
-		test_struct* testStruct1 = bbPool_Lookup(TestPool, test_int);
+		test_struct* testStruct1;
+		bbPool_Lookup(&testStruct1, TestPool, test_int);
 
 		printf("%s", testStruct1->test_string);
 

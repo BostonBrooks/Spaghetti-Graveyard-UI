@@ -9,6 +9,7 @@
 #ifndef BBWIDGETS_H
 #define BBWIDGETS_H
 
+#include "headers/bbConstants.h"
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbGeometry.h"
 #include "headers/bbPool.h"
@@ -16,7 +17,7 @@
 
 
 ///include files containing widget functions, later these will be stored in a Dynamic Linked Library
-#include "maps/demo/widgets/Widget_NULL.h"
+//#include "maps/demo/widgets/Widget_NULL.h"
 
 /** bbWidget includes things like menus, buttons and spells */
 typedef struct { //bbWidget
@@ -71,12 +72,12 @@ typedef struct { //bbWidgets
 	bbDictionary* m_Codes;
 	int32_t m_NumWidgets;
 
-	int32_t *(*m_Constructor)(int32_t map, bbScreenCoordsI SC, int32_t parent);
-	int32_t *(*m_Command)(int32_t map, int32_t self, int32_t command, void* data);
-	int32_t *(*m_OnUpdate)(int32_t map, int32_t self);
-	int32_t *(*m_OnDraw)(int32_t map, int32_t self);
-	int32_t *(*m_OnDelete)(int32_t map, int32_t self);
-	int32_t *(*m_OnMouse)(int32_t map, int32_t self /* mouse data */);
+	int32_t (*m_Constructor[N_WIDGET_TYPES])(int32_t map, bbScreenCoordsI SC, int32_t parent);
+	int32_t (*m_OnCommand[N_WIDGET_TYPES])(int32_t map, int32_t self, int32_t command, void* data);
+	int32_t (*m_OnUpdate[N_WIDGET_TYPES])(int32_t map, int32_t self);
+	int32_t (*m_OnDraw[N_WIDGET_TYPES])(int32_t map, int32_t self);
+	int32_t (*m_OnDelete[N_WIDGET_TYPES])(int32_t map, int32_t self);
+	int32_t (*m_OnMouse[N_WIDGET_TYPES])(int32_t map, int32_t self, void* data);
 
 
 
@@ -93,6 +94,6 @@ int32_t bbWidget_OnCommand(int32_t map, int32_t self, int32_t command, void* dat
 int32_t bbWidget_OnUpdate(int32_t map, int32_t self);
 int32_t bbWidget_OnDraw(int32_t map, int32_t self);
 int32_t bbWidget_OnDelete(int32_t map, int32_t self);
-int32_t bbWidget_OnMouse(int32_t map, int32_t self /* mouse data */);
+int32_t bbWidget_OnMouse(int32_t map, int32_t self, void* data);
 
 #endif //BBWIDGETS_H

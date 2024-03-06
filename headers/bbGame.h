@@ -11,6 +11,7 @@
 #include "headers/bbGraphicsSettings.h"
 #include "headers/bbMap.h"
 #include "headers/bbConstants.h"
+#include "headers/bbDictionary.h"
 
 typedef struct { //bbGame
 
@@ -20,12 +21,18 @@ typedef struct { //bbGame
 
 	bbMap* m_Maps[N_MAPS];
 
+	char m_MapNames[N_MAPS][256];
 
 	///Increased with every iteration of game loop
 	int32_t m_GlobalTime;
 
 } bbGame;
 
-bbGame* g_Game;
+extern bbGame* g_Game;
+
+/// Start the game and load map names;
+int32_t bbGame_new();
+/// Free all memory and exit
+int32_t bbGame_delete();
 
 #endif //BBGAME_H
