@@ -40,6 +40,6 @@ int main (void){
     // draw one frame of an animation to the window
 
     sprintf(file_path, "../games/%s/maps/%s/elevations.bmp", game_name, map_name);
-    bbElevations* elevations = bbElevations_new(file_path, map0->m_Constants);
+    bbElevations* elevations = bbElevations_new(file_path, map0->m_Constants->/integers/);
     g_Game->m_Maps[0]->m_Elevations = elevations;
 
