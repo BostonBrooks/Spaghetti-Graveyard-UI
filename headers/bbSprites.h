@@ -18,7 +18,7 @@ typedef struct { //bbSprites
 
 } bbSprites;
 
-int32_t bbSprites_new(int32_t map, char* file, int32_t num_textures);
+int32_t bbSprites_new(char* file, bbTextures* textures);
 int32_t bbSprites_clear(int32_t map);
 int32_t bbSprites_locate(int32_t map, char* key);
 

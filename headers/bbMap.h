@@ -17,7 +17,13 @@
 
 typedef struct { //bbMap
 
-	bbMapConstants Constants;
+	bbMapConstants m_Constants;
+
+
+    bbTextures m_Textures;
+    bbSprites m_Sprites;
+    bbAnimations m_Animations;
+    bbSkins m_Skins;
 
 	/// Increased with every update of the map
 	int32_t m_MapTime;
@@ -35,7 +41,7 @@ typedef struct { //bbMap
 
 } bbMap;
 
-bbMap* bbMap_new(int32_t map, char* path);
+bbMap* bbMap_new(char* file_path);
 
 
 #endif //BBMAP_H

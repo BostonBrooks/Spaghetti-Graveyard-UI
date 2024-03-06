@@ -31,7 +31,7 @@ typedef struct { //bbGame
 extern bbGame* g_Game;
 
 /// Start the game and load map names;
-int32_t bbGame_new();
+int32_t bbGame_new(char* file_path);
 /// Free all memory and exit
 int32_t bbGame_delete();
 

@@ -32,7 +32,7 @@ typedef struct { //bbAnimations
 } bbAnimations;
 
 
-int32_t bbAnimation_new(int32_t map, char* file, int32_t num_textures);
+int32_t bbAnimation_new(char* file_path, bbSprites* sprites);
 int32_t bbAnimations_clear(int32_t map);
 int32_t bbAnimations_locate(int32_t map, char* key);
 extern int32_t bbAnimation_getSprite(bbAnimation* animation, int32_t angle_int, int32_t frame_int);

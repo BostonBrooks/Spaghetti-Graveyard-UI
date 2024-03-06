@@ -32,7 +32,10 @@ typedef struct {
 
 	int32_t m_FramerateLimit;
 
-
+    int32_t m_Textures;
+    int32_t m_Sprites;
+    int32_t m_Animations;
+    int32_t m_Skins;
 
 ///@}
 /** @name Derived Constants **/
