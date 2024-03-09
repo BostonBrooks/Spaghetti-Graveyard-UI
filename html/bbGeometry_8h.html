@@ -96,13 +96,13 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 2d coordinates used by CSFML.  <a href="structbbScreenCoordsF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by <a class="el" href="structbbMap.html#a6d4e0c3a38bbc6522b462ff670010273">bbMap::m_ScreenPPP</a>.  <a href="structbbScreenCoordsI.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP.  <a href="structbbScreenCoordsI.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbViewportCoordsF.html">bbViewportCoordsF</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 2d coordinates used by CSFML.  <a href="structbbViewportCoordsF.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbViewportCoordsI.html">bbViewportCoordsI</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by <a class="el" href="structbbMap.html#a6d4e0c3a38bbc6522b462ff670010273">bbMap::m_ScreenPPP</a>.  <a href="structbbViewportCoordsI.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP.  <a href="structbbViewportCoordsI.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbMapCoords.html">bbMapCoords</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 3d coordinates.  <a href="structbbMapCoords.html#details">More...</a><br /></td></tr>
@@ -117,7 +117,7 @@ Data Structures</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 3d coordinates. Let's not use these.  <a href="structbbFloat3D.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbIntRect.html">bbIntRect</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for hitboxes &amp; clickboxes.  <a href="structbbIntRect.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for hitboxes &amp; clickboxes units of Screen Points, see bbMapConstants.m_ScreenPPP.  <a href="structbbIntRect.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -146,8 +146,8 @@ Functions</h2></td></tr>
 <tr class="memitem:adeaafee5e4b2ab1311ce280b146de70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">bbTileCoords_getScreenCoords_centre</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
 <tr class="memdesc:adeaafee5e4b2ab1311ce280b146de70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the screen coordinates of a point if viewpoint is in the centre of the screen.  <a href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">More...</a><br /></td></tr>
 <tr class="separator:adeaafee5e4b2ab1311ce280b146de70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a114188097cb1aa5428845842fb659870"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a114188097cb1aa5428845842fb659870">bbScreenCoords_toFloat</a> (int32_t map, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc)</td></tr>
-<tr class="separator:a114188097cb1aa5428845842fb659870"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07ba3b78fe2e3937c00617ca207ea81f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a07ba3b78fe2e3937c00617ca207ea81f">bbScreenCoordsI_toFloat</a> (int32_t map, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc)</td></tr>
+<tr class="separator:a07ba3b78fe2e3937c00617ca207ea81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This file describes data types and methods for dealing with 3d map coordinates and 2d screen coordinates int32_t map is included as an argument to many of these functions because important constants are defined in the <a class="el" href="structbbMap.html">bbMap</a> object. </p>
@@ -328,14 +328,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a114188097cb1aa5428845842fb659870" name="a114188097cb1aa5428845842fb659870"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a114188097cb1aa5428845842fb659870">&#9670;&nbsp;</a></span>bbScreenCoords_toFloat()</h2>
+<a id="a07ba3b78fe2e3937c00617ca207ea81f" name="a07ba3b78fe2e3937c00617ca207ea81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07ba3b78fe2e3937c00617ca207ea81f">&#9670;&nbsp;</a></span>bbScreenCoordsI_toFloat()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> bbScreenCoords_toFloat </td>
+          <td class="memname"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> bbScreenCoordsI_toFloat </td>
           <td>(</td>
           <td class="paramtype">int32_t&#160;</td>
           <td class="paramname"><em>map</em>, </td>

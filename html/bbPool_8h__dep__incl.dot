@@ -5,11 +5,19 @@ digraph "headers/bbPool.h"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="headers/bbPool.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Pools pre-allocate space for objects in the game to quickly allocate and de-allocate individual objec..."];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="headers/bbAI_FSM.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbAI__FSM_8h.html",tooltip="A bbAI_FSM (Finite State Machine) contains the code to control behaviours of things in-game."];
+  Node2 [label="headers/bbActor.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbActor_8h.html",tooltip="A bbActor (Finite State Machine) contains the code to control behaviours of things in-game."];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="AI/AI_NULL.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$AI__NULL_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbAI_FSM and type NULL."];
-  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="headers/bbDrawable.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbDrawable_8h.html",tooltip="bbGame is the root of all data stored by the game."];
-  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="headers/bbWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbWidget_8h.html",tooltip="bbWidget includes things like menus and buttons. Each widget owns a list of subwidgets and widgets ar..."];
+  Node3 [label="games/game/maps/demo\l/actors/actor_null.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$actor__null_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbActor and type NULL."];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="headers/bbMap.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbMap_8h.html",tooltip="bbMap stores all the game data pertaining to one map in the game"];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="headers/bbGame.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbGame_8h.html",tooltip="bbGame is the root of all data stored by the game."];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="headers/bbDrawable.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbDrawable_8h.html",tooltip="bbGame is the root of all data stored by the game."];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="headers/bbWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbWidget_8h.html",tooltip="bbWidget includes things like menus and buttons. Each widget owns a list of subwidgets and widgets ar..."];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="games/game/maps/demo\l/widgets/widget_null.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$widget__null_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

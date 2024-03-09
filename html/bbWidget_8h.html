@@ -67,20 +67,28 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">bbWidget.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structbbWidget.html">bbWidget</a> includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy <a class="el" href="structbbWidgets.html" title="bbWidgets is a container for objects of type bbWisget">bbWidgets</a> is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered.  
+<p><a class="el" href="structbbWidget.html" title="include files containing widget functions, later these will be stored in a Dynamic Linked Library">bbWidget</a> includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy <a class="el" href="structbbWidgets.html" title="bbWidgets is a container for objects of type bbWisget">bbWidgets</a> is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="bbConstants_8h_source.html">headers/bbConstants.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbGeometry_8h_source.html">headers/bbGeometry.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bbPool_8h_source.html">bbPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbPool_8h_source.html">headers/bbPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbWidget.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="bbWidget_8h__incl.png" border="0" usemap="#aheaders_2bbWidget_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
+<div class="dyncontent">
+<div class="center"><img src="bbWidget_8h__dep__incl.png" border="0" usemap="#aheaders_2bbWidget_8hdep" alt=""/></div>
 </div>
 </div>
 <p><a href="bbWidget_8h_source.html">Go to the source code of this file.</a></p>
@@ -88,14 +96,67 @@ Include dependency graph for bbWidget.h:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html">bbWidget</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">include files containing widget functions, later these will be stored in a Dynamic Linked Library  <a href="structbbWidget.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidgets.html">bbWidgets</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbWidgets.html" title="bbWidgets is a container for objects of type bbWisget">bbWidgets</a> is a container for objects of type bbWisget  <a href="structbbWidgets.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ad9471c5e682e509c30fa93b94d3ba79a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ad9471c5e682e509c30fa93b94d3ba79a">bbWidget_New</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **self, int32_t map, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> SC, int32_t parent, int32_t type)</td></tr>
+<tr class="separator:ad9471c5e682e509c30fa93b94d3ba79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="structbbWidget.html">bbWidget</a> includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy <a class="el" href="structbbWidgets.html" title="bbWidgets is a container for objects of type bbWisget">bbWidgets</a> is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p ><a class="el" href="structbbWidget.html" title="include files containing widget functions, later these will be stored in a Dynamic Linked Library">bbWidget</a> includes things like menus and buttons. Each widget owns a list of subwidgets and widgets are arranged in a hierarchy <a class="el" href="structbbWidgets.html" title="bbWidgets is a container for objects of type bbWisget">bbWidgets</a> is a container for all widgets corresponding to a given map Spell slots are classified as widgets and they can either be clicked or have their code entered. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad9471c5e682e509c30fa93b94d3ba79a" name="ad9471c5e682e509c30fa93b94d3ba79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad9471c5e682e509c30fa93b94d3ba79a">&#9670;&nbsp;</a></span>bbWidget_New()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbWidget_New </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> **&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td>
+          <td class="paramname"><em>SC</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4

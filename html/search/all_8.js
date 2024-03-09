@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['k_0',['k',['../structbbMapCoords.html#a39e678291243e64da9e03824bf904968',1,'bbMapCoords::k()'],['../structbbTileCoords.html#a9de20c191efe358b69c4d07ed28f35c4',1,'bbTileCoords::k()'],['../structbbSquareCoords.html#ae27f688b5b3c84c9d1e02c412afe7fe7',1,'bbSquareCoords::k()'],['../structbbFloat3D.html#a3936eb6bef235516efca579128369b98',1,'bbFloat3D::k()']]],
-  ['key_5flength_1',['KEY_LENGTH',['../bbConstants_8h.html#a5145aca5cb4a65b79b24d162d6fd72eb',1,'bbConstants.h']]]
+  ['i_0',['i',['../structbbMapCoords.html#a18d06a8a1db547f001ed9ad5704e26c3',1,'bbMapCoords::i()'],['../structbbTileCoords.html#ade7a48971336e3a1b996db2c3a62c3ae',1,'bbTileCoords::i()'],['../structbbSquareCoords.html#a8ba94592b694be531e86cb53c38f4036',1,'bbSquareCoords::i()'],['../structbbFloat3D.html#ac58914c0237640e4ae7a7fed7506686d',1,'bbFloat3D::i()']]],
+  ['index_2edox_1',['index.dox',['../index_8dox.html',1,'']]],
+  ['inuse_2',['InUse',['../structbbPool__data.html#a87c503a314d024fef6fd4e7e6a8c24cc',1,'bbPool_data']]],
+  ['isometric_5ffactor_3',['ISOMETRIC_FACTOR',['../bbConstants_8h.html#a3f114dcd9d8c918d482ba08fc5a8658b',1,'bbConstants.h']]]
 ];

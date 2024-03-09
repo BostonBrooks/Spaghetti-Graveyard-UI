@@ -22,13 +22,16 @@
  */
 static void bbDebug(const char* format, ...){
 
+/**
+ * This function calls printf if BBDEBUG is defined in the file this header is included in
+ */
 #ifdef BBDEBUG
 
 	printf("DEBUG: ");
-    va_list args;
-    va_start(args, format);
-    vprintf(format, args);
-    va_end (args);
+	va_list args;
+	va_start(args, format);
+	vprintf(format, args);
+	va_end (args);
 
 #endif
 
@@ -42,28 +45,28 @@ static void bbVerbose(const char* format, ...){
 #ifdef BBVERBOSE
 
 	printf("VERBOSE: ");
-    va_list args;
-    va_start(args, format);
-    vprintf(format, args);
-    va_end (args);
+	va_list args;
+	va_start(args, format);
+	vprintf(format, args);
+	va_end (args);
 
 #endif // BBVERBOSE
 
 }
 
-#define bbAssert(expression, ...)                        \
-    if (!(expression)){                                  \
-        printf("ASSERTION: ");                              \
-        printf(__VA_ARGS__);                             \
-    }                                                    \
-    assert(expression);
+#define bbAssert(expression, ...)                    \
+	if (!(expression)){                              \
+		printf("ASSERTION: ");                       \
+	printf(__VA_ARGS__);                             \
+	}                                                \
+	assert(expression);
 
 
-#define bbWarning(expression, ...)                       \
-	if (!(expression)){                                  \
-        printf("WARNING: ");                             \
-        printf(__VA_ARGS__);                             \
-    }
+#define bbWarning(expression, ...)                   \
+	if (!(expression)){                              \
+		printf("WARNING: ");                         \
+	printf(__VA_ARGS__);                             \
+	}
 
 
 #endif // BBPRINTF_H

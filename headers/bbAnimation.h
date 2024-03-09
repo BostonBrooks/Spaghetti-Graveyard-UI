@@ -8,6 +8,7 @@
 
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbDictionary.h"
+#include "headers/bbSprites.h"
 
 /// bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appearance of movement.
 typedef struct { //bbAnimation
@@ -32,10 +33,10 @@ typedef struct { //bbAnimations
 } bbAnimations;
 
 
-int32_t bbAnimation_new(char* file_path, bbSprites* sprites);
-int32_t bbAnimations_clear(int32_t map);
-int32_t bbAnimations_locate(int32_t map, char* key);
-extern int32_t bbAnimation_getSprite(bbAnimation* animation, int32_t angle_int, int32_t frame_int);
+int32_t bbAnimations_new(bbAnimations** animations, bbSprites* sprites /*or NULL*/, char* file_path, int32_t num_animations);
+//int32_t bbAnimations_clear(int32_t map);
+//int32_t bbAnimations_locate(int32_t map, char* key);
+//extern int32_t bbAnimation_getSprite(bbAnimation* animation, int32_t angle_int, int32_t frame_int);
 
 
 #endif //BBANIMATION_H

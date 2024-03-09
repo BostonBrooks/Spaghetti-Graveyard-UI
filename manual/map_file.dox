@@ -1,0 +1,8 @@
+/** \page mapfile
+
+The map file is the starting point for the game to load a map.
+It starts with what version of the game the mapfile was created for to preserve backwards compatibility.
+It contains references to other files containing data describing how to load textures, sprites, animations, elevations, etc
+
+
+*/

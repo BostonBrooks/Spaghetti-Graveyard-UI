@@ -18,6 +18,4 @@
 	#include <stdbool.h>
 	#include <inttypes.h>
 
-
-
 #endif //BBSYSTEM_INCLUDES_H

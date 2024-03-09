@@ -1,7 +1,12 @@
 var searchData=
 [
-  ['tail_0',['Tail',['../structbbDictionary__bin.html#a3a44344ce25bb6fce3fac1feed10c8b9',1,'bbDictionary_bin::Tail()'],['../structbbPool__bin.html#a60efe38576e636641e5904843a4a4ef2',1,'bbPool_bin::Tail()']]],
-  ['textures_2ecsv_1',['textures.csv',['../textures_8csv.html',1,'']]],
-  ['textures_2ecsv_2edox_2',['textures.csv.dox',['../textures_8csv_8dox.html',1,'']]],
-  ['top_3',['top',['../structbbIntRect.html#a15395e1b33df2ec8a9b047834a5d8683',1,'bbIntRect']]]
+  ['screenppp_0',['ScreenPPP',['../structbbMapConstants.html#ae9edab3acb162d6aaa4d8f442108b5ad',1,'bbMapConstants']]],
+  ['self_1',['Self',['../structbbPool__data.html#ae34a0845b7d2211c99b41374fc75aa3a',1,'bbPool_data']]],
+  ['size_2',['size',['../structbbIntRect.html#a10020872e7a7afb62536ee5859c57da8',1,'bbIntRect']]],
+  ['skins_3',['Skins',['../structbbMapConstants.html#ac1fa3b6989a4f8798af130dc13b399ed',1,'bbMapConstants']]],
+  ['sprites_4',['Sprites',['../structbbMapConstants.html#a15c904f9f092a5aeb0196f807d9c9e78',1,'bbMapConstants']]],
+  ['sprites_2ecsv_5',['sprites.csv',['../sprites_8csv.html',1,'']]],
+  ['sprites_2ecsv_2edox_6',['sprites.csv.dox',['../sprites_8csv_8dox.html',1,'']]],
+  ['squarespermapi_7',['SquaresPerMapI',['../structbbMapConstants.html#aa67e3ee9358efce1afb286d6e8356f1c',1,'bbMapConstants']]],
+  ['squarespermapj_8',['SquaresPerMapJ',['../structbbMapConstants.html#a49acf7d5e5fb25d504b3204b7a95bc27',1,'bbMapConstants']]]
 ];

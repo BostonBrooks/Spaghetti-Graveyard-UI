@@ -7,14 +7,15 @@
 #define BBELEVATIONS_H
 
 #include "headers/bbMapConstants.h"
+#include "headers/bbSystemIncludes.h"
 
 typedef struct {
 
     int32_t** m_HeightValues;
-
     sfTexture** m_ShadingTextures;
+
 } bbElevations;
 
-bbElevations_new(char* file_path, bbMapConstants constants);
+int32_t bbElevations_new(bbElevations** Elevations, char* file_path, bbMapConstants* constants);
 
 #endif BBELEVATIONS_H

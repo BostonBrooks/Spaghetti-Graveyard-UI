@@ -17,5 +17,5 @@ typedef struct { //bbGraphicsSettings
 
 } bbGraphicsSettings;
 
-bbGraphicsSettings* bbGraphicsSettings_new(char* string, int32_t height, int32_t width);
+int32_t bbGraphicsSettings_new(bbGraphicsSettings** settings, char* string, int32_t height, int32_t width);
 #endif //BBGRAPHICSSETTINGS_H

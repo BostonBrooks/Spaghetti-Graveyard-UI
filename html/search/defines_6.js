@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['n_5fmaps_0',['N_MAPS',['../bbConstants_8h.html#a259c8ee95256af2b3ec7b1715a7cbb8d',1,'bbConstants.h']]]
+  ['height_5fmap_5fpadding_0',['HEIGHT_MAP_PADDING',['../bbConstants_8h.html#a95edc3735c42ddefef932f33940c9fc1',1,'bbConstants.h']]]
 ];

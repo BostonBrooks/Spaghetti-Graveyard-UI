@@ -16,8 +16,6 @@
 #include "headers/bbDictionary.h"
 
 
-///include files containing widget functions, later these will be stored in a Dynamic Linked Library
-//#include "maps/demo/widgets/Widget_NULL.h"
 
 /** bbWidget includes things like menus, buttons and spells */
 typedef struct { //bbWidget
@@ -83,11 +81,13 @@ typedef struct { //bbWidgets
 
 } bbWidgets;
 
+int32_t bbWidget_New(bbWidget** self, int32_t map, bbScreenCoordsI SC, int32_t parent, int32_t type);
+/*
 /// Locate existing widget
 bbWidget* bbWidget_Locate(int32_t map, int32_t self);
 
 /// Load virtual functions into vtable
-int32_t bbWidget_PopulateVTables(/* data? */);
+int32_t bbWidget_PopulateVTables();
 /// Look up function in vtable then execute
 int32_t bbWidget_New (int32_t map, bbScreenCoordsI SC, int32_t parent, int32_t type);
 int32_t bbWidget_OnCommand(int32_t map, int32_t self, int32_t command, void* data);
@@ -95,5 +95,5 @@ int32_t bbWidget_OnUpdate(int32_t map, int32_t self);
 int32_t bbWidget_OnDraw(int32_t map, int32_t self);
 int32_t bbWidget_OnDelete(int32_t map, int32_t self);
 int32_t bbWidget_OnMouse(int32_t map, int32_t self, void* data);
-
+*/
 #endif //BBWIDGETS_H

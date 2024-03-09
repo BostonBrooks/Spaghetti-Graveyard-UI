@@ -37,7 +37,7 @@ typedef struct {
 } bbDictionary;
 
 /// create a new dictionary
-bbDictionary* bbDictionary_new(int32_t n_bins);
+int32_t bbDictionary_new(bbDictionary** dict, int32_t n_bins);
 /// delete an existing dictionary
 int32_t bbDictionary_delete(bbDictionary* dict);
 /// add key/value pair to dictionary

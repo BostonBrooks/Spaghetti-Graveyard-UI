@@ -12,7 +12,7 @@ An outline of the basic flow of the program (main.c) follows:
 
 -Load Skin data
 
--Initialise VTables and their elements (preferably on a per-map basis)
+-Initialise VTables and their elements (preferably on a per-map basis, load from dynamicly linked libraries)
     - Avoidance shape functions
     - AI constructors
     - AI OnUpdate
@@ -40,8 +40,8 @@ An outline of the basic flow of the program (main.c) follows:
     -one widget should be selected as the current spell.
     (as spell is a type of widget, that is represented by it's "click to activate" icon)
 -Load static Drawables
--Load AI_SFMs with their own Drawables
-- Spawn player (go between input parser and player FSM), player FSM, player drawable
+-Load Actors with their own Drawables
+- Spawn player (go between input parser and player Actor), player Actor, player drawable
 -Initialise viewport
 
 -Begin main loop:
@@ -52,9 +52,9 @@ An outline of the basic flow of the program (main.c) follows:
          - Send mouse movements/clicks to widgets
          - If no widget clicked, send mouse clicks to viewport
          - Send key presses to prompt
-    -Player object takes Parsed input and modifies player FSM
+    -Player object takes Parsed input and modifies player Actor
     //-May want to do some internet stuff
-    -Update AI_FSMs and send a list of commands to drawables
+    -Update Actors and send a list of commands to drawables
     -Go though list and modify drawables
     -Increment map time, global time
 

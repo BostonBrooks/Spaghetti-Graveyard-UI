@@ -4,6 +4,8 @@
 ========================
 
 Structures in C will represent \em objects of a given \em class. There will be multiple \em types of a given \em class, and type specific behavior will be determined by functions stored in <em>virtual method tables</em> (vtables).
+Wrapper functions will be used to call methods in vtables.
+vtables will be stored in dynamically linked libraries.
 
 Structures will be given names like "bbStructName", and will be found in files with names like "bbStructName.h" and "bbStructName.c". Objects' \em methods will have names like bbStructName_methodName()
 
@@ -13,7 +15,7 @@ These will be defined in files with names like "bbNameSpace.h" and "bbNameSpace.
 2. Prefixes
 ========================
 
-Prefixes will be used to describe the type of data stored in a variable or defined constant, used in lieu of an enum.
+Prefixes will be used to describe the type of data stored in a variable, or defined constant used in lieu of an enum.
 
  - m_ for members of a struct containing data.
  - v_ for vtable indices.
@@ -23,7 +25,7 @@ Prefixes will be used to describe the type of data stored in a variable or defin
  - g_ for globals.
  - f_ for #defined return flags.
  - c_ for #defined commands.
- - AI_ for #defined types of class bbAI_FSM (finite state machine) to be stored in a variable with v_ prefix.
+ - A_ for #defined types of class bbActor (finite state machine) to be stored in a variable with v_ prefix.
  - f_Pool_ for #defined return flags used by bbPool objects
  
 Some structures, such as those representing vector coordinates, need not use prefixes.
@@ -63,8 +65,16 @@ Member functions are defined in this way
 
 bbObject_method(bbObject* self, args);
 
-If it proves convenient a wrapper method will be made in this way:
+If it proves convenient, a wrapper method will be made in this way:
 
-bbObject_methodI(int32_t map, int32_t address, args);
+  bbObject_methodI(int32_t map, int32_t address, args);
+  
+  objects in a pool are aware of what map they are included in, so this will not be necessary.
+
+Arguments should have as narrow scope as possible,
+eg pass dont pass bbMap when bbMapConstants will suffice.
+
+The first argument to a constructor should be a reference to a pointer that will point to the new object.
+
 
 */

@@ -10,10 +10,15 @@ Color_Off='\033[0m'
 
  if gcc\
    -I ../ \
-  ../test/Test_All.c\
+  ../test/main.c\
   ../source/bbGame.c\
-  ../source/bbMap.c\
   ../source/bbGraphicsSettings.c\
+  ../source/bbMap.c\
+  ../source/bbTextures.c\
+  ../source/bbSprites.c\
+  ../source/bbAnimation.c\
+  ../source/bbSkins.c\
+  ../source/bbElevations.c\
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -lm -w;
   then
     echo "Compile Succeeded:"

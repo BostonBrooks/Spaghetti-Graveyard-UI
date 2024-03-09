@@ -67,7 +67,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">bbGame.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
@@ -78,6 +80,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="bbGraphicsSettings_8h_source.html">headers/bbGraphicsSettings.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbMap_8h_source.html">headers/bbMap.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbConstants_8h_source.html">headers/bbConstants.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbGame.h:</div>
 <div class="dyncontent">
@@ -90,10 +93,97 @@ Include dependency graph for bbGame.h:</div>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbGame.html">bbGame</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a6ea005508a03f97652d103b4e27aff63"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGame_8h.html#a6ea005508a03f97652d103b4e27aff63">bbGame_new</a> (<a class="el" href="structbbGame.html">bbGame</a> **gGame, char *file_path)</td></tr>
+<tr class="memdesc:a6ea005508a03f97652d103b4e27aff63"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the game and load map names;.  <a href="bbGame_8h.html#a6ea005508a03f97652d103b4e27aff63">More...</a><br /></td></tr>
+<tr class="separator:a6ea005508a03f97652d103b4e27aff63"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad88f7f51c43a21d5b9de6e36aa3f4cd1"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGame_8h.html#ad88f7f51c43a21d5b9de6e36aa3f4cd1">bbGame_delete</a> ()</td></tr>
+<tr class="memdesc:ad88f7f51c43a21d5b9de6e36aa3f4cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free all memory and exit.  <a href="bbGame_8h.html#ad88f7f51c43a21d5b9de6e36aa3f4cd1">More...</a><br /></td></tr>
+<tr class="separator:ad88f7f51c43a21d5b9de6e36aa3f4cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4ccd3158a42fd805a173edfdf6f9d23e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbGame.html">bbGame</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGame_8h.html#a4ccd3158a42fd805a173edfdf6f9d23e">g_Game</a></td></tr>
+<tr class="separator:a4ccd3158a42fd805a173edfdf6f9d23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="structbbGame.html">bbGame</a> is the root of all data stored by the game. </p>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="ad88f7f51c43a21d5b9de6e36aa3f4cd1" name="ad88f7f51c43a21d5b9de6e36aa3f4cd1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad88f7f51c43a21d5b9de6e36aa3f4cd1">&#9670;&nbsp;</a></span>bbGame_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbGame_delete </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Free all memory and exit. </p>
+
+</div>
+</div>
+<a id="a6ea005508a03f97652d103b4e27aff63" name="a6ea005508a03f97652d103b4e27aff63"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ea005508a03f97652d103b4e27aff63">&#9670;&nbsp;</a></span>bbGame_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbGame_new </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbGame.html">bbGame</a> **&#160;</td>
+          <td class="paramname"><em>gGame</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Start the game and load map names;. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a4ccd3158a42fd805a173edfdf6f9d23e" name="a4ccd3158a42fd805a173edfdf6f9d23e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ccd3158a42fd805a173edfdf6f9d23e">&#9670;&nbsp;</a></span>g_Game</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structbbGame.html">bbGame</a>* g_Game</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4

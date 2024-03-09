@@ -27,7 +27,7 @@
 
 
 /** bbDrawable holds all the data about one object to be drawn to the viewport
- * and to interact with with AI_FSM objects.
+ * and to interact with with Actor objects.
  */
 
 typedef struct { //bbDrawable
@@ -74,8 +74,8 @@ typedef struct { //bbDrawable
 	int32_t m_Skin;
 	int32_t m_State;
 ///@}
-/** @name AI_FSM Data
- * Determines the behaviour of bbAI_FSM objects interacting with the drawable
+/** @name Actor Data
+ * Determines the behaviour of bbActor objects interacting with the drawable
  **/
 ///@{
 bool m_Static;

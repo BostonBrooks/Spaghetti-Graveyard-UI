@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['success_0',['SUCCESS',['../pools_8h.html#aa90cac659d18e8ef6294c7ae337f6b58',1,'pools.h']]]
+  ['n_5fmaps_0',['N_MAPS',['../bbConstants_8h.html#a259c8ee95256af2b3ec7b1715a7cbb8d',1,'bbConstants.h']]],
+  ['n_5fwidget_5ftypes_1',['N_WIDGET_TYPES',['../bbConstants_8h.html#a9ba1ae4a0da4947697bc26f80ec451c9',1,'bbConstants.h']]]
 ];

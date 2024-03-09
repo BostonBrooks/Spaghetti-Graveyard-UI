@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['widget_5fnull_2eh_0',['Widget_NULL.h',['../Widget__NULL_8h.html',1,'']]]
+  ['widget_5fnull_2eh_0',['widget_null.h',['../widget__null_8h.html',1,'']]]
 ];

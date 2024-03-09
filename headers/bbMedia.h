@@ -18,7 +18,7 @@
 typedef struct { //bbMedia
 
 	///bbTextures stores all of the textures used in an individual map.
-    bbTextures* m_Textures;
+	bbTextures* m_Textures;
 	///bbSprites stores all of the sprites used in an individual map.
 	bbSprites* m_Sprites;
 	///bbAnimations stores all of the sprites used in an individual map.

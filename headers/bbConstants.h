@@ -1,6 +1,8 @@
 /**
  * @file
- * @brief Compile time constants. Run-time loading of constants on a per-map basis is preferred. Should be able to increase these values without breaking code.
+ * @brief Compile time constants.
+ * Run-time loading of constants on a per-map basis is preferred.
+ * Should be able to increase these values without breaking code.
  */
 
 
@@ -16,8 +18,10 @@
 
 ///The maximum size of a key in a dictionary, including the zero terminator.
 #define KEY_LENGTH              33
+#define ISOMETRIC_FACTOR         2
+#define HEIGHT_MAP_PADDING       16
 
-#define GAME_PATH               "game"
+#define GAME_NAME              "game"
 
 #define COLOUR_BEIGE           {246, 224, 201, 255}
 

@@ -77,6 +77,7 @@ $(function() {
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbTextures_8h_source.html">headers/bbTextures.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbSprites.h:</div>
 <div class="dyncontent">
@@ -98,104 +99,41 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af9f31a2b7ac846609eb975dddb8d99ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbSprites.html">bbSprites</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#af9f31a2b7ac846609eb975dddb8d99ac">bbSprites_CreateFromFile</a> (char File[])</td></tr>
-<tr class="separator:af9f31a2b7ac846609eb975dddb8d99ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af33ed1fd43e1ac8eccdd0c3b2443cb7b"><td class="memItemLeft" align="right" valign="top">sfSprite *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#af33ed1fd43e1ac8eccdd0c3b2443cb7b">sfSpriteLocate</a> (int map_int, int animation_int, int angle_int, int frame_int)</td></tr>
-<tr class="separator:af33ed1fd43e1ac8eccdd0c3b2443cb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d5314434bb18fb38fd6237d15533ded"><td class="memItemLeft" align="right" valign="top">sfSprite *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#a7d5314434bb18fb38fd6237d15533ded">sfSpriteLocateWKey</a> (int map_int, char *animation_key, int angle_int, int frame_int)</td></tr>
-<tr class="separator:a7d5314434bb18fb38fd6237d15533ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abcbd25004b52afd6290d295ac52d510b"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#abcbd25004b52afd6290d295ac52d510b">bbSprites_new</a> (<a class="el" href="structbbSprites.html">bbSprites</a> **sprites, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *file, int32_t num_sprites)</td></tr>
+<tr class="separator:abcbd25004b52afd6290d295ac52d510b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >sfSprite is the basic object drawn to the viewport </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="af9f31a2b7ac846609eb975dddb8d99ac" name="af9f31a2b7ac846609eb975dddb8d99ac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9f31a2b7ac846609eb975dddb8d99ac">&#9670;&nbsp;</a></span>bbSprites_CreateFromFile()</h2>
+<a id="abcbd25004b52afd6290d295ac52d510b" name="abcbd25004b52afd6290d295ac52d510b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abcbd25004b52afd6290d295ac52d510b">&#9670;&nbsp;</a></span>bbSprites_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbbSprites.html">bbSprites</a> * bbSprites_CreateFromFile </td>
+          <td class="memname">int32_t bbSprites_new </td>
           <td>(</td>
-          <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>File</em>[]</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >This function initialises sprites from data found in the given file. </p>
-
-</div>
-</div>
-<a id="af33ed1fd43e1ac8eccdd0c3b2443cb7b" name="af33ed1fd43e1ac8eccdd0c3b2443cb7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af33ed1fd43e1ac8eccdd0c3b2443cb7b">&#9670;&nbsp;</a></span>sfSpriteLocate()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sfSprite * sfSpriteLocate </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>map_int</em>, </td>
+          <td class="paramtype"><a class="el" href="structbbSprites.html">bbSprites</a> **&#160;</td>
+          <td class="paramname"><em>sprites</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>animation_int</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>angle_int</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frame_int</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a7d5314434bb18fb38fd6237d15533ded" name="a7d5314434bb18fb38fd6237d15533ded"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d5314434bb18fb38fd6237d15533ded">&#9670;&nbsp;</a></span>sfSpriteLocateWKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">sfSprite * sfSpriteLocateWKey </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>map_int</em>, </td>
+          <td class="paramtype"><a class="el" href="structbbTextures.html">bbTextures</a> *&#160;</td>
+          <td class="paramname"><em>textures</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>animation_key</em>, </td>
+          <td class="paramname"><em>file</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>angle_int</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>frame_int</em>&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>num_sprites</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

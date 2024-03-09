@@ -33,4 +33,8 @@ digraph "headers/bbSprites.h"
   Node14 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node14 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node15 [label="headers/bbConstants.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbConstants_8h.html",tooltip="Compile time constants. Run-time loading of constants on a per-map basis is preferred...."];
+  Node1 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 [label="headers/bbTextures.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbTextures_8h.html",tooltip="sfTexture is define in SFML as raw pixel data bbTextures is a container for sfTextures"];
+  Node16 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node16 -> Node14 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

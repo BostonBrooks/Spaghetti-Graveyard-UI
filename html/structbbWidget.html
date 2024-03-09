@@ -68,6 +68,9 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
+<p>include files containing widget functions, later these will be stored in a Dynamic Linked Library  
+ <a href="structbbWidget.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="bbWidget_8h_source.html">bbWidget.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for bbWidget:</div>
@@ -103,12 +106,14 @@ Data Fields</h2></td></tr>
 <tr class="memitem:a6e28413881e36d42c50bce4a5ad34bad"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#a6e28413881e36d42c50bce4a5ad34bad">m_OnCommand</a></td></tr>
 <tr class="memdesc:a6e28413881e36d42c50bce4a5ad34bad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enter this code to activate spell without clicking on it.  <a href="structbbWidget.html#a6e28413881e36d42c50bce4a5ad34bad">More...</a><br /></td></tr>
 <tr class="separator:a6e28413881e36d42c50bce4a5ad34bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85070317eb21cb48155c8f915a722ae2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#a85070317eb21cb48155c8f915a722ae2">m_OnUpdate</a></td></tr>
+<tr class="separator:a85070317eb21cb48155c8f915a722ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7804393b17785e2b07acf65538f34a25"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#a7804393b17785e2b07acf65538f34a25">m_OnDraw</a></td></tr>
 <tr class="separator:a7804393b17785e2b07acf65538f34a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a93a2be546d246881d77e05267f7a90"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#a9a93a2be546d246881d77e05267f7a90">m_OnDelete</a></td></tr>
 <tr class="separator:a9a93a2be546d246881d77e05267f7a90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e953c52268cfffd64ec3a4749355cd4"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#a8e953c52268cfffd64ec3a4749355cd4">m_OnClick</a></td></tr>
-<tr class="separator:a8e953c52268cfffd64ec3a4749355cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae982742db71aa3f88ce8974846cd5563"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbWidget.html#ae982742db71aa3f88ce8974846cd5563">m_OnMouse</a></td></tr>
+<tr class="separator:ae982742db71aa3f88ce8974846cd5563"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Hierarchy Stuff</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p >Stuff for storing widgets in a hierarchy </p>
 </div></td></tr>
@@ -125,7 +130,8 @@ Data Fields</h2></td></tr>
 <tr class="separator:a21c68878085e4135bf4310b62157a621"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="structbbWidget.html">bbWidget</a> includes things like menus and buttons. </p>
+<div class="textblock"><p >include files containing widget functions, later these will be stored in a Dynamic Linked Library </p>
+<p ><a class="el" href="structbbWidget.html" title="include files containing widget functions, later these will be stored in a Dynamic Linked Library">bbWidget</a> includes things like menus, buttons and spells </p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a374f45ad84a31979d35b4705be122fa5" name="a374f45ad84a31979d35b4705be122fa5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a374f45ad84a31979d35b4705be122fa5">&#9670;&nbsp;</a></span>m_Code</h2>
@@ -140,20 +146,6 @@ Data Fields</h2></td></tr>
 </div><div class="memdoc">
 
 <p>*&zwj;/ </p>
-
-</div>
-</div>
-<a id="a8e953c52268cfffd64ec3a4749355cd4" name="a8e953c52268cfffd64ec3a4749355cd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e953c52268cfffd64ec3a4749355cd4">&#9670;&nbsp;</a></span>m_OnClick</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget::m_OnClick</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -195,6 +187,34 @@ Data Fields</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">int32_t bbWidget::m_OnDraw</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae982742db71aa3f88ce8974846cd5563" name="ae982742db71aa3f88ce8974846cd5563"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae982742db71aa3f88ce8974846cd5563">&#9670;&nbsp;</a></span>m_OnMouse</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbWidget::m_OnMouse</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85070317eb21cb48155c8f915a722ae2" name="a85070317eb21cb48155c8f915a722ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85070317eb21cb48155c8f915a722ae2">&#9670;&nbsp;</a></span>m_OnUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbWidget::m_OnUpdate</td>
         </tr>
       </table>
 </div><div class="memdoc">

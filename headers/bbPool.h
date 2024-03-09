@@ -67,7 +67,7 @@ int32_t bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, int32_t Add
 int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address);
 
 ///Create an new pool with object's size = Sizeof
-bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2);
+int32_t bbPool_NewPool(bbPool** return_by_reference, int32_t SizeOf, int32_t Level1, int32_t Level2);
 
 ///Delete entire pool
 int32_t bbPool_DeletePool(bbPool* Pool);

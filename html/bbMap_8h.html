@@ -67,15 +67,24 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Data Structures</a>  </div>
+<a href="#nested-classes">Data Structures</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">bbMap.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structbbMap.html">bbMap</a> stores all the game data pertaining to one map in the game. There should be enough data provided to update the map, but not display the graphics of the game.  
+<p><a class="el" href="structbbMap.html">bbMap</a> stores all the game data pertaining to one map in the game  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbGeometry_8h_source.html">headers/bbGeometry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbTerrain_8h_source.html">headers/bbTerrain.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbDrawable_8h_source.html">headers/bbDrawable.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbActor_8h_source.html">headers/bbActor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbMedia_8h_source.html">headers/bbMedia.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbWidget_8h_source.html">headers/bbWidget.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbMapConstants_8h_source.html">headers/bbMapConstants.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbSkins_8h_source.html">headers/bbSkins.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbElevations_8h_source.html">headers/bbElevations.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbMap.h:</div>
 <div class="dyncontent">
@@ -93,10 +102,64 @@ This graph shows which files directly or indirectly include this file:</div>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbMap.html">bbMap</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a319a66ed266d90cacf7dc36e17a32bd0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbMap_8h.html#a319a66ed266d90cacf7dc36e17a32bd0">bbMap_new</a> (<a class="el" href="structbbMap.html">bbMap</a> **Map, char *file_path)</td></tr>
+<tr class="separator:a319a66ed266d90cacf7dc36e17a32bd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a702b06201131ae966294ca60efa8a52d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbMap_8h.html#a702b06201131ae966294ca60efa8a52d">bbMap_printConstants</a> (<a class="el" href="structbbMap.html">bbMap</a> *map)</td></tr>
+<tr class="separator:a702b06201131ae966294ca60efa8a52d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="structbbMap.html">bbMap</a> stores all the game data pertaining to one map in the game. There should be enough data provided to update the map, but not display the graphics of the game. </p>
-</div></div><!-- contents -->
+<div class="textblock"><p ><a class="el" href="structbbMap.html">bbMap</a> stores all the game data pertaining to one map in the game </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a319a66ed266d90cacf7dc36e17a32bd0" name="a319a66ed266d90cacf7dc36e17a32bd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a319a66ed266d90cacf7dc36e17a32bd0">&#9670;&nbsp;</a></span>bbMap_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbMap_new </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbMap.html">bbMap</a> **&#160;</td>
+          <td class="paramname"><em>Map</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>file_path</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a702b06201131ae966294ca60efa8a52d" name="a702b06201131ae966294ca60efa8a52d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a702b06201131ae966294ca60efa8a52d">&#9670;&nbsp;</a></span>bbMap_printConstants()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbMap_printConstants </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbMap.html">bbMap</a> *&#160;</td>
+          <td class="paramname"><em>map</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
