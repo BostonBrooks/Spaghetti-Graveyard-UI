@@ -48,11 +48,11 @@ int32_t bbWidget_Fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 	bbWidgetFunctions* functions = widgets->m_Functions;
 
 	widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "fireworks");
-	widget->m_Tree.Parent = parent;
-	widget->m_Tree.Head = f_None;
-	widget->m_Tree.Tail = f_None;
-	widget->m_Tree.Prev = f_None;
-	widget->m_Tree.Next = f_None;
+	widget->p_Tree.Parent = parent;
+	widget->p_Tree.Head = f_None;
+	widget->p_Tree.Tail = f_None;
+	widget->p_Tree.Prev = f_None;
+	widget->p_Tree.Next = f_None;
 
 	for(int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
 		widget->m_AnimationInt[i] = f_None;
@@ -72,23 +72,23 @@ int32_t bbWidget_Fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
 	//add widget to parentWidget's subwidgets
 
-	if (parentWidget->m_Tree.Head == f_None){
-		bbAssert(parentWidget->m_Tree.Tail == f_None, "head/tail mismatch");
-		parentWidget->m_Tree.Head = widget->p_Pool.Self;
-		parentWidget->m_Tree.Tail = widget->p_Pool.Self;
+	if (parentWidget->p_Tree.Head == f_None){
+		bbAssert(parentWidget->p_Tree.Tail == f_None, "head/tail mismatch");
+		parentWidget->p_Tree.Head = widget->p_Pool.Self;
+		parentWidget->p_Tree.Tail = widget->p_Pool.Self;
 
-		widget->m_Tree.Next = f_None;
-		widget->m_Tree.Prev = f_None;
+		widget->p_Tree.Next = f_None;
+		widget->p_Tree.Prev = f_None;
 
 	} else {
 		bbWidget* prevWidget;
 		printf("checking 2\n");
-		bbPool_Lookup(&prevWidget, pool, parentWidget->m_Tree.Tail);
+		bbPool_Lookup(&prevWidget, pool, parentWidget->p_Tree.Tail);
 		printf("checking 3\n");
-		prevWidget->m_Tree.Next = widget->p_Pool.Self;
-		widget->m_Tree.Prev = prevWidget->p_Pool.Self;
-		widget->m_Tree.Next = f_None;
-		parentWidget->m_Tree.Tail = widget->p_Pool.Self;
+		prevWidget->p_Tree.Next = widget->p_Pool.Self;
+		widget->p_Tree.Prev = prevWidget->p_Pool.Self;
+		widget->p_Tree.Next = f_None;
+		parentWidget->p_Tree.Tail = widget->p_Pool.Self;
 	}
 
 	*reference = widget;
@@ -120,7 +120,7 @@ int32_t bbWidget_Fireworks_draw(bbWidget* widget){
 
 
 	//draw subwidgets
-	int32_t subwidgetInt = widget->m_Tree.Head;
+	int32_t subwidgetInt = widget->p_Tree.Head;
 	bbWidget* subwidget;
 	int32_t flag;
 	bbPool* pool = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Pool;
@@ -129,7 +129,7 @@ int32_t bbWidget_Fireworks_draw(bbWidget* widget){
 		bbDebug("subwidget_int = %d\n", subwidgetInt);
 		flag = bbPool_Lookup(&subwidget, pool, subwidgetInt);
 		bbWidget_draw(subwidget);
-		subwidgetInt = subwidget->m_Tree.Next;
+		subwidgetInt = subwidget->p_Tree.Next;
 	}
 	bbDebug("out bbWidget_Fireworks_draw\n");
 

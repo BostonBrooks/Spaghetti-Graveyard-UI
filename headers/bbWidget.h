@@ -6,26 +6,14 @@
 #define BBWIDGET_H
 
 #include "headers/bbPool.h"
+#include "headers/bbTree.h"
 #include "headers/bbDictionary.h"
 #include "headers/bbGeometry.h"
 
-typedef struct {
-	// Integer address (location in pool) of parent node
-	int32_t Parent;
-	// Start of list of daughter nodes
-	int32_t Head;
-	// end of list of daughter nodes
-	int32_t Tail;
-	// previous in list of daughter nodes
-	int32_t Prev;
-	// next in list of daughter nodes
-	int32_t Next;
-
-} bbTree;
 
 typedef struct{
 	bbPool_data p_Pool;
-	bbTree m_Tree;
+	bbTree p_Tree;
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
