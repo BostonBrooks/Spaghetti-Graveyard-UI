@@ -45,4 +45,7 @@ digraph "headers/bbSprites.h"
   Node19 [label="headers/bbTextures.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbTextures_8h.html",tooltip="sfTexture is define in SFML as raw pixel data bbTextures is a container for sfTextures"];
   Node19 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node19 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node20 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node20 [label="headers/bbMapConstants.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbMapConstants_8h.html",tooltip=" "];
+  Node20 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

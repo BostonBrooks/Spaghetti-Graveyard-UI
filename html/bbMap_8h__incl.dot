@@ -52,10 +52,23 @@ digraph "headers/bbMap.h"
   Node21 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node21 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node21 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node21 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node22 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 [label="headers/bbAnimation.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbAnimation_8h.html",tooltip="sfTexture is define in SFML as raw pixel data bbTextures is a container for sfTextures"];
   Node22 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node22 -> Node21 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node23 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node23 [label="headers/bbWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbWidget_8h.html",tooltip="bbWidgets are things like menu buttons, text prompts, click to cast spells etc."];
+  Node23 -> Node24 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 [label="headers/bbPool.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbPool_8h.html",tooltip="Pools pre-allocate space for objects in the game to quickly allocate and de-allocate individual objec..."];
+  Node24 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 -> Node15 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node23 -> Node19 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node23 -> Node25 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="headers/bbGeometry.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbGeometry_8h.html",tooltip=" "];
+  Node25 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

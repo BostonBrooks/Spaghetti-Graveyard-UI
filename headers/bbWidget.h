@@ -48,7 +48,9 @@ typedef struct{
 #define wf_OnCommand       3
 #define wf_AnimationDraw   4
 
-typedef int32_t bbWidget_Constructor (bbWidget** reference, int32_t map, bbScreenCoordsI screen_coords, int32_t parent);
+typedef struct bbWidgets;
+
+typedef int32_t bbWidget_Constructor (bbWidget** reference, struct bbWidgets* widgets, bbScreenCoordsI screen_coords, int32_t parent);
 typedef int32_t bbWidget_DrawFunction (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
@@ -92,7 +94,7 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* pointer
 int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, int32_t bin, char* key);
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
 
-int32_t bbWidget_new(bbWidget** self, int32_t map, int32_t type, int32_t parent);
+int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent);
 int32_t bbWidget_draw (bbWidget* widget);
 
 #endif //BBWIDGET_H

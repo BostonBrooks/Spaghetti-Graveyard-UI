@@ -36,4 +36,10 @@ digraph "headers/bbGameConstants.h"
   Node15 -> Node16 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node16 [label="stdarg.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node15 -> Node10 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node17 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 [label="headers/bbGeometry.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbGeometry_8h.html",tooltip=" "];
+  Node17 -> Node13 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node17 -> Node18 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node18 [label="headers/bbMapConstants.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbMapConstants_8h.html",tooltip=" "];
+  Node18 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

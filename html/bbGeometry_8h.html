@@ -72,11 +72,8 @@ $(function() {
   <div class="headertitle"><div class="title">bbGeometry.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>This file describes data types and methods for dealing with 3d map coordinates and 2d screen coordinates int32_t map is included as an argument to many of these functions because important constants are defined in the <a class="el" href="structbbMap.html">bbMap</a> object.  
-<a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="bbFloorDiv_8h_source.html">headers/bbFloorDiv.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;inttypes.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="bbMapConstants_8h_source.html">headers/bbMapConstants.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbGeometry.h:</div>
 <div class="dyncontent">
@@ -92,103 +89,37 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 2d coordinates used by CSFML.  <a href="structbbScreenCoordsF.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP.  <a href="structbbScreenCoordsI.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbViewportCoordsF.html">bbViewportCoordsF</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 2d coordinates used by CSFML.  <a href="structbbViewportCoordsF.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbViewportCoordsI.html">bbViewportCoordsI</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP.  <a href="structbbViewportCoordsI.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbMapCoords.html">bbMapCoords</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 3d coordinates.  <a href="structbbMapCoords.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbTileCoords.html">bbTileCoords</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 3d coordinates.  <a href="structbbTileCoords.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbSquareCoords.html">bbSquareCoords</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fixed point, 3d coordinates.  <a href="structbbSquareCoords.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbFloat3D.html">bbFloat3D</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Floating point, 3d coordinates. Let's not use these.  <a href="structbbFloat3D.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbIntRect.html">bbIntRect</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for hitboxes &amp; clickboxes units of Screen Points, see bbMapConstants.m_ScreenPPP.  <a href="structbbIntRect.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:adf4be538054032998c3bbb5b5b7cac9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbFloat3D.html">bbFloat3D</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#adf4be538054032998c3bbb5b5b7cac9c">bbFloat3D_normalise</a> (<a class="el" href="structbbFloat3D.html">bbFloat3D</a> foo)</td></tr>
-<tr class="memdesc:adf4be538054032998c3bbb5b5b7cac9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a vector parallel to foo, but with absolute value = 1.  <a href="bbGeometry_8h.html#adf4be538054032998c3bbb5b5b7cac9c">More...</a><br /></td></tr>
-<tr class="separator:adf4be538054032998c3bbb5b5b7cac9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa567141ec8de4471567ee3c6fbdf3a43"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#aa567141ec8de4471567ee3c6fbdf3a43">bbTileCoords_getElevation</a> (int32_t map, int32_t i, int32_t j)</td></tr>
-<tr class="memdesc:aa567141ec8de4471567ee3c6fbdf3a43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look up the elevation of a point on the map given by tile coordinates.  <a href="bbGeometry_8h.html#aa567141ec8de4471567ee3c6fbdf3a43">More...</a><br /></td></tr>
-<tr class="separator:aa567141ec8de4471567ee3c6fbdf3a43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade07a5be39421446e51f52f8f699173b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbTileCoords.html">bbTileCoords</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#ade07a5be39421446e51f52f8f699173b">bbMapCoords_getTileCoords</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
-<tr class="memdesc:ade07a5be39421446e51f52f8f699173b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the coordinates of the tile containing the point given in map coordinates.  <a href="bbGeometry_8h.html#ade07a5be39421446e51f52f8f699173b">More...</a><br /></td></tr>
-<tr class="separator:ade07a5be39421446e51f52f8f699173b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab56b40800e7713bee3e08894b3089438"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbSquareCoords.html">bbSquareCoords</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#ab56b40800e7713bee3e08894b3089438">bbMapCoords_getSquareCoords</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
-<tr class="memdesc:ab56b40800e7713bee3e08894b3089438"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the coordinates of the square containing the point given in map coordinates.  <a href="bbGeometry_8h.html#ab56b40800e7713bee3e08894b3089438">More...</a><br /></td></tr>
-<tr class="separator:ab56b40800e7713bee3e08894b3089438"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a313938aa14337b26cf80cd6594730075"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a313938aa14337b26cf80cd6594730075">bbMapCoords_getScreenCoords_topleft</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
-<tr class="memdesc:a313938aa14337b26cf80cd6594730075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the screen coordinates of a point if (0,0,0) is in the top left corner of the screen.  <a href="bbGeometry_8h.html#a313938aa14337b26cf80cd6594730075">More...</a><br /></td></tr>
-<tr class="separator:a313938aa14337b26cf80cd6594730075"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a497b6bfc23c8a4a54a840a7577ec240b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a497b6bfc23c8a4a54a840a7577ec240b">bbMapCoords_getScreenCoords_centre</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
-<tr class="memdesc:a497b6bfc23c8a4a54a840a7577ec240b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the screen coordinates of a point if viewpoint is in the centre of the screen.  <a href="bbGeometry_8h.html#a497b6bfc23c8a4a54a840a7577ec240b">More...</a><br /></td></tr>
-<tr class="separator:a497b6bfc23c8a4a54a840a7577ec240b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25c42d15ea314e8202814db8d6687307"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a25c42d15ea314e8202814db8d6687307">bbMapCoords_getScreenCoords_vector</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> A, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> B)</td></tr>
-<tr class="memdesc:a25c42d15ea314e8202814db8d6687307"><td class="mdescLeft">&#160;</td><td class="mdescRight">A vector from A to B on screen. Used for hitboxes. Should return the same value independent on viewport scale.  <a href="bbGeometry_8h.html#a25c42d15ea314e8202814db8d6687307">More...</a><br /></td></tr>
-<tr class="separator:a25c42d15ea314e8202814db8d6687307"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adeaafee5e4b2ab1311ce280b146de70b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">bbTileCoords_getScreenCoords_centre</a> (int32_t map, <a class="el" href="structbbMapCoords.html">bbMapCoords</a> mc)</td></tr>
-<tr class="memdesc:adeaafee5e4b2ab1311ce280b146de70b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the screen coordinates of a point if viewpoint is in the centre of the screen.  <a href="bbGeometry_8h.html#adeaafee5e4b2ab1311ce280b146de70b">More...</a><br /></td></tr>
-<tr class="separator:adeaafee5e4b2ab1311ce280b146de70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a07ba3b78fe2e3937c00617ca207ea81f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a07ba3b78fe2e3937c00617ca207ea81f">bbScreenCoordsI_toFloat</a> (int32_t map, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc)</td></tr>
-<tr class="separator:a07ba3b78fe2e3937c00617ca207ea81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5171deb102e1f5240bedffe273ee1b6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#a5171deb102e1f5240bedffe273ee1b6e">bbScreenCoordsI_getF</a> (<a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> SCI, <a class="el" href="structbbMapConstants.html">bbMapConstants</a> *constants)</td></tr>
+<tr class="separator:a5171deb102e1f5240bedffe273ee1b6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e184398af78bd657eb03ad70d28686"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbGeometry_8h.html#af4e184398af78bd657eb03ad70d28686">bbScreenCoordsF_getI</a> (<a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> SCF, <a class="el" href="structbbMapConstants.html">bbMapConstants</a> *constants)</td></tr>
+<tr class="separator:af4e184398af78bd657eb03ad70d28686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >This file describes data types and methods for dealing with 3d map coordinates and 2d screen coordinates int32_t map is included as an argument to many of these functions because important constants are defined in the <a class="el" href="structbbMap.html">bbMap</a> object. </p>
-</div><h2 class="groupheader">Function Documentation</h2>
-<a id="adf4be538054032998c3bbb5b5b7cac9c" name="adf4be538054032998c3bbb5b5b7cac9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf4be538054032998c3bbb5b5b7cac9c">&#9670;&nbsp;</a></span>bbFloat3D_normalise()</h2>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="af4e184398af78bd657eb03ad70d28686" name="af4e184398af78bd657eb03ad70d28686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e184398af78bd657eb03ad70d28686">&#9670;&nbsp;</a></span>bbScreenCoordsF_getI()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbbFloat3D.html">bbFloat3D</a> bbFloat3D_normalise </td>
+          <td class="memname"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> bbScreenCoordsF_getI </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbFloat3D.html">bbFloat3D</a>&#160;</td>
-          <td class="paramname"><em>foo</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return a vector parallel to foo, but with absolute value = 1. </p>
-
-</div>
-</div>
-<a id="a497b6bfc23c8a4a54a840a7577ec240b" name="a497b6bfc23c8a4a54a840a7577ec240b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a497b6bfc23c8a4a54a840a7577ec240b">&#9670;&nbsp;</a></span>bbMapCoords_getScreenCoords_centre()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> bbMapCoords_getScreenCoords_centre </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
+          <td class="paramtype"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a>&#160;</td>
+          <td class="paramname"><em>SCF</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>mc</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structbbMapConstants.html">bbMapConstants</a> *&#160;</td>
+          <td class="paramname"><em>constants</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -198,153 +129,25 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Find the screen coordinates of a point if viewpoint is in the centre of the screen. </p>
-
 </div>
 </div>
-<a id="a313938aa14337b26cf80cd6594730075" name="a313938aa14337b26cf80cd6594730075"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a313938aa14337b26cf80cd6594730075">&#9670;&nbsp;</a></span>bbMapCoords_getScreenCoords_topleft()</h2>
+<a id="a5171deb102e1f5240bedffe273ee1b6e" name="a5171deb102e1f5240bedffe273ee1b6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5171deb102e1f5240bedffe273ee1b6e">&#9670;&nbsp;</a></span>bbScreenCoordsI_getF()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> bbMapCoords_getScreenCoords_topleft </td>
+          <td class="memname"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> bbScreenCoordsI_getF </td>
           <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>mc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the screen coordinates of a point if (0,0,0) is in the top left corner of the screen. </p>
-
-</div>
-</div>
-<a id="a25c42d15ea314e8202814db8d6687307" name="a25c42d15ea314e8202814db8d6687307"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25c42d15ea314e8202814db8d6687307">&#9670;&nbsp;</a></span>bbMapCoords_getScreenCoords_vector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> bbMapCoords_getScreenCoords_vector </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>A</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>B</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>A vector from A to B on screen. Used for hitboxes. Should return the same value independent on viewport scale. </p>
-
-</div>
-</div>
-<a id="ab56b40800e7713bee3e08894b3089438" name="ab56b40800e7713bee3e08894b3089438"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab56b40800e7713bee3e08894b3089438">&#9670;&nbsp;</a></span>bbMapCoords_getSquareCoords()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbSquareCoords.html">bbSquareCoords</a> bbMapCoords_getSquareCoords </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>mc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the coordinates of the square containing the point given in map coordinates. </p>
-
-</div>
-</div>
-<a id="ade07a5be39421446e51f52f8f699173b" name="ade07a5be39421446e51f52f8f699173b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade07a5be39421446e51f52f8f699173b">&#9670;&nbsp;</a></span>bbMapCoords_getTileCoords()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbTileCoords.html">bbTileCoords</a> bbMapCoords_getTileCoords </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>mc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the coordinates of the tile containing the point given in map coordinates. </p>
-
-</div>
-</div>
-<a id="a07ba3b78fe2e3937c00617ca207ea81f" name="a07ba3b78fe2e3937c00617ca207ea81f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a07ba3b78fe2e3937c00617ca207ea81f">&#9670;&nbsp;</a></span>bbScreenCoordsI_toFloat()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsF.html">bbScreenCoordsF</a> bbScreenCoordsI_toFloat </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td>
-          <td class="paramname"><em>sc</em>&#160;</td>
+          <td class="paramname"><em>SCI</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbMapConstants.html">bbMapConstants</a> *&#160;</td>
+          <td class="paramname"><em>constants</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -353,72 +156,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="aa567141ec8de4471567ee3c6fbdf3a43" name="aa567141ec8de4471567ee3c6fbdf3a43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa567141ec8de4471567ee3c6fbdf3a43">&#9670;&nbsp;</a></span>bbTileCoords_getElevation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbTileCoords_getElevation </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>i</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>j</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Look up the elevation of a point on the map given by tile coordinates. </p>
-
-</div>
-</div>
-<a id="adeaafee5e4b2ab1311ce280b146de70b" name="adeaafee5e4b2ab1311ce280b146de70b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adeaafee5e4b2ab1311ce280b146de70b">&#9670;&nbsp;</a></span>bbTileCoords_getScreenCoords_centre()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> bbTileCoords_getScreenCoords_centre </td>
-          <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>map</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structbbMapCoords.html">bbMapCoords</a>&#160;</td>
-          <td class="paramname"><em>mc</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Find the screen coordinates of a point if viewpoint is in the centre of the screen. </p>
 
 </div>
 </div>

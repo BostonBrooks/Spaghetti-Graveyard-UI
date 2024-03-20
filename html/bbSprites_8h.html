@@ -78,6 +78,7 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbTextures_8h_source.html">headers/bbTextures.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbMapConstants_8h_source.html">headers/bbMapConstants.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbSprites.h:</div>
 <div class="dyncontent">
@@ -98,8 +99,8 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3dee09b8ac79130513f7952da54f3f6c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#a3dee09b8ac79130513f7952da54f3f6c">bbSprites_new</a> (<a class="el" href="structbbSprites.html">bbSprites</a> **self, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *folderPath, int32_t numSprites, float DrawableScale, float WidgetScale)</td></tr>
-<tr class="separator:a3dee09b8ac79130513f7952da54f3f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae53f06d51ea724e5d2e9e40ee58c7919"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#ae53f06d51ea724e5d2e9e40ee58c7919">bbSprites_new</a> (<a class="el" href="structbbSprites.html">bbSprites</a> **self, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *folderPath, <a class="el" href="structbbMapConstants.html">bbMapConstants</a> *constants)</td></tr>
+<tr class="separator:ae53f06d51ea724e5d2e9e40ee58c7919"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a70d59ec37bbec08b478c234a0ee3bf18"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#a70d59ec37bbec08b478c234a0ee3bf18">bbSprites_lookupInt</a> (<a class="el" href="structbbSprites.html">bbSprites</a> *sprites, char *key)</td></tr>
 <tr class="separator:a70d59ec37bbec08b478c234a0ee3bf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -134,8 +135,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3dee09b8ac79130513f7952da54f3f6c" name="a3dee09b8ac79130513f7952da54f3f6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3dee09b8ac79130513f7952da54f3f6c">&#9670;&nbsp;</a></span>bbSprites_new()</h2>
+<a id="ae53f06d51ea724e5d2e9e40ee58c7919" name="ae53f06d51ea724e5d2e9e40ee58c7919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae53f06d51ea724e5d2e9e40ee58c7919">&#9670;&nbsp;</a></span>bbSprites_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -161,20 +162,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>numSprites</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>DrawableScale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>WidgetScale</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="structbbMapConstants.html">bbMapConstants</a> *&#160;</td>
+          <td class="paramname"><em>constants</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

@@ -22,17 +22,17 @@ int32_t bbWidgets_new(int32_t map){
 }
 
 // Should m_Widgets be an argument?
-int32_t bbWidget_new(bbWidget** self, int32_t map, int32_t type, int32_t parent){
+int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent){
 	bbDebug("in bbWidget_new\n");
 	bbWidget* widget;
-	bbWidget_Constructor* constructor = g_Game->m_Maps[map]->m_Widgets->m_Functions->Constructors[type];
+	bbWidget_Constructor* constructor = widgets->m_Functions->Constructors[type];
 
 	bbScreenCoordsI SCI;
 	SCI.x = 0;
 	SCI.y = 0;
 
 
-	int32_t flag = constructor(&widget, map, SCI, parent);
+	int32_t flag = constructor(&widget, widgets, SCI, parent);
 
 	bbDebug("in bbWidget_new: map = %d, self = %d\n", widget->p_Pool.Map, widget->p_Pool.Self);
 	*self = widget;

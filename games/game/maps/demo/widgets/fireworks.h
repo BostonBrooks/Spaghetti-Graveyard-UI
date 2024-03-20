@@ -12,12 +12,12 @@
 #include "headers/bbMap.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_Fireworks_new(bbWidget** reference, int32_t map, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_Fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
 
 
 	bbDebug("in bbWidget_Fireworks_new\n");
-	bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
-	bbDictionary* dict = g_Game->m_Maps[map]->m_Widgets->m_AddressDict;
+	bbPool* pool = widgets->m_Pool;
+	bbDictionary* dict = widgets->m_AddressDict;
 
 	bbWidget* widget;
 	int32_t flag;
@@ -31,12 +31,12 @@ int32_t bbWidget_Fireworks_new(bbWidget** reference, int32_t map, bbScreenCoords
 
 	SCF.x = 200;
 	SCF.y = 420;
-	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[map]->p_Constants);
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Pool.Map]->p_Constants);
 	widget->m_ScreenCoords = SCI;
 
 	SCF.x = 466;
 	SCF.y = 262;
-	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[map]->p_Constants);
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Pool.Map]->p_Constants);
 	widget->m_Dimensions = SCI;
 
 	widget->m_Visible = true;
@@ -45,7 +45,7 @@ int32_t bbWidget_Fireworks_new(bbWidget** reference, int32_t map, bbScreenCoords
 
 	widget->m_SpriteInt = -1;
 
-	bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+	bbWidgetFunctions* functions = widgets->m_Functions;
 
 	widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "fireworks");
 	widget->m_ParentWidget = parent;

@@ -9,6 +9,14 @@ var searchData=
   ['bbgameconstants_6',['bbGameConstants',['../structbbGameConstants.html',1,'']]],
   ['bbmap_7',['bbMap',['../structbbMap.html',1,'']]],
   ['bbmapconstants_8',['bbMapConstants',['../structbbMapConstants.html',1,'']]],
-  ['bbsprites_9',['bbSprites',['../structbbSprites.html',1,'']]],
-  ['bbtextures_10',['bbTextures',['../structbbTextures.html',1,'']]]
+  ['bbpool_9',['bbPool',['../structbbPool.html',1,'']]],
+  ['bbpool_5fbin_10',['bbPool_bin',['../structbbPool__bin.html',1,'']]],
+  ['bbpool_5fdata_11',['bbPool_data',['../structbbPool__data.html',1,'']]],
+  ['bbscreencoordsf_12',['bbScreenCoordsF',['../structbbScreenCoordsF.html',1,'']]],
+  ['bbscreencoordsi_13',['bbScreenCoordsI',['../structbbScreenCoordsI.html',1,'']]],
+  ['bbsprites_14',['bbSprites',['../structbbSprites.html',1,'']]],
+  ['bbtextures_15',['bbTextures',['../structbbTextures.html',1,'']]],
+  ['bbwidget_16',['bbWidget',['../structbbWidget.html',1,'']]],
+  ['bbwidgetfunctions_17',['bbWidgetFunctions',['../structbbWidgetFunctions.html',1,'']]],
+  ['bbwidgets_18',['bbWidgets',['../structbbWidgets.html',1,'']]]
 ];

@@ -12,13 +12,13 @@
 #include "headers/bbMap.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_Decal_new(bbWidget** reference, int32_t map, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
 
 	bbDebug("in bbWidget_Decal_new\n");
-	bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+	bbPool* pool = widgets->m_Pool;
 
 	//TODO make more use of this
-	bbDictionary* dict = g_Game->m_Maps[map]->m_Widgets->m_AddressDict;
+	bbDictionary* dict = widgets->m_AddressDict;
 
 	bbWidget* widget;
 	int32_t flag;
@@ -27,21 +27,23 @@ int32_t bbWidget_Decal_new(bbWidget** reference, int32_t map, bbScreenCoordsI sc
 
 	bbDebug("bbWidget_Decal_new: map = %d, self = %d\n", widget->p_Pool.Map, widget->p_Pool.Self);
 
-	bbScreenCoordsI SC;
-	sc.x = 0;
-	sc.y = 0;
-	widget->m_ScreenCoords = sc;
+	bbScreenCoordsF SCF;
+	bbScreenCoordsI SCI;
+	SCF.x = 0;
+	SCF.y = 0;
+		SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Pool.Map]->p_Constants);
+	widget->m_ScreenCoords = SCI;
 
-
-	sc.x = 1280 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-	sc.y = 720 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+	SCF.x = 1280;
+	SCF.y = 720;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Pool.Map]->p_Constants);
 	widget->m_Dimensions = sc;
 
 	widget->m_Visible = true;
 	widget->m_SubwidgetsVisible = true;
 
 
-	bbDictionary* spriteDict = g_Game->m_Maps[map]->m_Sprites->m_Dictionary;
+	bbDictionary* spriteDict = g_Game->m_Maps[widget->p_Pool.Map]->m_Sprites->m_Dictionary;
 	int32_t spriteInt = bbDictionary_lookup(spriteDict, "DECAL_1280");
 	bbDebug("bbWidget_Decal_new, spriteInt = %d\n", spriteInt);
 	widget->m_SpriteInt = spriteInt;
@@ -54,7 +56,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, int32_t map, bbScreenCoordsI sc
 	}
 
 
-	bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+	bbWidgetFunctions* functions = widgets->m_Functions;
 
 	widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "decal");
 	widget->m_ParentWidget = f_None;
@@ -63,7 +65,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, int32_t map, bbScreenCoordsI sc
 	widget->m_SubwidgetPrev = f_None;
 	widget->m_SubwidgetNext = f_None;
 
-	g_Game->m_Maps[map]->m_Widgets->m_Decal = widget;
+	widgets->m_Decal = widget;
 	*reference = widget;
 
 	return f_Success;

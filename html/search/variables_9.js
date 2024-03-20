@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['tail_0',['Tail',['../structbbDictionary__bin.html#a3a44344ce25bb6fce3fac1feed10c8b9',1,'bbDictionary_bin']]],
-  ['textures_1',['Textures',['../structbbMapConstants.html#abe2741b0fe7846fac41a57998cfa8ad0',1,'bbMapConstants']]],
-  ['tilespersquare_2',['TilesPerSquare',['../structbbMapConstants.html#a8e83ab6255463e244d2eb7a43c687249',1,'bbMapConstants']]]
+  ['oncommand_5favailable_0',['OnCommand_available',['../structbbWidgetFunctions.html#a3ea3ab3e37b4b8a1be105d25c00acf26',1,'bbWidgetFunctions']]],
+  ['oncommand_5fdict_1',['OnCommand_dict',['../structbbWidgetFunctions.html#aaa2ef8268b51161fa287770e3f4234e4',1,'bbWidgetFunctions']]],
+  ['oncommands_2',['OnCommands',['../structbbWidgetFunctions.html#a77f4e24ac09863bce8bc64a2a9c6ebef',1,'bbWidgetFunctions']]]
 ];

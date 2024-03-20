@@ -12,6 +12,7 @@ bbGame* g_Game;
 int main (void){
 	int flag;
 	flag = bbGame_new(&g_Game, GAME_PATH);
+
 	g_Game->m_CurrentMap = 0;
 
 	sfRenderWindow_setFramerateLimit(g_Game->m_Window, 60);
@@ -91,16 +92,16 @@ int main (void){
 	bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
 	bbWidget* widget;
 	int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
-	bbWidget_new(&widget, g_Game->m_CurrentMap, type, f_None);
+	bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
 
 	bbWidget* fireworks;
 	type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
-	bbWidget_new(&fireworks, g_Game->m_CurrentMap, type, widget->p_Pool.Self);
+	bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.Self);
 
 	bbWidget* prompt;
 	type = bbWidgetFunctions_getInt(functions, wf_Constructor, "prompt");
 	bbDebug("prompt type = %d\n", type);
-	bbWidget_new(&prompt, g_Game->m_CurrentMap, type, widget->p_Pool.Self);
+	bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.Self);
 
 
 	bbDebug("in main: map = %d, ondraw = %d\n", widget->p_Pool.Map, widget->m_OnDraw);

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['g_5fgame_0',['g_Game',['../bbGame_8h.html#a4ccd3158a42fd805a173edfdf6f9d23e',1,'bbGame.h']]]
+  ['elevationscale_0',['ElevationScale',['../structbbMapConstants.html#abf103454041f6ec3644b8ad45b406abd',1,'bbMapConstants']]]
 ];

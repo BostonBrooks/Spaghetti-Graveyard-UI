@@ -5,7 +5,7 @@ digraph "bbMap"
   node [fontname="Helvetica",fontsize="10",shape=record];
   Node1 [label="bbMap",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" p_Constants" ,fontname="Helvetica"];
-  Node2 [label="bbMapConstants",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMapConstants.html",tooltip="contains data about the game?"];
+  Node2 [label="bbMapConstants",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMapConstants.html",tooltip="contains data about the map"];
   Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Textures" ,fontname="Helvetica"];
   Node3 [label="bbTextures",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbTextures.html",tooltip=" "];
   Node4 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dictionary" ,fontname="Helvetica"];
@@ -24,4 +24,20 @@ digraph "bbMap"
   Node9 [label="bbAnimation",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbAnimation.html",tooltip=" "];
   Node7 -> Node9 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Sprites" ,fontname="Helvetica"];
   Node4 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dictionary" ,fontname="Helvetica"];
+  Node10 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Widgets" ,fontname="Helvetica"];
+  Node10 [label="bbWidgets",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgets.html",tooltip=" "];
+  Node11 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Pool" ,fontname="Helvetica"];
+  Node11 [label="bbPool",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbPool.html",tooltip=" "];
+  Node12 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Available\nm_InUse" ,fontname="Helvetica"];
+  Node12 [label="bbPool_bin",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbPool__bin.html",tooltip=" "];
+  Node4 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_AddressDict\nm_PromptDict" ,fontname="Helvetica"];
+  Node13 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Decal\nm_TextInput" ,fontname="Helvetica"];
+  Node13 [label="bbWidget",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidget.html",tooltip=" "];
+  Node14 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" p_Pool" ,fontname="Helvetica"];
+  Node14 [label="bbPool_data",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbPool__data.html",tooltip=" "];
+  Node15 -> Node13 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dimensions\nm_ScreenCoords" ,fontname="Helvetica"];
+  Node15 [label="bbScreenCoordsI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbScreenCoordsI.html",tooltip="Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP."];
+  Node16 -> Node10 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Functions" ,fontname="Helvetica"];
+  Node16 [label="bbWidgetFunctions",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbWidgetFunctions.html",tooltip=" "];
+  Node4 -> Node16 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" AnimationDraw_dict\nConstructor_dict\nDestructor_dict\nDrawFunction_dict\nOnCommand_dict" ,fontname="Helvetica"];
 }

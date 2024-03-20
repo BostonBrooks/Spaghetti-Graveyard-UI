@@ -1,10 +1,21 @@
 var searchData=
 [
-  ['f_5fbreak_0',['f_Break',['../bbFlags_8h.html#abb14a7c6bdb0f1773fb6c4712a935e89',1,'bbFlags.h']]],
-  ['f_5fcontinue_1',['f_Continue',['../bbFlags_8h.html#a43db14729da4a0a8aa4a5bdb5658617c',1,'bbFlags.h']]],
-  ['f_5fdelete_2',['f_Delete',['../bbFlags_8h.html#a2acfde5fa1e59d59165d6656bfee5f5c',1,'bbFlags.h']]],
-  ['f_5ffull_3',['f_Full',['../bbFlags_8h.html#a7aa5ac999d1042924eb59ca9cac825d7',1,'bbFlags.h']]],
-  ['f_5fnone_4',['f_None',['../bbFlags_8h.html#a2da13f3339cfd3e03cc35c3e3c050dc6',1,'bbFlags.h']]],
-  ['f_5frepeat_5',['f_Repeat',['../bbFlags_8h.html#a72bb32109139ba01848be982b4210d90',1,'bbFlags.h']]],
-  ['f_5fsuccess_6',['f_Success',['../bbFlags_8h.html#aa80a2b409c8b662f2ad1876890bc87ce',1,'bbFlags.h']]]
+  ['f_5fbreak_0',['f_Break',['../bbFlags_8h.html#af9bff45a45bbcf2cf36c2df1e3938898',1,'bbFlags.h']]],
+  ['f_5fcontinue_1',['f_Continue',['../bbFlags_8h.html#a35e4893dd1de1a5af4d85ead5c883366',1,'bbFlags.h']]],
+  ['f_5fdelete_2',['f_Delete',['../bbFlags_8h.html#a36d29c08b8663c15731a2fbbbf6e412f',1,'bbFlags.h']]],
+  ['f_5ffull_3',['f_Full',['../bbFlags_8h.html#a79952aa082c4e1f76d155f70f69e21b6',1,'bbFlags.h']]],
+  ['f_5fnone_4',['f_None',['../bbFlags_8h.html#a1ec5d345a59af4688a45f8010e06fb5e',1,'bbFlags.h']]],
+  ['f_5fpoolfull_5',['f_PoolFull',['../bbPool_8h.html#a1606e5bac4af55ae1fb05ffab5e412e4',1,'bbPool.h']]],
+  ['f_5fpoolinuse_6',['f_PoolInUse',['../bbPool_8h.html#af316aa332bf860ee6084652ae1b46a58',1,'bbPool.h']]],
+  ['f_5fpoollvl1alreadyinitialised_7',['f_PoolLvl1AlreadyInitialised',['../bbPool_8h.html#a4af37ccc1c0d9362b7eddcd7b6c5092b',1,'bbPool.h']]],
+  ['f_5fpoollvl1full_8',['f_PoolLvl1Full',['../bbPool_8h.html#ad3fc710bcaf7737b63f11c40073ab63f',1,'bbPool.h']]],
+  ['f_5fpoollvl1notinitialised_9',['f_PoolLvl1NotInitialised',['../bbPool_8h.html#ae6d0ba2bed652c15fbac5339e297c802',1,'bbPool.h']]],
+  ['f_5fpoollvl1outofbounds_10',['f_PoolLvl1OutOfBounds',['../bbPool_8h.html#a6a121ce4c44fb5d5a9c0e0cbf57943fe',1,'bbPool.h']]],
+  ['f_5fpoolmallocfailed_11',['f_PoolMallocFailed',['../bbPool_8h.html#a45cd40e8cb9e72fac7ee8c10cb2d538f',1,'bbPool.h']]],
+  ['f_5fpoolnextavailable_12',['f_PoolNextAvailable',['../bbPool_8h.html#a3409efed477db26075ee0afa194be2bc',1,'bbPool.h']]],
+  ['f_5fpoolnone_13',['f_PoolNone',['../bbPool_8h.html#a361d1bf7f525f4361f8e070737c71a6e',1,'bbPool.h']]],
+  ['f_5fpoolnotinuse_14',['f_PoolNotInUse',['../bbPool_8h.html#a51522cd7955122405b1322cb78f533c2',1,'bbPool.h']]],
+  ['f_5fpoolsuccess_15',['f_PoolSuccess',['../bbPool_8h.html#aa9565130286fbb65a4e0d816af130e67',1,'bbPool.h']]],
+  ['f_5frepeat_16',['f_Repeat',['../bbFlags_8h.html#a39516657a0ea0d70e91c42aef982cad3',1,'bbFlags.h']]],
+  ['f_5fsuccess_17',['f_Success',['../bbFlags_8h.html#a4e178304f0bdf7d1119945b007b89314',1,'bbFlags.h']]]
 ];
