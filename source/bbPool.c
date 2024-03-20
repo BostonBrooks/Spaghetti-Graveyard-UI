@@ -26,11 +26,8 @@ typedef struct {
 int32_t bbPool_Lookup2(void** reference, bbPool* Pool, int32_t lvl1, int32_t lvl2){
 
 	int8_t* array = Pool->m_Objects[lvl1];
-
 	int32_t index = lvl2 * Pool->m_SizeOf;
-
 	*reference = &array[index];
-
 	return f_PoolSuccess;
 }
 
@@ -83,7 +80,7 @@ int32_t bbPool_NewPool(bbPool** reference, int32_t map, int32_t SizeOf, int32_t 
 	Pool->m_InUse.Head = f_PoolNone;
 	Pool->m_InUse.Tail = f_PoolNone;
 	Pool->m_Objects = calloc(Level1, sizeof(void*));
-	for (int i; i < Level1; i++){
+	for (int32_t i = 0; i < Level1; i++){
 		Pool->m_Objects[i] = NULL;
 	}
 	*reference = Pool;
@@ -101,7 +98,7 @@ int32_t bbPool_DeletePool(bbPool* Pool){
 }
 int32_t bbPool_ClearPool(bbPool* Pool){
 
-	for (int i; i < Pool->m_Level1; i++){
+	for (int32_t i = 0; i < Pool->m_Level1; i++){
 		//It's ok to free a NULL pointer
 		free(Pool->m_Objects[i]);
 		Pool->m_Objects[i] = NULL;

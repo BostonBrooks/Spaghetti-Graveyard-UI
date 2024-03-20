@@ -21,11 +21,11 @@ typedef struct {
 	int32_t Parent;
 	// Start of list of daughter nodes
 	int32_t Head;
-	// end of list of daughter nodes
+	// End of list of daughter nodes
 	int32_t Tail;
-	// previous in list of daughter nodes
+	// Previous in list of daughter nodes
 	int32_t Prev;
-	// next in list of daughter nodes
+	// Next in list of daughter nodes
 	int32_t Next;
 
 } bbTree;
@@ -35,11 +35,13 @@ typedef struct {
 	bbTree p_Tree;
 } bbEmptyNode;
 
-/// add a new (with no daughter nodes) as a daughter node to parent;
-int32_t bbNode_setParent(bbEmptyNode* node, bbEmptyNode* parent, bbPool* pool);
+typedef int32_t bbTreeFunction (void* reference, void* node);
+
+/// add a new node (with no daughter nodes) as a daughter node to parent;
+int32_t bbNode_setParent(void* node, void* parent, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t descending_search(bbEmptyNode* root, void* myFunc, bbPool* pool);
+int32_t descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t ascending_search(bbEmptyNode* root, void* myFunc, bbPool* pool);
+int32_t ascending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 #endif // BBTREE_H;

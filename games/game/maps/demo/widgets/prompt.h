@@ -21,7 +21,6 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
 	bbWidget* widget;
 	int32_t flag;
-
 	flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
 	widgets->m_TextInput = widget;
@@ -74,23 +73,7 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
 	//add widget to parentWidget's subwidgets
 
-	if (parentWidget->p_Tree.Head == f_None){
-		bbAssert(parentWidget->p_Tree.Tail == f_None, "head/tail mismatch");
-		parentWidget->p_Tree.Head = widget->p_Pool.Self;
-		parentWidget->p_Tree.Tail = widget->p_Pool.Self;
-
-		widget->p_Tree.Next = f_None;
-		widget->p_Tree.Prev = f_None;
-
-	} else {
-		bbWidget* prevWidget;
-		bbPool_Lookup(&prevWidget, pool, parentWidget->p_Tree.Tail);
-		prevWidget->p_Tree.Next = widget->p_Pool.Self;
-		widget->p_Tree.Prev = prevWidget->p_Pool.Self;
-		widget->p_Tree.Next = f_None;
-		parentWidget->p_Tree.Tail = widget->p_Pool.Self;
-	}
-
+    bbNode_setParent(widget, parentWidget, pool);
 	//////////////////////////////////// TODO
 
 	*reference = widget;
