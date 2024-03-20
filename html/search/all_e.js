@@ -1,12 +1,8 @@
 var searchData=
 [
-  ['screenppp_0',['ScreenPPP',['../structbbMapConstants.html#ae9edab3acb162d6aaa4d8f442108b5ad',1,'bbMapConstants']]],
-  ['self_1',['Self',['../structbbPool__data.html#ae34a0845b7d2211c99b41374fc75aa3a',1,'bbPool_data']]],
-  ['size_2',['size',['../structbbIntRect.html#a10020872e7a7afb62536ee5859c57da8',1,'bbIntRect']]],
-  ['skins_3',['Skins',['../structbbMapConstants.html#ac1fa3b6989a4f8798af130dc13b399ed',1,'bbMapConstants']]],
-  ['sprites_4',['Sprites',['../structbbMapConstants.html#a15c904f9f092a5aeb0196f807d9c9e78',1,'bbMapConstants']]],
-  ['sprites_2ecsv_5',['sprites.csv',['../sprites_8csv.html',1,'']]],
-  ['sprites_2ecsv_2edox_6',['sprites.csv.dox',['../sprites_8csv_8dox.html',1,'']]],
-  ['squarespermapi_7',['SquaresPerMapI',['../structbbMapConstants.html#aa67e3ee9358efce1afb286d6e8356f1c',1,'bbMapConstants']]],
-  ['squarespermapj_8',['SquaresPerMapJ',['../structbbMapConstants.html#a49acf7d5e5fb25d504b3204b7a95bc27',1,'bbMapConstants']]]
+  ['tail_0',['Tail',['../structbbDictionary__bin.html#a3a44344ce25bb6fce3fac1feed10c8b9',1,'bbDictionary_bin']]],
+  ['textures_1',['Textures',['../structbbMapConstants.html#abe2741b0fe7846fac41a57998cfa8ad0',1,'bbMapConstants']]],
+  ['textures_2ecsv_2',['textures.csv',['../textures_8csv.html',1,'']]],
+  ['textures_2ecsv_2edox_3',['textures.csv.dox',['../textures_8csv_8dox.html',1,'']]],
+  ['tilespersquare_4',['TilesPerSquare',['../structbbMapConstants.html#a8e83ab6255463e244d2eb7a43c687249',1,'bbMapConstants']]]
 ];

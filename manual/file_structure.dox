@@ -1,7 +1,9 @@
 /** \page Directory Structure
 
-Files in the project directory will be organised an a sensible way
+game engine code can be found in /headers and /source.
 
+code and data found in /game contains files associated with one game built from the engine
 
+/trash contains code I got confused about and will re-implement later
 
 */

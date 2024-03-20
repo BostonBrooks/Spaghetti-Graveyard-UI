@@ -72,8 +72,12 @@ $(function() {
   <div class="headertitle"><div class="title">bbAnimation.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>sfTexture is define in SFML as raw pixel data <a class="el" href="structbbTextures.html">bbTextures</a> is a container for sfTextures  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbTextures_8h_source.html">headers/bbTextures.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbSprites_8h_source.html">headers/bbSprites.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbAnimation.h:</div>
@@ -91,20 +95,20 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html">bbAnimation</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbAnimation.html" title="bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appear...">bbAnimation</a> contains an array of references to sfSprites to be drawn in succession to give the appearance of movement.  <a href="structbbAnimation.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimations.html">bbAnimations</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbAnimations.html" title="bbAnimations is a container for all of the animations used in a single bbMap">bbAnimations</a> is a container for all of the animations used in a single <a class="el" href="structbbMap.html">bbMap</a>  <a href="structbbAnimations.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac6960d4bb70fca59f6128f5cf24efc9b"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAnimation_8h.html#ac6960d4bb70fca59f6128f5cf24efc9b">bbAnimations_new</a> (<a class="el" href="structbbAnimations.html">bbAnimations</a> **animations, <a class="el" href="structbbSprites.html">bbSprites</a> *sprites, char *file_path, int32_t num_animations)</td></tr>
-<tr class="separator:ac6960d4bb70fca59f6128f5cf24efc9b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a367b6b2f6935230b3f12dd5f5fe56a23"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbAnimation_8h.html#a367b6b2f6935230b3f12dd5f5fe56a23">bbAnimations_new</a> (<a class="el" href="structbbAnimations.html">bbAnimations</a> **self, <a class="el" href="structbbSprites.html">bbSprites</a> *Sprites, char *folderPath, int32_t numAnimations)</td></tr>
+<tr class="separator:a367b6b2f6935230b3f12dd5f5fe56a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ac6960d4bb70fca59f6128f5cf24efc9b" name="ac6960d4bb70fca59f6128f5cf24efc9b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac6960d4bb70fca59f6128f5cf24efc9b">&#9670;&nbsp;</a></span>bbAnimations_new()</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >sfTexture is define in SFML as raw pixel data <a class="el" href="structbbTextures.html">bbTextures</a> is a container for sfTextures </p>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a367b6b2f6935230b3f12dd5f5fe56a23" name="a367b6b2f6935230b3f12dd5f5fe56a23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a367b6b2f6935230b3f12dd5f5fe56a23">&#9670;&nbsp;</a></span>bbAnimations_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,25 +117,25 @@ Functions</h2></td></tr>
           <td class="memname">int32_t bbAnimations_new </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbAnimations.html">bbAnimations</a> **&#160;</td>
-          <td class="paramname"><em>animations</em>, </td>
+          <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structbbSprites.html">bbSprites</a> *&#160;</td>
-          <td class="paramname"><em>sprites</em>, </td>
+          <td class="paramname"><em>Sprites</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_path</em>, </td>
+          <td class="paramname"><em>folderPath</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>num_animations</em>&#160;</td>
+          <td class="paramname"><em>numAnimations</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

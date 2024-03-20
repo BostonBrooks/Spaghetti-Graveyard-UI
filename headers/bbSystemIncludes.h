@@ -1,10 +1,13 @@
 /**
  * @file
-* @brief bbGame is the root of all data stored by the game.
+* @brief libraries included in every file
 */
 
 #ifndef BBSYSTEM_INCLUDES_H
 #define BBSYSTEM_INCLUDES_H
+
+#define BBDEBUG
+#define BBVERBOSE
 
 	#include <SFML/System.h>
 	#include <SFML/Graphics.h>
@@ -18,4 +21,8 @@
 	#include <stdbool.h>
 	#include <inttypes.h>
 
+#include "headers/bbFlags.h"
+#include "headers/bbPrintf.h"
+
 #endif //BBSYSTEM_INCLUDES_H
+

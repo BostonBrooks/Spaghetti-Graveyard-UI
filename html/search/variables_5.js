@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['head_0',['Head',['../structbbDictionary__bin.html#a5e5708a217236857337b2bd980693f96',1,'bbDictionary_bin::Head()'],['../structbbPool__bin.html#a3d7a68eb54a8b1e14d94d276e6aaae6c',1,'bbPool_bin::Head()']]]
+  ['i_5fsprites_0',['i_Sprites',['../structbbAnimation.html#a0e3dfdcb8b9ac473dd8cd5d8d66899d6',1,'bbAnimation']]]
 ];

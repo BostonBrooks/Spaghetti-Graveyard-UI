@@ -17,17 +17,17 @@
  * Stuff for passing flags around when using pools
  **/
 ///@{
-#define f_Pool_Success                    0
-#define f_Pool_None                      -1
-#define f_Pool_InUse                     -2
-#define f_Pool_NotInUse                  -3
-#define f_Pool_Lvl1NotInitialised        -4
-#define f_Pool_Lvl1AlreadyInitialised    -5
-#define f_Pool_Lvl1OutOfBounds           -6
-#define f_Pool_MallocFailed              -7
-#define f_Pool_Full                      -8
-#define f_Pool_Lvl1Full                  -9
-#define f_Pool_NextAvailable            -10
+#define f_PoolSuccess                    0
+#define f_PoolNone                      -1
+#define f_PoolInUse                     -2
+#define f_PoolNotInUse                  -3
+#define f_PoolLvl1NotInitialised        -4
+#define f_PoolLvl1AlreadyInitialised    -5
+#define f_PoolLvl1OutOfBounds           -6
+#define f_PoolMallocFailed              -7
+#define f_PoolFull                      -8
+#define f_PoolLvl1Full                  -9
+#define f_PoolNextAvailable            -10
 ///@}
 
 
@@ -63,11 +63,11 @@ int32_t bbPool_Lookup2(void** return_by_reference, bbPool* Pool, int32_t lvl1, i
 int32_t bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, int32_t Address);
 
 
-///Lookup object at Address, error if m_Pool_InUse == f_Pool_InUse
+///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
 int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address);
 
 ///Create an new pool with object's size = Sizeof
-int32_t bbPool_NewPool(bbPool** return_by_reference, int32_t SizeOf, int32_t Level1, int32_t Level2);
+int32_t bbPool_NewPool(bbPool** return_by_reference, int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2);
 
 ///Delete entire pool
 int32_t bbPool_DeletePool(bbPool* Pool);
@@ -79,7 +79,7 @@ int32_t bbPool_ClearPool(bbPool* Pool);
 int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address);
 
 ///Create object in pool
-int32_t bbPool_New(bbPool* Pool, int32_t address);
+int32_t bbPool_New(void** return_by_reference, bbPool* Pool, int32_t address);
 
 ///Remove object from pool
 int32_t bbPool_Delete(bbPool* Pool, int32_t address);

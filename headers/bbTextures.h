@@ -11,14 +11,16 @@
 #include "headers/bbDictionary.h"
 
 typedef struct { //bbTextures
-
-	sfTexture** m_VTable;
+	int32_t m_NumTextures;
+	sfTexture** m_Textures;
 	bbDictionary* m_Dictionary;
 
 } bbTextures;
 
-int32_t bbTextures_new(bbTextures** Textures, char* file_path, int32_t num_textures);
-//int32_t bbTextures_clear(int32_t map);
-//int32_t bbTextures_locate(int32_t map, char* key);
+int32_t bbTextures_new(bbTextures** self, char* folderPath, int32_t numTextures);
+
+//if key is int, return texture at that address
+//otherwise, look up key in dictionary and return the texture pointed to.
+int32_t bbTextures_lookup (sfTexture** self, bbTextures* textures, char* key);
 
 #endif //BBTEXTURES_H

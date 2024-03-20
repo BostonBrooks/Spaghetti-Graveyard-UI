@@ -24,7 +24,7 @@ int texture_load(int32_t map, char* key, int address, char* file_name, sfBool sm
 	textures->m_VTable[address] = new_texture;
 	bbDictionary_add(textures->m_Dictionary, key, address);
 
-	return F_SUCCESS;
+	return f_Success;
 
 }
 
@@ -63,7 +63,7 @@ int32_t bbTextures_new(char* file_name, int32_t num_textures){
 	}
 
 	fclose (textures_file);
-	return F_SUCCESS;
+	return f_Success;
 }
 
 int32_t bbTextures_locate (int32_t map, char* key){

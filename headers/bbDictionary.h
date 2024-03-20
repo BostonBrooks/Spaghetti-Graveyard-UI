@@ -8,7 +8,7 @@
 #define BBDICTIONARY_H
 
 #include "headers/bbSystemIncludes.h"
-#include "headers/bbConstants.h"
+#include "headers/bbEngineConstants.h"
 
 typedef struct {
 	int32_t Head;
@@ -40,8 +40,8 @@ typedef struct {
 int32_t bbDictionary_new(bbDictionary** dict, int32_t n_bins);
 /// delete an existing dictionary
 int32_t bbDictionary_delete(bbDictionary* dict);
-/// add key/value pair to dictionary
-int32_t bbDictionary_add(bbDictionary* dict, char* key, int value);  //and overwrite if duplicate
+/// add key/value pair to dictionary and overwrite if duplicate
+int32_t bbDictionary_add(bbDictionary* dict, char* key, int value);
 /// remove a key from dictionary
 int32_t bbDictionary_remove(bbDictionary* dict, char* key);
 /// lookup a key in dictionary

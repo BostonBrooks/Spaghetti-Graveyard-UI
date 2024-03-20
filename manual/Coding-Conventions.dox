@@ -25,7 +25,7 @@ Prefixes will be used to describe the type of data stored in a variable, or defi
  - g_ for globals.
  - f_ for #defined return flags.
  - c_ for #defined commands.
- - A_ for #defined types of class bbActor (finite state machine) to be stored in a variable with v_ prefix.
+ - a_ for #defined types of class bbActor (finite state machine) to be stored in a variable with v_ prefix.
  - f_Pool_ for #defined return flags used by bbPool objects
  
 Some structures, such as those representing vector coordinates, need not use prefixes.
@@ -52,7 +52,7 @@ The function bbDrawable_onDraw(self); will look up the method in a predefined vt
 
 Floating point mathematics will be avoided where possible.
 Instead fixed point mathematics will be achieved using "conversion factors" with names like:
-m_PointsPerPixel, m_PixelsPerTile, and m_TilesPerSquare found in the bbMap object.
+m_PointsPerPixel, m_PixelsPerTile, and m_TilesPerSquare found in the bbMapConstants struct.
 
 One exception to this would be setting the scale of a sprite to be drawn to the viewport or screen.
 
@@ -76,5 +76,12 @@ eg pass dont pass bbMap when bbMapConstants will suffice.
 
 The first argument to a constructor should be a reference to a pointer that will point to the new object.
 
+Containers have knowledge of what map they are in.
+
+constructors will look like:
+
+int32_t bbObject_new(bbObject** self, bbObjects* container, ... );
+
+arguments of functions will be in lowerCamelCase
 
 */

@@ -6,6 +6,7 @@
  *
 */
 
+
 #ifndef BBPRINTF_H
 #define BBPRINTF_H
 
@@ -13,18 +14,11 @@
 #include <stdarg.h>
 #include <assert.h>
 
-/**
- * This function calls printf if BBDEBUG is defined in the file this header is included in
- * @author Boston Brooks
- * @param format printf format string
- * @param ... printf args
- * @date 20/2/2024
- */
+
+#define BBDEBUG
+///If BBDEBUG is defined, print a debug message
 static void bbDebug(const char* format, ...){
 
-/**
- * This function calls printf if BBDEBUG is defined in the file this header is included in
- */
 #ifdef BBDEBUG
 
 	printf("DEBUG: ");
@@ -33,13 +27,25 @@ static void bbDebug(const char* format, ...){
 	vprintf(format, args);
 	va_end (args);
 
-#endif
+#endif  // BBDEBUG
 
-} // BBDEBUG
+}
 
-/**
- * This function calls printf if BBVERBOSE is defined in the file this header is included in
- */
+///Same as bbDebug but with the DEBUG: tag
+static void bbPrintf(const char* format, ...){
+
+#ifdef BBDEBUG
+
+	va_list args;
+	va_start(args, format);
+	vprintf(format, args);
+	va_end (args);
+
+#endif  // BBDEBUG
+
+}
+
+///If BBVERBOSE is defined, print a verbose message
 static void bbVerbose(const char* format, ...){
 
 #ifdef BBVERBOSE
@@ -54,6 +60,7 @@ static void bbVerbose(const char* format, ...){
 
 }
 
+/// Print warning and exit
 #define bbAssert(expression, ...)                    \
 	if (!(expression)){                              \
 		printf("ASSERTION: ");                       \
@@ -61,7 +68,7 @@ static void bbVerbose(const char* format, ...){
 	}                                                \
 	assert(expression);
 
-
+/// Print warning and continue
 #define bbWarning(expression, ...)                   \
 	if (!(expression)){                              \
 		printf("WARNING: ");                         \

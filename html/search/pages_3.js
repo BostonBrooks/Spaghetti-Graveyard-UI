@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['program_2dflow_0',['Program-Flow',['../Program-Flow.html',1,'']]]
+  ['sprites_2ecsv_0',['sprites.csv',['../sprites_8csv.html',1,'']]],
+  ['structure_1',['Structure',['../Directory.html',1,'']]]
 ];

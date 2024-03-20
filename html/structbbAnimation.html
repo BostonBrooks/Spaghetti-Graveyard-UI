@@ -68,30 +68,45 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="structbbAnimation.html" title="bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appear...">bbAnimation</a> contains an array of references to sfSprites to be drawn in succession to give the appearance of movement.  
- <a href="structbbAnimation.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="bbAnimation_8h_source.html">bbAnimation.h</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for bbAnimation:</div>
+<div class="dyncontent">
+<div class="center"><img src="structbbAnimation__coll__graph.png" border="0" usemap="#abbAnimation_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:ab0e37d510598e68719f510f7631e23ee"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#ab0e37d510598e68719f510f7631e23ee">m_Key</a> [33]</td></tr>
-<tr class="separator:ab0e37d510598e68719f510f7631e23ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d747de1b35c6566c87b39b1efd3a765"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">m_DrawFunction</a></td></tr>
-<tr class="memdesc:a4d747de1b35c6566c87b39b1efd3a765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default DrawFunction if not specified by <a class="el" href="structbbDrawable.html">bbDrawable</a>.  <a href="structbbAnimation.html#a4d747de1b35c6566c87b39b1efd3a765">More...</a><br /></td></tr>
-<tr class="separator:a4d747de1b35c6566c87b39b1efd3a765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15aaddcf7eeb0c2d9cdc70117c0c3b05"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a15aaddcf7eeb0c2d9cdc70117c0c3b05">m_Key</a> [<a class="el" href="bbEngineConstants_8h.html#a5145aca5cb4a65b79b24d162d6fd72eb">KEY_LENGTH</a>]</td></tr>
+<tr class="separator:a15aaddcf7eeb0c2d9cdc70117c0c3b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8182081a9621d062926aee4910298bdc"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a8182081a9621d062926aee4910298bdc">v_DrawFunction</a></td></tr>
+<tr class="separator:a8182081a9621d062926aee4910298bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d4970fe64f0d803092721f28cf420c2"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a8d4970fe64f0d803092721f28cf420c2">m_Angles</a></td></tr>
 <tr class="separator:a8d4970fe64f0d803092721f28cf420c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9eff7f0133339ea36d1ea9ffdb61f319"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a9eff7f0133339ea36d1ea9ffdb61f319">m_Frames</a></td></tr>
 <tr class="separator:a9eff7f0133339ea36d1ea9ffdb61f319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc9ab69010f5aa1cd4d3a77a1fac02df"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#afc9ab69010f5aa1cd4d3a77a1fac02df">m_Framerate</a></td></tr>
 <tr class="separator:afc9ab69010f5aa1cd4d3a77a1fac02df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a228ac872310ced83213a136cca4ee6f8"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a228ac872310ced83213a136cca4ee6f8">m_Sprites</a> []</td></tr>
-<tr class="separator:a228ac872310ced83213a136cca4ee6f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ef8db908bb69512ea4a1bdea95a699a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structbbSprites.html">bbSprites</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a9ef8db908bb69512ea4a1bdea95a699a">m_Sprites</a></td></tr>
+<tr class="separator:a9ef8db908bb69512ea4a1bdea95a699a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3dfdcb8b9ac473dd8cd5d8d66899d6"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbAnimation.html#a0e3dfdcb8b9ac473dd8cd5d8d66899d6">i_Sprites</a> []</td></tr>
+<tr class="separator:a0e3dfdcb8b9ac473dd8cd5d8d66899d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p ><a class="el" href="structbbAnimation.html" title="bbAnimation contains an array of references to sfSprites to be drawn in succession to give the appear...">bbAnimation</a> contains an array of references to sfSprites to be drawn in succession to give the appearance of movement. </p>
-</div><h2 class="groupheader">Field Documentation</h2>
+<h2 class="groupheader">Field Documentation</h2>
+<a id="a0e3dfdcb8b9ac473dd8cd5d8d66899d6" name="a0e3dfdcb8b9ac473dd8cd5d8d66899d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3dfdcb8b9ac473dd8cd5d8d66899d6">&#9670;&nbsp;</a></span>i_Sprites</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbAnimation::i_Sprites[]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a8d4970fe64f0d803092721f28cf420c2" name="a8d4970fe64f0d803092721f28cf420c2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8d4970fe64f0d803092721f28cf420c2">&#9670;&nbsp;</a></span>m_Angles</h2>
 
@@ -103,22 +118,6 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4d747de1b35c6566c87b39b1efd3a765" name="a4d747de1b35c6566c87b39b1efd3a765"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4d747de1b35c6566c87b39b1efd3a765">&#9670;&nbsp;</a></span>m_DrawFunction</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbAnimation::m_DrawFunction</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Default DrawFunction if not specified by <a class="el" href="structbbDrawable.html">bbDrawable</a>. </p>
 
 </div>
 </div>
@@ -150,28 +149,42 @@ Data Fields</h2></td></tr>
 
 </div>
 </div>
-<a id="ab0e37d510598e68719f510f7631e23ee" name="ab0e37d510598e68719f510f7631e23ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0e37d510598e68719f510f7631e23ee">&#9670;&nbsp;</a></span>m_Key</h2>
+<a id="a15aaddcf7eeb0c2d9cdc70117c0c3b05" name="a15aaddcf7eeb0c2d9cdc70117c0c3b05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15aaddcf7eeb0c2d9cdc70117c0c3b05">&#9670;&nbsp;</a></span>m_Key</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char bbAnimation::m_Key[33]</td>
+          <td class="memname">char bbAnimation::m_Key[<a class="el" href="bbEngineConstants_8h.html#a5145aca5cb4a65b79b24d162d6fd72eb">KEY_LENGTH</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a228ac872310ced83213a136cca4ee6f8" name="a228ac872310ced83213a136cca4ee6f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a228ac872310ced83213a136cca4ee6f8">&#9670;&nbsp;</a></span>m_Sprites</h2>
+<a id="a9ef8db908bb69512ea4a1bdea95a699a" name="a9ef8db908bb69512ea4a1bdea95a699a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ef8db908bb69512ea4a1bdea95a699a">&#9670;&nbsp;</a></span>m_Sprites</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbAnimation::m_Sprites[]</td>
+          <td class="memname"><a class="el" href="structbbSprites.html">bbSprites</a>* bbAnimation::m_Sprites</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8182081a9621d062926aee4910298bdc" name="a8182081a9621d062926aee4910298bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8182081a9621d062926aee4910298bdc">&#9670;&nbsp;</a></span>v_DrawFunction</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbAnimation::v_DrawFunction</td>
         </tr>
       </table>
 </div><div class="memdoc">

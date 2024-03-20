@@ -1,99 +1,98 @@
 /**
  * @file
- * @brief bbWidget includes things like menus and buttons.
- * Each widget owns a list of subwidgets and widgets are arranged in a hierarchy
- * bbWidgets is a container for all widgets corresponding to a given map
- * Spell slots are classified as widgets and they can either be clicked or have their code entered.
+ * @brief bbWidgets are things like menu buttons, text prompts, click to cast spells etc.
 */
+#ifndef BBWIDGET_H
+#define BBWIDGET_H
 
-#ifndef BBWIDGETS_H
-#define BBWIDGETS_H
-
-#include "headers/bbConstants.h"
-#include "headers/bbSystemIncludes.h"
-#include "headers/bbGeometry.h"
 #include "headers/bbPool.h"
 #include "headers/bbDictionary.h"
+#include "headers/bbGeometry.h"
 
 
-
-/** bbWidget includes things like menus, buttons and spells */
-typedef struct { //bbWidget
-
+typedef struct{
 	bbPool_data p_Pool;
 
-/** @name Graphics Stuff
- * Stuff for drawing widgets to the screen
- **/
-///@{ */
-
+	bbScreenCoordsI m_ScreenCoords;
+	bbScreenCoordsI m_Dimensions;
 	bool m_Visible;
 	bool m_SubwidgetsVisible;
-	bbScreenCoordsI m_ScreenCoords;
+	char* m_String;
+	sfText* m_Text;
+	sfFont* m_Font;
+    char* m_Code;
+	int32_t m_SpriteInt;
 
-	char* m_Text;
-	char* m_SpriteLabel;  /// Look up sprite label in dictionary to draw to screen.
-///@}
+	int32_t m_AnimationInt[ANIMATIONS_PER_WIDGET];
+	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
+	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
+	int32_t m_AnimationDraw[ANIMATIONS_PER_WIDGET];
 
-/** @name Interactive Stuff
- * Stuff for interacting with the game. Integers refer to a location in a vtable.
-**/
-///@{ */
-	char* m_Code; /// Enter this code to activate spell without clicking on it
 	int32_t m_OnCommand;
-	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
-	int32_t m_OnMouse;
 
-
-///@}
-
-/** @name Hierarchy Stuff
- * Stuff for storing widgets in a hierarchy
-**/
-///@{ */
-    int32_t m_ParentWidget;
+	int32_t m_ParentWidget;
 	int32_t m_SubwidgetHead;
 	int32_t m_SubwidgetTail;
-	int32_t m_WidgetNext;
-	int32_t m_WidgetPrevious;
+	int32_t m_SubwidgetPrev;
+	int32_t m_SubwidgetNext;
 
-///@}
+	void* m_ExtraData;
+
 } bbWidget;
+ //wf stands for widget function
+#define wf_Constructor     0
+#define wf_DrawFunction    1
+#define wf_Destructor      2
+#define wf_OnCommand       3
+#define wf_AnimationDraw   4
+
+typedef int32_t bbWidget_Constructor (bbWidget** reference, int32_t map, bbScreenCoordsI screen_coords, int32_t parent);
+typedef int32_t bbWidget_DrawFunction (bbWidget* widget);
+typedef int32_t bbWidget_Destructor (bbWidget* widget);
+typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
+typedef int32_t bbWidget_AnimationDraw (bbWidget* widget, int32_t i);
+
+typedef struct {
+	bbWidget_Constructor** Constructors;
+	bbDictionary* Constructor_dict;
+	int32_t Constructor_available;
+	bbWidget_DrawFunction** DrawFunctions;
+	bbDictionary* DrawFunction_dict;
+	int32_t DrawFunction_available;
+	bbWidget_Destructor** Destructors;
+	bbDictionary* Destructor_dict;
+	int32_t Destructor_available;
+	//includes on click and on prompt
+	bbWidget_OnCommand** OnCommands;
+	bbDictionary* OnCommand_dict;
+	int32_t OnCommand_available;
+	bbWidget_AnimationDraw** AnimationDraw;
+	bbDictionary* AnimationDraw_dict;
+	int32_t AnimationDraw_available;
+} bbWidgetFunctions;
 
 
-/// bbWidgets is a container for objects of type bbWisget
-typedef struct { //bbWidgets
-
+typedef struct {
 	bbPool* m_Pool;
-	bbDictionary* m_Codes;
-	int32_t m_NumWidgets;
+	bbDictionary* m_AddressDict; //reference widgets be key
+	bbDictionary* m_PromptDict; //enter code "key" to click widget at "address"
 
-	int32_t (*m_Constructor[N_WIDGET_TYPES])(int32_t map, bbScreenCoordsI SC, int32_t parent);
-	int32_t (*m_OnCommand[N_WIDGET_TYPES])(int32_t map, int32_t self, int32_t command, void* data);
-	int32_t (*m_OnUpdate[N_WIDGET_TYPES])(int32_t map, int32_t self);
-	int32_t (*m_OnDraw[N_WIDGET_TYPES])(int32_t map, int32_t self);
-	int32_t (*m_OnDelete[N_WIDGET_TYPES])(int32_t map, int32_t self);
-	int32_t (*m_OnMouse[N_WIDGET_TYPES])(int32_t map, int32_t self, void* data);
-
-
-
+	bbWidget* m_Decal; //the root widget in the hierarchy
+	bbWidget* m_TextInput; //key events are passed to this widget
+	bbWidgetFunctions* m_Functions;
 } bbWidgets;
 
-int32_t bbWidget_New(bbWidget** self, int32_t map, bbScreenCoordsI SC, int32_t parent, int32_t type);
-/*
-/// Locate existing widget
-bbWidget* bbWidget_Locate(int32_t map, int32_t self);
+int32_t bbWidgets_new(int32_t map);
+int32_t bbWidgetFunctions_new(int32_t map);
 
-/// Load virtual functions into vtable
-int32_t bbWidget_PopulateVTables();
-/// Look up function in vtable then execute
-int32_t bbWidget_New (int32_t map, bbScreenCoordsI SC, int32_t parent, int32_t type);
-int32_t bbWidget_OnCommand(int32_t map, int32_t self, int32_t command, void* data);
-int32_t bbWidget_OnUpdate(int32_t map, int32_t self);
-int32_t bbWidget_OnDraw(int32_t map, int32_t self);
-int32_t bbWidget_OnDelete(int32_t map, int32_t self);
-int32_t bbWidget_OnMouse(int32_t map, int32_t self, void* data);
-*/
-#endif //BBWIDGETS_H
+int32_t bbWidgetFunctions_populate(int32_t map);
+int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* pointer, char* key );
+int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, int32_t bin, char* key);
+int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
+
+int32_t bbWidget_new(bbWidget** self, int32_t map, int32_t type, int32_t parent);
+int32_t bbWidget_draw (bbWidget* widget);
+
+#endif //BBWIDGET_H

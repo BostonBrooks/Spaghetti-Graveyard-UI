@@ -1,7 +1,6 @@
 GraphicsSettings:
 Title: "Spaghetti Graveyard"
-Height: 600
-Width: 800
-
+Height: 720
+Width: 1280
 Maps:
 0, demo

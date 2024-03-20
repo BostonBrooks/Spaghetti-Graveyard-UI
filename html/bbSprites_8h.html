@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>sfSprite is the basic object drawn to the viewport  
+<p>sfTexture is define in SFML as raw pixel data <a class="el" href="structbbTextures.html">bbTextures</a> is a container for sfTextures  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
@@ -94,19 +94,48 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structbbSprites.html">bbSprites</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="structbbSprites.html" title="bbSprites is a container for sfSprites used in a single bbMap">bbSprites</a> is a container for sfSprites used in a single <a class="el" href="structbbMap.html">bbMap</a>  <a href="structbbSprites.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:abcbd25004b52afd6290d295ac52d510b"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#abcbd25004b52afd6290d295ac52d510b">bbSprites_new</a> (<a class="el" href="structbbSprites.html">bbSprites</a> **sprites, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *file, int32_t num_sprites)</td></tr>
-<tr class="separator:abcbd25004b52afd6290d295ac52d510b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dee09b8ac79130513f7952da54f3f6c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#a3dee09b8ac79130513f7952da54f3f6c">bbSprites_new</a> (<a class="el" href="structbbSprites.html">bbSprites</a> **self, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *folderPath, int32_t numSprites, float DrawableScale, float WidgetScale)</td></tr>
+<tr class="separator:a3dee09b8ac79130513f7952da54f3f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70d59ec37bbec08b478c234a0ee3bf18"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbSprites_8h.html#a70d59ec37bbec08b478c234a0ee3bf18">bbSprites_lookupInt</a> (<a class="el" href="structbbSprites.html">bbSprites</a> *sprites, char *key)</td></tr>
+<tr class="separator:a70d59ec37bbec08b478c234a0ee3bf18"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >sfSprite is the basic object drawn to the viewport </p>
+<div class="textblock"><p >sfTexture is define in SFML as raw pixel data <a class="el" href="structbbTextures.html">bbTextures</a> is a container for sfTextures </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="abcbd25004b52afd6290d295ac52d510b" name="abcbd25004b52afd6290d295ac52d510b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcbd25004b52afd6290d295ac52d510b">&#9670;&nbsp;</a></span>bbSprites_new()</h2>
+<a id="a70d59ec37bbec08b478c234a0ee3bf18" name="a70d59ec37bbec08b478c234a0ee3bf18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70d59ec37bbec08b478c234a0ee3bf18">&#9670;&nbsp;</a></span>bbSprites_lookupInt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbSprites_lookupInt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbSprites.html">bbSprites</a> *&#160;</td>
+          <td class="paramname"><em>sprites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3dee09b8ac79130513f7952da54f3f6c" name="a3dee09b8ac79130513f7952da54f3f6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dee09b8ac79130513f7952da54f3f6c">&#9670;&nbsp;</a></span>bbSprites_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -115,7 +144,7 @@ Functions</h2></td></tr>
           <td class="memname">int32_t bbSprites_new </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbSprites.html">bbSprites</a> **&#160;</td>
-          <td class="paramname"><em>sprites</em>, </td>
+          <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -127,13 +156,25 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file</em>, </td>
+          <td class="paramname"><em>folderPath</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>num_sprites</em>&#160;</td>
+          <td class="paramname"><em>numSprites</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>DrawableScale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>WidgetScale</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

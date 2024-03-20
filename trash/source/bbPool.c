@@ -31,7 +31,7 @@ int32_t bbPool_Lookup2(void** return_by_reference, bbPool* Pool, int32_t lvl1, i
 
 	*return_by_reference = &array[index];
 
-	return f_Pool_Success;
+	return f_PoolSuccess;
 }
 
 
@@ -50,11 +50,11 @@ int32_t bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, int32_t Add
 
     *return_by_reference = reference;
 
-	return f_Pool_Success;
+	return f_PoolSuccess;
 }
 
 
-///Lookup object at Address, error if m_Pool_InUse == f_Pool_InUse
+///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
 int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address){
 
 	bbPool_null* Object;
@@ -63,12 +63,12 @@ int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address)
 
 	if (return_flag < 0) return return_flag;
 
-	bbAssert(Object->p_Pool.InUse == f_Pool_InUse,
+	bbAssert(Object->p_Pool.InUse == f_PoolInUse,
 			 "Trying to lookup non-existant member of pool\n");
 
 	*return_by_reference = Object;
 
-	return f_Pool_Success;
+	return f_PoolSuccess;
 }
 
 bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2){
@@ -78,10 +78,10 @@ bbPool* bbPool_NewPool(int32_t map, int32_t SizeOf, int32_t Level1, int32_t Leve
 	Pool->m_SizeOf = SizeOf;
 	Pool->m_Level1 = Level1;
 	Pool->m_Level2 = Level2;
-	Pool->m_Available.Head = f_Pool_None;
-	Pool->m_Available.Tail = f_Pool_None;
-	Pool->m_InUse.Head = f_Pool_None;
-	Pool->m_InUse.Tail = f_Pool_None;
+	Pool->m_Available.Head = f_PoolNone;
+	Pool->m_Available.Tail = f_PoolNone;
+	Pool->m_InUse.Head = f_PoolNone;
+	Pool->m_InUse.Tail = f_PoolNone;
 	Pool->m_Objects = calloc(Level1, sizeof(void*));
 	for (int i; i < Level1; i++){
 		Pool->m_Objects[i] = NULL;
@@ -105,36 +105,36 @@ int32_t bbPool_ClearPool(bbPool* Pool){
 		Pool->m_Objects[i] = NULL;
 	}
 
-	Pool->m_Available.Head = f_Pool_None;
-	Pool->m_Available.Tail = f_Pool_None;
-	Pool->m_InUse.Head = f_Pool_None;
-	Pool->m_InUse.Tail = f_Pool_None;
+	Pool->m_Available.Head = f_PoolNone;
+	Pool->m_Available.Tail = f_PoolNone;
+	Pool->m_InUse.Head = f_PoolNone;
+	Pool->m_InUse.Tail = f_PoolNone;
 }
 
 int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 
 
-	bbAssert(Level1_Address == f_Pool_NextAvailable, "Feature not implemented\n");
+	bbAssert(Level1_Address == f_PoolNextAvailable, "Feature not implemented\n");
 	int32_t i = 0;
 	//Find next available / NULL entry in level1 of the pool
-	if(Level1_Address == f_Pool_NextAvailable){
+	if(Level1_Address == f_PoolNextAvailable){
 		while (i < Pool->m_Level1 && Pool->m_Objects[i] != NULL){
 			i++;
 		}
 		if(i == Pool->m_Level1){
 			bbWarning(1==0, "level1 pool full\n");
-			return f_Pool_Lvl1Full;
+			return f_PoolLvl1Full;
 		}
 	} else {
 		i = Level1_Address;
 		if (Pool->m_Objects[i] != NULL){
 			bbWarning(1==0, "lvl 1 already initialised?\n");
-			return f_Pool_Lvl1AlreadyInitialised;
+			return f_PoolLvl1AlreadyInitialised;
 		}
 	}
 	void* lvl2pool = calloc(Pool->m_Level2, Pool->m_SizeOf);
 	bbWarning(lvl2pool != NULL, "calloc failed\n");
-	if (lvl2pool == NULL) return f_Pool_MallocFailed;
+	if (lvl2pool == NULL) return f_PoolMallocFailed;
 	Pool->m_Objects[i] = lvl2pool;
 	if (Pool->m_Available.Head == -1){
 		bbAssert(Pool->m_Available.Tail == -1, "Head/Tail mismatch\n");
@@ -148,14 +148,14 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 			Object->p_Pool.Self = i * Pool->m_Level2 + j;
 			Object->p_Pool.Prev = i * Pool->m_Level2 + j - 1;
 			Object->p_Pool.Next = i * Pool->m_Level2 + j + 1;
-			Object->p_Pool.InUse = f_Pool_NotInUse;
+			Object->p_Pool.InUse = f_PoolNotInUse;
 			Object->p_Pool.Map = Pool->m_Map;
 		}
 		bbPool_null* Object;
 		int32_t flag = bbPool_Lookup2(&Object, Pool, i, 0);
-		Object->p_Pool.Prev = f_Pool_None;
+		Object->p_Pool.Prev = f_PoolNone;
 		flag =  bbPool_Lookup2(&Object, Pool, i, Pool->m_Level2 -1);
-		Object->p_Pool.Next = f_Pool_None;
+		Object->p_Pool.Next = f_PoolNone;
 
 		Pool->m_Available.Head = i * Pool->m_Level2;
 		Pool->m_Available.Tail = (i+1) * Pool->m_Level2 - 1;
@@ -167,11 +167,11 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 }
 
 int32_t bbPool_New(bbPool* Pool, int32_t address){
-	bbAssert(address == f_Pool_NextAvailable, "Feature not implemented\m");
+	bbAssert(address == f_PoolNextAvailable, "Feature not implemented\m");
 
-	if(Pool->m_Available.Head == f_Pool_None){
-		bbAssert(Pool->m_Available.Tail == f_Pool_None, "Head/Tail mismatch\n");
-		bbPool_IncreasePool(Pool, f_Pool_NextAvailable);
+	if(Pool->m_Available.Head == f_PoolNone){
+		bbAssert(Pool->m_Available.Tail == f_PoolNone, "Head/Tail mismatch\n");
+		bbPool_IncreasePool(Pool, f_PoolNextAvailable);
 	}
 
 	address = Pool->m_Available.Head;
@@ -179,22 +179,22 @@ int32_t bbPool_New(bbPool* Pool, int32_t address){
 	bbPool_null* Object;
 	int32_t flag = bbPool_Lookup_sudo(&Object, Pool, address);
 	Pool->m_Available.Head = Object->p_Pool.Next;
-	if (Pool->m_Available.Head == f_Pool_None){
-		Pool->m_Available.Tail = f_Pool_None;
+	if (Pool->m_Available.Head == f_PoolNone){
+		Pool->m_Available.Tail = f_PoolNone;
 	} else {
 		//Should be able to remove sudo?
 		bbPool_null* Head;
 		flag = bbPool_Lookup_sudo(&Head, Pool, Pool->m_InUse.Head);
-		Head->p_Pool.Prev = f_Pool_None;
+		Head->p_Pool.Prev = f_PoolNone;
 	}
-	Object->p_Pool.InUse = f_Pool_InUse;
+	Object->p_Pool.InUse = f_PoolInUse;
 
-	if (Pool->m_InUse.Head == f_Pool_None){
-		bbAssert(Pool->m_InUse.Head == f_Pool_None, "Head/Tail mismatch\n");
+	if (Pool->m_InUse.Head == f_PoolNone){
+		bbAssert(Pool->m_InUse.Head == f_PoolNone, "Head/Tail mismatch\n");
 		Pool->m_InUse.Head = address;
 		Pool->m_InUse.Tail = address;
-		Object->p_Pool.Prev = f_Pool_None;
-		Object->p_Pool.Next = f_Pool_None;
+		Object->p_Pool.Prev = f_PoolNone;
+		Object->p_Pool.Next = f_PoolNone;
 		return address;
 	}
 
@@ -202,7 +202,7 @@ int32_t bbPool_New(bbPool* Pool, int32_t address){
 	flag = bbPool_Lookup(&Tail, Pool, Pool->m_InUse.Tail);
 	Tail->p_Pool.Next = address;
 	Object->p_Pool.Prev = Pool->m_InUse.Tail;
-	Object->p_Pool.Next = f_Pool_None;
+	Object->p_Pool.Next = f_PoolNone;
 	Pool->m_InUse.Tail = address;
 	return address;
 

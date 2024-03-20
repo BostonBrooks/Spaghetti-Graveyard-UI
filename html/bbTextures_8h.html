@@ -97,14 +97,50 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a1fff5d7299f98a3d3ad2f6e28cbccd62"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbTextures_8h.html#a1fff5d7299f98a3d3ad2f6e28cbccd62">bbTextures_new</a> (<a class="el" href="structbbTextures.html">bbTextures</a> **Textures, char *file_path, int32_t num_textures)</td></tr>
-<tr class="separator:a1fff5d7299f98a3d3ad2f6e28cbccd62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad54c2c0970937b314991c5ac56d82d08"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbTextures_8h.html#ad54c2c0970937b314991c5ac56d82d08">bbTextures_new</a> (<a class="el" href="structbbTextures.html">bbTextures</a> **self, char *folderPath, int32_t numTextures)</td></tr>
+<tr class="separator:ad54c2c0970937b314991c5ac56d82d08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf30f9b7dc97d6614d0f01c2258d4f9a"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbTextures_8h.html#aaf30f9b7dc97d6614d0f01c2258d4f9a">bbTextures_lookup</a> (sfTexture **self, <a class="el" href="structbbTextures.html">bbTextures</a> *textures, char *key)</td></tr>
+<tr class="separator:aaf30f9b7dc97d6614d0f01c2258d4f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >sfTexture is define in SFML as raw pixel data <a class="el" href="structbbTextures.html">bbTextures</a> is a container for sfTextures </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a1fff5d7299f98a3d3ad2f6e28cbccd62" name="a1fff5d7299f98a3d3ad2f6e28cbccd62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fff5d7299f98a3d3ad2f6e28cbccd62">&#9670;&nbsp;</a></span>bbTextures_new()</h2>
+<a id="aaf30f9b7dc97d6614d0f01c2258d4f9a" name="aaf30f9b7dc97d6614d0f01c2258d4f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf30f9b7dc97d6614d0f01c2258d4f9a">&#9670;&nbsp;</a></span>bbTextures_lookup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t bbTextures_lookup </td>
+          <td>(</td>
+          <td class="paramtype">sfTexture **&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbTextures.html">bbTextures</a> *&#160;</td>
+          <td class="paramname"><em>textures</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>key</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad54c2c0970937b314991c5ac56d82d08" name="ad54c2c0970937b314991c5ac56d82d08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad54c2c0970937b314991c5ac56d82d08">&#9670;&nbsp;</a></span>bbTextures_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,19 +149,19 @@ Functions</h2></td></tr>
           <td class="memname">int32_t bbTextures_new </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbTextures.html">bbTextures</a> **&#160;</td>
-          <td class="paramname"><em>Textures</em>, </td>
+          <td class="paramname"><em>self</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>file_path</em>, </td>
+          <td class="paramname"><em>folderPath</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>num_textures</em>&#160;</td>
+          <td class="paramname"><em>numTextures</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
