@@ -40,12 +40,22 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 }
 
 int32_t bbWidget_draw (bbWidget* widget){
-	bbDebug("in bbWidget_draw\n", widget->p_Pool.Map, widget->m_OnDraw);
+	bbDebug("in bbWidget_draw\n");
 
 	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Functions->DrawFunctions[widget->m_OnDraw];
 	int32_t flag = drawFunction(widget);
 
-	bbDebug("out bbWidget_draw\n", widget->p_Pool.Map, widget->m_OnDraw);
+	bbDebug("out bbWidget_draw\n");
+	return flag;
+}
+
+int32_t bbWidget_update (bbWidget* widget){
+	bbDebug("in bbWidget_update\n");
+
+	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
+	int32_t flag = drawFunction(widget);
+
+	bbDebug("out bbWidget_update\n");
 	return flag;
 }
 
@@ -58,6 +68,12 @@ int32_t bbWidgetFunctions_new(int32_t map) {
 									 sizeof(bbWidget_Constructor));
 	bbDictionary_new(&functions->Constructor_dict, numConstructors);
 	functions->Constructor_available = 0;
+
+	const int32_t numUpdate = g_Game->m_Maps[map]->p_Constants.Widget_Updates;
+	functions->Update = calloc(numUpdate,
+									 sizeof(bbWidget_Update));
+	bbDictionary_new(&functions->Update_dict, numUpdate);
+	functions->Update_available = 0;
 
 	const int32_t numDrawFunctions = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
 	functions->DrawFunctions = calloc(numDrawFunctions,
@@ -97,6 +113,13 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* fun_ptr
 			//bbAssert available < MAX
 			WFS->Constructors[available] = fun_ptr;
 			bbDictionary_add(WFS->Constructor_dict, key, available);
+			return f_Success;
+
+		case wf_Update:
+			available = WFS->Update_available++;
+			//bbAssert available < MAX
+			WFS->Update[available] = fun_ptr;
+			bbDictionary_add(WFS->Update_dict, key, available);
 			return f_Success;
 
 		case wf_DrawFunction:
@@ -139,6 +162,11 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 			*function = WFS->Constructors[intAddress];
 			return f_Success;
 
+		case wf_Update:
+			intAddress = bbDictionary_lookup(WFS->Update_dict, key);
+			*function = WFS->Update[intAddress];
+			return f_Success;
+
 		case wf_DrawFunction:
 			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			*function = WFS->DrawFunctions[intAddress];
@@ -167,6 +195,10 @@ int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key)
 	switch (bin) {
 		case wf_Constructor:
 			intAddress = bbDictionary_lookup(WFS->Constructor_dict, key);
+			return intAddress;
+
+		case wf_Update:
+			intAddress = bbDictionary_lookup(WFS->Update_dict, key);
 			return intAddress;
 
 		case wf_DrawFunction:

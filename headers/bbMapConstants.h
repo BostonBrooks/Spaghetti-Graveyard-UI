@@ -21,6 +21,7 @@ typedef struct{
 	int32_t Skins;
 	int32_t Widget_Constructors;
 	int32_t Widget_DrawFunctions;
+	int32_t Widget_Updates;
 	int32_t Widget_Destructors;
 	int32_t Widget_OnCommands;
 	int32_t Widget_AnimationDraws;

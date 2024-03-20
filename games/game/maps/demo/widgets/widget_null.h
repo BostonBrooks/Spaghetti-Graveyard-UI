@@ -6,7 +6,7 @@
 #include "headers/bbWidget.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_NULL_new(int32_t map, bbScreenCoordsI sc, int32_t parent){}
+int32_t bbWidget_NULL_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI screen_coords, int32_t parent){}
 
 /// Update widget
 int32_t bbWidget_NULL_update(bbWidget* widget){}

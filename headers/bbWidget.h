@@ -29,6 +29,7 @@ typedef struct{
 	int32_t m_AnimationDraw[ANIMATIONS_PER_WIDGET];
 
 	int32_t m_OnCommand;
+	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
 
@@ -43,14 +44,16 @@ typedef struct{
 } bbWidget;
  //wf stands for widget function
 #define wf_Constructor     0
-#define wf_DrawFunction    1
-#define wf_Destructor      2
-#define wf_OnCommand       3
-#define wf_AnimationDraw   4
+#define wf_Update          1
+#define wf_DrawFunction    2
+#define wf_Destructor      3
+#define wf_OnCommand       4
+#define wf_AnimationDraw   5
 
 typedef struct bbWidgets;
 
 typedef int32_t bbWidget_Constructor (bbWidget** reference, struct bbWidgets* widgets, bbScreenCoordsI screen_coords, int32_t parent);
+typedef int32_t bbWidget_Update (bbWidget* widget);
 typedef int32_t bbWidget_DrawFunction (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
@@ -60,6 +63,9 @@ typedef struct {
 	bbWidget_Constructor** Constructors;
 	bbDictionary* Constructor_dict;
 	int32_t Constructor_available;
+	bbWidget_Update** Update;
+	bbDictionary* Update_dict;
+	int32_t Update_available;
 	bbWidget_DrawFunction** DrawFunctions;
 	bbDictionary* DrawFunction_dict;
 	int32_t DrawFunction_available;
