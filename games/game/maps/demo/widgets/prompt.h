@@ -74,21 +74,21 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
 	//add widget to parentWidget's subwidgets
 
-	if (parentWidget->m_SubwidgetHead == f_None){
-		bbAssert(parentWidget->m_SubwidgetTail == f_None, "head/tail mismatch");
-		parentWidget->m_SubwidgetHead = widget->p_Pool.Self;
-		parentWidget->m_SubwidgetTail = widget->p_Pool.Self;
+	if (parentWidget->m_Tree.Head == f_None){
+		bbAssert(parentWidget->m_Tree.Tail == f_None, "head/tail mismatch");
+		parentWidget->m_Tree.Head = widget->p_Pool.Self;
+		parentWidget->m_Tree.Tail = widget->p_Pool.Self;
 
-		widget->m_SubwidgetNext = f_None;
-		widget->m_SubwidgetPrev = f_None;
+		widget->m_Tree.Next = f_None;
+		widget->m_Tree.Prev = f_None;
 
 	} else {
 		bbWidget* prevWidget;
-		bbPool_Lookup(&prevWidget, pool, parentWidget->m_SubwidgetTail);
-		prevWidget->m_SubwidgetNext = widget->p_Pool.Self;
-		widget->m_SubwidgetPrev = prevWidget->p_Pool.Self;
-		widget->m_SubwidgetNext = f_None;
-		parentWidget->m_SubwidgetTail = widget->p_Pool.Self;
+		bbPool_Lookup(&prevWidget, pool, parentWidget->m_Tree.Tail);
+		prevWidget->m_Tree.Next = widget->p_Pool.Self;
+		widget->m_Tree.Prev = prevWidget->p_Pool.Self;
+		widget->m_Tree.Next = f_None;
+		parentWidget->m_Tree.Tail = widget->p_Pool.Self;
 	}
 
 	//////////////////////////////////// TODO

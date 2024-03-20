@@ -9,9 +9,23 @@
 #include "headers/bbDictionary.h"
 #include "headers/bbGeometry.h"
 
+typedef struct {
+	// Integer address (location in pool) of parent node
+	int32_t Parent;
+	// Start of list of daughter nodes
+	int32_t Head;
+	// end of list of daughter nodes
+	int32_t Tail;
+	// previous in list of daughter nodes
+	int32_t Prev;
+	// next in list of daughter nodes
+	int32_t Next;
+
+} bbTree;
 
 typedef struct{
 	bbPool_data p_Pool;
+	bbTree m_Tree;
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
@@ -33,11 +47,6 @@ typedef struct{
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
 
-	int32_t m_ParentWidget;
-	int32_t m_SubwidgetHead;
-	int32_t m_SubwidgetTail;
-	int32_t m_SubwidgetPrev;
-	int32_t m_SubwidgetNext;
 
 	void* m_ExtraData;
 

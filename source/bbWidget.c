@@ -31,7 +31,6 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 	SCI.x = 0;
 	SCI.y = 0;
 
-
 	int32_t flag = constructor(&widget, widgets, SCI, parent);
 
 	bbDebug("in bbWidget_new: map = %d, self = %d\n", widget->p_Pool.Map, widget->p_Pool.Self);

@@ -20,7 +20,7 @@ typedef struct {
 	int32_t m_Frames;
 	//What does this do?
 	int32_t m_Framerate;
-	//the animation itself knows where to find it's sprites
+	//the animation itself knows where to find its sprites
 	bbSprites* m_Sprites;
 	//list of length m_Angles * m_Sprites
 	int32_t i_Sprites[];

@@ -59,11 +59,11 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 	bbWidgetFunctions* functions = widgets->m_Functions;
 
 	widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "decal");
-	widget->m_ParentWidget = f_None;
-	widget->m_SubwidgetHead = f_None;
-	widget->m_SubwidgetTail = f_None;
-	widget->m_SubwidgetPrev = f_None;
-	widget->m_SubwidgetNext = f_None;
+	widget->m_Tree.Parent = f_None;
+	widget->m_Tree.Head = f_None;
+	widget->m_Tree.Tail = f_None;
+	widget->m_Tree.Prev = f_None;
+	widget->m_Tree.Next = f_None;
 
 	widgets->m_Decal = widget;
 	*reference = widget;
@@ -105,7 +105,7 @@ int32_t bbWidget_Decal_draw(bbWidget* widget){
 
 
 	//draw subwidgets
-	int32_t subwidgetInt = widget->m_SubwidgetHead;
+	int32_t subwidgetInt = widget->m_Tree.Head;
 	bbWidget* subwidget;
 	int32_t flag;
 	bbPool* pool = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Pool;
@@ -116,7 +116,7 @@ int32_t bbWidget_Decal_draw(bbWidget* widget){
 		flag = bbPool_Lookup(&subwidget, pool, subwidgetInt);
 		bbDebug("calling bbWidget_draw on widget %d\n", subwidget->p_Pool.Self);
 		bbWidget_draw(subwidget);
-		subwidgetInt = subwidget->m_SubwidgetNext;
+		subwidgetInt = subwidget->m_Tree.Next;
 	}
 	bbDebug("out bbWidget_Decal_draw\n");
 
