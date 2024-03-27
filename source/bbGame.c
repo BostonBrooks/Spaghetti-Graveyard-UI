@@ -14,7 +14,6 @@ int32_t bbGame_new(bbGame** self, char* folderPath){
 	float floatingPoint;
 
 	sprintf(string, "%s/gamedata.txt", folderPath);
-	bbDebug("file path is %s\n", string);
 
 	FILE* file = fopen(string, "r");
 	bbAssert(file != NULL, "fopen failed\n")

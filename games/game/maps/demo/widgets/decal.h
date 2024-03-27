@@ -14,7 +14,6 @@
 ///	Spawn a null widget on selected map at coordinates mc
 int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
 
-	bbDebug("in bbWidget_Decal_new\n");
 	bbPool* pool = widgets->m_Pool;
 
 	//TODO make more use of this
@@ -25,7 +24,6 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 
 	flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
-	bbDebug("bbWidget_Decal_new: map = %d, self = %d\n", widget->p_Node.p_Pool.Map, widget->p_Node.p_Pool.Self);
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
@@ -45,7 +43,6 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 
 	bbDictionary* spriteDict = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Dictionary;
 	int32_t spriteInt = bbDictionary_lookup(spriteDict, "DECAL_1280");
-	bbDebug("bbWidget_Decal_new, spriteInt = %d\n", spriteInt);
 	widget->m_SpriteInt = spriteInt;
 
 	for(int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
@@ -82,7 +79,6 @@ int32_t bbWidget_Decal_delete(bbWidget* widget){}
 
 /// Draw widget to screen
 int32_t bbWidget_Decal_draw(bbWidget* widget){
-	bbDebug("in bbWidget_Decal_draw\n");
 
 	//draw self
 	int32_t map = widget->p_Node.p_Pool.Map;
@@ -110,15 +106,12 @@ int32_t bbWidget_Decal_draw(bbWidget* widget){
 	int32_t flag;
 	bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
 
-	bbDebug("subwidgetInt = %d\n", subwidgetInt);
 
 	while (subwidgetInt >= 0){
 		flag = bbPool_Lookup(&subwidget, pool, subwidgetInt);
-		bbDebug("calling bbWidget_draw on widget %d\n", subwidget->p_Node.p_Pool.Self);
 		bbWidget_draw(subwidget);
 		subwidgetInt = subwidget->p_Node.p_Tree.Next;
 	}
-	bbDebug("out bbWidget_Decal_draw\n");
 
 
 

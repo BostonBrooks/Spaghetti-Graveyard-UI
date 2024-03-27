@@ -10,7 +10,6 @@ int32_t bbMap_new(bbMap** self, char* folderPath){
 	strcpy(&map->m_path, folderPath);
 	char string[256]; int32_t integer; float floatingPoint;
 	sprintf(string, "%s/mapdata.txt", folderPath);
-	bbDebug("file path is %s\n", string);
 	FILE* file = fopen(string, "r");
 	bbAssert(file != NULL, "fopen failed\n");
 	fscanf(file, "%[^\n]\n", string);
@@ -18,7 +17,6 @@ int32_t bbMap_new(bbMap** self, char* folderPath){
 	fscanf(file, "MapName: \"%[^\"]\"\n", string);
 	strcpy(&map->m_Name, string);
 	sprintf(string, "%s: %s", &g_Game->m_GameName, &map->m_Name);
-	bbDebug("%s\n", string);
 	//Why does this line take so long to take effect?
 	sfRenderWindow_setTitle(g_Game->m_Window, string);
 

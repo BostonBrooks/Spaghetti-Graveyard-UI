@@ -97,7 +97,6 @@ int32_t bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, 
 
 	char string[256];
 	sprintf(string, "%s/sprites.csv", folderPath);
-	bbDebug("file path is %s\n", string);
 
 	FILE* file = fopen(string, "r");
 

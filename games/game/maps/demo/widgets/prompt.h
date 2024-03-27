@@ -2,7 +2,6 @@
  * @file
  * @brief The functions in this folder define the behavior of an object with class bbWidget and type prompt
  */
-#define BBDEBUG
 
 #include "headers/bbPrintf.h"
 
@@ -12,7 +11,6 @@
 #include "headers/bbMap.h"
 
 int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
-	bbDebug("in bbWidget_Prompt_new");
 
 	bbPool* pool = widgets->m_Pool;
 
@@ -77,18 +75,15 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 	//////////////////////////////////// TODO
 
 	*reference = widget;
-	bbDebug("out bbWidget_Prompt_new");
 
 }
 int32_t bbWidget_Prompt_update(bbWidget* widget);
 int32_t bbWidget_Prompt_onCommand(bbWidget* widget, int32_t command, void* data){
 
-	bbDebug("in bbWidget_Prompt_onCommand\n");
 	return f_Success;
 }
 int32_t bbWidget_Prompt_delete(bbWidget* widget);
 int32_t bbWidget_Prompt_draw(bbWidget* widget){
-	bbDebug("in bbWidget_Prompt_draw\n");
 
 	sfRenderWindow_drawText(g_Game->m_Window, widget->m_Text, NULL);
 	return f_Success;

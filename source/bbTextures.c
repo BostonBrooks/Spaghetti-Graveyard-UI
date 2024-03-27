@@ -16,7 +16,6 @@ int32_t _bbTextures_new(bbTextures** self, int32_t numTextures){
 
 int32_t texture_load(bbTextures* textures, char* key, int32_t address, char* filename,sfBool smooth){
 
-	//bbDebug("key is %s, address is %d, filename is %s, smooth is %c\n", key, address, filename, smooth == sfTrue ? 'T' : 'F');
 	sfTexture* texture = sfTexture_createFromFile(filename, NULL);
 	bbAssert(texture != NULL, "sfTexture failed to load\n");
 	sfTexture_setSmooth(texture, smooth);
@@ -27,14 +26,12 @@ int32_t texture_load(bbTextures* textures, char* key, int32_t address, char* fil
 
 int32_t bbTextures_new(bbTextures** self, char* folderPath, int32_t numTextures){
 
-	bbDebug("path to map folder is %s\n", folderPath);
 	bbTextures* textures;
 	_bbTextures_new(&textures, numTextures);
 
 	char string[256];
 
 	sprintf(string, "%s/textures.csv", folderPath);
-	bbDebug("file path is %s\n", string);
 
 	FILE* file = fopen(string, "r");
 	bbAssert(file != NULL, "fopen failed\n");

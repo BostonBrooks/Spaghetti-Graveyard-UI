@@ -3,7 +3,6 @@
  * @brief The functions in this folder define the behavior of an object with class bbWidget and type fireworks
  */
 
-#define BBDEBUG
 
 #include "headers/bbPrintf.h"
 #include "headers/bbGeometry.h"
@@ -14,8 +13,6 @@
 ///	Spawn a null widget on selected map at coordinates mc
 int32_t bbWidget_Fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
 
-
-	bbDebug("in bbWidget_Fireworks_new\n");
 	bbPool* pool = widgets->m_Pool;
 	bbDictionary* dict = widgets->m_AddressDict;
 
@@ -24,7 +21,6 @@ int32_t bbWidget_Fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
 	flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
-	bbDebug("bbWidget_Fireworks_new: map = %d, self = %d\n", widget->p_Node.p_Pool.Map, widget->p_Node.p_Pool.Self);
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
@@ -108,7 +104,6 @@ int32_t bbWidget_Fireworks_delete(bbWidget* widget){}
 /// Draw widget to screen
 int32_t bbWidget_Fireworks_draw(bbWidget* widget){
 
-	bbDebug("in bbWidget_Fireworks_draw\n");
 	//draw self
 
 	for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
@@ -126,12 +121,10 @@ int32_t bbWidget_Fireworks_draw(bbWidget* widget){
 	bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
 
 	while (subwidgetInt >= 0){
-		bbDebug("subwidget_int = %d\n", subwidgetInt);
 		flag = bbPool_Lookup(&subwidget, pool, subwidgetInt);
 		bbWidget_draw(subwidget);
 		subwidgetInt = subwidget->p_Node.p_Tree.Next;
 	}
-	bbDebug("out bbWidget_Fireworks_draw\n");
 
 	return f_Success;
 }

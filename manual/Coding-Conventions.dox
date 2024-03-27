@@ -26,7 +26,8 @@ Prefixes will be used to describe the type of data stored in a variable, or defi
  - f_ for #defined return flags.
  - c_ for #defined commands.
  - a_ for #defined types of class bbActor (finite state machine) to be stored in a variable with v_ prefix.
- - f_Pool_ for #defined return flags used by bbPool objects
+ - f_Pool for #defined return flags used by bbPool objects
+ - void_ for void pointers
  
 Some structures, such as those representing vector coordinates, need not use prefixes.
 This makes sense for simple objects that are meant only to be members of more complex objects.

@@ -23,7 +23,6 @@ int32_t bbWidgets_new(int32_t map){
 
 // Should m_Widgets be an argument?
 int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent){
-	bbDebug("in bbWidget_new\n");
 	bbWidget* widget;
 	bbWidget_Constructor* constructor = widgets->m_Functions->Constructors[type];
 
@@ -33,30 +32,40 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 
 	int32_t flag = constructor(&widget, widgets, SCI, parent);
 
-	bbDebug("in bbWidget_new: map = %d, self = %d\n", widget->p_Node.p_Pool.Map, widget->p_Node.p_Pool.Self);
 	*self = widget;
 	return flag;
 }
 
 int32_t bbWidget_draw (bbWidget* widget){
-	bbDebug("in bbWidget_draw\n");
 
 	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->DrawFunctions[widget->m_OnDraw];
 	int32_t flag = drawFunction(widget);
 
-	bbDebug("out bbWidget_draw\n");
 	return flag;
 }
 
+//typedef int32_t bbTreeFunction (void* reference, void* node);
+int32_t bbWidget_draw_new(void* void_unused, void* void_widget){
+	bbWidget* widget = void_widget;
+	int32_t map = widget->p_Node.p_Pool.Map;
+	bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+	bbWidget_AnimationDraw* drawFunctions = *functions->AnimationDraw;
 
+	for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
+		int drawFunction_int = widget->m_AnimationDraw[i];
+		if (drawFunction_int >= 0) {
+			//TODO skins, default drawfunction given by animation or skin
+			functions->AnimationDraw[drawFunction_int](widget, i);
+
+		}
+	}
+}
 
 int32_t bbWidget_update (bbWidget* widget){
-	bbDebug("in bbWidget_update\n");
 
 	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
 	int32_t flag = drawFunction(widget);
 
-	bbDebug("out bbWidget_update\n");
 	return flag;
 }
 

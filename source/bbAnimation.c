@@ -36,8 +36,7 @@ int32_t animation_load(bbAnimations* animations, bbSprites* sprites, char* key, 
 	animations->m_Animations[address] = anim;
 	bbDictionary_add(animations->m_Dictionary, key, address);
 
-	//bbDebug("bbAnimations_load: %s,%d,%d,%d,%d,%d,%d,%d\n",
-	//		anim->m_Key, address, anim->v_DrawFunction, anim->m_Angles, anim->m_Frames,anim->m_Framerate, anim->i_Sprites[0], anim->i_Sprites[1]);
+
 
 	return f_Success;
 }
@@ -50,7 +49,6 @@ int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPa
 
 	char string[256];
 	sprintf(string, "%s/animations.csv", folderPath);
-	bbDebug("file path is %s\n", string);
 
 	FILE* file = fopen(string,"r");
 
@@ -67,7 +65,6 @@ int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPa
 	int32_t flag = 1;
 	while (fscanf(file, "%[^,],%d,%d,%d,%d,%d", key, &address, &drawFunction, &angles, &frames, &framerate) == 6){
 
-		//bbDebug("bbAnimations_new: %s,%d,%d,%d,%d,%d", key, address, drawFunction, angles, frames, framerate);
 		for (int32_t i = 0; i < angles * frames; i++){
 			fscanf(file, ",%[^,]", string);
 			//bbPrintf(",%s", string);
@@ -77,7 +74,6 @@ int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPa
 
 		}
 		fscanf(file, "%*[^\n]\n");
-		//bbPrintf("\n");
 		animation_load(animations, Sprites, key, address,drawFunction,angles, frames, framerate, sprites);
 	}
 	*self = animations;

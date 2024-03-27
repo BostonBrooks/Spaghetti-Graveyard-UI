@@ -31,7 +31,6 @@ int32_t bbWidget_SpriteDraw (bbWidget* widget, int32_t i){
 	sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
 
 
-	bbDebug("out bbWidget_SpriteDraw \n");
 
 	return f_Success;
 }

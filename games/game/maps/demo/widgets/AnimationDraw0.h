@@ -7,7 +7,6 @@
 
 
 int32_t bbWidget_AnimationDraw0 (bbWidget* widget, int32_t i){
-	bbDebug("in bbWidget_AnimationDraw0 \n");
 	int32_t animationInt = widget->m_AnimationInt[i];
 	int32_t angle = widget->m_Angle[i];
 	int32_t frame = widget->m_Frame[i];
@@ -43,7 +42,6 @@ int32_t bbWidget_AnimationDraw0 (bbWidget* widget, int32_t i){
 	sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
 
 
-	bbDebug("out bbWidget_AnimationDraw0 \n");
 
 	return f_Success;
 }

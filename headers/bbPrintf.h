@@ -75,7 +75,7 @@ static void bbVerbose(const char* format, ...){
 	}
 
 #define bbDebug(...) \
-	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\tDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
+	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
 	printf (__VA_ARGS__);
 
 #define bbHere 	printf ("LINE: %d, FILE: %s, FUNCTION: %s, ",\

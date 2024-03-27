@@ -14,6 +14,8 @@ bbGame* g_Game;
 
 
 int main (void){
+
+// ---------- Launch Game ---------- //
 	int flag;
 	flag = bbGame_new(&g_Game, GAME_PATH);
 
@@ -26,15 +28,15 @@ int main (void){
 
 	sprintf(mapPath, "%s/maps/%s", GAME_PATH, &g_Game->m_MapNames[g_Game->m_CurrentMap]);
 
-	//bbDebug("mapPath is %s\n", mapPath);
 
 	flag = bbMap_new(&g_Game->m_Maps[g_Game->m_CurrentMap], mapPath);
 
 	bbMap* testmap = g_Game->m_Maps[g_Game->m_CurrentMap];
 
-	//bbDebug("name of test map is %s\n", testmap->m_Name);
 
-    flag = bbTextures_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Textures,
+// ---------- Textures ---------- //
+
+	flag = bbTextures_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Textures,
 			mapPath, g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.Textures);
 
 	sfTexture* texture;
@@ -47,7 +49,7 @@ int main (void){
 	sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
 	sfRenderWindow_display(g_Game->m_Window);
 
-
+// ---------- Sprites  ---------- //
 	flag = bbSprites_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites,
 						 g_Game->m_Maps[g_Game->m_CurrentMap]->m_Textures,
 						 mapPath,
@@ -64,15 +66,13 @@ int main (void){
 	sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
 	sfRenderWindow_display(g_Game->m_Window);
 
-
-	//bbDebug("p_Constants.Animations = %d\n", g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.Animations);
+// ---------- Animations  ---------- //
 
 	flag = bbAnimations_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Animations,
 							g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites,
 							mapPath,
 							g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.Animations);
 
-	//bbDebug("bbAnimations_new flag = %d\n", flag);
 	bbMap* map = g_Game->m_Maps[g_Game->m_CurrentMap];
 	bbAnimations* anims = map->m_Animations;
 	bbAssert(anims != NULL, "bad bbAnimations*\n");
@@ -88,11 +88,14 @@ int main (void){
 	sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
 	sfRenderWindow_display(g_Game->m_Window);
 
-    bbWidgets_new(g_Game->m_CurrentMap);
+// ---------- Widgets  ---------- //
+
+	bbWidgets_new(g_Game->m_CurrentMap);
 	bbWidgetFunctions_new(g_Game->m_CurrentMap);
 
 	bbWidgetFunctions_populate(g_Game->m_CurrentMap);
-
+  // ---------- deprecated widget stuff ---------- //
+  /*
 	bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
 	bbWidget* widget;
 	int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
@@ -117,7 +120,9 @@ int main (void){
 		sfRenderWindow_display(g_Game->m_Window);
 		printf("==========================\n");
 	}
+*/
 
+// ---------- bbTree inherits bbPool  ---------- //
 	bbNode* emptyNode = malloc(sizeof (bbNode));
 	bbTestNode* testNode = malloc(sizeof(bbTestNode));
 
@@ -155,5 +160,18 @@ int main (void){
 
 	bbDebug("%s\n", testNode->string);
 
+// ---------- New widget stuff  ---------- //
+
+	bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
+	int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "2pt0");
+	bbWidget* Widget2pt0;
+
+	bbWidget_new(&Widget2pt0, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+
+
+	for (int i = 0; i < 64; i++){
+		bbWidget_draw_new(NULL, Widget2pt0);
+		sfRenderWindow_display(g_Game->m_Window);
+	}
 	exit(0);
 }
