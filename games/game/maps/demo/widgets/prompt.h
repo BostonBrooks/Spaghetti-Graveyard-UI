@@ -27,13 +27,13 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
 	//ignore sc argument
 	bbScreenCoordsI SC;
-	SC.x = 872 * g_Game->m_Maps[widget->p_Pool.Map]->p_Constants.ScreenPPP;
-	SC.y = 23  * g_Game->m_Maps[widget->p_Pool.Map]->p_Constants.ScreenPPP;
+	SC.x = 872 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.ScreenPPP;
+	SC.y = 23  * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.ScreenPPP;
 	widget->m_ScreenCoords = SC;
 
 
-	SC.x = 386 * g_Game->m_Maps[widget->p_Pool.Map]->p_Constants.ScreenPPP;
-	SC.y = 450  * g_Game->m_Maps[widget->p_Pool.Map]->p_Constants.ScreenPPP;
+	SC.x = 386 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.ScreenPPP;
+	SC.y = 450  * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.ScreenPPP;
 	widget->m_Dimensions = SC;
 
 	widget->m_Visible = true;
@@ -57,7 +57,7 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 	widget->m_Font = sfFont_createFromFile("../games/game/graphics/Bowman.ttf");
 	bbAssert(widget->m_Font != NULL, "Could not load font\n");
 	sfText_setFont(widget->m_Text, widget->m_Font);
-	bbScreenCoordsF SCF = bbScreenCoordsI_getF(widget->m_ScreenCoords, &g_Game->m_Maps[widget->p_Pool.Map]->p_Constants);
+	bbScreenCoordsF SCF = bbScreenCoordsI_getF(widget->m_ScreenCoords, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
 	sfVector2f position;
 	position.x = SCF.x;
 	position.y = SCF.y;

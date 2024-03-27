@@ -20,7 +20,6 @@
 static void bbDebug(const char* format, ...){
 
 #ifdef BBDEBUG
-
 	printf("DEBUG: ");
 	va_list args;
 	va_start(args, format);
@@ -75,5 +74,11 @@ static void bbVerbose(const char* format, ...){
 	printf(__VA_ARGS__);                             \
 	}
 
+#define bbDebug(...) \
+	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\tDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
+	printf (__VA_ARGS__);
+
+#define bbHere 	printf ("LINE: %d, FILE: %s, FUNCTION: %s, ",\
+                      __LINE__, __FILE_NAME__, __func__);
 
 #endif // BBPRINTF_H

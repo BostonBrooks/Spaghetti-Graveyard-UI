@@ -33,7 +33,7 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 
 	int32_t flag = constructor(&widget, widgets, SCI, parent);
 
-	bbDebug("in bbWidget_new: map = %d, self = %d\n", widget->p_Pool.Map, widget->p_Pool.Self);
+	bbDebug("in bbWidget_new: map = %d, self = %d\n", widget->p_Node.p_Pool.Map, widget->p_Node.p_Pool.Self);
 	*self = widget;
 	return flag;
 }
@@ -41,17 +41,19 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 int32_t bbWidget_draw (bbWidget* widget){
 	bbDebug("in bbWidget_draw\n");
 
-	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Functions->DrawFunctions[widget->m_OnDraw];
+	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->DrawFunctions[widget->m_OnDraw];
 	int32_t flag = drawFunction(widget);
 
 	bbDebug("out bbWidget_draw\n");
 	return flag;
 }
 
+
+
 int32_t bbWidget_update (bbWidget* widget){
 	bbDebug("in bbWidget_update\n");
 
-	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
+	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
 	int32_t flag = drawFunction(widget);
 
 	bbDebug("out bbWidget_update\n");

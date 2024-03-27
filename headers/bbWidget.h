@@ -12,8 +12,7 @@
 
 
 typedef struct{
-	bbPool_data p_Pool;
-	bbTree p_Tree;
+	bbNode p_Node;
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;

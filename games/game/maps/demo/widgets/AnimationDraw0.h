@@ -14,7 +14,7 @@ int32_t bbWidget_AnimationDraw0 (bbWidget* widget, int32_t i){
 
 
 
-	int32_t map = widget->p_Pool.Map;
+	int32_t map = widget->p_Node.p_Pool.Map;
 
 	bbScreenCoordsI SCI = widget->m_ScreenCoords;
 	bbScreenCoordsF SCF = bbScreenCoordsI_getF(SCI, &g_Game->m_Maps[map]->p_Constants);

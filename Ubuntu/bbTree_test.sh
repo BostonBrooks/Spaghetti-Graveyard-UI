@@ -10,19 +10,9 @@ Color_Off='\033[0m'
 
  if gcc\
    -I ../ \
-  ../test/Incremental_test.c\
-  ../source/bbGame.c\
-  ../source/bbMap.c\
-  ../source/bbDictionary.c\
-  ../source/bbTextures.c\
-  ../source/bbSprites.c\
-  ../source/bbAnimation.c\
-  ../source/bbWidget.c\
-  ../source/bbGeometry.c\
+  ../test/bbTree_test.c\
   ../source/bbPool.c\
   ../source/bbTree.c\
-  \
-  ../games/game/maps/demo/widgets/widgets.c\
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -lm -w;
   then
     echo "Compile Succeeded:"

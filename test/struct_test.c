@@ -62,6 +62,7 @@ int main (void){
     printf("E0-E = %" PRIi64", E1-E = %" PRIi64"\n", E0mE, E1mE);
     printf("T0-T = %" PRIi64", T1-T = %" PRIi64"\n", T0mT, T1mT);
 
+
     exit(0);
 }
 

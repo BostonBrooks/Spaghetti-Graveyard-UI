@@ -6,8 +6,12 @@
 #include "headers/bbTextures.h"
 #include "headers/bbSprites.h"
 #include "headers/bbAnimation.h"
+#include "headers/bbPool.h"
+#include "headers/bbTree.h"
 
 bbGame* g_Game;
+
+
 
 int main (void){
 	int flag;
@@ -96,22 +100,60 @@ int main (void){
 
 	bbWidget* fireworks;
 	type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
-	bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.Self);
+	bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self);
 
 	bbWidget* prompt;
 	type = bbWidgetFunctions_getInt(functions, wf_Constructor, "prompt");
 	bbDebug("prompt type = %d\n", type);
-	bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.Self);
+	bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self);
 
 
-	bbDebug("in main: map = %d, ondraw = %d\n", widget->p_Pool.Map, widget->m_OnDraw);
+	//bbDebug("in main: map = %d, ondraw = %d\n", widget->p_Node.p_Pool.Map, widget->m_OnDraw);
 
 	g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = widget;
 
-	for (int32_t i = 0; i < 100; i++){
+	for (int32_t i = 0; i < 16; i++){
 		bbWidget_draw(widget);
 		sfRenderWindow_display(g_Game->m_Window);
 		printf("==========================\n");
 	}
 
+	bbNode* emptyNode = malloc(sizeof (bbNode));
+	bbTestNode* testNode = malloc(sizeof(bbTestNode));
+
+	uint64_t E  = emptyNode;
+	uint64_t E0 = &emptyNode->p_Pool;
+	uint64_t E1 = &emptyNode->p_Tree;
+	uint64_t T  = testNode;
+	uint64_t T0 = &testNode->p_Node.p_Pool;
+	uint64_t T1 = &testNode->p_Node.p_Tree;
+
+	testNode->string = "Hello Poppet";
+
+	bbDebug("E = %" PRIu64", E0 = %" PRIu64", E1 = %" PRIu64"\n", E, E0, E1);
+	bbDebug("T = %" PRIu64", T0 = %" PRIu64", T1 = %" PRIu64"\n", T, T0, T1);
+
+	int64_t E0mE = E0-E;
+	int64_t E1mE = E1-E;
+	int64_t T0mT = T0-T;
+	int64_t T1mT = T1-T;
+
+	bbDebug("E0-E = %" PRIi64", E1-E = %" PRIi64"\n", E0mE, E1mE);
+	bbDebug("T0-T = %" PRIi64", T1-T = %" PRIi64"\n", T0mT, T1mT);
+
+	free (emptyNode);
+
+	emptyNode = testNode;
+
+	emptyNode->p_Tree.Parent = 193;
+
+	bbDebug("testNode->p_Tree.Parent = %d\n", testNode->p_Node.p_Tree.Parent);
+
+	testNode->p_Node.p_Tree.Parent = 31415926;
+
+	bbDebug("emptyNode->Node.p_Tree.Parent = %d\n", emptyNode->p_Tree.Parent);
+
+	bbDebug("%s\n", testNode->string);
+
+	exit(0);
 }
