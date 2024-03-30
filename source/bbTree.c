@@ -61,7 +61,7 @@ int32_t descending_search(void* reference, void* void_root, bbTreeFunction* myFu
         flag = descending_search(reference, node, myFunc, pool);
         if (flag == f_Break) return f_Break;
         if (flag == f_Continue) intHead = node->p_Tree.Next;
-        // flag == f_Repeat
+        // flag == f_Repeat or flag == f_Delete?
     }
     return f_Continue;
 }
@@ -79,7 +79,7 @@ int32_t ascending_search(void* reference, void* void_root, bbTreeFunction* myFun
         flag = descending_search(reference, node, myFunc, pool);
         if (flag == f_Break) return f_Break;
         if (flag == f_Continue) intTail = node->p_Tree.Prev;
-        // flag == f_Repeat
+        // flag == f_Repeat or flag == f_Delete?
     }
     flag = myFunc(reference, root);
     if (flag == f_Break) return f_Break;
