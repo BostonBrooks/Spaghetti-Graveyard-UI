@@ -123,6 +123,7 @@ int main (void){
 */
 
 // ---------- bbTree inherits bbPool  ---------- //
+/* Do not modify bbTree or bbPool
 	bbNode* emptyNode = malloc(sizeof (bbNode));
 	bbTestNode* testNode = malloc(sizeof(bbTestNode));
 
@@ -159,7 +160,7 @@ int main (void){
 	bbDebug("emptyNode->Node.p_Tree.Parent = %d\n", emptyNode->p_Tree.Parent);
 
 	bbDebug("%s\n", testNode->string);
-
+*/
 // ---------- New widget stuff  ---------- //
 
 	bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
@@ -170,8 +171,30 @@ int main (void){
 
 
 	for (int i = 0; i < 64; i++){
+        sfRenderWindow_clear(g_Game->m_Window, sfBlue);
 		bbWidget_draw_new(NULL, Widget2pt0);
 		sfRenderWindow_display(g_Game->m_Window);
 	}
-	exit(0);
+    {}
+    map = g_Game->m_Maps[g_Game->m_CurrentMap];
+    anims = map->m_Animations;
+    bbAssert(anims != NULL, "bad bbAnimations*\n");
+    anim = anims->m_Animations[24];
+
+    for (int i = 0; i < 10; i++){;
+        spriteInt = anim->i_Sprites[i];
+
+        sprite = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites->m_Sprites[spriteInt];
+
+        position.x = 80 * i;
+        position.y = 0;
+
+        sfSprite_setPosition(sprite, position);
+        sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
+    }
+
+
+    sfRenderWindow_display(g_Game->m_Window);
+    sleep(5);
 }
+

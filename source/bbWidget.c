@@ -35,6 +35,7 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 	*self = widget;
 	return flag;
 }
+/*
 
 int32_t bbWidget_draw (bbWidget* widget){
 
@@ -43,6 +44,7 @@ int32_t bbWidget_draw (bbWidget* widget){
 
 	return flag;
 }
+*/
 
 //typedef int32_t bbTreeFunction (void* reference, void* node);
 int32_t bbWidget_draw_new(void* void_unused, void* void_widget){
@@ -63,10 +65,10 @@ int32_t bbWidget_draw_new(void* void_unused, void* void_widget){
 
 int32_t bbWidget_update (bbWidget* widget){
 
-	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
-	int32_t flag = drawFunction(widget);
+	//bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->Update[widget->m_OnUpdate];
+	//int32_t flag = drawFunction(widget);
 
-	return flag;
+	//return flag;
 }
 
 int32_t bbWidgetFunctions_new(int32_t map) {
@@ -85,11 +87,11 @@ int32_t bbWidgetFunctions_new(int32_t map) {
 	bbDictionary_new(&functions->Update_dict, numUpdate);
 	functions->Update_available = 0;
 
-	const int32_t numDrawFunctions = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
+/*	const int32_t numDrawFunctions = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
 	functions->DrawFunctions = calloc(numDrawFunctions,
 									  sizeof(bbWidget_DrawFunction));
 	bbDictionary_new(&functions->DrawFunction_dict, numDrawFunctions);
-	functions->DrawFunction_available = 0;
+	functions->DrawFunction_available = 0;*/
 
 	const int32_t numDestructors = g_Game->m_Maps[map]->p_Constants.Widget_Destructors;
 	functions->Destructors = calloc(numDestructors,
@@ -132,13 +134,13 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* fun_ptr
 			bbDictionary_add(WFS->Update_dict, key, available);
 			return f_Success;
 
-		case wf_DrawFunction:
+		/*case wf_DrawFunction:
 			available = WFS->DrawFunction_available++;
 			//bbAssert available < MAX
 			WFS->DrawFunctions[available] = fun_ptr;
 			bbDictionary_add(WFS->DrawFunction_dict, key, available);
 			return f_Success;
-
+*/
 		case wf_Destructor:
 			available = WFS->Destructor_available++;
 			//bbAssert available < MAX
@@ -177,11 +179,11 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 			*function = WFS->Update[intAddress];
 			return f_Success;
 
-		case wf_DrawFunction:
+	/*	case wf_DrawFunction:
 			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			*function = WFS->DrawFunctions[intAddress];
 			return f_Success;
-
+*/
 		case wf_Destructor:
 			intAddress = bbDictionary_lookup(WFS->Destructor_dict, key);
 			*function = WFS->Destructors[intAddress];
@@ -197,7 +199,7 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 			*function = WFS->AnimationDraw[intAddress];
 			return f_Success;
 		default:
-			return NULL;
+			return f_None;
 	}
 }
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key){
@@ -211,10 +213,10 @@ int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key)
 			intAddress = bbDictionary_lookup(WFS->Update_dict, key);
 			return intAddress;
 
-		case wf_DrawFunction:
+	/*	case wf_DrawFunction:
 			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			return intAddress;
-
+*/
 		case wf_Destructor:
 			intAddress = bbDictionary_lookup(WFS->Destructor_dict, key);
 			return intAddress;

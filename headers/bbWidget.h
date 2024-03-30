@@ -22,7 +22,7 @@ typedef struct{
 	sfText* m_Text;
 	sfFont* m_Font;
     char* m_Code;
-	int32_t m_SpriteInt;
+	//int32_t m_SpriteInt;
 
 	int32_t m_AnimationInt[ANIMATIONS_PER_WIDGET];
 	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
@@ -41,16 +41,16 @@ typedef struct{
  //wf stands for widget function
 #define wf_Constructor     0
 #define wf_Update          1
-#define wf_DrawFunction    2
-#define wf_Destructor      3
-#define wf_OnCommand       4
-#define wf_AnimationDraw   5
+//#define wf_DrawFunction    2
+#define wf_Destructor      2
+#define wf_OnCommand       3
+#define wf_AnimationDraw   4
 
 
 
 typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, int32_t parent);
 typedef int32_t bbWidget_Update (bbWidget* widget);
-typedef int32_t bbWidget_DrawFunction (bbWidget* widget);
+//typedef int32_t bbWidget_DrawFunction (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
 typedef int32_t bbWidget_AnimationDraw (bbWidget* widget, int32_t i);
@@ -62,9 +62,9 @@ typedef struct {
 	bbWidget_Update** Update;
 	bbDictionary* Update_dict;
 	int32_t Update_available;
-	bbWidget_DrawFunction** DrawFunctions;
-	bbDictionary* DrawFunction_dict;
-	int32_t DrawFunction_available;
+	//bbWidget_DrawFunction** DrawFunctions;
+	//bbDictionary* DrawFunction_dict;
+	//int32_t DrawFunction_available;
 	bbWidget_Destructor** Destructors;
 	bbDictionary* Destructor_dict;
 	int32_t Destructor_available;
@@ -97,6 +97,6 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
 
 int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent);
-int32_t bbWidget_draw (bbWidget* widget);
+//int32_t bbWidget_draw (bbWidget* widget);
 int32_t bbWidget_draw_new(void* void_unused, void* void_widget);
 #endif //BBWIDGET_H

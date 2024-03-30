@@ -37,7 +37,7 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 	widget->m_Visible = true;
 	widget->m_SubwidgetsVisible = true;
 
-	widget->m_SpriteInt = f_None;
+	//widget->m_SpriteInt = f_None;
 
 	for(int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
 		widget->m_AnimationInt[i] = f_None;
@@ -63,7 +63,7 @@ int32_t bbWidget_Prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 	sfText_setColor(widget->m_Text, sfBlack);
 
 	bbWidgetFunctions* functions = widgets->m_Functions;
-	widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "prompt");
+	//widget->m_OnDraw = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "prompt");
 	widget->m_OnCommand = bbWidgetFunctions_getInt(functions, wf_OnCommand, "prompt");
 
 	bbWidget* parentWidget;

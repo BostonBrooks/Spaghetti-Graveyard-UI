@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief The functions in this folder define the behavior of an object with class bbWidget and type fireworks
+ * @brief The functions in this file define the behavior of an object with class bbWidget and type fireworks
  */
 
 
