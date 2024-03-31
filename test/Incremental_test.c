@@ -164,15 +164,15 @@ int main (void){
 // ---------- New widget stuff  ---------- //
 
 	bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-	int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "2pt0");
-	bbWidget* Widget2pt0;
+	int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
+	bbWidget* FireWorks;
 
-	bbWidget_new(&Widget2pt0, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+	bbWidget_new(&FireWorks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
 
 
 	for (int i = 0; i < 64; i++){
         sfRenderWindow_clear(g_Game->m_Window, sfBlue);
-		bbWidget_draw_new(NULL, Widget2pt0);
+		bbWidget_draw_new(NULL, FireWorks);
 		sfRenderWindow_display(g_Game->m_Window);
 	}
     {}

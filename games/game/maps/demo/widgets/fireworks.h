@@ -10,7 +10,7 @@
 #include "headers/bbMap.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_Widget2pt0_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
 
 
 	bbPool* pool = widgets->m_Pool;
@@ -43,7 +43,7 @@ int32_t bbWidget_Widget2pt0_new(bbWidget** reference, bbWidgets* widgets, bbScre
 	}
 
 
-	widget->m_AnimationInt[0] = 23;
+	widget->m_AnimationInt[0] = 23; //Fireworks
 	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "animation");
 
 	*reference = widget;
@@ -51,21 +51,21 @@ int32_t bbWidget_Widget2pt0_new(bbWidget** reference, bbWidgets* widgets, bbScre
 }
 
 /// Update widget
-int32_t bbWidget_Widget2pt0_update(bbWidget* widget){
+int32_t bbWidget_fireworks_update(bbWidget* widget){
 	return f_Success;
 }
 
 /// Send a command to the widget / update widget, etc
-int32_t bbWidget_Widget2pt0_onCommand(bbWidget* widget, int32_t command, void* data){
+int32_t bbWidget_fireworks_onCommand(bbWidget* widget, int32_t command, void* data){
 	return f_Success;
 }
 
 /// Delete widget
-int32_t bbWidget_Widget2pt0_delete(bbWidget* widget){
+int32_t bbWidget_fireworks_delete(bbWidget* widget){
 	return f_Success;
 }
 
 /// Draw widget to screen
-int32_t bbWidget_Widget2pt0_draw(bbWidget* widget){
+int32_t bbWidget_fireworks_draw(bbWidget* widget){
 	return f_Success;
 }
