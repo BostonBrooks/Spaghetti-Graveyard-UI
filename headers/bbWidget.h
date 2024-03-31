@@ -21,13 +21,13 @@ typedef struct{
 	char* m_String;
 	sfText* m_Text;
 	sfFont* m_Font;
-    char* m_Code;
+	char* m_Code;
 
 
 	int32_t m_AnimationInt[ANIMATIONS_PER_WIDGET];
 	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
 	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
-	int32_t m_AnimationDraw[ANIMATIONS_PER_WIDGET];
+	int32_t m_DrawFunction[ANIMATIONS_PER_WIDGET];
 
 	int32_t m_OnCommand;
 	int32_t m_OnUpdate;
@@ -41,10 +41,10 @@ typedef struct{
  //wf stands for widget function
 #define wf_Constructor     0
 #define wf_Update          1
-//#define wf_DrawFunction    2
+
 #define wf_Destructor      2
 #define wf_OnCommand       3
-#define wf_AnimationDraw   4
+#define wf_DrawFunction    4
 
 
 
@@ -52,7 +52,7 @@ typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScr
 typedef int32_t bbWidget_Update (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
-typedef int32_t bbWidget_AnimationDraw (bbWidget* widget, int32_t i);
+typedef int32_t bbWidget_DrawFunction (bbWidget* widget, int32_t i);
 
 typedef struct {
 	bbWidget_Constructor** Constructors;
@@ -68,9 +68,9 @@ typedef struct {
 	bbWidget_OnCommand** OnCommands;
 	bbDictionary* OnCommand_dict;
 	int32_t OnCommand_available;
-	bbWidget_AnimationDraw** AnimationDraw;
-	bbDictionary* AnimationDraw_dict;
-	int32_t AnimationDraw_available;
+	bbWidget_DrawFunction** DrawFunction;
+	bbDictionary* DrawFunction_dict;
+	int32_t DrawFunction_available;
 } bbWidgetFunctions;
 
 

@@ -24,9 +24,6 @@ typedef struct{
 	int32_t Widget_Updates;
 	int32_t Widget_Destructors;
 	int32_t Widget_OnCommands;
-	int32_t Widget_AnimationDraws;
-
-
 	int32_t PointsPerTile;
 	int32_t PointsPerSquare;
 	int32_t PixelsPerSquare;

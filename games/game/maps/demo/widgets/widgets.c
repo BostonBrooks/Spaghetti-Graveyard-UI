@@ -14,8 +14,8 @@ int32_t bbWidgetFunctions_populate(int32_t map){
 
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
 
-	bbWidgetFunctions_add(functions, wf_AnimationDraw, bbWidget_AnimationDraw0, "animation");
-	bbWidgetFunctions_add(functions, wf_AnimationDraw, bbWidget_SpriteDraw, "sprite");
+	bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_AnimationDraw0, "animation");
+	bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_SpriteDraw, "sprite");
 
 	bbWidgetFunctions_add(functions, wf_Constructor, bbWidget_Widget2pt0_new, "2pt0");
 

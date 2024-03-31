@@ -51,13 +51,13 @@ int32_t bbWidget_draw_new(void* void_unused, void* void_widget){
 	bbWidget* widget = void_widget;
 	int32_t map = widget->p_Node.p_Pool.Map;
 	bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
-	bbWidget_AnimationDraw* drawFunctions = *functions->AnimationDraw;
+	bbWidget_DrawFunction* drawFunctions = *functions->DrawFunction;
 
 	for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
-		int drawFunction_int = widget->m_AnimationDraw[i];
+		int drawFunction_int = widget->m_DrawFunction[i];
 		if (drawFunction_int >= 0) {
 			//TODO skins, default drawfunction given by animation or skin
-			functions->AnimationDraw[drawFunction_int](widget, i);
+			functions->DrawFunction[drawFunction_int](widget, i);
 
 		}
 	}
@@ -92,15 +92,15 @@ int32_t bbWidgetFunctions_new(int32_t map) {
 	functions->Destructor_available = 0;
 
 	const int32_t numOnCommands = g_Game->m_Maps[map]->p_Constants.Widget_OnCommands;
-	functions->OnCommands = calloc(numDestructors, sizeof(bbWidget_Destructor));
+	functions->OnCommands = calloc(numOnCommands, sizeof(bbWidget_OnCommand));
 	bbDictionary_new(&functions->OnCommand_dict, numOnCommands);
 	functions->OnCommand_available = 0;
 
-	const int32_t numAnimationDraws = g_Game->m_Maps[map]->p_Constants.Widget_OnCommands;
-	functions->AnimationDraw = calloc(numAnimationDraws,
-									  sizeof(bbWidget_Destructor));
-	bbDictionary_new(&functions->AnimationDraw_dict, numAnimationDraws);
-	functions->AnimationDraw_available = 0;
+	const int32_t numAnimationDraws = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
+	functions->DrawFunction = calloc(numAnimationDraws,
+									  sizeof(bbWidget_DrawFunction));
+	bbDictionary_new(&functions->DrawFunction_dict, numAnimationDraws);
+	functions->DrawFunction_available = 0;
 
 	g_Game->m_Maps[map]->m_Widgets->m_Functions = functions;
 
@@ -140,11 +140,11 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* fun_ptr
 			bbDictionary_add(WFS->OnCommand_dict, key, available);
 			return f_Success;
 
-		case wf_AnimationDraw:
-			available = WFS->AnimationDraw_available++;
+		case wf_DrawFunction:
+			available = WFS->Destructor_available++;
 			//bbAssert available < MAX
-			WFS->AnimationDraw[available] = fun_ptr;
-			bbDictionary_add(WFS->AnimationDraw_dict, key, available);
+			WFS->DrawFunction[available] = fun_ptr;
+			bbDictionary_add(WFS->DrawFunction_dict, key, available);
 			return f_Success;
 		default:
 			return f_None;
@@ -174,9 +174,9 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 			*function = WFS->OnCommands[intAddress];
 			return f_Success;
 
-		case wf_AnimationDraw:
-			intAddress = bbDictionary_lookup(WFS->AnimationDraw_dict, key);
-			*function = WFS->AnimationDraw[intAddress];
+		case wf_DrawFunction:
+			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
+			*function = WFS->DrawFunction[intAddress];
 			return f_Success;
 		default:
 			return f_None;
@@ -200,8 +200,8 @@ int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key)
 			intAddress = bbDictionary_lookup(WFS->OnCommand_dict, key);
 			return intAddress;
 
-		case wf_AnimationDraw:
-			intAddress = bbDictionary_lookup(WFS->AnimationDraw_dict, key);
+		case wf_DrawFunction:
+			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			return intAddress;
 		default:
 			return f_None;

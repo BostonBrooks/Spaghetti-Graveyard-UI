@@ -39,12 +39,12 @@ int32_t bbWidget_Widget2pt0_new(bbWidget** reference, bbWidgets* widgets, bbScre
 		widget->m_AnimationInt[i] = f_None;
 		widget->m_Angle[i] = 0;
 		widget->m_Frame[i] = 0;
-		widget->m_AnimationDraw[i] = f_None;
+		widget->m_DrawFunction[i] = f_None;
 	}
 
 
 	widget->m_AnimationInt[0] = 23;
-	widget->m_AnimationDraw[0] = bbWidgetFunctions_getInt(functions, wf_AnimationDraw, "animation");
+	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "animation");
 
 	*reference = widget;
 	return f_Success;
