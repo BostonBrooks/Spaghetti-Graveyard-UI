@@ -96,19 +96,22 @@ int main (void) {
     bbWidgetFunctions_populate(g_Game->m_CurrentMap);
     // ---------- deprecated widget stuff ---------- //
     /*
+      bbScreenCoordsI SCZero;
+      SCZero.x = 0;
+      SCZero.y = 0;
       bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
       bbWidget* widget;
       int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
-      bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+      bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
 
       bbWidget* fireworks;
       type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
-      bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self);
+      bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
 
       bbWidget* prompt;
       type = bbWidgetFunctions_getInt(functions, wf_Constructor, "prompt");
       bbDebug("prompt type = %d\n", type);
-      bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self);
+      bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
 
 
       //bbDebug("in main: map = %d, ondraw = %d\n", widget->p_Node.p_Pool.Map, widget->m_OnDraw);
@@ -167,7 +170,7 @@ int main (void) {
         int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
         bbWidget *FireWorks;
 
-        bbWidget_new(&FireWorks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+        bbWidget_new(&FireWorks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
 
 
         for (int i = 0; i < 64; i++) {
@@ -199,9 +202,10 @@ int main (void) {
     int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
     bbWidget* Decal;
 
-    bbWidget_new(&Decal, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+    bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
 
-    bbNode_setParent(Decal, NULL, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
+    bbWidget_new(&Decal, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SC0);
+
     //int32_t descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 
@@ -210,9 +214,10 @@ int main (void) {
     type = bbWidgetFunctions_getInt(functions, wf_Constructor, "menuButton");
     bbWidget* menuButton;
 
-    bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None);
+    bbScreenCoordsF SCF; SCF.x = 20; SCF.y = 20;
+    bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
+    bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
 
-    bbNode_setParent(menuButton, Decal, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
     descending_search(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
     sfRenderWindow_display(g_Game->m_Window);

@@ -51,6 +51,10 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     widget->m_AnimationInt[0] = 162; //DECAL_1280
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "sprite");
 
+
+    bbNode_setParent(widget, NULL, g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool);
+
+
     *reference = widget;
     return f_Success;
 }

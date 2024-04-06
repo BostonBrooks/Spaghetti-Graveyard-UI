@@ -92,7 +92,7 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* pointer
 int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, int32_t bin, char* key);
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
 
-int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent);
+int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent, bbScreenCoordsI SCI);
 //int32_t bbWidget_draw (bbWidget* widget);
 int32_t bbWidget_draw(void* void_unused, void* void_widget);
 #endif //BBWIDGET_H
