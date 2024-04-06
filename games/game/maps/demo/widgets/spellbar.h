@@ -25,10 +25,10 @@
 #include "headers/bbGame.h"
 #include "headers/bbMap.h"
 
+//typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 
 
-
-int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent) {
+int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
 ///	Spawn a null widget on selected map at coordinates mc
 
 
@@ -66,18 +66,15 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     widget->m_Frame[0] = 0;         // MENU
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
-
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 
 }
 
-int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -114,17 +111,15 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     widget->m_Frame[0] = 1;         // SHOWHIDE
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -161,17 +156,15 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     widget->m_Frame[0] = 2;         // PLUS
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -208,17 +201,14 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     widget->m_Frame[0] = 3;         // MINUS
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
-
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -255,17 +245,15 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     widget->m_Frame[0] = 4;         // TIMES
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -302,17 +290,15 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     widget->m_Frame[0] = 5;         // DIVIDE
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -349,17 +335,15 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     widget->m_Frame[0] = 6;         // DETERMINANT
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -396,17 +380,15 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     widget->m_Frame[0] = 7;         // TWO TO THE POWER
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -443,16 +425,14 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     widget->m_Frame[0] = 8;         // SQUARED
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
-int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -489,16 +469,13 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     widget->m_Frame[0] = 9;         // N DIGITS OF PI
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    bbWidget *parentWidget;
 
-    bbPool_Lookup(&parentWidget, pool, parent);
-
-    bbNode_setParent(widget, parentWidget, pool);
+    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
 }
-int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
     bbWidget* spellBar;
     bbWidget* menuButton;
@@ -538,42 +515,38 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
         spellBar->m_DrawFunction[i] = f_None;
     }
 
-    bbWidget *parentWidget;
-    bbPool_Lookup(&parentWidget, pool, parent);
 
-    bbNode_setParent(spellBar, parentWidget, pool);
+    bbNode_setParent(spellBar, parent, pool);
 
-    bbWidget_menuButton_new(&menuButton, widgets, sc, spellBar->p_Node.p_Pool.Self);
+    bbWidget_menuButton_new(&menuButton, widgets, sc, spellBar);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_showHideButton_new(&showHideButton, widgets, sc, spellBar->p_Node.p_Pool.Self);
+    bbWidget_showHideButton_new(&showHideButton, widgets, sc, spellBar);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_plusButton_new(&plusButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_plusButton_new(&plusButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_minusButton_new(&minusButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_minusButton_new(&minusButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_timesButton_new(&timesButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_timesButton_new(&timesButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_divideButton_new(&divideButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_divideButton_new(&divideButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_detButton_new(&detButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_detButton_new(&detButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_twoPowerButton_new(&twoPowerButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_twoPowerButton_new(&twoPowerButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_squaredButton_new(&squaredButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_squaredButton_new(&squaredButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
 
-    bbWidget_piNDigitsButton_new(&piNDigitsButton, widgets, sc, showHideButton->p_Node.p_Pool.Self);
+    bbWidget_piNDigitsButton_new(&piNDigitsButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
-
-    bbDebug("WidgetScale = %f\n", g_Game->m_Maps[map]->p_Constants.WidgetScale);
 
     *reference = spellBar;
 

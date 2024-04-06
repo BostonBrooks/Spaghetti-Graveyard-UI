@@ -12,7 +12,7 @@
 #include "headers/bbMap.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, int32_t parent){
+int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
     bbPool* pool = widgets->m_Pool;
     bbDictionary* dict = widgets->m_AddressDict;

@@ -48,7 +48,7 @@ typedef struct{
 
 
 
-typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, int32_t parent);
+typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 typedef int32_t bbWidget_Update (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
