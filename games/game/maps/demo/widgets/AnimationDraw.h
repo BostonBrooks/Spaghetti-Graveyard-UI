@@ -6,7 +6,7 @@
 
 
 
-int32_t bbWidget_AnimationDraw0 (bbWidget* widget, int32_t i){
+int32_t bbWidget_AnimationDraw (bbWidget* widget, int32_t i){
 	int32_t animationInt = widget->m_AnimationInt[i];
 	int32_t angle = widget->m_Angle[i];
 	int32_t frame = widget->m_Frame[i];

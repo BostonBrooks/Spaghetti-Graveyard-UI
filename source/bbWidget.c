@@ -47,7 +47,7 @@ int32_t bbWidget_draw (bbWidget* widget){
 */
 
 //typedef int32_t bbTreeFunction (void* reference, void* node);
-int32_t bbWidget_draw_new(void* void_unused, void* void_widget){
+int32_t bbWidget_draw(void* void_unused, void* void_widget){
 	bbWidget* widget = void_widget;
 	int32_t map = widget->p_Node.p_Pool.Map;
 	bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
