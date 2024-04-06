@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include "headers/bbPrintf.h"
 #include "headers/bbPool.h"
+#include "headers/bbFlags.h"
 
 
 
@@ -53,6 +54,11 @@ int32_t bbPool_Lookup_sudo(void** reference, bbPool* Pool, int32_t Address){
 
 ///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
 int32_t bbPool_Lookup(void** reference, bbPool* Pool, int32_t Address){
+
+    if (Address == f_None) {
+        *reference = NULL;
+        return f_PoolSuccess;
+    }
 
 	bbPool_null* Object;
 

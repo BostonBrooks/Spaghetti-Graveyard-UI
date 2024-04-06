@@ -211,7 +211,7 @@ int main (void) {
 
     //Decal is the root widget. create new widgets an add to the tree
 
-    type = bbWidgetFunctions_getInt(functions, wf_Constructor, "menuButton");
+    type = bbWidgetFunctions_getInt(functions, wf_Constructor, "spellBar");
     bbWidget* menuButton;
 
     bbScreenCoordsF SCF; SCF.x = 20; SCF.y = 20;
