@@ -34,8 +34,8 @@ typedef struct{
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
 
-    int32_t m_WaitFrom;
-    int32_t m_WaitUntil;
+    int32_t m_CoolDownStart;
+    int32_t m_CoolDownEnd;
     sfRectangleShape* m_RedRect;
     sfRectangleShape* m_GreenRect;
 

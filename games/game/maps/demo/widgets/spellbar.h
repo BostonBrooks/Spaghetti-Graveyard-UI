@@ -51,21 +51,6 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
-    //widget->m_GreenRect = sfRectangleShape_create();
-    widget->m_RedRect = sfRectangleShape_create();
-    sfColor RedHalfAlpha;
-    RedHalfAlpha.r = 255;
-    RedHalfAlpha.g = 0;
-    RedHalfAlpha.b = 0;
-    RedHalfAlpha.a = 127;
-    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
-
-    sfVector2f vector2f;
-    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
-    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-
 
 
     widget->p_Node.p_Tree.Visible = true;
@@ -86,7 +71,8 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     widget->m_Frame[0] = 0;         // MENU
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "redrect");
+
+
 
     bbNode_setParent(widget, parent, pool);
 
@@ -184,6 +170,24 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
+
     bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
@@ -231,6 +235,24 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
+
     bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
@@ -277,6 +299,24 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     widget->m_Frame[0] = 4;         // TIMES
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
+
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
 
 
     bbNode_setParent(widget, parent, pool);
@@ -326,6 +366,24 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
+
 
     bbNode_setParent(widget, parent, pool);
 
@@ -374,6 +432,23 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
 
     bbNode_setParent(widget, parent, pool);
 
@@ -422,6 +497,23 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
 
     bbNode_setParent(widget, parent, pool);
 
@@ -470,6 +562,23 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
 
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
 
     bbNode_setParent(widget, parent, pool);
 
@@ -516,6 +625,24 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     widget->m_Frame[0] = 9;         // N DIGITS OF PI
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
+
+    widget->m_CoolDownStart = -rand() % 512;
+    widget->m_CoolDownEnd = rand() % 512;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "cooldown");
 
     bbNode_setParent(widget, parent, pool);
 
