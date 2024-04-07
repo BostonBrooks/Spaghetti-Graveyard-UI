@@ -5,10 +5,12 @@
 #ifndef BBWIDGET_H
 #define BBWIDGET_H
 
+#include "headers/bbSystemIncludes.h"
 #include "headers/bbPool.h"
 #include "headers/bbTree.h"
 #include "headers/bbDictionary.h"
 #include "headers/bbGeometry.h"
+
 
 
 typedef struct{
@@ -16,8 +18,6 @@ typedef struct{
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
-	bool m_Visible;
-	bool m_SubwidgetsVisible;
 	char* m_String;
 	sfText* m_Text;
 	sfFont* m_Font;
@@ -33,6 +33,11 @@ typedef struct{
 	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
+
+    int32_t m_WaitFrom;
+    int32_t m_WaitUntil;
+    sfRectangleShape* m_RedRect;
+    sfRectangleShape* m_GreenRect;
 
 
 	void* m_ExtraData;

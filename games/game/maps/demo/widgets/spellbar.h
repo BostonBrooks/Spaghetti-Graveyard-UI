@@ -51,6 +51,9 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = false;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -95,6 +98,9 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
+
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = false;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
 
@@ -141,6 +147,9 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -186,6 +195,9 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -229,6 +241,9 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
+
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
 
@@ -275,6 +290,9 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -319,6 +337,9 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
+
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
 
@@ -365,6 +386,9 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -410,6 +434,9 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions *functions = widgets->m_Functions;
 
 
@@ -453,6 +480,9 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
+
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
 
@@ -507,6 +537,10 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     SCF.y = 80 * g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants);
     spellBar->m_Dimensions = SCI;
+
+
+    spellBar->p_Node.p_Tree.Visible = true;
+    spellBar->p_Node.p_Tree.SubwidgetsVisible = true;
 
     for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
         spellBar->m_AnimationInt[i] = f_None;

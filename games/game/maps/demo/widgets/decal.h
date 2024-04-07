@@ -36,6 +36,9 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
+    widget->p_Node.p_Tree.Visible = true;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
+
     bbWidgetFunctions* functions = widgets->m_Functions;
 
 

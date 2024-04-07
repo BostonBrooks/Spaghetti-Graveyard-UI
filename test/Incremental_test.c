@@ -214,7 +214,9 @@ int main (void) {
     type = bbWidgetFunctions_getInt(functions, wf_Constructor, "spellBar");
     bbWidget* menuButton;
 
-    bbScreenCoordsF SCF; SCF.x = 20; SCF.y = 20;
+    bbScreenCoordsF SCF; SCF.x = 20;
+
+    SCF.y = 720 - 20 - 80 * g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.WidgetScale;
     bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
 
@@ -222,8 +224,16 @@ int main (void) {
 
     sfRenderWindow_display(g_Game->m_Window);
 
-    bbDebug("hello?\n");
+    g_Game->m_Maps[g_Game->m_CurrentMap]->m_MapTime = 0;
 
-    sleep(5);
+    for (int i = 0; i < 72; i++){
+
+        sfRenderWindow_clear(g_Game->m_Window, sfBlue);
+        descending_searchVisible(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
+
+        sfRenderWindow_display(g_Game->m_Window);
+
+        g_Game->m_Maps[g_Game->m_CurrentMap]->m_MapTime += 1;
+    }
 }
 

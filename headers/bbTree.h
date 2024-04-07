@@ -17,6 +17,7 @@
 #ifndef BBTREE_H
 #define BBTREE_H
 
+#include <stdbool.h>
 #include <inttypes.h>
 #include "headers/bbPool.h"
 
@@ -31,6 +32,10 @@ typedef struct {
 	int32_t Prev;
 	// Next in list of daughter nodes
 	int32_t Next;
+    // Do not include this widget in search if !Visible
+    bool Visible;
+    // Do not include subwidgets in search if !SubwidgetsVisible.
+    bool SubwidgetsVisible;
 
 } bbTree_data;
 
@@ -53,5 +58,10 @@ int32_t bbNode_setParent(void* node, void* parent, bbPool* pool);
 int32_t descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
 int32_t ascending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+
+///recursively search through nodes until myFunc(node); returns f_Break
+int32_t descending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+///recursively search through nodes until myFunc(node); returns f_Break
+int32_t ascending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 #endif // BBTREE_H;
