@@ -6,7 +6,7 @@
 
 
 
-int32_t bbWidget_RedRectDraw (bbWidget* widget, int32_t i){
+int32_t bbWidget_CoolDownDraw (bbWidget* widget, int32_t i){
 
 
     sfRectangleShape* rect = widget->m_RedRect;

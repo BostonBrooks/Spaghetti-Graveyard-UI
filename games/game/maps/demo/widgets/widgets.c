@@ -6,7 +6,7 @@
 #include "games/game/maps/demo/widgets/AnimationDraw.h"
 #include "games/game/maps/demo/widgets/FrameDraw.h"
 #include "games/game/maps/demo/widgets/SpriteDraw.h"
-#include "games/game/maps/demo/widgets/RedRectDraw.h"
+#include "games/game/maps/demo/widgets/CoolDownDraw.h"
 #include "games/game/maps/demo/widgets/fireworks.h"
 #include "games/game/maps/demo/widgets/decal.h"
 #include "games/game/maps/demo/widgets/spellbar.h"
@@ -21,7 +21,7 @@ int32_t bbWidgetFunctions_populate(int32_t map){
     bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_AnimationDraw, "animation");
     bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_FrameDraw, "frame");
     bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_SpriteDraw, "sprite");
-    bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_RedRectDraw, "redrect");
+    bbWidgetFunctions_add(functions, wf_DrawFunction, bbWidget_CoolDownDraw, "cooldown");
 
 	bbWidgetFunctions_add(functions, wf_Constructor, bbWidget_fireworks_new, "fireworks");
 
