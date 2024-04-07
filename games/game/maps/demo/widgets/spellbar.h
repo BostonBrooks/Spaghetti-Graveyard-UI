@@ -45,9 +45,9 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -64,8 +64,6 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-    vector2f.x *= g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    vector2f.y *= g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
 
 
@@ -112,9 +110,9 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -160,9 +158,9 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -208,9 +206,9 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -255,9 +253,9 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -303,9 +301,9 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -351,9 +349,9 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -399,9 +397,9 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -447,9 +445,9 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -494,9 +492,9 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
-    SCF.y = 80 * g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
@@ -551,9 +549,9 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-
-    SCF.x = 10 * 80 * g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
-    SCF.y = 80 * g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    SCF.x = 10 * 80 * widgetScale;
+    SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants);
     spellBar->m_Dimensions = SCI;
 
@@ -572,34 +570,34 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     bbNode_setParent(spellBar, parent, pool);
 
     bbWidget_menuButton_new(&menuButton, widgets, sc, spellBar);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_showHideButton_new(&showHideButton, widgets, sc, spellBar);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_plusButton_new(&plusButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_minusButton_new(&minusButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_timesButton_new(&timesButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_divideButton_new(&divideButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_detButton_new(&detButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_twoPowerButton_new(&twoPowerButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_squaredButton_new(&squaredButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     bbWidget_piNDigitsButton_new(&piNDigitsButton, widgets, sc, showHideButton);
-    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * g_Game->m_Maps[map]->p_Constants.WidgetScale;
+    sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
 
     *reference = spellBar;
 
