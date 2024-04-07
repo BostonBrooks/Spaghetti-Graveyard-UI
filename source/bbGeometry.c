@@ -14,3 +14,10 @@ bbScreenCoordsI bbScreenCoordsF_getI(bbScreenCoordsF SCF, bbMapConstants* consta
 	SCI.y = SCF.y * constants->ScreenPPP;
 	return SCI;
 }
+
+sfVector2f bbScreenCoordsI_getV2f(bbScreenCoordsI SCI, bbMapConstants* constants){
+    sfVector2f SCF;
+    SCF.x = (float)SCI.x / (float)constants->ScreenPPP;
+    SCF.y = (float)SCI.y / (float)constants->ScreenPPP;
+    return SCF;
+}

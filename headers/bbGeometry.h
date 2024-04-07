@@ -22,5 +22,6 @@ typedef struct {
 
 bbScreenCoordsF bbScreenCoordsI_getF(bbScreenCoordsI SCI, bbMapConstants* constants);
 bbScreenCoordsI bbScreenCoordsF_getI(bbScreenCoordsF SCF, bbMapConstants* constants);
+sfVector2f bbScreenCoordsI_getV2f(bbScreenCoordsI SCI, bbMapConstants* constants);
 
 #endif //BBGEOMETRY_H

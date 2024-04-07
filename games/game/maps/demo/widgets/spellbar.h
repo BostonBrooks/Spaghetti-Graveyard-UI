@@ -51,7 +51,26 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
-    widget->p_Node.p_Tree.Visible = false;
+    //widget->m_GreenRect = sfRectangleShape_create();
+    widget->m_RedRect = sfRectangleShape_create();
+    sfColor RedHalfAlpha;
+    RedHalfAlpha.r = 255;
+    RedHalfAlpha.g = 0;
+    RedHalfAlpha.b = 0;
+    RedHalfAlpha.a = 127;
+    sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+    sfVector2f vector2f;
+    vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+    vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+    vector2f.x *= g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    vector2f.y *= g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.DrawableScale;
+    sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+
+
+
+    widget->p_Node.p_Tree.Visible = true;
     widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
@@ -69,6 +88,7 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     widget->m_Frame[0] = 0;         // MENU
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "frame");
 
+    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "redrect");
 
     bbNode_setParent(widget, parent, pool);
 
@@ -88,7 +108,6 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
-
     widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -100,7 +119,7 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     widget->m_Dimensions = SCI;
 
     widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = false;
+    widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
     bbWidgetFunctions *functions = widgets->m_Functions;
 
