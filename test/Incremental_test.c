@@ -23,6 +23,10 @@ int main (void) {
 
     sfRenderWindow_setFramerateLimit(g_Game->m_Window, 60);
     //bbVerbose("(Empty) game object created\n");
+    sfVector2i screenPosition;
+    screenPosition.x = 0;
+    screenPosition.y = -30;
+    sfRenderWindow_setPosition(g_Game->m_Window, screenPosition);
 
     char mapPath[512];
 
