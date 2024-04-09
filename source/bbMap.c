@@ -58,6 +58,8 @@ int32_t bbMap_new(bbMap** self, char* folderPath){
 	map->p_Constants.Widget_Destructors = integer;
 	fscanf(file, "Widget_OnCommands: %d\n", &integer);
 	map->p_Constants.Widget_OnCommands = integer;
+    fscanf(file, "Widget_Mouses: %d\n", &integer);
+    map->p_Constants.Widget_Mouses = integer;
 
 	fclose(file);
 
@@ -65,7 +67,7 @@ int32_t bbMap_new(bbMap** self, char* folderPath){
 	map->p_Constants.PointsPerSquare = map->p_Constants.PointsPerTile * map->p_Constants.TilesPerSquare;
 	map->p_Constants.PixelsPerSquare = map->p_Constants.PixelsPerTile *  map->p_Constants.TilesPerSquare;
 
-    map->m_MapTime = 0;
+    map->misc.m_MapTime = 0;
 	*self = map;
 
 }

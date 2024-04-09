@@ -11,6 +11,13 @@
 #include "headers/bbSprites.h"
 #include "headers/bbAnimation.h"
 #include "headers/bbWidget.h"
+#include "headers/bbFonts.h"
+
+typedef struct {
+    /// Increased with every update of the map
+    int32_t m_MapTime;
+    int32_t m_ActiveTextbox;
+} bbMapState;
 
 typedef struct {
 
@@ -22,6 +29,7 @@ typedef struct {
 	bbTextures* m_Textures;
 	bbSprites* m_Sprites;
 	bbAnimations* m_Animations;
+    bbFonts* m_Fonts;
 	//bbSkins* m_Skins;
 
 	//vtables
@@ -36,10 +44,7 @@ typedef struct {
 	//bbMapCoords m_Viewpoint;
 	//int32_t m_ViewpointDrawable;
 
-
-	/// Increased with every update of the map
-	int32_t m_MapTime;
-
+    bbMapState misc;
 } bbMap;
 
 

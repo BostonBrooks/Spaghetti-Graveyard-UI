@@ -77,7 +77,7 @@ int32_t ascending_search(void* reference, void* void_root, bbTreeFunction* myFun
         bbNode* node;
         flag = bbPool_Lookup(&node, pool, intTail);
         bbAssert(flag >= 0, "bbPool_Lookup() returns bad flag\n");
-        flag = descending_search(reference, node, myFunc, pool);
+        flag = ascending_search(reference, node, myFunc, pool);
         if (flag == f_Break) return f_Break;
         if (flag == f_Continue) intTail = node->p_Tree.Prev;
         // flag == f_Repeat or flag == f_Delete?
@@ -122,7 +122,7 @@ int32_t ascending_searchVisible(void* reference, void* void_root, bbTreeFunction
             bbNode *node;
             flag = bbPool_Lookup(&node, pool, intTail);
             bbAssert(flag >= 0, "bbPool_Lookup() returns bad flag\n");
-            flag = descending_searchVisible(reference, node, myFunc, pool);
+            flag = ascending_searchVisible(reference, node, myFunc, pool);
             if (flag == f_Break) return f_Break;
             if (flag == f_Continue) intTail = node->p_Tree.Prev;
             // flag == f_Repeat or flag == f_Delete?

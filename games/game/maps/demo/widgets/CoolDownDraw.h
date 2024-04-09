@@ -17,7 +17,7 @@ int32_t bbWidget_CoolDownDraw (bbWidget* widget, int32_t i){
     sfVector2f size = bbScreenCoordsI_getV2f(widget->m_Dimensions, constants);
 
 
-    float timeRemaining = widget->m_CoolDownEnd - map->m_MapTime;
+    float timeRemaining = widget->m_CoolDownEnd - map->misc.m_MapTime;
     if (timeRemaining <= 0) return f_Success;
     float timeDenominator = widget->m_CoolDownEnd - widget->m_CoolDownStart;
 

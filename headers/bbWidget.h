@@ -4,12 +4,13 @@
 */
 #ifndef BBWIDGET_H
 #define BBWIDGET_H
-
+#include <stdbool.h>
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbPool.h"
 #include "headers/bbTree.h"
 #include "headers/bbDictionary.h"
 #include "headers/bbGeometry.h"
+#include "headers/bbMouse.h"
 
 
 
@@ -21,6 +22,8 @@ typedef struct{
 	char* m_String;
 	sfText* m_Text;
 	sfFont* m_Font;
+    int32_t m_TextRows;
+    int32_t m_TextColumns;
 	char* m_Code;
 
 
@@ -33,6 +36,7 @@ typedef struct{
 	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
 	int32_t m_OnDelete;
+    int32_t m_OnMouse;
 
     int32_t m_CoolDownStart;
     int32_t m_CoolDownEnd;
@@ -44,20 +48,21 @@ typedef struct{
 
 } bbWidget;
  //wf stands for widget function
-#define wf_Constructor     0
-#define wf_Update          1
+#define f_WidgetConstructor     0
+#define f_WidgetUpdate          1
 
-#define wf_Destructor      2
-#define wf_OnCommand       3
-#define wf_DrawFunction    4
-
+#define f_WidgetDestructor      2
+#define f_WidgetOnCommand       3
+#define f_WidgetDrawFunction    4
+#define f_WidgetMouseHandler   5
 
 
 typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 typedef int32_t bbWidget_Update (bbWidget* widget);
 typedef int32_t bbWidget_Destructor (bbWidget* widget);
-typedef int32_t bbWidget_OnCommand (bbWidget* widget, int32_t command, void* data);
+typedef int32_t bbWidget_OnCommand (bbWidget* widget, void* data);
 typedef int32_t bbWidget_DrawFunction (bbWidget* widget, int32_t i);
+typedef int32_t bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 
 typedef struct {
 	bbWidget_Constructor** Constructors;
@@ -76,6 +81,9 @@ typedef struct {
 	bbWidget_DrawFunction** DrawFunction;
 	bbDictionary* DrawFunction_dict;
 	int32_t DrawFunction_available;
+    bbWidget_Mouse** MouseHandler;
+    bbDictionary* MouseHandler_dict;
+    int32_t MouseHandler_available;
 } bbWidgetFunctions;
 
 
@@ -100,4 +108,8 @@ int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key)
 int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent, bbScreenCoordsI SCI);
 //int32_t bbWidget_draw (bbWidget* widget);
 int32_t bbWidget_draw(void* void_unused, void* void_widget);
+int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget);
+int32_t bbWidget_onCommand(void* command, void* void_widget);
+
+
 #endif //BBWIDGET_H

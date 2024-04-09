@@ -22,6 +22,9 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 
     flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
+    bbWidgetFunctions* functions = widgets->m_Functions;
+    widget->m_String = "Decal / Root Widget";
+    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickSphere");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -39,7 +42,6 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     widget->p_Node.p_Tree.Visible = true;
     widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
-    bbWidgetFunctions* functions = widgets->m_Functions;
 
 
 
@@ -52,7 +54,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 
 
     widget->m_AnimationInt[0] = 162; //DECAL_1280
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "sprite");
+    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
 
 
     bbNode_setParent(widget, NULL, g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool);
@@ -66,7 +68,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 int32_t bbWidget_Decal_update(bbWidget* widget){}
 
 /// Send a command to the widget / update widget, etc
-int32_t bbWidget_Decal_onCommand(bbWidget* widget, int32_t command, void* data){}
+int32_t bbWidget_Decal_onCommand(bbWidget* widget, void* command){}
 
 /// Delete widget
 int32_t bbWidget_Decal_delete(bbWidget* widget){}

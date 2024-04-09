@@ -22,6 +22,9 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 	flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
 
+    bbWidgetFunctions* functions = widgets->m_Functions;
+    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->m_String = "Fireworks XD";
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
 
@@ -33,7 +36,6 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
     widget->p_Node.p_Tree.Visible = true;
     widget->p_Node.p_Tree.SubwidgetsVisible = true;
 
-	bbWidgetFunctions* functions = widgets->m_Functions;
 
 
 
@@ -46,7 +48,7 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
 
 	widget->m_AnimationInt[0] = 23; //Fireworks
-	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, wf_DrawFunction, "animation");
+	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "animation");
 
 	*reference = widget;
 	return f_Success;
@@ -58,7 +60,7 @@ int32_t bbWidget_fireworks_update(bbWidget* widget){
 }
 
 /// Send a command to the widget / update widget, etc
-int32_t bbWidget_fireworks_onCommand(bbWidget* widget, int32_t command, void* data){
+int32_t bbWidget_fireworks_onCommand(bbWidget* widget, void* command){
 	return f_Success;
 }
 

@@ -4,7 +4,6 @@
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
 
-#include "headers/bbPrintf.h"
 
 // g_Game->m_Maps[map]->m_Widgets = widgets; OR return by reference?
 int32_t bbWidgets_new(int32_t map){
@@ -23,8 +22,12 @@ int32_t bbWidgets_new(int32_t map){
 
 // Should m_Widgets be an argument?
 int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent, bbScreenCoordsI SCI){
+    bbAssert(type >= 0, "Constructor not found\n");
+
 	bbWidget* widget;
     bbWidget* parentWidget;
+
+
 
     bbPool_Lookup(&parentWidget, widgets->m_Pool, parent);
 	bbWidget_Constructor* constructor = widgets->m_Functions->Constructors[type];
@@ -60,6 +63,17 @@ int32_t bbWidget_draw(void* void_unused, void* void_widget){
 
 		}
 	}
+    return f_Continue;
+}
+//typedef int32_t bbTreeFunction (void* reference, void* node);
+int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget){
+    bbWidget* widget = void_widget;
+    int32_t map = widget->p_Node.p_Pool.Map;
+    bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+
+    bbWidget_Mouse* mouseFunction = functions->MouseHandler[widget->m_OnMouse];
+
+    return mouseFunction(void_mouseEvent, void_widget);
 }
 
 int32_t bbWidget_update (bbWidget* widget){
@@ -95,11 +109,17 @@ int32_t bbWidgetFunctions_new(int32_t map) {
 	bbDictionary_new(&functions->OnCommand_dict, numOnCommands);
 	functions->OnCommand_available = 0;
 
-	const int32_t numAnimationDraws = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
-	functions->DrawFunction = calloc(numAnimationDraws,
+	const int32_t numDrawFunctions = g_Game->m_Maps[map]->p_Constants.Widget_DrawFunctions;
+	functions->DrawFunction = calloc(numDrawFunctions,
 									  sizeof(bbWidget_DrawFunction));
-	bbDictionary_new(&functions->DrawFunction_dict, numAnimationDraws);
+	bbDictionary_new(&functions->DrawFunction_dict, numDrawFunctions);
 	functions->DrawFunction_available = 0;
+
+    const int32_t numMouseHandlers = g_Game->m_Maps[map]->p_Constants.Widget_Mouses;
+    functions->MouseHandler = calloc(numMouseHandlers,
+                                     sizeof(bbWidget_DrawFunction));
+    bbDictionary_new(&functions->MouseHandler_dict, numMouseHandlers);
+    functions->MouseHandler_available = 0;
 
 	g_Game->m_Maps[map]->m_Widgets->m_Functions = functions;
 
@@ -111,41 +131,49 @@ int32_t bbWidgetFunctions_new(int32_t map) {
 int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* fun_ptr, char* key ){
 	int available;
 	switch (bin) {
-		case wf_Constructor:
+		case f_WidgetConstructor:
 			available = WFS->Constructor_available++;
 			//bbAssert available < MAX
 			WFS->Constructors[available] = fun_ptr;
 			bbDictionary_add(WFS->Constructor_dict, key, available);
 			return f_Success;
 
-		case wf_Update:
+		case f_WidgetUpdate:
 			available = WFS->Update_available++;
 			//bbAssert available < MAX
 			WFS->Update[available] = fun_ptr;
 			bbDictionary_add(WFS->Update_dict, key, available);
 			return f_Success;
 
-		case wf_Destructor:
+		case f_WidgetDestructor:
 			available = WFS->Destructor_available++;
 			//bbAssert available < MAX
 			WFS->Destructors[available] = fun_ptr;
 			bbDictionary_add(WFS->Destructor_dict, key, available);
 			return f_Success;
 
-		case wf_OnCommand:
+		case f_WidgetOnCommand:
 			available = WFS->OnCommand_available++;
 			//bbAssert available < MAX
 			WFS->OnCommands[available] = fun_ptr;
 			bbDictionary_add(WFS->OnCommand_dict, key, available);
 			return f_Success;
 
-		case wf_DrawFunction:
-			available = WFS->Destructor_available++;
+		case f_WidgetDrawFunction:
+			available = WFS->DrawFunction_available++;
 			//bbAssert available < MAX
 			WFS->DrawFunction[available] = fun_ptr;
 			bbDictionary_add(WFS->DrawFunction_dict, key, available);
 			return f_Success;
+
+        case f_WidgetMouseHandler:
+            available = WFS->MouseHandler_available++;
+            //bbAssert available < MAX
+            WFS->MouseHandler[available] = fun_ptr;
+            bbDictionary_add(WFS->MouseHandler_dict, key, available);
+            return f_Success;
 		default:
+            bbPrintf("Bad flag in bbWidgetFunctions_add\n");
 			return f_None;
 	}
 }
@@ -153,30 +181,35 @@ int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* fun_ptr
 int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, int32_t bin, char* key){
 	int32_t intAddress;
 	switch (bin) {
-		case wf_Constructor:
+		case f_WidgetConstructor:
 			intAddress = bbDictionary_lookup(WFS->Constructor_dict, key);
 			*function = WFS->Constructors[intAddress];
 			return f_Success;
 
-		case wf_Update:
+		case f_WidgetUpdate:
 			intAddress = bbDictionary_lookup(WFS->Update_dict, key);
 			*function = WFS->Update[intAddress];
 			return f_Success;
 
-		case wf_Destructor:
+		case f_WidgetDestructor:
 			intAddress = bbDictionary_lookup(WFS->Destructor_dict, key);
 			*function = WFS->Destructors[intAddress];
 			return f_Success;
 
-		case wf_OnCommand:
+		case f_WidgetOnCommand:
 			intAddress = bbDictionary_lookup(WFS->OnCommand_dict, key);
 			*function = WFS->OnCommands[intAddress];
 			return f_Success;
 
-		case wf_DrawFunction:
+		case f_WidgetDrawFunction:
 			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			*function = WFS->DrawFunction[intAddress];
 			return f_Success;
+
+        case f_WidgetMouseHandler:
+            intAddress = bbDictionary_lookup(WFS->MouseHandler_dict, key);
+            *function = WFS->MouseHandler[intAddress];
+            return f_Success;
 		default:
 			return f_None;
 	}
@@ -184,25 +217,44 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key){
 	int32_t intAddress;
 	switch (bin) {
-		case wf_Constructor:
+		case f_WidgetConstructor:
 			intAddress = bbDictionary_lookup(WFS->Constructor_dict, key);
 			return intAddress;
 
-		case wf_Update:
+		case f_WidgetUpdate:
 			intAddress = bbDictionary_lookup(WFS->Update_dict, key);
 			return intAddress;
-		case wf_Destructor:
+		case f_WidgetDestructor:
 			intAddress = bbDictionary_lookup(WFS->Destructor_dict, key);
 			return intAddress;
 
-		case wf_OnCommand:
+		case f_WidgetOnCommand:
 			intAddress = bbDictionary_lookup(WFS->OnCommand_dict, key);
 			return intAddress;
 
-		case wf_DrawFunction:
+		case f_WidgetDrawFunction:
 			intAddress = bbDictionary_lookup(WFS->DrawFunction_dict, key);
 			return intAddress;
+
+        case f_WidgetMouseHandler:
+            intAddress = bbDictionary_lookup(WFS->MouseHandler_dict, key);
+            return intAddress;
 		default:
 			return f_None;
 	}
+}
+
+int32_t bbWidget_onCommand(void* command, void* void_widget){
+
+    bbWidget* widget = void_widget;
+    int32_t map = widget->p_Node.p_Pool.Map;
+    bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+    int32_t commandFunction_int = widget->m_OnCommand;
+
+        if (commandFunction_int >= 0) {
+            functions->OnCommands[commandFunction_int](widget, command);
+
+        }
+
+    return f_Continue;
 }

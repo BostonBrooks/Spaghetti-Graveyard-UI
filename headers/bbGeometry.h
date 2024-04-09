@@ -20,8 +20,11 @@ typedef struct {
 	float y;
 } bbScreenCoordsF;
 
+
 bbScreenCoordsF bbScreenCoordsI_getF(bbScreenCoordsI SCI, bbMapConstants* constants);
 bbScreenCoordsI bbScreenCoordsF_getI(bbScreenCoordsF SCF, bbMapConstants* constants);
 sfVector2f bbScreenCoordsI_getV2f(bbScreenCoordsI SCI, bbMapConstants* constants);
 
+
+bool bbWidget_containsPoint(void* void_widget, bbScreenCoordsI SCI);
 #endif //BBGEOMETRY_H

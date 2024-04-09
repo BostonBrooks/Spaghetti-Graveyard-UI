@@ -8,6 +8,7 @@
 #include "headers/bbAnimation.h"
 #include "headers/bbPool.h"
 #include "headers/bbTree.h"
+#include "headers/bbDispatch.h"
 
 bbGame* g_Game;
 
@@ -25,7 +26,7 @@ int main (void) {
     //bbVerbose("(Empty) game object created\n");
     sfVector2i screenPosition;
     screenPosition.x = 0;
-    screenPosition.y = -30;
+    screenPosition.y = -25;
     sfRenderWindow_setPosition(g_Game->m_Window, screenPosition);
 
     char mapPath[512];
@@ -91,6 +92,9 @@ int main (void) {
     sfSprite_setPosition(sprite, position);
     sfRenderWindow_drawSprite(g_Game->m_Window, sprite, NULL);
     sfRenderWindow_display(g_Game->m_Window);
+// ---------- Fonts  ---------- //
+
+    bbFonts_new(&map->m_Fonts, NULL, 1);
 
 // ---------- Widgets  ---------- //
 
@@ -105,15 +109,15 @@ int main (void) {
       SCZero.y = 0;
       bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
       bbWidget* widget;
-      int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
+      int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
       bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
 
       bbWidget* fireworks;
-      type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
+      type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
       bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
 
       bbWidget* prompt;
-      type = bbWidgetFunctions_getInt(functions, wf_Constructor, "prompt");
+      type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "prompt");
       bbDebug("prompt type = %d\n", type);
       bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
 
@@ -171,7 +175,7 @@ int main (void) {
 // ---------- New widget stuff  ---------- //
     /*{
         bbWidgetFunctions *functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-        int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "fireworks");
+        int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
         bbWidget *FireWorks;
 
         bbWidget_new(&FireWorks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
@@ -203,7 +207,7 @@ int main (void) {
     }*/
 
     bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-    int32_t type = bbWidgetFunctions_getInt(functions, wf_Constructor, "decal");
+    int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
     bbWidget* Decal;
 
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
@@ -215,7 +219,7 @@ int main (void) {
 
     //Decal is the root widget. create new widgets an add to the tree
 
-    type = bbWidgetFunctions_getInt(functions, wf_Constructor, "spellBar");
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
     bbWidget* menuButton;
 
     bbScreenCoordsF SCF; SCF.x = 20;
@@ -224,20 +228,47 @@ int main (void) {
     bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
 
+    SCF.x = 881;
+    SCF.y = 30;
+    SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
+
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "textbox");
+
+
+    flag = bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+    bbDebug("flag = %d\n", flag);
+
     descending_search(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
     sfRenderWindow_display(g_Game->m_Window);
 
-    g_Game->m_Maps[g_Game->m_CurrentMap]->m_MapTime = 0;
+    g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime = 0;
+    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = Decal;
 
-    for (int i = 0; i < 72; i++){
+    sfSprite* cursor = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites->m_Sprites[229];
+    sfVector2i cursorPosI;
+    sfVector2f cursorPosF;
 
+    sfRenderWindow_setMouseCursorVisible(g_Game->m_Window, false);
+
+    while (1){
+
+
+        EventDispatch(g_Game->m_CurrentMap);
         sfRenderWindow_clear(g_Game->m_Window, sfBlue);
         descending_searchVisible(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
+
+        cursorPosI = sfMouse_getPosition(g_Game->m_Window);
+        cursorPosF.x = cursorPosI.x;
+        cursorPosF.y = cursorPosI.y;
+        sfSprite_setPosition(cursor, cursorPosF);
+        sfRenderWindow_drawSprite(g_Game->m_Window, cursor, NULL);
+
+
         sfRenderWindow_display(g_Game->m_Window);
 
-        g_Game->m_Maps[g_Game->m_CurrentMap]->m_MapTime += 1;
+        g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime += 1;
     }
 }
 

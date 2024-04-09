@@ -14,7 +14,7 @@
 #include <stdarg.h>
 #include <assert.h>
 
-
+/*
 #define BBDEBUG
 ///If BBDEBUG is defined, print a debug message
 static void bbDebug(const char* format, ...){
@@ -27,8 +27,8 @@ static void bbDebug(const char* format, ...){
 	va_end (args);
 
 #endif  // BBDEBUG
-
 }
+*/
 
 ///Same as bbDebug but with the DEBUG: tag
 static void bbPrintf(const char* format, ...){
@@ -78,7 +78,7 @@ static void bbVerbose(const char* format, ...){
 	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
 	printf (__VA_ARGS__);
 
-#define bbHere 	printf ("LINE: %d, FILE: %s, FUNCTION: %s, ",\
+#define bbHere() 	printf ("LINE: %d, FILE: %s, FUNCTION: %s\n",\
                       __LINE__, __FILE_NAME__, __func__);
 
 #endif // BBPRINTF_H
