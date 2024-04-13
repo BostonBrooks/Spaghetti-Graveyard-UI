@@ -232,7 +232,7 @@ int main (void) {
     SCF.y = 30;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
 
-    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "textbox");
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "prompt");
 
 
     flag = bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);

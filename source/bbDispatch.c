@@ -34,6 +34,10 @@ int32_t EventDispatch(int32_t map){ //TODO reconsider argument
                     Event_inputChar('\n', map);
                     break;
                 }
+                if(event.key.code == sfKeySpace){
+                    Event_inputChar(' ', map);
+                    break;
+                }
                 if (event.key.shift == sfTrue){
                     switch (event.key.code) {
                         case sfKeyA:

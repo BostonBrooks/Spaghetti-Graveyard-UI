@@ -1,9 +1,10 @@
 /**
  * @file
- * @brief The functions in this file define the behavior of an object with class bbWidget and type textBox
- *
+ * @brief The functions in this file define the behavior of an object with class bbWidget and type prompt
+ * Prompt is the parent of three text boxes, the dialogue, 'prompt' and input
  */
 
+#include <inttypes.h>
 
 #include "headers/bbPrintf.h"
 #include "headers/bbGeometry.h"
@@ -15,7 +16,7 @@
 #include "headers/bbFlags.h"
 
 //typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
-int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
+int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
 
 
     bbPool *pool = widgets->m_Pool;
@@ -27,7 +28,7 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
     flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
     //TODO value should not be hard coded
     widget->m_String = calloc(1028, sizeof(char));
-    bbStr_setStr(widget->m_String, "New Text Box");
+    bbStr_setStr(widget->m_String, "prompt");
     //TODO value should not be hard coded
     bbStr_setBounds(widget->m_String, 10, 10);
     widget->m_Text = sfText_create();
@@ -42,8 +43,7 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
 
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
-
-    widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "textbox");
+    widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "prompt");
 
     widget->m_ScreenCoords = sc;
 
@@ -68,13 +68,37 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
 
     bbNode_setParent(widget, parent, pool);
 
+
+
+    int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "textbox");
+
+    bbWidget* subWidget;
+
+    SCI.x = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
+    bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
+    widget->m_SubwidgetArray[0] = subWidget->p_Node.p_Pool.Self;
+
+    SCI.x = 280 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
+    bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
+    widget->m_SubwidgetArray[1] = subWidget->p_Node.p_Pool.Self;
+
+    SCI.x = 480 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
+    bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
+    widget->m_SubwidgetArray[2] = subWidget->p_Node.p_Pool.Self;
+
+
     g_Game->m_Maps[map]->misc.m_ActiveTextbox = widget->p_Node.p_Pool.Self;
     *reference = widget;
     return f_Success;
 }
-
 //typedef int32_t bbWidget_OnCommand (bbWidget* widget, void* data);
-int32_t bbWidget_Command_textBox(bbWidget* widget, void* data){
+int32_t bbWidget_Command_prompt(bbWidget* widget, void* data){
     bbCommandEmpty* commandEmpty = data;
 
     switch (commandEmpty->type) {
@@ -84,6 +108,28 @@ int32_t bbWidget_Command_textBox(bbWidget* widget, void* data){
             //TODO should not be hard coded
             bbStr_setBounds(widget->m_String, 10, 10);
             sfText_setString(widget->m_Text, widget->m_String);
+
+
+            int32_t map = widget->p_Node.p_Pool.Map;
+            int32_t widget_int;
+            bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+            bbWidget* subWidget;
+            bbCommandPutChar cmd;
+            cmd.type = f_CommandPutChar;
+            cmd.m_char = commandPutChar->m_char;
+
+            widget_int = widget->m_SubwidgetArray[0];
+            bbPool_Lookup(&subWidget, pool, widget_int);
+            bbWidget_onCommand(&cmd, subWidget);
+
+            widget_int = widget->m_SubwidgetArray[1];
+            bbPool_Lookup(&subWidget, pool, widget_int);
+            bbWidget_onCommand(&cmd, subWidget);
+
+            widget_int = widget->m_SubwidgetArray[2];
+            bbPool_Lookup(&subWidget, pool, widget_int);
+            bbWidget_onCommand(&cmd, subWidget);
+
             break;
         }
         case f_CommandPutStr: {

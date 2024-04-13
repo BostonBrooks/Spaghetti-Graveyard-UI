@@ -17,6 +17,9 @@
 typedef struct{
 	bbNode p_Node;
 
+    //TODO should not be hard coded
+    int32_t m_SubwidgetArray[8];
+
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
 	char* m_String;

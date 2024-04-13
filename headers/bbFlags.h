@@ -22,6 +22,6 @@
 /// Trying to create new object in a pool that's already full
 #define f_Full                 -6
 
-
+#define todo()
 
 #endif //FLAGS_H

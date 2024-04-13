@@ -14,6 +14,7 @@
 #include "games/game/maps/demo/widgets/TextDraw.h"
 #include "games/game/maps/demo/widgets/sphere.h"
 #include "games/game/maps/demo/widgets/textBox.h"
+#include "games/game/maps/demo/widgets/prompt.h"
 
 
 
@@ -34,12 +35,14 @@ int32_t bbWidgetFunctions_populate(int32_t map){
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_Decal_new, "decal");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_sphere_new, "sphere");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_spellBar_new, "spellBar");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_prompt_new, "prompt");
 
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidget_MouseClickText, "clickText");
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidget_MouseClickSphere, "clickSphere");
 
 
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidget_Command_textBox, "textbox");
+    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidget_Command_prompt, "prompt");
 
 
 

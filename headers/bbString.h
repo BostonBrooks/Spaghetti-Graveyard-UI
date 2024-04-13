@@ -12,7 +12,7 @@
 
 // strcpy()
 static int32_t bbStr_setStr(char* dest, char* src){
-    int i = 0;
+    int32_t i = 0;
     while(1){
         dest[i] = src[i];
         if (src[i] == '\0') return f_Success;
@@ -51,8 +51,7 @@ static int32_t bbStr_putChar(char* dest, char src){
     //add \0 to end
 }
 
-// fit string to box given by columns and rows
-// not well thought out or tested
+// Works correctly by some inspiration and by some trial and error
 static int32_t bbStr_setBounds(char* str, int32_t columns, int32_t rows){
 
     if(str[0] == '\0') return f_Success;
@@ -64,39 +63,47 @@ static int32_t bbStr_setBounds(char* str, int32_t columns, int32_t rows){
 
     int32_t i_str = 0;
     int32_t i_temp = 0;
-    int32_t column = 0;
+    int32_t column = 1;
 
     while(1){
-        if (str[i_str] == '\n') column = 0;
 
-        temp[i_temp] = str[i_str];
+//Go through str and copy to temp, adding newlines when needed
 
-        if (str[i_str] == '\0') break;
-        column++;
-        i_str++;
-        i_temp++;
-
-
-        if (column >= columns){
-            if(str[i_str] == '\n') i_str++;
-            temp[i_temp] = '\n';
-            column = 0;
-            i_temp++;
+        if (str[i_str] == '\0') {
+            temp[i_temp] = '\0';
+            break;
         }
 
+        if (column > columns){
+            if (str[i_str] != '\n'){
+                temp[i_temp] = '\n';
+                column = 0;
+                i_temp++;
+            }
+        }
+
+
+        if(str[i_str] == '\n') column = 0;
+
+        temp[i_temp] = str[i_str];
+        i_str++;
+        i_temp++;
+        column++;
+
     }
 
-    // go back to the \n character "rows" before the last char
+    // work backward and count off the number of rows to display
     int row = 0;
 
+
+    i_temp--; //dont count final newline
     while (1) {
-        if (i_temp == 0) break;
-        if (temp[i_temp] == '\n') row++;
-        if (row > rows) break;
+        if (i_temp <= 0) break;
+        if (temp[i_temp - 1] == '\n') row++;
+        if (row >= rows) break;
         i_temp--;
     }
-
-    // copy the remainder of temp back to str
+    //Copy output back to str
 
     bbStr_setStr(str, &temp[i_temp]);
 
