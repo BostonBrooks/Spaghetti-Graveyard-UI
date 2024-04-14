@@ -22,7 +22,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     widget->m_String = "Decal / Root Widget";
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickSphere");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickSphere");
 
 
     bbScreenCoordsF SCF;
@@ -40,7 +40,7 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 
 
     widget->m_AnimationInt[0] = 162; //DECAL_1280
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
 
 
     *reference = widget;

@@ -20,7 +20,7 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 	int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     widget->m_String = "Fireworks XD";
 
@@ -32,7 +32,7 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 	widget->m_ScreenCoords = SCI;
 
 	widget->m_AnimationInt[0] = 23; //Fireworks
-	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "animation");
+	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "animation");
     widget->m_AnimationStart[0] = 0;
 
 	*reference = widget;

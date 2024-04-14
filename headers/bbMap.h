@@ -17,6 +17,8 @@ typedef struct {
     /// Increased with every update of the map
     int32_t m_MapTime;
     int32_t m_ActiveTextbox;
+    int32_t m_ActiveSpell;
+    int32_t m_SpellSelector;
 } bbMapState;
 
 typedef struct {

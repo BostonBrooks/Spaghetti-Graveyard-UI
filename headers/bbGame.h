@@ -16,7 +16,7 @@
 typedef struct {
 	bbGameConstants m_Constants;
 	sfRenderWindow* m_Window;
-	//bbViewport* m_Viewport;
+	//bbViewport* m_Viewport; //viewport is a bbWidget
 	int32_t m_CurrentMap;
 	char m_MapNames[N_MAPS][256];
 	int32_t m_GlobalTime;

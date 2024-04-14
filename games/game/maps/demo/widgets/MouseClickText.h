@@ -29,6 +29,8 @@ int32_t bbWidget_MouseClickText(void* void_mouseEvent, void* void_widget){
             cmd.m_str = string;
             bbWidget_onCommand(&cmd, dialogueWidget);
 
+            g_Game->m_Maps[widget->p_Node.p_Pool.Map]->misc.m_ActiveSpell = widget->p_Node.p_Pool.Self;
+
             return f_Break;
         }
     }

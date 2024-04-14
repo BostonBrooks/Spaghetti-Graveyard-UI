@@ -40,7 +40,7 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
     widget->m_String = "Menu / Pause Button";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -54,7 +54,7 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 0;         // MENU
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     *reference = widget;
@@ -74,7 +74,7 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     widget->m_String = "Show / Hide Spell Bar";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -87,7 +87,7 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 1;         // SHOWHIDE
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
     *reference = widget;
     return f_Success;
@@ -104,7 +104,7 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
     widget->m_String = "Plus";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -117,7 +117,7 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 2;         // PLUS
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
 
@@ -137,8 +137,9 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
+    g_Game->m_Maps[widget->p_Node.p_Pool.Map]->misc.m_ActiveSpell = widget->p_Node.p_Pool.Self;
 
     *reference = widget;
     return f_Success;
@@ -156,7 +157,7 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
 
     widget->m_String = "Minus";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -168,7 +169,7 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     widget->m_Dimensions = SCI;
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 3;         // MINUS
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -187,7 +188,7 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -205,7 +206,7 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
 
     widget->m_String = "Times";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -218,7 +219,7 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 4;         // TIMES
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -237,7 +238,7 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -255,7 +256,7 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
 
     widget->m_String = "Divide";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -268,7 +269,7 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 5;         // DIVIDE
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -287,7 +288,7 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -305,7 +306,7 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
     widget->m_String = "Determinant";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -318,7 +319,7 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 6;         // DETERMINANT
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -337,7 +338,7 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -355,7 +356,7 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     widget->m_String = "Powers of Two";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -368,7 +369,7 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 7;         // TWO TO THE POWER
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -387,7 +388,7 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -404,7 +405,7 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
 
     widget->m_String = "Square";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -417,7 +418,7 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 8;         // SQUARED
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -436,7 +437,7 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -452,7 +453,7 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
 
     widget->m_String = "N digits of Pi";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -465,7 +466,7 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 9;         // N DIGITS OF PI
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
     widget->m_CoolDownStart = -rand() % 512;
@@ -484,7 +485,7 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
     vector2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
-    widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
+    widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
     *reference = widget;
     return f_Success;
@@ -512,7 +513,7 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     int32_t flag = bbWidget_empty_new(&spellBar, widgets, sc, parent);
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    spellBar->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    spellBar->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
     spellBar->m_String = "Spell Bar";
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;

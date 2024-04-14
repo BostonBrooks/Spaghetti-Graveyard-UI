@@ -37,16 +37,6 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 	*self = widget;
 	return flag;
 }
-/*
-
-int32_t bbWidget_draw (bbWidget* widget){
-
-	bbWidget_DrawFunction* drawFunction = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Functions->DrawFunctions[widget->m_OnDraw];
-	int32_t flag = drawFunction(widget);
-
-	return flag;
-}
-*/
 
 //typedef int32_t bbTreeFunction (void* reference, void* node);
 int32_t bbWidget_draw(void* void_unused, void* void_widget){
@@ -56,10 +46,9 @@ int32_t bbWidget_draw(void* void_unused, void* void_widget){
 	bbWidget_DrawFunction* drawFunctions = *functions->DrawFunction;
 
 	for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
-		int drawFunction_int = widget->m_DrawFunction[i];
+		int drawFunction_int = widget->v_DrawFunction[i];
 		if (drawFunction_int >= 0) {
-			//TODO skins, default drawfunction given by animation or skin
-            bbDebug("drawFunciton_int = %d\n", drawFunction_int);
+			//TODO skins, default drawFunction given by animation or skin
 			functions->DrawFunction[drawFunction_int](widget, i);
 
 		}
@@ -72,7 +61,7 @@ int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget){
     int32_t map = widget->p_Node.p_Pool.Map;
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
 
-    bbWidget_Mouse* mouseFunction = functions->MouseHandler[widget->m_OnMouse];
+    bbWidget_Mouse* mouseFunction = functions->MouseHandler[widget->v_OnMouse];
 
     return mouseFunction(void_mouseEvent, void_widget);
 }
@@ -247,7 +236,7 @@ int32_t bbWidget_onCommand(void* command, void* void_widget){
     bbWidget* widget = void_widget;
     int32_t map = widget->p_Node.p_Pool.Map;
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
-    int32_t commandFunction_int = widget->m_OnCommand;
+    int32_t commandFunction_int = widget->v_OnCommand;
 
         if (commandFunction_int >= 0) {
             functions->OnCommands[commandFunction_int](widget, command);
@@ -261,7 +250,7 @@ int32_t bbWidget_onUpdate(void* command, void* void_widget){
     bbWidget* widget = void_widget;
     int32_t map = widget->p_Node.p_Pool.Map;
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
-    int32_t updateFunction_int = widget->m_OnUpdate;
+    int32_t updateFunction_int = widget->v_OnUpdate;
 
     if (updateFunction_int >= 0) {
         bbHere();

@@ -15,12 +15,12 @@
 typedef struct {
 	char m_Key[KEY_LENGTH];
 
-	int32_t v_DrawFunction;
+	int32_t v_DrawFunction; // default draw function for the given animation
 	int32_t m_Angles;
 	int32_t m_Frames;
 	//What does this do?
 	int32_t m_Framerate;
-	//the animation itself knows where to find its sprites
+	//the animation itself knows where to find its sprites container
 	bbSprites* m_Sprites;
 	//list of length m_Angles * m_Sprites
 	int32_t i_Sprites[];

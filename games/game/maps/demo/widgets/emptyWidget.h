@@ -32,7 +32,6 @@ int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     widget->m_String = "Initialised empty widget";
 
     widget->m_Text = NULL;
-    widget->m_Font = NULL;
     widget->m_TextRows = f_None;
     widget->m_TextRows = f_None;
     widget->m_Code = "007";
@@ -41,16 +40,15 @@ int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
         widget->m_AnimationInt[i] = f_None;
         widget->m_Angle[i] = 0;
         widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
+        widget->v_DrawFunction[i] = f_None;
         widget->m_AnimationStart[i] = f_None;
     }
 
     widget->m_State = f_None;
-    widget->m_OnCommand = f_None;
-    widget->m_OnUpdate = f_None;
-    widget->m_OnDraw = f_None;
-    widget->m_OnDelete = f_None;
-    widget->m_OnMouse = f_None;
+    widget->v_OnCommand = f_None;
+    widget->v_OnUpdate = f_None;
+    widget->v_OnDelete = f_None;
+    widget->v_OnMouse = f_None;
 
     widget->m_CoolDownStart = f_None;
     widget->m_CoolDownEnd = f_None;

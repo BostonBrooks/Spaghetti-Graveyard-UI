@@ -29,11 +29,11 @@ int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
     widget->m_String = "Menu / Pause Button";
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
     widget->m_AnimationInt[0] = 29; // SPHERE
     widget->m_Frame[0] = 0;         // NOT USED
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
 
     *reference = widget;
     return f_Success;

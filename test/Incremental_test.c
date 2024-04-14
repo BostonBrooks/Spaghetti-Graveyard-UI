@@ -122,7 +122,6 @@ int main (void) {
       bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
 
 
-      //bbDebug("in main: map = %d, ondraw = %d\n", widget->p_Node.p_Pool.Map, widget->m_OnDraw);
 
       g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = widget;
 
@@ -263,6 +262,21 @@ int main (void) {
 
     int32_t paused = 0;
 
+    sfText* activeText = sfText_create();
+    sfText_setColor(activeText, sfRed);
+    position.x = 5;
+    position.y = 5;
+    sfText_setPosition(activeText, position);
+    sfText_setFont(activeText, map->m_Fonts->m_Fonts[0]);
+    sfText_setColor(activeText, sfRed);
+
+    bbWidget* activeSpell;
+    bbPool_Lookup(&activeSpell,
+                  map->m_Widgets->m_Pool,
+                  map->misc.m_ActiveSpell);
+
+    sfText_setString(activeText, activeSpell->m_String);
+
     while (1){
 
 
@@ -279,6 +293,11 @@ int main (void) {
         sfSprite_setPosition(cursor, cursorPosF);
         sfRenderWindow_drawSprite(g_Game->m_Window, cursor, NULL);
 
+        bbPool_Lookup(&activeSpell,
+                      map->m_Widgets->m_Pool,
+                      map->misc.m_ActiveSpell);
+        sfText_setString(activeText, activeSpell->m_String);
+        sfRenderWindow_drawText(g_Game->m_Window, activeText, NULL);
 
         sfRenderWindow_display(g_Game->m_Window);
 

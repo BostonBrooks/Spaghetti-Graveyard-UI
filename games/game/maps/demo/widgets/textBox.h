@@ -41,10 +41,10 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
 
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_OnUpdate = -1;
-    widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "textbox");
+    widget->v_OnUpdate = -1;
+    widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "textbox");
 
     widget->m_ScreenCoords = sc;
 
@@ -62,9 +62,9 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
         widget->m_AnimationInt[i] = f_None;
         widget->m_Angle[i] = 0;
         widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
+        widget->v_DrawFunction[i] = f_None;
     }
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
 
 
     bbNode_setParent(widget, parent, pool);

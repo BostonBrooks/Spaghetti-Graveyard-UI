@@ -41,11 +41,11 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
-    widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "prompt");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "prompt");
 
 
-    widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
 
 
 
@@ -57,9 +57,10 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbCommandSetDim cmd;
     cmd.type = f_CommandSetDim;
     bbScreenCoordsI SCI;
+
+    //Dialogue
     cmd.m_rows = 17;
     cmd.m_columns = 23;
-
 
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     SCI.y = 24 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
@@ -71,6 +72,7 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     cmd.m_rows = 3;
     cmd.m_columns = 23;
 
+    //Query
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     SCI.y = 494 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
@@ -81,6 +83,7 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     cmd.m_rows = 3;
     cmd.m_columns = 23;
 
+    //input
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     SCI.y = 606 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
@@ -112,14 +115,17 @@ int32_t bbWidget_Command_prompt(bbWidget* widget, void* data){
             cmd.type = f_CommandPutChar;
             cmd.m_char = commandPutChar->m_char;
 
+            //Dialogue
             widget_int = widget->m_SubwidgetArray[0];
             bbPool_Lookup(&subWidget, pool, widget_int);
             bbWidget_onCommand(&cmd, subWidget);
 
+            //Query
             widget_int = widget->m_SubwidgetArray[1];
             bbPool_Lookup(&subWidget, pool, widget_int);
             bbWidget_onCommand(&cmd, subWidget);
 
+            //input
             widget_int = widget->m_SubwidgetArray[2];
             bbPool_Lookup(&subWidget, pool, widget_int);
             bbWidget_onCommand(&cmd, subWidget);

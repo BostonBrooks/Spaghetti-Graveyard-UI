@@ -16,15 +16,12 @@
 typedef struct{
 	bbNode p_Node;
 
-
-    //TODO should not be hard coded
     int32_t m_SubwidgetArray[subwidgetarraysize];
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
 	char* m_String;
 	sfText* m_Text;
-	sfFont* m_Font;
     int32_t m_TextRows;
     int32_t m_TextColumns;
 	char* m_Code;
@@ -33,15 +30,14 @@ typedef struct{
 	int32_t m_AnimationInt[ANIMATIONS_PER_WIDGET];
 	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
 	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
-	int32_t m_DrawFunction[ANIMATIONS_PER_WIDGET];
+	int32_t v_DrawFunction[ANIMATIONS_PER_WIDGET];
     int32_t m_AnimationStart[ANIMATIONS_PER_WIDGET];
 
     int32_t m_State;
-	int32_t m_OnCommand;
-	int32_t m_OnUpdate;
-	int32_t m_OnDraw;
-	int32_t m_OnDelete;
-    int32_t m_OnMouse;
+	int32_t v_OnCommand;
+	int32_t v_OnUpdate;
+	int32_t v_OnDelete;
+    int32_t v_OnMouse;
 
     int32_t m_CoolDownStart;
     int32_t m_CoolDownEnd;
@@ -59,7 +55,7 @@ typedef struct{
 #define f_WidgetDestructor      2
 #define f_WidgetOnCommand       3
 #define f_WidgetDrawFunction    4
-#define f_WidgetMouseHandler   5
+#define f_WidgetMouseHandler    5
 
 
 typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
@@ -111,7 +107,8 @@ int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, i
 int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
 
 int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent, bbScreenCoordsI SCI);
-//int32_t bbWidget_draw (bbWidget* widget);
+
+//typedef int32_t bbTreeFunction (void* reference, void* node);
 int32_t bbWidget_draw(void* void_unused, void* void_widget);
 int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget);
 int32_t bbWidget_onCommand(void* command, void* void_widget);
