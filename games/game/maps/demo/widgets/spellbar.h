@@ -36,15 +36,12 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
-
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Menu / Pause Button";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -55,28 +52,10 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     widget->m_Dimensions = SCI;
 
 
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
-
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 0;         // MENU
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
-
-
-
-    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
@@ -90,15 +69,13 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Show / Hide Spell Bar";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -108,26 +85,9 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
-
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 1;         // SHOWHIDE
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
-
-
-
-    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
@@ -140,15 +100,12 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
-
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Plus";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -157,19 +114,6 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 2;         // PLUS
@@ -195,7 +139,6 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
@@ -208,15 +151,13 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Minus";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -225,19 +166,6 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
-
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 3;         // MINUS
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
@@ -261,8 +189,6 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -274,15 +200,13 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Times";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -291,19 +215,6 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 4;         // TIMES
@@ -328,9 +239,6 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -342,15 +250,13 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Divide";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -359,19 +265,6 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 5;         // DIVIDE
@@ -396,9 +289,6 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -410,15 +300,13 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Determinant";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -427,18 +315,6 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 6;         // DETERMINANT
@@ -463,8 +339,6 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -476,15 +350,13 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Powers of Two";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -493,17 +365,6 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 7;         // TWO TO THE POWER
@@ -528,8 +389,6 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -541,15 +400,12 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
-
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Square";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -558,19 +414,6 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 8;         // SQUARED
@@ -595,8 +438,6 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -607,15 +448,12 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
-
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "N digits of Pi";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
@@ -624,17 +462,6 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 24; // SPELLBAR
     widget->m_Frame[0] = 9;         // N DIGITS OF PI
@@ -659,8 +486,6 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->m_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    bbNode_setParent(widget, parent, pool);
-
     *reference = widget;
     return f_Success;
 }
@@ -683,10 +508,8 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     bbDictionary *dict = widgets->m_AddressDict;
     int32_t map = widgets->m_Pool->m_Map;
 
-    int32_t flag;
 
-    flag = bbPool_New(&spellBar, pool, f_PoolNextAvailable);
-    spellBar->m_ScreenCoords = sc;
+    int32_t flag = bbWidget_empty_new(&spellBar, widgets, sc, parent);
 
     bbWidgetFunctions* functions = widgets->m_Functions;
     spellBar->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
@@ -701,46 +524,24 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     spellBar->m_Dimensions = SCI;
 
 
-    spellBar->p_Node.p_Tree.Visible = true;
-    spellBar->p_Node.p_Tree.SubwidgetsVisible = true;
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        spellBar->m_AnimationInt[i] = f_None;
-        spellBar->m_Angle[i] = 0;
-        spellBar->m_Frame[i] = 0;
-        spellBar->m_DrawFunction[i] = f_None;
-    }
-
-
-    bbNode_setParent(spellBar, parent, pool);
-
     bbWidget_menuButton_new(&menuButton, widgets, sc, spellBar);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_showHideButton_new(&showHideButton, widgets, sc, spellBar);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_plusButton_new(&plusButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_minusButton_new(&minusButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_timesButton_new(&timesButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_divideButton_new(&divideButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_detButton_new(&detButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_twoPowerButton_new(&twoPowerButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_squaredButton_new(&squaredButton, widgets, sc, showHideButton);
     sc.x += 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP * widgetScale;
-
     bbWidget_piNDigitsButton_new(&piNDigitsButton, widgets, sc, showHideButton);
 
     *reference = spellBar;

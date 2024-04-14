@@ -43,6 +43,7 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
+    widget->m_OnUpdate = -1;
     widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "textbox");
 
     widget->m_ScreenCoords = sc;

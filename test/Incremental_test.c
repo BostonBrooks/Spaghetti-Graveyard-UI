@@ -261,11 +261,15 @@ int main (void) {
     bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
     bbHere();
 
+    int32_t paused = 0;
+
     while (1){
 
 
         EventDispatch(g_Game->m_CurrentMap);
         sfRenderWindow_clear(g_Game->m_Window, sfBlue);
+        if(!paused) descending_searchVisible(NULL, Decal, bbWidget_onUpdate, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
+
         descending_searchVisible(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
 
@@ -278,7 +282,7 @@ int main (void) {
 
         sfRenderWindow_display(g_Game->m_Window);
 
-        g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime += 1;
+        if(!paused) g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime += 1;
     }
 }
 

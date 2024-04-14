@@ -25,8 +25,9 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbWidget *widget;
     int32_t flag;
     sfVector2f positionV2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[map]->p_Constants);
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
-    //TODO value should not be hard coded
+    flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+
+        //TODO value should not be hard coded
     widget->m_String = calloc(1028, sizeof(char));
     bbStr_setStr(widget->m_String, "prompt");
     widget->m_Text = sfText_create();
@@ -43,28 +44,9 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
     widget->m_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "prompt");
 
-    widget->m_ScreenCoords = sc;
 
-    bbScreenCoordsI SCI;
-    //TODO should not be hard coded
-    SCI.x = 350 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 350 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-
-    widget->m_Dimensions = SCI;
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
 
-
-    bbNode_setParent(widget, parent, pool);
 
 
 
@@ -74,8 +56,10 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
     bbCommandSetDim cmd;
     cmd.type = f_CommandSetDim;
+    bbScreenCoordsI SCI;
     cmd.m_rows = 17;
     cmd.m_columns = 23;
+
 
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     SCI.y = 24 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;

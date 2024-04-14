@@ -3,7 +3,7 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
-
+#include "games/game/maps/demo/widgets/emptyWidget.h"
 
 // g_Game->m_Maps[map]->m_Widgets = widgets; OR return by reference?
 int32_t bbWidgets_new(int32_t map){
@@ -77,10 +77,7 @@ int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget){
     return mouseFunction(void_mouseEvent, void_widget);
 }
 
-int32_t bbWidget_update (bbWidget* widget){
 
-
-}
 
 int32_t bbWidgetFunctions_new(int32_t map) {
 	bbWidgetFunctions *functions = calloc(1, sizeof(bbWidgetFunctions));
@@ -256,6 +253,21 @@ int32_t bbWidget_onCommand(void* command, void* void_widget){
             functions->OnCommands[commandFunction_int](widget, command);
 
         }
+
+    return f_Continue;
+}
+int32_t bbWidget_onUpdate(void* command, void* void_widget){
+
+    bbWidget* widget = void_widget;
+    int32_t map = widget->p_Node.p_Pool.Map;
+    bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+    int32_t updateFunction_int = widget->m_OnUpdate;
+
+    if (updateFunction_int >= 0) {
+        bbHere();
+        functions->Update[updateFunction_int](widget, command);
+
+    }
 
     return f_Continue;
 }

@@ -12,13 +12,13 @@
 #include "headers/bbGeometry.h"
 #include "headers/bbMouse.h"
 
-
-
+#define subwidgetarraysize 8
 typedef struct{
 	bbNode p_Node;
 
+
     //TODO should not be hard coded
-    int32_t m_SubwidgetArray[8];
+    int32_t m_SubwidgetArray[subwidgetarraysize];
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
@@ -34,8 +34,9 @@ typedef struct{
 	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
 	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
 	int32_t m_DrawFunction[ANIMATIONS_PER_WIDGET];
-    int32_t m_AnimationStart[ANIMATIONS_PER_DRAWABLE];
+    int32_t m_AnimationStart[ANIMATIONS_PER_WIDGET];
 
+    int32_t m_State;
 	int32_t m_OnCommand;
 	int32_t m_OnUpdate;
 	int32_t m_OnDraw;
@@ -62,8 +63,8 @@ typedef struct{
 
 
 typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
-typedef int32_t bbWidget_Update (bbWidget* widget);
-typedef int32_t bbWidget_Destructor (bbWidget* widget);
+typedef int32_t bbWidget_Update (bbWidget* widget, void* unused);
+typedef int32_t bbWidget_Destructor (bbWidget* widget, void* unused);
 typedef int32_t bbWidget_OnCommand (bbWidget* widget, void* data);
 typedef int32_t bbWidget_DrawFunction (bbWidget* widget, int32_t i);
 typedef int32_t bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
@@ -114,6 +115,8 @@ int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t
 int32_t bbWidget_draw(void* void_unused, void* void_widget);
 int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget);
 int32_t bbWidget_onCommand(void* command, void* void_widget);
+int32_t bbWidget_onUpdate(void* unused, void* void_widget);
 
+int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent);
 
 #endif //BBWIDGET_H

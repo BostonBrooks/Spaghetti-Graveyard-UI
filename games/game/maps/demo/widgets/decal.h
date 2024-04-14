@@ -14,17 +14,16 @@
 ///	Spawn a null widget on selected map at coordinates mc
 int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
-    bbPool* pool = widgets->m_Pool;
-    bbDictionary* dict = widgets->m_AddressDict;
+
 
     bbWidget* widget;
+    bbWidget_empty_new(&widget, widgets, sc, NULL);
     int32_t flag;
-
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
+    widget->m_String = "Decal / Root Widget";
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->m_String = "Decal / Root Widget";
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickSphere");
+
 
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
@@ -39,25 +38,9 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-
-    for(int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
 
     widget->m_AnimationInt[0] = 162; //DECAL_1280
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
-
-
-    bbNode_setParent(widget, NULL, g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool);
 
 
     *reference = widget;

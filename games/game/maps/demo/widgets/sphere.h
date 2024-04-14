@@ -24,48 +24,16 @@ int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag;
+    int32_t flag =bbWidget_empty_new(&widget, widgets, sc, parent);
 
-    flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
     widget->m_String = "Menu / Pause Button";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->m_ScreenCoords = sc;
-    bbScreenCoordsF SCF;
-    bbScreenCoordsI SCI;
-
-    //negative size means cant be clicked
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
-    SCF.x = -1 * widgetScale;
-    SCF.y = -1 * widgetScale;
-    SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-    widget->m_Dimensions = SCI;
-
-
-
-    widget->p_Node.p_Tree.Visible = true;
-    widget->p_Node.p_Tree.SubwidgetsVisible = true;
-
-
-
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++) {
-        widget->m_AnimationInt[i] = f_None;
-        widget->m_Angle[i] = 0;
-        widget->m_Frame[i] = 0;
-        widget->m_DrawFunction[i] = f_None;
-    }
-
-
     widget->m_AnimationInt[0] = 29; // SPHERE
     widget->m_Frame[0] = 0;         // NOT USED
     widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
-
-
-
-
-    bbNode_setParent(widget, parent, pool);
 
     *reference = widget;
     return f_Success;
@@ -73,7 +41,7 @@ int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 }
 //typedef int32_t bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 
-/// if you click the widget, it will printf some text
+/// if you click the widget, it will spawn a sphere
 int32_t bbWidget_MouseClickSphere(void* void_mouseEvent, void* void_widget){
     bbMouseEvent* event = void_mouseEvent;
     bbWidget* widget = void_widget;
