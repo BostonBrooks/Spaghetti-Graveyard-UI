@@ -20,3 +20,4 @@ gcc -D SFML_STATIC -I ../^
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -w -lm
 a.exe
 
+

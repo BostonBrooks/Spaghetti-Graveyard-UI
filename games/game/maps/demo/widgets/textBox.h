@@ -29,12 +29,12 @@ int32_t bbWidget_textBox_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
     widget->m_String = calloc(1028, sizeof(char));
     bbStr_setStr(widget->m_String, "New Text Box");
     //TODO value should not be hard coded
-    bbStr_setBounds(widget->m_String, 10, 10);
     widget->m_Text = sfText_create();
     sfText_setPosition(widget->m_Text, positionV2f);
     sfText_setString(widget->m_Text, widget->m_String);
 
-
+    widget->m_TextColumns =1024;
+    widget->m_TextRows = 1024;
     sfText_setFont(widget->m_Text, g_Game->m_Maps[map]->m_Fonts->m_Fonts[0]);
     sfText_setColor(widget->m_Text, sfBlack);
 
@@ -82,16 +82,33 @@ int32_t bbWidget_Command_textBox(bbWidget* widget, void* data){
             bbCommandPutChar *commandPutChar = data;
             bbStr_putChar(widget->m_String, commandPutChar->m_char);
             //TODO should not be hard coded
-            bbStr_setBounds(widget->m_String, 10, 10);
+            bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
             sfText_setString(widget->m_Text, widget->m_String);
             break;
         }
         case f_CommandPutStr: {
-            bbCommandPutStr *commandPutStr = data;
+            bbCommandPutStr* commandPutStr = data;
             bbStr_putStr(widget->m_String, commandPutStr->m_str);
             //TODO should not be hard coded
-            bbStr_setBounds(widget->m_String, 10, 10);
+            bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
             sfText_setString(widget->m_Text, widget->m_String);
+            break;
+        }
+        case f_CommandSetStr: {
+            bbCommandPutStr* commandPutStr = data;
+            bbStr_setStr(widget->m_String, commandPutStr->m_str);
+            //TODO should not be hard coded
+            bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
+            sfText_setString(widget->m_Text, widget->m_String);
+            break;
+        }
+        case f_CommandSetDim: {
+
+            bbCommandSetDim* commandSetDim = data;
+
+
+            widget->m_TextRows = commandSetDim->m_rows;
+            widget->m_TextColumns = commandSetDim->m_columns;
             break;
         }
         default:

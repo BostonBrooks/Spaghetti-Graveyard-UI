@@ -59,6 +59,7 @@ int32_t bbWidget_draw(void* void_unused, void* void_widget){
 		int drawFunction_int = widget->m_DrawFunction[i];
 		if (drawFunction_int >= 0) {
 			//TODO skins, default drawfunction given by animation or skin
+            bbDebug("drawFunciton_int = %d\n", drawFunction_int);
 			functions->DrawFunction[drawFunction_int](widget, i);
 
 		}

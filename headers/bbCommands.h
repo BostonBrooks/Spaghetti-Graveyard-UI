@@ -10,9 +10,12 @@
 
 #include <inttypes.h>
 
+#include "headers/bbGeometry.h"
+
 #define f_CommandPutChar 0
 #define f_CommandPutStr  1
 #define f_CommandSetStr  2
+#define f_CommandSetDim  3
 
 //Commands use void pointers, messages use unions
 
@@ -36,4 +39,9 @@ typedef struct {
     char* m_str;
 } bbCommandSetStr;
 
+typedef struct {
+    int32_t type; // = f_CommandSetDim
+    int m_rows;
+    int m_columns;
+} bbCommandSetDim;
 #endif //BBCOMMANDS_H

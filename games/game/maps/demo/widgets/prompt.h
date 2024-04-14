@@ -29,8 +29,6 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     //TODO value should not be hard coded
     widget->m_String = calloc(1028, sizeof(char));
     bbStr_setStr(widget->m_String, "prompt");
-    //TODO value should not be hard coded
-    bbStr_setBounds(widget->m_String, 10, 10);
     widget->m_Text = sfText_create();
     sfText_setPosition(widget->m_Text, positionV2f);
     sfText_setString(widget->m_Text, widget->m_String);
@@ -74,23 +72,37 @@ int32_t bbWidget_prompt_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
 
     bbWidget* subWidget;
 
-    SCI.x = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    bbCommandSetDim cmd;
+    cmd.type = f_CommandSetDim;
+    cmd.m_rows = 17;
+    cmd.m_columns = 23;
+
+    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 24 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[0] = subWidget->p_Node.p_Pool.Self;
+    bbWidget_onCommand(&cmd, subWidget);
 
-    SCI.x = 280 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    cmd.m_rows = 3;
+    cmd.m_columns = 23;
+
+    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 494 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[1] = subWidget->p_Node.p_Pool.Self;
+    bbWidget_onCommand(&cmd, subWidget);
 
-    SCI.x = 480 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 80 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    cmd.m_rows = 3;
+    cmd.m_columns = 23;
+
+    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = 606 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[2] = subWidget->p_Node.p_Pool.Self;
+    bbWidget_onCommand(&cmd, subWidget);
 
 
     g_Game->m_Maps[map]->misc.m_ActiveTextbox = widget->p_Node.p_Pool.Self;
@@ -105,8 +117,6 @@ int32_t bbWidget_Command_prompt(bbWidget* widget, void* data){
         case f_CommandPutChar: {
             bbCommandPutChar *commandPutChar = data;
             bbStr_putChar(widget->m_String, commandPutChar->m_char);
-            //TODO should not be hard coded
-            bbStr_setBounds(widget->m_String, 10, 10);
             sfText_setString(widget->m_Text, widget->m_String);
 
 
@@ -135,8 +145,6 @@ int32_t bbWidget_Command_prompt(bbWidget* widget, void* data){
         case f_CommandPutStr: {
             bbCommandPutStr *commandPutStr = data;
             bbStr_putStr(widget->m_String, commandPutStr->m_str);
-            //TODO should not be hard coded
-            bbStr_setBounds(widget->m_String, 10, 10);
             sfText_setString(widget->m_Text, widget->m_String);
             break;
         }

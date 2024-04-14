@@ -228,8 +228,8 @@ int main (void) {
     bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
 
-    SCF.x = 881;
-    SCF.y = 30;
+    SCF.x = 30;
+    SCF.y = 24;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
 
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "prompt");
@@ -250,6 +250,16 @@ int main (void) {
     sfVector2f cursorPosF;
 
     sfRenderWindow_setMouseCursorVisible(g_Game->m_Window, false);
+
+
+    bbWidget* fireworks;
+    SCF.x = 0;
+    SCF.y = 0;
+    SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
+
+    bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+    bbHere();
 
     while (1){
 

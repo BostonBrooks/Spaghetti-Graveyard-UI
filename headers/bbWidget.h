@@ -34,6 +34,7 @@ typedef struct{
 	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
 	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
 	int32_t m_DrawFunction[ANIMATIONS_PER_WIDGET];
+    int32_t m_AnimationStart[ANIMATIONS_PER_DRAWABLE];
 
 	int32_t m_OnCommand;
 	int32_t m_OnUpdate;

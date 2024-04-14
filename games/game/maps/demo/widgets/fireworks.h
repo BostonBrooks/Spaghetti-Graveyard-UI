@@ -21,15 +21,14 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
 	flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
-
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->m_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
     widget->m_String = "Fireworks XD";
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
 
-	SCF.x = 200;
-	SCF.y = 420;
+	SCF.x = 20;
+	SCF.y = 315;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
 	widget->m_ScreenCoords = SCI;
 
@@ -49,8 +48,14 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
 	widget->m_AnimationInt[0] = 23; //Fireworks
 	widget->m_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "animation");
+    bbDebug("drawfunction = %d\n", widget->m_DrawFunction[0]);
+    widget->m_AnimationStart[0] = 0;
+
+    bbNode_setParent(widget, parent, pool);
 
 	*reference = widget;
+
+
 	return f_Success;
 }
 
