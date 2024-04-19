@@ -12,14 +12,14 @@
 #include "headers/bbMap.h"
 
 /// set the default values and add to tree data structure
-int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
     bbPool* pool =  widgets->m_Pool;
     bbDictionary* dict = widgets->m_AddressDict;
     bbWidget* widget;
-    int32_t flag;
+    I32 flag;
     flag = bbPool_New(&widget, pool, f_PoolNextAvailable);
 
-    for(int32_t i = 0; i < subwidgetarraysize; i++){
+    for(I32 i = 0; i < subwidgetarraysize; i++){
         widget->m_SubwidgetArray[i] = f_None;
     }
     widget->p_Node.p_Tree.Visible = true;
@@ -36,7 +36,7 @@ int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     widget->m_TextRows = f_None;
     widget->m_Code = "007";
 
-    for (int32_t i = 0; i < ANIMATIONS_PER_WIDGET; i++){
+    for (I32 i = 0; i < ANIMATIONS_PER_WIDGET; i++){
         widget->m_AnimationInt[i] = f_None;
         widget->m_Angle[i] = 0;
         widget->m_Frame[i] = 0;

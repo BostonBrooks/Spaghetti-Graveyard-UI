@@ -11,6 +11,7 @@
 #include <inttypes.h>
 #include <stdlib.h>
 #include "headers/bbPrintf.h"
+#include "headers/bbIntTypes.h"
 
 
 /** @name Pool Error Codes
@@ -32,56 +33,56 @@
 
 
 typedef struct {
-	int32_t Self;
-	int32_t Prev;
-	int32_t Next;
-	int32_t InUse;
-	int32_t Map;
+	I32 Self;
+	I32 Prev;
+	I32 Next;
+	I32 InUse;
+	I32 Map;
 } bbPool_data;
 
 typedef struct {
-	int32_t Head;
-	int32_t Tail;
+	I32 Head;
+	I32 Tail;
 } bbPool_bin;
 
 typedef struct {
-	int32_t m_Map;
-	int32_t m_SizeOf;
+	I32 m_Map;
+	I32 m_SizeOf;
 	bbPool_bin m_Available;
 	bbPool_bin m_InUse;
-	int32_t m_Level1;
-	int32_t m_Level2;
+	I32 m_Level1;
+	I32 m_Level2;
 	void** m_Objects;
 } bbPool;
 
 
 ///Look up object at location Pool[lvl1][lvl2];
-int32_t bbPool_Lookup2(void** return_by_reference, bbPool* Pool, int32_t lvl1, int32_t lvl2);
+I32 bbPool_Lookup2(void** return_by_reference, bbPool* Pool, I32 lvl1, I32 lvl2);
 
 
 ///Lookup object at address, ignoring m_Pool_InUse;
-int32_t bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, int32_t Address);
+I32 bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, I32 Address);
 
 
 ///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
-int32_t bbPool_Lookup(void** return_by_reference, bbPool* Pool, int32_t Address);
+I32 bbPool_Lookup(void** return_by_reference, bbPool* Pool, I32 Address);
 
 ///Create an new pool with object's size = Sizeof
-int32_t bbPool_NewPool(bbPool** return_by_reference, int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2);
+I32 bbPool_NewPool(bbPool** return_by_reference, I32 map, I32 SizeOf, I32 Level1, I32 Level2);
 
 ///Delete entire pool
-int32_t bbPool_DeletePool(bbPool* Pool);
+I32 bbPool_DeletePool(bbPool* Pool);
 
 ///Delete contents of pool, but keep empty pool
-int32_t bbPool_ClearPool(bbPool* Pool);
+I32 bbPool_ClearPool(bbPool* Pool);
 
 /// Allocate data in pool
-int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address);
+I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address);
 
 ///Create object in pool
-int32_t bbPool_New(void** return_by_reference, bbPool* Pool, int32_t address);
+I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address);
 
 ///Remove object from pool
-int32_t bbPool_Delete(bbPool* Pool, int32_t address);
+I32 bbPool_Delete(bbPool* Pool, I32 address);
 
 #endif //BBPOOL_H

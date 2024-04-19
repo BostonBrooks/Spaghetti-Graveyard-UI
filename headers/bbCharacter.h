@@ -1,12 +1,13 @@
-/** Passes character to m_ActiveTextbox
+/** Passes character to m_ActiveTextbox_deprecated
  *
  */
 
 #ifndef BBCHARACTER_H
 #define BBCHARACTER_H
 
-#include <inttypes.h>
 
-int32_t Event_inputChar(char character, int32_t map);
+#include "headers/bbIntTypes.h"
+
+I32 Event_inputChar(char character, I32 map);
 
 #endif // BBCHARACTER_H

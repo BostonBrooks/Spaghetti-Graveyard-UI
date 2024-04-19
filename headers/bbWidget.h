@@ -11,36 +11,37 @@
 #include "headers/bbDictionary.h"
 #include "headers/bbGeometry.h"
 #include "headers/bbMouse.h"
+#include "headers/bbIntTypes.h"
 
 #define subwidgetarraysize 8
 typedef struct{
 	bbNode p_Node;
 
-    int32_t m_SubwidgetArray[subwidgetarraysize];
+    I32 m_SubwidgetArray[subwidgetarraysize];
 
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
 	char* m_String;
 	sfText* m_Text;
-    int32_t m_TextRows;
-    int32_t m_TextColumns;
+    I32 m_TextRows;
+    I32 m_TextColumns;
 	char* m_Code;
 
 
-	int32_t m_AnimationInt[ANIMATIONS_PER_WIDGET];
-	int32_t m_Angle[ANIMATIONS_PER_WIDGET];
-	int32_t m_Frame[ANIMATIONS_PER_WIDGET];
-	int32_t v_DrawFunction[ANIMATIONS_PER_WIDGET];
-    int32_t m_AnimationStart[ANIMATIONS_PER_WIDGET];
+	I32 m_AnimationInt[ANIMATIONS_PER_WIDGET];
+	I32 m_Angle[ANIMATIONS_PER_WIDGET];
+	I32 m_Frame[ANIMATIONS_PER_WIDGET];
+	I32 v_DrawFunction[ANIMATIONS_PER_WIDGET];
+    I32 m_AnimationStart[ANIMATIONS_PER_WIDGET];
 
-    int32_t m_State;
-	int32_t v_OnCommand;
-	int32_t v_OnUpdate;
-	int32_t v_OnDelete;
-    int32_t v_OnMouse;
+    I32 m_State;
+	I32 v_OnCommand;
+	I32 v_OnUpdate;
+	I32 v_OnDelete;
+    I32 v_OnMouse;
 
-    int32_t m_CoolDownStart;
-    int32_t m_CoolDownEnd;
+    I32 m_CoolDownStart;
+    I32 m_CoolDownEnd;
     sfRectangleShape* m_RedRect;
     sfRectangleShape* m_GreenRect;
 
@@ -48,43 +49,43 @@ typedef struct{
 	void* m_ExtraData;
 
 } bbWidget;
- //wf stands for widget function
+
+// Numbers represent widget function types
 #define f_WidgetConstructor     0
 #define f_WidgetUpdate          1
-
 #define f_WidgetDestructor      2
 #define f_WidgetOnCommand       3
 #define f_WidgetDrawFunction    4
 #define f_WidgetMouseHandler    5
 
 
-typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
-typedef int32_t bbWidget_Update (bbWidget* widget, void* unused);
-typedef int32_t bbWidget_Destructor (bbWidget* widget, void* unused);
-typedef int32_t bbWidget_OnCommand (bbWidget* widget, void* data);
-typedef int32_t bbWidget_DrawFunction (bbWidget* widget, int32_t i);
-typedef int32_t bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
+typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
+typedef I32 bbWidget_Update (bbWidget* widget, void* unused);
+typedef I32 bbWidget_Destructor (bbWidget* widget, void* unused);
+typedef I32 bbWidget_OnCommand (bbWidget* widget, void* data);
+typedef I32 bbWidget_DrawFunction (bbWidget* widget, I32 i);
+typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 
 typedef struct {
 	bbWidget_Constructor** Constructors;
 	bbDictionary* Constructor_dict;
-	int32_t Constructor_available;
+	I32 Constructor_available;
 	bbWidget_Update** Update;
 	bbDictionary* Update_dict;
-	int32_t Update_available;
+	I32 Update_available;
 	bbWidget_Destructor** Destructors;
 	bbDictionary* Destructor_dict;
-	int32_t Destructor_available;
+	I32 Destructor_available;
 	//includes on click and on prompt?
 	bbWidget_OnCommand** OnCommands;
 	bbDictionary* OnCommand_dict;
-	int32_t OnCommand_available;
+	I32 OnCommand_available;
 	bbWidget_DrawFunction** DrawFunction;
 	bbDictionary* DrawFunction_dict;
-	int32_t DrawFunction_available;
+	I32 DrawFunction_available;
     bbWidget_Mouse** MouseHandler;
     bbDictionary* MouseHandler_dict;
-    int32_t MouseHandler_available;
+    I32 MouseHandler_available;
 } bbWidgetFunctions;
 
 
@@ -92,28 +93,29 @@ typedef struct {
 	bbPool* m_Pool;
 	bbDictionary* m_AddressDict; //reference widgets be key
 	bbDictionary* m_PromptDict; //enter code "key" to click widget at "address"
+    bbWidgetFunctions* m_Functions;
 
 	bbWidget* m_Decal; //the root widget in the hierarchy
-	bbWidget* m_TextInput; //key events are passed to this widget
-	bbWidgetFunctions* m_Functions;
+	bbWidget* m_Prompt; //key events are passed to this widget
+    bbWidget* m_SpellBar;
 } bbWidgets;
 
-int32_t bbWidgets_new(int32_t map);
-int32_t bbWidgetFunctions_new(int32_t map);
+I32 bbWidgets_new(I32 map);
+I32 bbWidgetFunctions_new(I32 map);
 
-int32_t bbWidgetFunctions_populate(int32_t map);
-int32_t bbWidgetFunctions_add(bbWidgetFunctions* WFS, int32_t bin, void* pointer, char* key );
-int32_t bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, int32_t bin, char* key);
-int32_t bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, int32_t bin, char* key);
+I32 bbWidgetFunctions_populate(I32 map);
+I32 bbWidgetFunctions_add(bbWidgetFunctions* WFS, I32 bin, void* pointer, char* key );
+I32 bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, I32 bin, char* key);
+I32 bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, I32 bin, char* key);
 
-int32_t bbWidget_new(bbWidget** self, bbWidgets* widgets , int32_t type, int32_t parent, bbScreenCoordsI SCI);
+I32 bbWidget_new(bbWidget** self, bbWidgets* widgets , I32 type, I32 parent, bbScreenCoordsI SCI);
 
-//typedef int32_t bbTreeFunction (void* reference, void* node);
-int32_t bbWidget_draw(void* void_unused, void* void_widget);
-int32_t bbWidget_mouse(void* void_mouseEvent, void* void_widget);
-int32_t bbWidget_onCommand(void* command, void* void_widget);
-int32_t bbWidget_onUpdate(void* unused, void* void_widget);
+//typedef I32 bbTreeFunction (void* reference, void* node);
+I32 bbWidget_draw(void* void_unused, void* void_widget);
+I32 bbWidget_mouse(void* void_mouseEvent, void* void_widget);
+I32 bbWidget_onCommand(void* command, void* void_widget);
+I32 bbWidget_onUpdate(void* unused, void* void_widget);
 
-int32_t bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent);
+I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent);
 
 #endif //BBWIDGET_H

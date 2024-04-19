@@ -4,23 +4,24 @@
 #include "headers/bbDictionary.h"
 #include "headers/bbGame.h"
 #include "headers/bbAnimation.h"
+#include "headers/bbIntTypes.h"
 
 
 
 
-int32_t _bbAnimations_new(bbAnimations** self, int32_t numAnimations){
+I32 _bbAnimations_new(bbAnimations** self, I32 numAnimations){
 	bbAnimations* animations = calloc(1, sizeof(bbAnimations));
 	bbAssert(animations != NULL, "calloc failed\n");
 	animations->m_NumAnimations = numAnimations;
-	int32_t flag = bbDictionary_new(&animations->m_Dictionary, numAnimations);
+	I32 flag = bbDictionary_new(&animations->m_Dictionary, numAnimations);
     animations->m_Animations = calloc(numAnimations, sizeof(bbAnimation*));
 	bbAssert(flag == f_Success, "bbDictionary_new failed\n");
 	*self = animations;
 	return f_Success;
 
 }
-int32_t animation_load(bbAnimations* animations, bbSprites* sprites, char* key, int32_t address, int32_t DrawFunction, int32_t angles, int32_t frames, int32_t framerate, int* spriteInts){
-	bbAnimation* anim = calloc(1, sizeof(bbAnimation) + angles * frames * sizeof(int32_t));
+I32 animation_load(bbAnimations* animations, bbSprites* sprites, char* key, I32 address, I32 DrawFunction, I32 angles, I32 frames, I32 framerate, int* spriteInts){
+	bbAnimation* anim = calloc(1, sizeof(bbAnimation) + angles * frames * sizeof(I32));
 	bbAssert(anim != NULL, "calloc failed");
 	strcpy(anim->m_Key, key);
 	anim->v_DrawFunction = DrawFunction;
@@ -29,7 +30,7 @@ int32_t animation_load(bbAnimations* animations, bbSprites* sprites, char* key, 
 	anim->m_Sprites = sprites;
 	anim->m_Framerate = framerate;
 
-	for (int32_t i = 0; i < angles*frames; i++){
+	for (I32 i = 0; i < angles*frames; i++){
 		anim->i_Sprites[i] = spriteInts[i];
 	}
 
@@ -42,8 +43,8 @@ int32_t animation_load(bbAnimations* animations, bbSprites* sprites, char* key, 
 }
 
 
-int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPath,
-						 int32_t numAnimations){
+I32 bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPath,
+						 I32 numAnimations){
 	bbAnimations* animations;
 	_bbAnimations_new(&animations, numAnimations);
 
@@ -61,14 +62,14 @@ int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPa
 	fscanf(file, "%[^\n]\n", string);
 
 	char key[KEY_LENGTH];
-	int32_t address, drawFunction, angles, frames, framerate, sprites[256];
-	int32_t flag = 1;
+	I32 address, drawFunction, angles, frames, framerate, sprites[256];
+	I32 flag = 1;
 	while (fscanf(file, "%[^,],%d,%d,%d,%d,%d", key, &address, &drawFunction, &angles, &frames, &framerate) == 6){
 
-		for (int32_t i = 0; i < angles * frames; i++){
+		for (I32 i = 0; i < angles * frames; i++){
 			fscanf(file, ",%[^,]", string);
 			//bbPrintf(",%s", string);
-			int32_t spriteInt = bbDictionary_lookup(Sprites->m_Dictionary, string);
+			I32 spriteInt = bbDictionary_lookup(Sprites->m_Dictionary, string);
 
 			sprites[i] = spriteInt;
 

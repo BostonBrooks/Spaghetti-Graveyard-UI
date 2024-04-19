@@ -4,9 +4,10 @@
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbDictionary.h"
 #include "headers/bbFonts.h"
+#include "headers/bbIntTypes.h"
 
 
-int32_t bbFonts_new(bbFonts** self, char* folderPath, int32_t numTextures){
+I32 bbFonts_new(bbFonts** self, char* folderPath, I32 numTextures){
 
     if (folderPath == NULL) {
         bbFonts *fonts = calloc(1, sizeof(bbFonts));

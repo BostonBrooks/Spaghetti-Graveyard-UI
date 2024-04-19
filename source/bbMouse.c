@@ -4,9 +4,10 @@
 #include "headers/bbMouse.h"
 #include "headers/bbWidget.h"
 #include "headers/bbTree.h"
+#include "headers/bbIntTypes.h"
 
 
-int32_t EventMouse(bbMouseEvent* mouse, int map){
+I32 EventMouse(bbMouseEvent* mouse, I32 map){
 
     bbWidget* root = g_Game->m_Maps[map]->m_Widgets->m_Decal;
     bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;

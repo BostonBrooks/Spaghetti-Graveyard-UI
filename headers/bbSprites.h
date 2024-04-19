@@ -11,16 +11,17 @@
 #include "headers/bbDictionary.h"
 #include "headers/bbTextures.h"
 #include "headers/bbMapConstants.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct { //bbSprites
-	int32_t m_NumSprites;
+	I32 m_NumSprites;
 	sfSprite** m_Sprites;
 	bbDictionary* m_Dictionary;
 
 } bbSprites;
 
-int32_t bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMapConstants* constants);
+I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMapConstants* constants);
 
-int32_t bbSprites_lookupInt(bbSprites* sprites, char* key);
+I32 bbSprites_lookupInt(bbSprites* sprites, char* key);
 
 #endif //BBSPRITES_H

@@ -1,7 +1,8 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbGeometry.h"
-#include <inttypes.h>
+#include "headers/bbIntTypes.h"
+
 ///include files containing widget functions, later these will be stored in a Dynamic Linked Library
 #include "games/game/maps/demo/widgets/AnimationDraw.h"
 #include "games/game/maps/demo/widgets/FrameDraw.h"
@@ -19,30 +20,30 @@
 
 
 
-int32_t bbWidgetFunctions_populate(int32_t map){
+I32 bbWidgetFunctions_populate(I32 map){
 
 
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
 
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidget_AnimationDraw, "animation");
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidget_FrameDraw, "frame");
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidget_SpriteDraw, "sprite");
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidget_CoolDownDraw, "cooldown");
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidget_TextDraw, "text");
+    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Animation, "animation");
+    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Frame, "frame");
+    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Sprite, "sprite");
+    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Cooldown, "cooldown");
+    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Text, "text");
 
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_fireworks_new, "fireworks");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_textBox_new, "textbox");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_Decal_new, "decal");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_sphere_new, "sphere");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_spellBar_new, "spellBar");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidget_prompt_new, "prompt");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Fireworks, "fireworks");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Textbox, "textbox");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Decal, "decal");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Sphere, "sphere");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Prompt, "prompt");
 
-    bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidget_MouseClickText, "clickText");
-    bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidget_MouseClickSphere, "clickSphere");
+    bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Text, "clickText");
+    bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Sphere, "clickSphere");
 
 
-    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidget_Command_textBox, "textbox");
-    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidget_Command_prompt, "prompt");
+    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Textbox, "textbox");
+    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Prompt, "prompt");
 
 
 

@@ -1,16 +1,17 @@
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
+#include "headers/bbIntTypes.h"
 
 
-int32_t bbGame_new(bbGame** self, char* folderPath){
+I32 bbGame_new(bbGame** self, char* folderPath){
 
 	bbGame* game = calloc(1, sizeof(bbGame));
 	bbAssert(game != NULL, "calloc failed\n");
 
 	strcpy(&game->m_FolderPath, folderPath);
 	char string[256];
-	int32_t integer;
+	I32 integer;
 	float floatingPoint;
 
 	sprintf(string, "%s/gamedata.txt", folderPath);

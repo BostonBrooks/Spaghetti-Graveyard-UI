@@ -3,14 +3,15 @@
 #include "headers/bbFlags.h"
 #include <inttypes.h>
 #include <stdio.h>
+#include "headers/bbIntTypes.h"
 
 typedef struct {
     bbNode p_Node;
     char intA;
-    int32_t intB;
+    I32 intB;
 } bbTestNode2;
 
-int32_t bbTreeTestFunction (void* reference, void* node){
+I32 bbTreeTestFunction (void* reference, void* node){
 
     bbTestNode2* testNode = node;
     printf("%c = %d\n", testNode->intA, testNode->intB);
@@ -20,7 +21,7 @@ int32_t bbTreeTestFunction (void* reference, void* node){
 int main(void){
     printf("in main()\n");
     bbPool* pool;
-    int32_t flag = 1;
+    I32 flag = 1;
     flag = bbPool_NewPool(&pool, 0, sizeof(bbTestNode2), 100, 100);
     bbAssert(flag >= 0, "bad flag");
     bbTestNode2* root;
@@ -34,7 +35,7 @@ int main(void){
     testfunc(NULL, root);
     bbNode_setParent(root, NULL, pool);
 
-    for (int32_t i = 0; i < 3; i++){
+    for (I32 i = 0; i < 3; i++){
         printf("i = %d\n", i);
         bbTestNode2* nodeI;
 
@@ -47,7 +48,7 @@ int main(void){
         bbNode_setParent(nodeI, root, pool);
 
 
-        for (int32_t j = 0; j<4; j++){
+        for (I32 j = 0; j<4; j++){
             printf(" j = %d\n", j);
 
             bbTestNode2* nodeJ;
@@ -59,7 +60,7 @@ int main(void){
 
             bbNode_setParent(nodeJ, nodeI, pool);
 
-            for (int32_t k = 0; k < 5; k++){
+            for (I32 k = 0; k < 5; k++){
                 printf("  k = %d\n", k);
                 bbTestNode2* nodeK;
 

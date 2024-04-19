@@ -4,13 +4,14 @@
 #define BBGEOMETRY_H
 
 #include "headers/bbMapConstants.h"
+#include "headers/bbIntTypes.h"
 
 ///Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP
 typedef struct {
 	///x axis is  right of top left
-	int32_t x;
+	I32 x;
 	///y axis is down from top left
-	int32_t y;
+	I32 y;
 } bbScreenCoordsI;
 
 typedef struct {

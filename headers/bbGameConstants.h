@@ -4,13 +4,14 @@
 #define BBGAMECONSTANTS_H
 
 #include "headers/bbGeometry.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct{
 	//bbGame has no concept of bbScreenCoordsI or bbScreenCoordsF
     //window height pixels
-	int32_t Height;
+	I32 Height;
     //window width pixels
-	int32_t Width;
+	I32 Width;
 }bbGameConstants;
 
 

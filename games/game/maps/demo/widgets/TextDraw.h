@@ -3,12 +3,13 @@
 #include "headers/bbAnimation.h"
 #include "headers/bbGame.h"
 #include "headers/bbGeometry.h"
+#include "headers/bbIntTypes.h"
 
 
 
-int32_t bbWidget_TextDraw (bbWidget* widget, int32_t i){
+I32 bbWidgetDraw_Text (bbWidget* widget, I32 i){
 
-    int32_t map = widget->p_Node.p_Pool.Map;
+    I32 map = widget->p_Node.p_Pool.Map;
 
     bbScreenCoordsI SCI = widget->m_ScreenCoords;
     sfVector2f positionV2f = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[map]->p_Constants);

@@ -24,11 +24,12 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbMap.h"
+#include "headers/bbIntTypes.h"
 
-//typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
+//typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 
 
-int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
+I32 bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
 ///	Spawn a null widget on selected map at coordinates mc
 
 
@@ -36,7 +37,7 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Menu / Pause Button";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -62,7 +63,7 @@ int32_t bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
 
 }
 
-int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -70,7 +71,7 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Show / Hide Spell Bar";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -93,14 +94,14 @@ int32_t bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bb
     return f_Success;
 }
 
-int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Plus";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -139,13 +140,13 @@ int32_t bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     sfRectangleShape_setSize(widget->m_RedRect, vector2f);
     widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
-    g_Game->m_Maps[widget->p_Node.p_Pool.Map]->misc.m_ActiveSpell = widget->p_Node.p_Pool.Self;
+    g_Game->m_Maps[widget->p_Node.p_Pool.Map]->misc.m_ActiveSpell_deprecated = widget->p_Node.p_Pool.Self;
 
     *reference = widget;
     return f_Success;
 }
 
-int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -153,7 +154,7 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Minus";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -194,7 +195,7 @@ int32_t bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     return f_Success;
 }
 
-int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -202,7 +203,7 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Times";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -244,7 +245,7 @@ int32_t bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     return f_Success;
 }
 
-int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -252,7 +253,7 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Divide";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -294,7 +295,7 @@ int32_t bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbSc
     return f_Success;
 }
 
-int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -302,7 +303,7 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Determinant";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -344,7 +345,7 @@ int32_t bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     return f_Success;
 }
 
-int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
@@ -352,7 +353,7 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
 
     bbWidget *widget;
 
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Powers of Two";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -394,14 +395,14 @@ int32_t bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bb
     return f_Success;
 }
 
-int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "Square";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -442,14 +443,14 @@ int32_t bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbS
     *reference = widget;
     return f_Success;
 }
-int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
     bbPool *pool = widgets->m_Pool;
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     widget->m_String = "N digits of Pi";
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -490,7 +491,7 @@ int32_t bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, b
     *reference = widget;
     return f_Success;
 }
-int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
     bbWidget* spellBar;
     bbWidget* menuButton;
@@ -507,10 +508,10 @@ int32_t bbWidget_spellBar_new(bbWidget** reference, bbWidgets* widgets, bbScreen
 
     bbPool *pool = widgets->m_Pool;
     bbDictionary *dict = widgets->m_AddressDict;
-    int32_t map = widgets->m_Pool->m_Map;
+    I32 map = widgets->m_Pool->m_Map;
 
 
-    int32_t flag = bbWidget_empty_new(&spellBar, widgets, sc, parent);
+    I32 flag = bbWidget_empty_new(&spellBar, widgets, sc, parent);
 
     bbWidgetFunctions* functions = widgets->m_Functions;
     spellBar->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");

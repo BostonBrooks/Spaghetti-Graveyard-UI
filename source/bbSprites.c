@@ -3,13 +3,14 @@
 #include "headers/bbSprites.h"
 #include "headers/bbDictionary.h"
 #include "headers/bbGame.h"
+#include "headers/bbIntTypes.h"
 
 //dimensions are given in numbers of pixels
 typedef struct {
-	int32_t left;
-	int32_t top;
-	int32_t width;
-	int32_t height;
+	I32 left;
+	I32 top;
+	I32 width;
+	I32 height;
 	float originx;
 	float originy;
 	float scalex;
@@ -21,12 +22,12 @@ typedef struct {
 #define scaleDrawable 2;
 
 
-int32_t _bbSprites_new(bbSprites** self, int32_t numSprites){
+I32 _bbSprites_new(bbSprites** self, I32 numSprites){
 	bbSprites* sprites = calloc(1, sizeof(bbSprites));
 	bbAssert(sprites != NULL, "calloc failed\n");
 	sprites->m_NumSprites = numSprites;
 	sprites->m_Sprites = calloc(numSprites, sizeof(sfSprite*));
-	int32_t flag = bbDictionary_new(&sprites->m_Dictionary, numSprites);
+	I32 flag = bbDictionary_new(&sprites->m_Dictionary, numSprites);
 
 
 
@@ -39,7 +40,7 @@ int32_t _bbSprites_new(bbSprites** self, int32_t numSprites){
 
 //scale by widgets, drawables or none. there are a lot of arguments :S
 //We need to know bbMapConstants::DrawableScale and bbMapConstants::WidgetScale;
-int32_t sprite_load(bbSprites* sprites, char* key, int32_t address,
+I32 sprite_load(bbSprites* sprites, char* key, I32 address,
 					sfTexture* texture,
 					sprite_dimensions* dimensions)
 {
@@ -90,7 +91,7 @@ DEBUG */
 
 
 
-int32_t bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMapConstants* constants){
+I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMapConstants* constants){
 
 	bbSprites* sprites;
 	_bbSprites_new(&sprites, constants->Sprites);
@@ -107,7 +108,7 @@ int32_t bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, 
 			 "bad sprites.csv file\n");
 
 	char key[KEY_LENGTH];
-	int32_t address;
+	I32 address;
 	char texture_key[KEY_LENGTH];
 	sprite_dimensions dimensions;
 	char scaleBy[16];
@@ -161,12 +162,12 @@ int32_t bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, 
 }
 
 
-int32_t bbSprites_lookupInt(bbSprites* sprites, char* key){
+I32 bbSprites_lookupInt(bbSprites* sprites, char* key){
 
-	int32_t len = strlen(key);
+	I32 len = strlen(key);
 	char digits[] = "0123456789";
-	int32_t int_len = strspn(key, digits);
-	int32_t  address;
+	I32 int_len = strspn(key, digits);
+	I32  address;
 	if(len == int_len) {
 		address = atoi(key);
 		return address;

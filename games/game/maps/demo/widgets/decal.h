@@ -12,13 +12,13 @@
 #include "headers/bbMap.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
 
     bbWidget* widget;
     bbWidget_empty_new(&widget, widgets, sc, NULL);
-    int32_t flag;
+    I32 flag;
     widget->m_String = "Decal / Root Widget";
 
     bbWidgetFunctions* functions = widgets->m_Functions;
@@ -48,13 +48,13 @@ int32_t bbWidget_Decal_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
 }
 
 /// Update widget
-int32_t bbWidget_Decal_update(bbWidget* widget){}
+I32 bbWidget_Decal_update(bbWidget* widget){}
 
 /// Send a command to the widget / update widget, etc
-int32_t bbWidget_Decal_onCommand(bbWidget* widget, void* command){}
+I32 bbWidget_Decal_onCommand(bbWidget* widget, void* command){}
 
 /// Delete widget
-int32_t bbWidget_Decal_delete(bbWidget* widget){}
+I32 bbWidget_Decal_delete(bbWidget* widget){}
 
 /// Draw widget to screen
-int32_t bbWidget_Decal_draw(bbWidget* widget){}
+I32 bbWidget_Decal_draw(bbWidget* widget){}

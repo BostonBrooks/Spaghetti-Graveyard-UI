@@ -11,32 +11,33 @@
 #include "headers/bbDictionary.h"
 #include "headers/bbTextures.h"
 #include "headers/bbSprites.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct {
 	char m_Key[KEY_LENGTH];
 
-	int32_t v_DrawFunction; // default draw function for the given animation
-	int32_t m_Angles;
-	int32_t m_Frames;
+	I32 v_DrawFunction; // default draw function for the given animation
+	I32 m_Angles;
+	I32 m_Frames;
 	//What does this do?
-	int32_t m_Framerate;
+	I32 m_Framerate;
 	//the animation itself knows where to find its sprites container
 	bbSprites* m_Sprites;
 	//list of length m_Angles * m_Sprites
-	int32_t i_Sprites[];
+	I32 i_Sprites[];
 
 } bbAnimation;
 
 typedef struct { //bbAnimations
-	int32_t m_NumAnimations;
+	I32 m_NumAnimations;
 	bbSprites* m_Sprites;
 	bbAnimation** m_Animations;
 	bbDictionary* m_Dictionary;
 
 } bbAnimations;
 
-int32_t bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPath,
-		int32_t numAnimations);
+I32 bbAnimations_new(bbAnimations** self, bbSprites* Sprites, char* folderPath,
+		I32 numAnimations);
 
 
 #endif //BBANIMATIONS_H

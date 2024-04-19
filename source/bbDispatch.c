@@ -3,8 +3,9 @@
 #include "headers/bbGame.h"
 #include "headers/bbMouse.h"
 #include "headers/bbCharacter.h"
+#include "headers/bbIntTypes.h"
 
-int32_t EventDispatch(int32_t map){ //TODO reconsider argument
+I32 EventDispatch(I32 map){ //TODO reconsider argument
 
     bbMapConstants* constants = &g_Game->m_Maps[map]->p_Constants;
     sfEvent event;
@@ -211,7 +212,7 @@ int32_t EventDispatch(int32_t map){ //TODO reconsider argument
                 }
 
             default:
-                bbPrintf("sfEvent not handled\n");
+                //bbPrintf("sfEvent not handled\n");
         }
     }
     return f_Success;

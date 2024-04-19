@@ -9,18 +9,19 @@
 
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbDictionary.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct { //bbTextures
-	int32_t m_NumTextures;
+	I32 m_NumTextures;
 	sfTexture** m_Textures;
 	bbDictionary* m_Dictionary;
 
 } bbTextures;
 
-int32_t bbTextures_new(bbTextures** self, char* folderPath, int32_t numTextures);
+I32 bbTextures_new(bbTextures** self, char* folderPath, I32 numTextures);
 
 //if key is int, return texture at that address
 //otherwise, look up key in dictionary and return the texture pointed to.
-int32_t bbTextures_lookup (sfTexture** self, bbTextures* textures, char* key);
+I32 bbTextures_lookup (sfTexture** self, bbTextures* textures, char* key);
 
 #endif //BBTEXTURES_H

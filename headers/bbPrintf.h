@@ -13,6 +13,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <assert.h>
+#include "headers/bbIntTypes.h"
 
 /*
 #define BBDEBUG
@@ -59,7 +60,7 @@ static void bbVerbose(const char* format, ...){
 
 }
 
-/// Print warning and exit
+/// Print warning and exit TODO read pg 134?
 #define bbAssert(expression, ...)                    \
 	if (!(expression)){                              \
 		printf("ASSERTION: ");                       \

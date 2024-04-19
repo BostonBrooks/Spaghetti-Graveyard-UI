@@ -1,6 +1,7 @@
 #include "headers/bbGeometry.h"
 #include "headers/bbGame.h"
 #include "headers/bbWidget.h"
+#include "headers/bbIntTypes.h"
 
 
 bbScreenCoordsF bbScreenCoordsI_getF(bbScreenCoordsI SCI, bbMapConstants* constants){

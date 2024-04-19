@@ -1,4 +1,5 @@
 #include "headers/bbPool.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct {
 
@@ -12,7 +13,7 @@ int main(void){
 	char test_str[] = "You shall not pass!\n";
 
 	bbPool* TestPool;
-	int flag = bbPool_NewPool(&TestPool, 0, sizeof (test_struct), 4, 8);
+	I32 flag = bbPool_NewPool(&TestPool, 0, sizeof (test_struct), 4, 8);
 
 	while(1) {
 
@@ -20,7 +21,7 @@ int main(void){
 		test_struct* testStruct;
 
 
-		int32_t flag = bbPool_New(&testStruct,TestPool, f_PoolNextAvailable);
+		I32 flag = bbPool_New(&testStruct,TestPool, f_PoolNextAvailable);
 
 
 

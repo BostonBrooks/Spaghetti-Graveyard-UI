@@ -3,8 +3,9 @@
 #include "headers/bbFlags.h"
 #include "headers/bbPrintf.h"
 #include "headers/bbPool.h"
+#include "headers/bbIntTypes.h"
 
-int32_t bbNode_setParent(void* void_node, void* void_parent, bbPool* pool){
+I32 bbNode_setParent(void* void_node, void* void_parent, bbPool* pool){
 
     bbNode* node = void_node;
     bbNode* parent = void_parent;
@@ -34,7 +35,7 @@ int32_t bbNode_setParent(void* void_node, void* void_parent, bbPool* pool){
 	}
 
 	bbNode* tailNode;
-	int32_t flag = bbPool_Lookup(&tailNode, pool, parent->p_Tree.Tail);
+	I32 flag = bbPool_Lookup(&tailNode, pool, parent->p_Tree.Tail);
     bbAssert(flag >= 0,"pool lookup failed\n");
 
     tailNode->p_Tree.Next = node->p_Pool.Self;
@@ -46,14 +47,14 @@ int32_t bbNode_setParent(void* void_node, void* void_parent, bbPool* pool){
 
 
 
-int32_t descending_search(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
+I32 descending_search(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
 
     bbNode* root = void_root;
 
-    int32_t flag = myFunc(reference, root);
+    I32 flag = myFunc(reference, root);
     if (flag == f_Break) return f_Break;
 
-    int32_t intHead = root->p_Tree.Head;
+    I32 intHead = root->p_Tree.Head;
 
     while (intHead != f_None){
         bbNode* node;
@@ -66,12 +67,12 @@ int32_t descending_search(void* reference, void* void_root, bbTreeFunction* myFu
     }
     return f_Continue;
 }
-int32_t ascending_search(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
+I32 ascending_search(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
 
     bbNode* root = void_root;
 
-    int32_t flag;
-    int32_t intTail = root->p_Tree.Tail;
+    I32 flag;
+    I32 intTail = root->p_Tree.Tail;
 
     while (intTail != f_None){
         bbNode* node;
@@ -88,15 +89,15 @@ int32_t ascending_search(void* reference, void* void_root, bbTreeFunction* myFun
     return f_Continue;
 }
 
-int32_t descending_searchVisible(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
+I32 descending_searchVisible(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
 
     bbNode* root = void_root;
-    int32_t flag;
+    I32 flag;
     if (root->p_Tree.Visible) {
         flag= myFunc(reference, root);
         if (flag == f_Break) return f_Break;
     }
-    int32_t intHead = root->p_Tree.Head;
+    I32 intHead = root->p_Tree.Head;
 
     if(root->p_Tree.SubwidgetsVisible) {
         while (intHead != f_None) {
@@ -111,12 +112,12 @@ int32_t descending_searchVisible(void* reference, void* void_root, bbTreeFunctio
     }
     return f_Continue;
 }
-int32_t ascending_searchVisible(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
+I32 ascending_searchVisible(void* reference, void* void_root, bbTreeFunction* myFunc, bbPool* pool){
 
     bbNode* root = void_root;
 
-    int32_t flag;
-    int32_t intTail = root->p_Tree.Tail;
+    I32 flag;
+    I32 intTail = root->p_Tree.Tail;
     if(root->p_Tree.SubwidgetsVisible) {
         while (intTail != f_None) {
             bbNode *node;

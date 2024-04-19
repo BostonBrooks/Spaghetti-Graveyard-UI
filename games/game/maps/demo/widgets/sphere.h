@@ -12,11 +12,12 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbMap.h"
+#include "headers/bbIntTypes.h"
 
-//typedef int32_t bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
+//typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 
 
-int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
+I32 bbWidgetNew_Sphere(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent) {
 ///	Spawn a null widget on selected map at coordinates mc
 
 
@@ -24,7 +25,7 @@ int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbDictionary *dict = widgets->m_AddressDict;
 
     bbWidget *widget;
-    int32_t flag =bbWidget_empty_new(&widget, widgets, sc, parent);
+    I32 flag =bbWidget_empty_new(&widget, widgets, sc, parent);
 
 
     widget->m_String = "Menu / Pause Button";
@@ -39,20 +40,20 @@ int32_t bbWidget_sphere_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     return f_Success;
 
 }
-//typedef int32_t bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
+//typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 
 /// if you click the widget, it will spawn a sphere
-int32_t bbWidget_MouseClickSphere(void* void_mouseEvent, void* void_widget){
+I32 bbWidgetClick_Sphere(void* void_mouseEvent, void* void_widget){
     bbMouseEvent* event = void_mouseEvent;
     bbWidget* widget = void_widget;
     bbScreenCoordsI sc = event->m_ScreenCoords;
 
     if (event->m_type == f_MouseLeft) {
         if (bbWidget_containsPoint(widget, event->m_ScreenCoords)) {
-            int32_t map = widget->p_Node.p_Pool.Self;
+            I32 map = widget->p_Node.p_Pool.Self;
             bbWidgetFunctions *functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
 
-            int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "sphere");
+            I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "sphere");
 
             bbWidget *newWidget;
             bbWidget_new(&newWidget, g_Game->m_Maps[map]->m_Widgets, type, widget->p_Node.p_Pool.Self, sc);

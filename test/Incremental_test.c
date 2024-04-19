@@ -9,6 +9,7 @@
 #include "headers/bbPool.h"
 #include "headers/bbTree.h"
 #include "headers/bbDispatch.h"
+#include "headers/bbIntTypes.h"
 
 bbGame* g_Game;
 
@@ -17,7 +18,7 @@ bbGame* g_Game;
 int main (void) {
 
 // ---------- Launch Game ---------- //
-    int flag;
+    I32 flag;
     flag = bbGame_new(&g_Game, GAME_PATH);
 
     g_Game->m_CurrentMap = 0;
@@ -82,7 +83,7 @@ int main (void) {
     bbAnimations *anims = map->m_Animations;
     bbAssert(anims != NULL, "bad bbAnimations*\n");
     bbAnimation *anim = anims->m_Animations[8];
-    int32_t spriteInt = anim->i_Sprites[0];
+    I32 spriteInt = anim->i_Sprites[0];
 
     sprite = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites->m_Sprites[spriteInt];
 
@@ -109,7 +110,7 @@ int main (void) {
       SCZero.y = 0;
       bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
       bbWidget* widget;
-      int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
+      I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
       bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
 
       bbWidget* fireworks;
@@ -125,7 +126,7 @@ int main (void) {
 
       g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = widget;
 
-      for (int32_t i = 0; i < 16; i++){
+      for (I32 i = 0; i < 16; i++){
           bbWidget_draw(widget);
           sfRenderWindow_display(g_Game->m_Window);
           printf("==========================\n");
@@ -174,7 +175,7 @@ int main (void) {
 // ---------- New widget stuff  ---------- //
     /*{
         bbWidgetFunctions *functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-        int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
+        I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
         bbWidget *FireWorks;
 
         bbWidget_new(&FireWorks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
@@ -206,14 +207,14 @@ int main (void) {
     }*/
 
     bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-    int32_t type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
+    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
     bbWidget* Decal;
 
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
 
     bbWidget_new(&Decal, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SC0);
 
-    //int32_t descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+    //I32 descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 
     //Decal is the root widget. create new widgets an add to the tree
@@ -221,8 +222,8 @@ int main (void) {
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
     bbWidget* menuButton;
 
-    bbScreenCoordsF SCF; SCF.x = 20;
-
+    bbScreenCoordsF SCF;
+    SCF.x = 20;
     SCF.y = 720 - 20 - 80 * g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.WidgetScale;
     bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     bbWidget_new(&menuButton, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
@@ -258,9 +259,9 @@ int main (void) {
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
 
     bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
-    bbHere();
 
-    int32_t paused = 0;
+
+    I32 paused = 0;
 
     sfText* activeText = sfText_create();
     sfText_setColor(activeText, sfRed);
@@ -273,7 +274,7 @@ int main (void) {
     bbWidget* activeSpell;
     bbPool_Lookup(&activeSpell,
                   map->m_Widgets->m_Pool,
-                  map->misc.m_ActiveSpell);
+                  map->misc.m_ActiveSpell_deprecated);
 
     sfText_setString(activeText, activeSpell->m_String);
 
@@ -295,7 +296,7 @@ int main (void) {
 
         bbPool_Lookup(&activeSpell,
                       map->m_Widgets->m_Pool,
-                      map->misc.m_ActiveSpell);
+                      map->misc.m_ActiveSpell_deprecated);
         sfText_setString(activeText, activeSpell->m_String);
         sfRenderWindow_drawText(g_Game->m_Window, activeText, NULL);
 

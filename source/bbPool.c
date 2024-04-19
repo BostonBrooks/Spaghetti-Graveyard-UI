@@ -13,6 +13,7 @@
 #include "headers/bbPrintf.h"
 #include "headers/bbPool.h"
 #include "headers/bbFlags.h"
+#include "headers/bbIntTypes.h"
 
 
 
@@ -24,17 +25,17 @@ typedef struct {
 
 
 ///Look up object at location Pool[lvl1][lvl2];
-int32_t bbPool_Lookup2(void** reference, bbPool* Pool, int32_t lvl1, int32_t lvl2){
+I32 bbPool_Lookup2(void** reference, bbPool* Pool, I32 lvl1, I32 lvl2){
 
 	int8_t* array = Pool->m_Objects[lvl1];
-	int32_t index = lvl2 * Pool->m_SizeOf;
+	I32 index = lvl2 * Pool->m_SizeOf;
 	*reference = &array[index];
 	return f_PoolSuccess;
 }
 
 
 ///Lookup object at address, ignoring m_Pool_InUse;
-int32_t bbPool_Lookup_sudo(void** reference, bbPool* Pool, int32_t Address){
+I32 bbPool_Lookup_sudo(void** reference, bbPool* Pool, I32 Address){
 	// Address in lvl1 of Pool
 	int lvl1_Address = Address / Pool->m_Level2;
 	// Address in lvl2 of Pool
@@ -53,7 +54,7 @@ int32_t bbPool_Lookup_sudo(void** reference, bbPool* Pool, int32_t Address){
 
 
 ///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
-int32_t bbPool_Lookup(void** reference, bbPool* Pool, int32_t Address){
+I32 bbPool_Lookup(void** reference, bbPool* Pool, I32 Address){
 
     if (Address == f_None) {
         *reference = NULL;
@@ -62,7 +63,7 @@ int32_t bbPool_Lookup(void** reference, bbPool* Pool, int32_t Address){
 
 	bbPool_null* Object;
 
-	int32_t return_flag = bbPool_Lookup_sudo(&Object, Pool, Address);
+	I32 return_flag = bbPool_Lookup_sudo(&Object, Pool, Address);
 
 	if (return_flag < 0) return return_flag;
 
@@ -74,7 +75,7 @@ int32_t bbPool_Lookup(void** reference, bbPool* Pool, int32_t Address){
 	return f_PoolSuccess;
 }
 
-int32_t bbPool_NewPool(bbPool** reference, int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2){
+I32 bbPool_NewPool(bbPool** reference, I32 map, I32 SizeOf, I32 Level1, I32 Level2){
 	bbPool* Pool = malloc(sizeof(bbPool));
 	bbAssert(Pool != NULL, "malloc returned null pointer?\n");
 	Pool->m_Map = map;
@@ -86,7 +87,7 @@ int32_t bbPool_NewPool(bbPool** reference, int32_t map, int32_t SizeOf, int32_t 
 	Pool->m_InUse.Head = f_PoolNone;
 	Pool->m_InUse.Tail = f_PoolNone;
 	Pool->m_Objects = calloc(Level1, sizeof(void*));
-	for (int32_t i = 0; i < Level1; i++){
+	for (I32 i = 0; i < Level1; i++){
 		Pool->m_Objects[i] = NULL;
 	}
 	*reference = Pool;
@@ -94,17 +95,17 @@ int32_t bbPool_NewPool(bbPool** reference, int32_t map, int32_t SizeOf, int32_t 
 	return f_PoolSuccess;
 }
 
-int32_t bbPool_DeletePool(bbPool* Pool){
-	for (int32_t i = 0; i < Pool->m_Level1; i++){
+I32 bbPool_DeletePool(bbPool* Pool){
+	for (I32 i = 0; i < Pool->m_Level1; i++){
 		//It's ok to free a NULL pointer
 		free(Pool->m_Objects[i]);
 	}
 	free(Pool);
 
 }
-int32_t bbPool_ClearPool(bbPool* Pool){
+I32 bbPool_ClearPool(bbPool* Pool){
 
-	for (int32_t i = 0; i < Pool->m_Level1; i++){
+	for (I32 i = 0; i < Pool->m_Level1; i++){
 		//It's ok to free a NULL pointer
 		free(Pool->m_Objects[i]);
 		Pool->m_Objects[i] = NULL;
@@ -116,11 +117,11 @@ int32_t bbPool_ClearPool(bbPool* Pool){
 	Pool->m_InUse.Tail = f_PoolNone;
 }
 
-int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
+I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address){
 
 
 	bbAssert(Level1_Address == f_PoolNextAvailable, "Feature not implemented\n");
-	int32_t i = 0;
+	I32 i = 0;
 	//Find next available / NULL entry in level1 of the pool
 	if(Level1_Address == f_PoolNextAvailable){
 		while (i < Pool->m_Level1 && Pool->m_Objects[i] != NULL){
@@ -145,10 +146,10 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 		bbAssert(Pool->m_Available.Tail == -1, "Head/Tail mismatch\n");
 
 
-		for (int32_t j = 0; j < Pool->m_Level2; j++) {
+		for (I32 j = 0; j < Pool->m_Level2; j++) {
 
 			bbPool_null *Object;
-			int32_t flag = bbPool_Lookup2(&Object, Pool, i, j);
+			I32 flag = bbPool_Lookup2(&Object, Pool, i, j);
 
 			Object->p_Pool.Self = i * Pool->m_Level2 + j;
 			Object->p_Pool.Prev = i * Pool->m_Level2 + j - 1;
@@ -157,7 +158,7 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 			Object->p_Pool.Map = Pool->m_Map;
 		}
 		bbPool_null* Object;
-		int32_t flag = bbPool_Lookup2(&Object, Pool, i, 0);
+		I32 flag = bbPool_Lookup2(&Object, Pool, i, 0);
 		Object->p_Pool.Prev = f_PoolNone;
 		flag =  bbPool_Lookup2(&Object, Pool, i, Pool->m_Level2 -1);
 		Object->p_Pool.Next = f_PoolNone;
@@ -171,7 +172,7 @@ int32_t bbPool_IncreasePool(bbPool* Pool, int32_t Level1_Address){
 	}
 }
 
-int32_t bbPool_New(void** return_by_reference, bbPool* Pool, int32_t address){
+I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address){
 	bbAssert(address == f_PoolNextAvailable, "Feature not implemented\m");
 
 	if(Pool->m_Available.Head == f_PoolNone){
@@ -182,7 +183,7 @@ int32_t bbPool_New(void** return_by_reference, bbPool* Pool, int32_t address){
 	address = Pool->m_Available.Head;
 
 	bbPool_null* Object;
-	int32_t flag = bbPool_Lookup_sudo(&Object, Pool, address);
+	I32 flag = bbPool_Lookup_sudo(&Object, Pool, address);
 	Pool->m_Available.Head = Object->p_Pool.Next;
 	if (Pool->m_Available.Head == f_PoolNone){
 		Pool->m_Available.Tail = f_PoolNone;

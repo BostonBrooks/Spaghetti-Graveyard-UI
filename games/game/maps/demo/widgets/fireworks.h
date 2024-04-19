@@ -8,16 +8,17 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbMap.h"
+#include "headers/bbIntTypes.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Fireworks(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
 	bbPool* pool = widgets->m_Pool;
 	bbDictionary* dict = widgets->m_AddressDict;
 
 	bbWidget* widget;
-	int32_t flag = bbWidget_empty_new(&widget, widgets, sc, parent);
+	I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
@@ -41,21 +42,21 @@ int32_t bbWidget_fireworks_new(bbWidget** reference, bbWidgets* widgets, bbScree
 }
 
 /// Update widget
-int32_t bbWidget_fireworks_update(bbWidget* widget){
+I32 bbWidget_fireworks_update(bbWidget* widget){
 	return f_Success;
 }
 
 /// Send a command to the widget / update widget, etc
-int32_t bbWidget_fireworks_onCommand(bbWidget* widget, void* command){
+I32 bbWidget_fireworks_onCommand(bbWidget* widget, void* command){
 	return f_Success;
 }
 
 /// Delete widget
-int32_t bbWidget_fireworks_delete(bbWidget* widget){
+I32 bbWidget_fireworks_delete(bbWidget* widget){
 	return f_Success;
 }
 
 /// Draw widget to screen
-int32_t bbWidget_fireworks_draw(bbWidget* widget){
+I32 bbWidget_fireworks_draw(bbWidget* widget){
 	return f_Success;
 }

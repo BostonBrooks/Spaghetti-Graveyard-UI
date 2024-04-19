@@ -20,18 +20,19 @@
 #include <stdbool.h>
 #include <inttypes.h>
 #include "headers/bbPool.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct {
 	// Integer address (location in pool) of parent node
-	int32_t Parent;
+	I32 Parent;
 	// Start of list of daughter nodes
-	int32_t Head;
+	I32 Head;
 	// End of list of daughter nodes
-	int32_t Tail;
+	I32 Tail;
 	// Previous in list of daughter nodes
-	int32_t Prev;
+	I32 Prev;
 	// Next in list of daughter nodes
-	int32_t Next;
+	I32 Next;
     // Do not include this widget in search if !Visible
     bool Visible;
     // Do not include subwidgets in search if !SubwidgetsVisible.
@@ -47,21 +48,21 @@ typedef struct {
 typedef struct {
 	bbNode p_Node;
 	char* string;
-	int32_t integer;
+	I32 integer;
 } bbTestNode;
 
-typedef int32_t bbTreeFunction (void* reference, void* node);
+typedef I32 bbTreeFunction (void* reference, void* node);
 
 /// add a new node (with no daughter nodes) as a daughter node to parent;
-int32_t bbNode_setParent(void* node, void* parent, bbPool* pool);
+I32 bbNode_setParent(void* node, void* parent, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+I32 descending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t ascending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+I32 ascending_search(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t descending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+I32 descending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 ///recursively search through nodes until myFunc(node); returns f_Break
-int32_t ascending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
+I32 ascending_searchVisible(void* reference, void* root, bbTreeFunction* myFunc, bbPool* pool);
 
 #endif // BBTREE_H;

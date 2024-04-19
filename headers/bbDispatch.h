@@ -5,8 +5,9 @@
 #ifndef BBDISPATCH_H
 #define BBDISPATCH_H
 
-#include <inttypes.h>
 
-int32_t EventDispatch(int32_t map);
+#include "headers/bbIntTypes.h"
+
+I32 EventDispatch(I32 map);
 
 #endif //BBDISPATCH_H

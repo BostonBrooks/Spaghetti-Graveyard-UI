@@ -9,10 +9,11 @@
 
 #include <inttypes.h>
 #include "headers/bbFlags.h"
+#include "headers/bbIntTypes.h"
 
 // strcpy()
-static int32_t bbStr_setStr(char* dest, char* src){
-    int32_t i = 0;
+static I32 bbStr_setStr(char* dest, char* src){
+    I32 i = 0;
     while(1){
         dest[i] = src[i];
         if (src[i] == '\0') return f_Success;
@@ -21,9 +22,9 @@ static int32_t bbStr_setStr(char* dest, char* src){
 }
 
 // strcat()
-static int32_t bbStr_putStr(char* dest, char* src){
+static I32 bbStr_putStr(char* dest, char* src){
     //search through string for \0
-    int i = 0;
+    I32 i = 0;
 
     while(1){
         if (dest[i] == '\0') break;
@@ -36,9 +37,9 @@ static int32_t bbStr_putStr(char* dest, char* src){
 }
 
 // add char at end of string
-static int32_t bbStr_putChar(char* dest, char src){
+static I32 bbStr_putChar(char* dest, char src){
     //search through string for \0
-    int i = 0;
+    I32 i = 0;
 
     while(1){
         if (dest[i] == '\0') break;
@@ -52,7 +53,7 @@ static int32_t bbStr_putChar(char* dest, char src){
 }
 
 // Works correctly by some inspiration and by some trial and error
-static int32_t bbStr_setBounds(char* str, int32_t columns, int32_t rows){
+static I32 bbStr_setBounds(char* str, I32 columns, I32 rows){
 
     if(str[0] == '\0') return f_Success;
 
@@ -61,9 +62,9 @@ static int32_t bbStr_setBounds(char* str, int32_t columns, int32_t rows){
     // copy from str to temp, keeping track of chars since last \n
     // insert \n when necessary
 
-    int32_t i_str = 0;
-    int32_t i_temp = 0;
-    int32_t column = 1;
+    I32 i_str = 0;
+    I32 i_temp = 0;
+    I32 column = 1;
 
     while(1){
 
@@ -93,7 +94,7 @@ static int32_t bbStr_setBounds(char* str, int32_t columns, int32_t rows){
     }
 
     // work backward and count off the number of rows to display
-    int row = 0;
+    I32 row = 0;
 
 
     i_temp--; //dont count final newline

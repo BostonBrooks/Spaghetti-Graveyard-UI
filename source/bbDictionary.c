@@ -2,13 +2,14 @@
 #include "headers/bbFlags.h"
 #include "headers/bbPrintf.h"
 #include "headers/bbSystemIncludes.h"
+#include "headers/bbIntTypes.h"
 
-int32_t hash(unsigned char *str, int32_t n_bins)
+I32 hash(unsigned char *str, I32 n_bins)
 {
 
-	uint32_t hash_value = 5381;
-	int32_t i = 0;
-	int32_t c = str[i];
+    U32 hash_value = 5381;
+	I32 i = 0;
+	I32 c = str[i];
 
 	while (c != '\0' && c!= '\n') {
 		hash_value = hash_value * 33 + c;
@@ -21,19 +22,19 @@ int32_t hash(unsigned char *str, int32_t n_bins)
 	return hash_value;
 }
 
-int32_t bbDictionary_new (bbDictionary** self, int32_t n_bins){
+I32 bbDictionary_new (bbDictionary** self, I32 n_bins){
 	bbDictionary* dict = malloc(sizeof(bbDictionary) + n_bins * sizeof(bbDictionary_bin)); //sizeof (bbDictionary) + 2*sizeof (int) * NUM_BINS;?
 	assert( dict!= NULL);
 	dict->m_NumBins = n_bins;
 	dict->m_Available.Head = f_None;
 	dict->m_Available.Tail = f_None;
 
-	for(int32_t i = 0; i < n_bins; i++){
+	for(I32 i = 0; i < n_bins; i++){
 		dict->m_Bins[i].Head = f_None;
 		dict->m_Bins[i].Tail = f_None;
 	}
 
-	for (int32_t i = 0; i < 100; i++){
+	for (I32 i = 0; i < 100; i++){
 		dict->m_Pool[i] = NULL;
 	}
 
@@ -42,15 +43,15 @@ int32_t bbDictionary_new (bbDictionary** self, int32_t n_bins){
 	return f_Success;
 }
 
-int32_t bbDictionary_delete(bbDictionary* dict){
-	for (int32_t i = 0; i < 100; i++){
+I32 bbDictionary_delete(bbDictionary* dict){
+	for (I32 i = 0; i < 100; i++){
 		if (dict->m_Pool[i] != NULL) free (dict->m_Pool[i]);
 	}
 	free(dict);
 }
 
-int32_t bbDictionary_increase(bbDictionary* dict){
-	int32_t i = 0;
+I32 bbDictionary_increase(bbDictionary* dict){
+	I32 i = 0;
 	while (i < 100 && dict->m_Pool[i] != NULL) {
 		i++;
 	}
@@ -66,7 +67,7 @@ int32_t bbDictionary_increase(bbDictionary* dict){
 	if (dict->m_Available.Head == f_None){
 		bbAssert(dict->m_Available.Tail == f_None, "Head/Tail mismatch\n");
 
-		for (int32_t l = 0; l < 100; l++){
+		for (I32 l = 0; l < 100; l++){
 			dict->m_Pool[i][l].m_Self = i * 100 + l;
 			dict->m_Pool[i][l].m_Prev = i * 100 + l - 1;
 			dict->m_Pool[i][l].m_Next = i * 100 + l + 1;
@@ -87,18 +88,18 @@ int32_t bbDictionary_increase(bbDictionary* dict){
 	bbAssert(0==1, "Feature not needed / implemented\n");
 }
 
-bbDictionary_entry* bbDictionary_indexLookup(bbDictionary* dict, int32_t index){
-	int32_t level1 = index / 100;
-	int32_t level2 = index % 100;
+bbDictionary_entry* bbDictionary_indexLookup(bbDictionary* dict, I32 index){
+	I32 level1 = index / 100;
+	I32 level2 = index % 100;
 	bbDictionary_entry* entry = &dict->m_Pool[level1][level2];
 	assert (entry != NULL);
 	return entry;
 }
 
-int32_t bbDictionary_lookupIndex(bbDictionary* dict, char* key){
-	int32_t hash_value = hash(key, dict->m_NumBins);
+I32 bbDictionary_lookupIndex(bbDictionary* dict, char* key){
+	I32 hash_value = hash(key, dict->m_NumBins);
 	bbDictionary_entry* entry;
-	int32_t index = dict->m_Bins[hash_value].Head;
+	I32 index = dict->m_Bins[hash_value].Head;
 
 	while (index != f_None) {
 		entry = bbDictionary_indexLookup(dict, index);
@@ -109,8 +110,8 @@ int32_t bbDictionary_lookupIndex(bbDictionary* dict, char* key){
 	return f_None;
 }
 
-int32_t bbDictionary_lookup(bbDictionary* dict, char* key){
-	int32_t index = bbDictionary_lookupIndex(dict, key);
+I32 bbDictionary_lookup(bbDictionary* dict, char* key){
+	I32 index = bbDictionary_lookupIndex(dict, key);
 	if (index == f_None) return f_None;
 	bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
 	return entry->m_Value;
@@ -155,8 +156,8 @@ bbDictionary_entry* grab_entry (bbDictionary* dict){
 	return entry;
 }
 
-int32_t bbDictionary_add(bbDictionary* dict, char* key, int32_t value){
-	int32_t index = bbDictionary_lookupIndex(dict, key);
+I32 bbDictionary_add(bbDictionary* dict, char* key, I32 value){
+	I32 index = bbDictionary_lookupIndex(dict, key);
 	if (index != f_None) {
 		bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
 		entry->m_Value = value;
@@ -164,7 +165,7 @@ int32_t bbDictionary_add(bbDictionary* dict, char* key, int32_t value){
 	}
 
 	//create new entry
-	int32_t hash_value = hash(key, dict->m_NumBins);
+	I32 hash_value = hash(key, dict->m_NumBins);
 	int* head = &dict->m_Bins[hash_value].Head;
 	int* tail = &dict->m_Bins[hash_value].Tail;
 	bbDictionary_entry* entry = grab_entry(dict);
@@ -199,11 +200,11 @@ int32_t bbDictionary_add(bbDictionary* dict, char* key, int32_t value){
 	return entry->m_Self;
 }
 
-int32_t bbDictionary_print(bbDictionary* dict){
-	for (int32_t i = 0; i < dict->m_NumBins; i++){
+I32 bbDictionary_print(bbDictionary* dict){
+	for (I32 i = 0; i < dict->m_NumBins; i++){
 		printf("\nBin # %d:\n", i);
 		printf("Dict_Self,\tDict_Prev,\tDict_Next,\tDict_In_Use,\tkey,\tvalue\n");
-		int32_t index = dict->m_Bins[i].Head;
+		I32 index = dict->m_Bins[i].Head;
 		while (index != f_None){
 			bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
 

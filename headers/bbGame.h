@@ -11,15 +11,16 @@
 #include "headers/bbGameConstants.h"
 #include "headers/bbMap.h"
 
+#include "headers/bbIntTypes.h"
 
 
 typedef struct {
 	bbGameConstants m_Constants;
 	sfRenderWindow* m_Window;
 	//bbViewport* m_Viewport; //viewport is a bbWidget
-	int32_t m_CurrentMap;
+	I32 m_CurrentMap;
 	char m_MapNames[N_MAPS][256];
-	int32_t m_GlobalTime;
+	I32 m_GlobalTime;
 	///data for the game can be stored in any location in the file system
 	char* m_FolderPath;
 	char* m_GameName;
@@ -31,6 +32,6 @@ typedef struct {
 extern bbGame* g_Game;
 
 
-int32_t bbGame_new(bbGame** self, char* folder_path);
+I32 bbGame_new(bbGame** self, char* folder_path);
 
 #endif //BBGAME_H

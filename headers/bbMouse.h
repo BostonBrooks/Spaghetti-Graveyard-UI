@@ -11,6 +11,7 @@
 #include <stdbool.h>
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbGeometry.h"
+#include "headers/bbIntTypes.h"
 
 #define f_MouseMove 0
 #define f_MouseLeft 1
@@ -19,7 +20,7 @@
 
 typedef struct {
     bbScreenCoordsI m_ScreenCoords;
-    int32_t m_type;
+    I32 m_type;
 } bbMouseEvent;
 
 
@@ -28,6 +29,6 @@ typedef struct {
 
 
 /// If the event is a mouse click
-int32_t EventMouse(bbMouseEvent* mouse, int map);
+I32 EventMouse(bbMouseEvent* mouse, int map);
 
 #endif //BBMOUSE

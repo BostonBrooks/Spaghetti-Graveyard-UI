@@ -1,20 +1,21 @@
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbTextures.h"
 #include "headers/bbDictionary.h"
+#include "headers/bbIntTypes.h"
 
-int32_t _bbTextures_new(bbTextures** self, int32_t numTextures){
+I32 _bbTextures_new(bbTextures** self, I32 numTextures){
 	bbTextures* textures = calloc(1, sizeof(bbTextures));
 	bbAssert(textures != NULL, "calloc failed\n");
 	textures->m_NumTextures = numTextures;
 	textures->m_Textures = calloc(numTextures, sizeof(sfTexture*));
-	int32_t flag = bbDictionary_new(&textures->m_Dictionary, numTextures);
+	I32 flag = bbDictionary_new(&textures->m_Dictionary, numTextures);
 	bbAssert(flag == f_Success, "bbDictionary_new failed\n");
 	*self = textures;
 	return f_Success;
 
 }
 
-int32_t texture_load(bbTextures* textures, char* key, int32_t address, char* filename,sfBool smooth){
+I32 texture_load(bbTextures* textures, char* key, I32 address, char* filename,sfBool smooth){
 
 	sfTexture* texture = sfTexture_createFromFile(filename, NULL);
 	bbAssert(texture != NULL, "sfTexture failed to load\n");
@@ -24,7 +25,7 @@ int32_t texture_load(bbTextures* textures, char* key, int32_t address, char* fil
 	return f_Success;
 }
 
-int32_t bbTextures_new(bbTextures** self, char* folderPath, int32_t numTextures){
+I32 bbTextures_new(bbTextures** self, char* folderPath, I32 numTextures){
 
 	bbTextures* textures;
 	_bbTextures_new(&textures, numTextures);
@@ -62,11 +63,11 @@ int32_t bbTextures_new(bbTextures** self, char* folderPath, int32_t numTextures)
 
 //if key is int, return texture at that address
 //otherwise, look up key in dictionary and return the texture pointed to.
-int32_t bbTextures_lookup (sfTexture** self, bbTextures* textures, char* key){
+I32 bbTextures_lookup (sfTexture** self, bbTextures* textures, char* key){
 
 	bbDictionary* dict = textures->m_Dictionary;
 
-	int32_t len = strlen(key);
+	I32 len = strlen(key);
 	char digits[] = "0123456789";
 	int int_len = strspn(key, digits);
 	int address;

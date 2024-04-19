@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include "headers/bbString.h"
+#include "headers/bbIntTypes.h"
 
 int main(void){
 

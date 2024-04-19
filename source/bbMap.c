@@ -2,13 +2,14 @@
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
 #include "headers/bbMap.h"
+#include "headers/bbIntTypes.h"
 
-int32_t bbMap_new(bbMap** self, char* folderPath){
+I32 bbMap_new(bbMap** self, char* folderPath){
 
 	bbMap* map = calloc(1, sizeof(bbMap));
 	bbAssert(map != NULL, "calloc() failed\n");
 	strcpy(&map->m_path, folderPath);
-	char string[256]; int32_t integer; float floatingPoint;
+	char string[256]; I32 integer; float floatingPoint;
 	sprintf(string, "%s/mapdata.txt", folderPath);
 	FILE* file = fopen(string, "r");
 	bbAssert(file != NULL, "fopen failed\n");

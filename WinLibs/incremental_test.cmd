@@ -1,7 +1,7 @@
 SET PATH=C:\winlibs\mingw64\bin
 CD C:\Users\bbroo\CLionProjects\Spaghett-Graveyard-Zero\WinLibs
 gcc -D SFML_STATIC -I ../^
-  ../test/Incremental_test.c^
+  ../test/Incremental_test2.c^
   ../source/bbGame.c^
   ../source/bbMap.c^
   ../source/bbDictionary.c^

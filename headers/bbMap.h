@@ -12,13 +12,14 @@
 #include "headers/bbAnimation.h"
 #include "headers/bbWidget.h"
 #include "headers/bbFonts.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct {
     /// Increased with every update of the map
-    int32_t m_MapTime;
-    int32_t m_ActiveTextbox;
-    int32_t m_ActiveSpell;
-    int32_t m_SpellSelector;
+    I32 m_MapTime;
+    I32 m_ActiveTextbox_deprecated;
+    I32 m_ActiveSpell_deprecated;
+    I32 m_SpellBar_deprecated;
 } bbMapState;
 
 typedef struct {
@@ -44,12 +45,12 @@ typedef struct {
 	bbWidgets* m_Widgets;
 
 	//bbMapCoords m_Viewpoint;
-	//int32_t m_ViewpointDrawable;
+	//I32 m_ViewpointDrawable;
 
     bbMapState misc;
 } bbMap;
 
 
-int32_t bbMap_new(bbMap** self, char* folderPath);
+I32 bbMap_new(bbMap** self, char* folderPath);
 
 #endif //BBMAP_H

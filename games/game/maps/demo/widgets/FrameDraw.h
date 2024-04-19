@@ -5,32 +5,33 @@
 #include "headers/bbAnimation.h"
 #include "headers/bbGame.h"
 #include "headers/bbGeometry.h"
+#include "headers/bbIntTypes.h"
 
 
 
-int32_t bbWidget_FrameDraw (bbWidget* widget, int32_t i){
-	int32_t animationInt = widget->m_AnimationInt[i];
-	int32_t angle = widget->m_Angle[i];
-	int32_t frame = widget->m_Frame[i];
+I32 bbWidgetDraw_Frame (bbWidget* widget, I32 i){
+	I32 animationInt = widget->m_AnimationInt[i];
+	I32 angle = widget->m_Angle[i];
+	I32 frame = widget->m_Frame[i];
 
 
 
-	int32_t map = widget->p_Node.p_Pool.Map;
+	I32 map = widget->p_Node.p_Pool.Map;
 
 	bbScreenCoordsI SCI = widget->m_ScreenCoords;
 	bbScreenCoordsF SCF = bbScreenCoordsI_getF(SCI, &g_Game->m_Maps[map]->p_Constants);
 
 	bbAnimation* animation = g_Game->m_Maps[map]->m_Animations->m_Animations[animationInt];
 
-	int32_t angles = animation->m_Angles;
-	int32_t frames = animation->m_Frames;
+	I32 angles = animation->m_Angles;
+	I32 frames = animation->m_Frames;
 
 
 	bbSprites* sprites = animation->m_Sprites;
 
-	int32_t spriteInt = frames*angle+frame;
+	I32 spriteInt = frames*angle+frame;
 
-	int32_t spriteNum = animation->i_Sprites[spriteInt];
+	I32 spriteNum = animation->i_Sprites[spriteInt];
 
 	sfSprite* sprite = sprites->m_Sprites[spriteNum];
 

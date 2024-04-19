@@ -3,26 +3,27 @@
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "headers/bbIntTypes.h"
 
 typedef struct {
-    int32_t Self;
-    int32_t Prev;
-    int32_t Next;
-    int32_t InUse;
-    int32_t Map;
+    I32 Self;
+    I32 Prev;
+    I32 Next;
+    I32 InUse;
+    I32 Map;
 } bbPool_data;
 
 typedef struct {
     // Integer address (location in pool) of parent node
-    int32_t Parent;
+    I32 Parent;
     // Start of list of daughter nodes
-    int32_t Head;
+    I32 Head;
     // End of list of daughter nodes
-    int32_t Tail;
+    I32 Tail;
     // Previous in list of daughter nodes
-    int32_t Prev;
+    I32 Prev;
     // Next in list of daughter nodes
-    int32_t Next;
+    I32 Next;
 
 } bbTree;
 
@@ -36,7 +37,7 @@ typedef struct {
     bbPool_data p_Pool;
     bbTree p_Tree;
     char intA;
-    int32_t intB;
+    I32 intB;
 } bbTestNode;
 
 int main (void){

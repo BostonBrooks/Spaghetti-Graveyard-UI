@@ -9,27 +9,28 @@
 
 #include "headers/bbSystemIncludes.h"
 #include "headers/bbEngineConstants.h"
+#include "headers/bbIntTypes.h"
 
 typedef struct {
-	int32_t Head;
-	int32_t Tail;
+	I32 Head;
+	I32 Tail;
 } bbDictionary_bin;
 
 typedef struct {
 
-	int32_t m_Self;
-	int32_t m_Prev;
-	int32_t m_Next;
-	int32_t m_InUse;
+	I32 m_Self;
+	I32 m_Prev;
+	I32 m_Next;
+	I32 m_InUse;
 
 	char m_Key[KEY_LENGTH];
-	int32_t m_Value;
+	I32 m_Value;
 
 } bbDictionary_entry;
 
 typedef struct {
 
-	int32_t m_NumBins;
+	I32 m_NumBins;
 	bbDictionary_entry* m_Pool[100];
 	bbDictionary_bin m_Available;
 	bbDictionary_bin m_Bins[];
@@ -37,19 +38,19 @@ typedef struct {
 } bbDictionary;
 
 /// create a new dictionary
-int32_t bbDictionary_new(bbDictionary** dict, int32_t n_bins);
+I32 bbDictionary_new(bbDictionary** dict, I32 n_bins);
 /// delete an existing dictionary
-int32_t bbDictionary_delete(bbDictionary* dict);
+I32 bbDictionary_delete(bbDictionary* dict);
 /// add key/value pair to dictionary and overwrite if duplicate
-int32_t bbDictionary_add(bbDictionary* dict, char* key, int value);
+I32 bbDictionary_add(bbDictionary* dict, char* key, int value);
 /// remove a key from dictionary
-int32_t bbDictionary_remove(bbDictionary* dict, char* key);
+I32 bbDictionary_remove(bbDictionary* dict, char* key);
 /// lookup a key in dictionary
-int32_t bbDictionary_lookup(bbDictionary* dict, char* key);
+I32 bbDictionary_lookup(bbDictionary* dict, char* key);
 /// remove all key/value pairs in dicitonary
-int32_t bbDictionary_clear(bbDictionary* dict);
+I32 bbDictionary_clear(bbDictionary* dict);
 /// print all data in dictionary
-int32_t bbDictionary_print(bbDictionary* dict);
+I32 bbDictionary_print(bbDictionary* dict);
 
 
 #endif //BBDICTIONARY_H

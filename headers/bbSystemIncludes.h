@@ -23,6 +23,7 @@
 
 #include "headers/bbFlags.h"
 #include "headers/bbPrintf.h"
+#include "headers/bbIntTypes.h"
 
 #endif //BBSYSTEM_INCLUDES_H
 
