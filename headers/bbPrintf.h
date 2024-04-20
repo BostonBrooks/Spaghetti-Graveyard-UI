@@ -61,13 +61,14 @@ static void bbVerbose(const char* format, ...){
 }
 
 /// Print warning and exit TODO read pg 134?
-#define bbAssert(expression, ...)                    \
-	if (!(expression)){                              \
-		printf("ASSERTION: ");                       \
-	printf(__VA_ARGS__);                             \
-	}                                                \
-	assert(expression);
-
+#define bbAssert(expression, ...)                        \
+    {                                                    \
+        if (!(expression)){                              \
+            printf("ASSERTION: ");                       \
+        printf(__VA_ARGS__);                             \
+        }                                                \
+        assert(expression);                              \
+    }
 /// Print warning and continue
 #define bbWarning(expression, ...)                   \
 	if (!(expression)){                              \
