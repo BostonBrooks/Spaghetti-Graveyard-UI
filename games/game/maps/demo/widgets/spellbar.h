@@ -548,7 +548,7 @@ I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 
     *reference = spellBar;
 
-
+    return f_Success;
 
 
 
