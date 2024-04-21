@@ -44,9 +44,9 @@ I32 bbWidgetNew_Textbox(bbWidget** reference, bbWidgets* widgets, bbScreenCoords
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
 
-    widget->v_OnUpdate = -1;
+    widget->v_OnUpdate = f_None;
     widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "textbox");
-
+    widget->v_OnTimer = f_None;
     widget->m_ScreenCoords = sc;
 
     bbScreenCoordsI SCI;

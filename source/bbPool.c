@@ -215,3 +215,51 @@ I32 bbPool_New(void** RBR, bbPool* Pool, I32 address){
 	return f_PoolSuccess;
 
 }
+/** Remove object from pool, place data in. new objects are taken from head
+ * so I guess its best to return them to head
+ */
+
+I32 bbPool_Delete(bbPool* Pool, I32 address){
+    bbPool_null* Object, *Prev, *Next;
+    bbPool_Lookup(&Object, Pool, address);
+
+    I32 i_Prev = Object->p_Pool.Prev;
+    I32 i_Next = Object->p_Pool.Next;
+
+    // Remove object from in use list
+    if (i_Prev != f_None && i_Next != f_None){
+
+        bbPool_Lookup(&Prev, Pool, i_Prev);
+        bbPool_Lookup(&Next, Pool, i_Next);
+
+        Prev->p_Pool.Next = i_Next;
+        Next->p_Pool.Prev = i_Prev;
+
+    } else if (i_Next != f_None) { //i_Prev == f_None
+
+        bbPool_Lookup(&Next, Pool, i_Next);
+        Next->p_Pool.Prev = f_None;
+        Pool->m_InUse.Head = Next->p_Pool.Self;
+
+
+    } else if (i_Prev != f_None) {// i_Next == f_None
+
+        bbPool_Lookup(&Prev, Pool, i_Prev);
+        Prev->p_Pool.Next = f_None;
+        Pool->m_InUse.Tail = Prev->p_Pool.Self;
+    } else { // i_Prev == f_None && i_Next == f_None
+        Pool->m_InUse.Head = f_None;
+        Pool->m_InUse.Tail = f_None;
+    }
+
+    Object->p_Pool.InUse = f_PoolNotInUse;
+    // Add object to head of list;
+
+    bbPool_Lookup_sudo(&Next, Pool, Pool->m_Available.Head);
+    Object->p_Pool.Next = Pool->m_Available.Head;
+    Pool->m_Available.Head = Object->p_Pool.Self;
+    Next->p_Pool.Prev = Object->p_Pool.Self;
+    Object->p_Pool.Prev = f_None;
+
+
+}

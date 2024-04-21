@@ -261,3 +261,18 @@ I32 bbWidget_onUpdate(void* command, void* void_widget){
 
     return f_Continue;
 }
+I32 bbWidget_onTimer(void* void_timerNode, void* void_widget){
+
+    bbWidget* widget = void_widget;
+    I32 map = widget->p_Node.p_Pool.Map;
+    bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
+    I32 TimerFunction_int = widget->v_OnTimer;
+
+    if (TimerFunction_int >= 0) {
+        bbHere();
+        functions->OnTimers[TimerFunction_int](widget, void_timerNode);
+
+    }
+
+    return f_Continue;
+}

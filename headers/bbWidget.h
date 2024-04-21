@@ -39,6 +39,7 @@ typedef struct{
 	I32 v_OnUpdate;
 	I32 v_OnDelete;
     I32 v_OnMouse;
+    I32 v_OnTimer;
 
     I32 m_CoolDownStart;
     I32 m_CoolDownEnd;
@@ -57,6 +58,7 @@ typedef struct{
 #define f_WidgetOnCommand       3
 #define f_WidgetDrawFunction    4
 #define f_WidgetMouseHandler    5
+#define f_WidgetOnTimer         6
 
 
 typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
@@ -65,6 +67,7 @@ typedef I32 bbWidget_Destructor (bbWidget* widget, void* unused);
 typedef I32 bbWidget_OnCommand (bbWidget* widget, void* data);
 typedef I32 bbWidget_DrawFunction (bbWidget* widget, I32 i);
 typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
+typedef I32 bbWidget_OnTimer (bbWidget* widget, void* void_timerNode);
 
 typedef struct {
 	bbWidget_Constructor** Constructors;
@@ -86,6 +89,9 @@ typedef struct {
     bbWidget_Mouse** MouseHandler;
     bbDictionary* MouseHandler_dict;
     I32 MouseHandler_available;
+    bbWidget_Mouse** OnTimers;
+    bbDictionary* OnTimers_dict;
+    I32 OnTimers_available;
 } bbWidgetFunctions;
 
 
@@ -115,6 +121,7 @@ I32 bbWidget_draw(void* void_unused, void* void_widget);
 I32 bbWidget_mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidget_onCommand(void* command, void* void_widget);
 I32 bbWidget_onUpdate(void* unused, void* void_widget);
+I32 bbWidget_onTimer(void* void_timerNode, void* void_widget);
 
 I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent);
 

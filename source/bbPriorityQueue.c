@@ -58,7 +58,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
         //its nice to clean these up as they are returned to the pool
         node->p_Queue.Lower = f_None;
         node->p_Queue.Higher = f_None;
-        //bbPool_Delete(pool, address); TODO implement this function
+        bbPool_Delete(pool, address);
         return f_Success;
     }
 
@@ -71,7 +71,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
         //its nice to clean these up as they are returned to the pool
         node->p_Queue.Higher = f_None;
         node->p_Queue.Lower = f_None;
-        //bbPool_Delete(pool, address);TODO implement this function
+        bbPool_Delete(pool, address);
 
         return f_Success;
     }
@@ -84,7 +84,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
         //its nice to clean these up as they are returned to the pool
         node->p_Queue.Higher = f_None;
         node->p_Queue.Lower = f_None;
-        //bbPool_Delete(pool, address);TODO implement this function
+        bbPool_Delete(pool, address);
 
         return f_Success;
     }
@@ -96,15 +96,15 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     node->p_Queue.Lower = f_None;
     node->p_Queue.Higher = f_None;
 
-    //bbPool_Delete(pool, address); TODO implement this function
+    bbPool_Delete(pool, address);
 
     return f_Success;
 }
-I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, bbPQNode* node) {
+I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node) {
 
-    bbPool *pool = Queue->p_Pool;
-    bbPQNode *newNode = node;
-    //I32 flag = bbPool_Lookup(&newNode, pool, Node);
+    bbPool* pool = Queue->p_Pool;
+    bbPQNode* newNode;
+    I32 flag = bbPool_Lookup(&newNode, pool, i_node);
 
 
 
@@ -132,7 +132,7 @@ I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, bbPQNode* node) {
 
         return f_Success;
     }
-
+    bbPQNode* node;
 
     bbPool_Lookup(&node, pool, Highest->p_Queue.Lower);
 

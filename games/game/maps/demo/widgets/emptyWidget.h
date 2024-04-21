@@ -49,6 +49,7 @@ I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     widget->v_OnUpdate = f_None;
     widget->v_OnDelete = f_None;
     widget->v_OnMouse = f_None;
+    widget->v_OnTimer = f_None;
 
     widget->m_CoolDownStart = f_None;
     widget->m_CoolDownEnd = f_None;

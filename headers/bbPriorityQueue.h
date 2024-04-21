@@ -41,7 +41,6 @@ typedef struct {
     bbPool* p_Pool;
     I32 m_Highest;
     I32 m_Lowest;
-    I32 m_Iterator; //next element to be returned by iterator
 } bbPriorityQueue;
 
 
@@ -67,7 +66,7 @@ I32 bbPQNode_remove(bbPriorityQueue* Queue, I32 address);
 /** Insert node in queue after the last element greater than or equal itself
  *  Other variations on where to place the node in the queue may be defined later
  */
-I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, bbPQNode* node);
+I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node);
 
 /// for searching through priority queue
 typedef I32 bbQueueFunction (void* reference, void* node);

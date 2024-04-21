@@ -8,4 +8,6 @@ include_directories( ../ )
 add_executable(myprogram Incremental_test.c
         ../headers/bbPriorityQueue.h
         ../source/bbPriorityQueue.c
-        bbPriorityQueue_test.c)
+        bbPriorityQueue_test.c
+        ../headers/bbWidgetTimer.h
+        ../source/bbWidgetTimer.c)

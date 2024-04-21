@@ -17,7 +17,7 @@ int main(void){
 
         node->p_PQNode.p_Queue.Priority = rnd % 60;
 
-        bbPQNode_insertAfter(queue, node);
+        bbPQNode_insertAfter(queue, node->p_PQNode.p_Pool.Self);
 
     }
 
