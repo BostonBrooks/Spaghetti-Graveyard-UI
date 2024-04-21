@@ -172,7 +172,7 @@ I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address){
 	}
 }
 
-I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address){
+I32 bbPool_New(void** RBR, bbPool* Pool, I32 address){
 	bbAssert(address == f_PoolNextAvailable, "Feature not implemented\m");
 
 	if(Pool->m_Available.Head == f_PoolNone){
@@ -201,7 +201,7 @@ I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address){
 		Pool->m_InUse.Tail = address;
 		Object->p_Pool.Prev = f_PoolNone;
 		Object->p_Pool.Next = f_PoolNone;
-		*return_by_reference = Object;
+		*RBR = Object;
 		return f_PoolSuccess;
 	}
 
@@ -211,7 +211,7 @@ I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address){
 	Object->p_Pool.Prev = Pool->m_InUse.Tail;
 	Object->p_Pool.Next = f_PoolNone;
 	Pool->m_InUse.Tail = address;
-	*return_by_reference = Object;
+	*RBR = Object;
 	return f_PoolSuccess;
 
 }

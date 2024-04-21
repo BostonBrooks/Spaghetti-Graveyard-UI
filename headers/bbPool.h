@@ -57,18 +57,18 @@ typedef struct {
 
 
 ///Look up object at location Pool[lvl1][lvl2];
-I32 bbPool_Lookup2(void** return_by_reference, bbPool* Pool, I32 lvl1, I32 lvl2);
+I32 bbPool_Lookup2(void** RBR, bbPool* Pool, I32 lvl1, I32 lvl2);
 
 
 ///Lookup object at address, ignoring m_Pool_InUse;
-I32 bbPool_Lookup_sudo(void** return_by_reference, bbPool* Pool, I32 Address);
+I32 bbPool_Lookup_sudo(void** RBR, bbPool* Pool, I32 Address);
 
 
 ///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
-I32 bbPool_Lookup(void** return_by_reference, bbPool* Pool, I32 Address);
+I32 bbPool_Lookup(void** RBR, bbPool* Pool, I32 Address);
 
 ///Create an new pool with object's size = Sizeof
-I32 bbPool_NewPool(bbPool** return_by_reference, I32 map, I32 SizeOf, I32 Level1, I32 Level2);
+I32 bbPool_NewPool(bbPool** RBR, I32 map, I32 SizeOf, I32 Level1, I32 Level2);
 
 ///Delete entire pool
 I32 bbPool_DeletePool(bbPool* Pool);
@@ -80,7 +80,7 @@ I32 bbPool_ClearPool(bbPool* Pool);
 I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address);
 
 ///Create object in pool
-I32 bbPool_New(void** return_by_reference, bbPool* Pool, I32 address);
+I32 bbPool_New(void** RBR, bbPool* Pool, I32 address);
 
 ///Remove object from pool
 I32 bbPool_Delete(bbPool* Pool, I32 address);

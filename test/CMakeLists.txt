@@ -5,4 +5,7 @@ cmake_minimum_required(VERSION 2.6.0)
 
 project(myprogram C)
 include_directories( ../ )
-add_executable(myprogram Incremental_test.c)
+add_executable(myprogram Incremental_test.c
+        ../headers/bbPriorityQueue.h
+        ../source/bbPriorityQueue.c
+        bbPriorityQueue_test.c)

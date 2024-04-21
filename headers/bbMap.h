@@ -13,6 +13,7 @@
 #include "headers/bbWidget.h"
 #include "headers/bbFonts.h"
 #include "headers/bbIntTypes.h"
+//#include "headers/bbTimer.h"
 
 typedef struct {
     /// Increased with every update of the map
@@ -36,7 +37,7 @@ typedef struct {
 	//bbSkins* m_Skins;
 
 	//vtables
-
+    //bbTimer* m_timer;
 
 	//bbElevations* m_Elevations;
 	//bbTerrainSquares* m_Terrain;
