@@ -23,12 +23,12 @@ I32 bbWidgetTimer_add(bbWidgetTimer* Timer, bbWidgetTimerNode* node){
     I32 flag = bbPQNode_insertAfter(Timer, node->p_PQNode.p_Pool.Self);
 }
 
-
+/* not yet implemented / could cause bugs
 I32 bbWidgetTimer_remove(bbWidgetTimer* Timer, I32 address){
     I32 flag = bbPQNode_remove(Timer, address);
     return flag;
 }
-
+*/
 
 //I32 ;
 I32 bbWidgetTimer_delete(bbWidgetTimer* Timer, I32 address){

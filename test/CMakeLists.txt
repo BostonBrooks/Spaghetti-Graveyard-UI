@@ -10,4 +10,7 @@ add_executable(myprogram Incremental_test.c
         ../source/bbPriorityQueue.c
         bbPriorityQueue_test.c
         ../headers/bbWidgetTimer.h
-        ../source/bbWidgetTimer.c)
+        ../source/bbWidgetTimer.c
+        ../source/bbWidget.c
+        ../games/game/maps/demo/widgets/widgets.c
+        Incremental_test2.c)

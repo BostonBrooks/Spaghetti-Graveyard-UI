@@ -160,6 +160,13 @@ I32 bbWidgetFunctions_add(bbWidgetFunctions* WFS, I32 bin, void* fun_ptr, char* 
             WFS->MouseHandler[available] = fun_ptr;
             bbDictionary_add(WFS->MouseHandler_dict, key, available);
             return f_Success;
+
+        case f_WidgetOnTimer:
+            available = WFS->OnTimers_available++;
+            //bbAssert available < MAX
+            WFS->OnTimers[available] = fun_ptr;
+            bbDictionary_add(WFS->OnTimers_dict, key, available);
+            return f_Success;
 		default:
             bbPrintf("Bad flag in bbWidgetFunctions_add\n");
 			return f_None;
@@ -198,7 +205,12 @@ I32 bbWidgetFunctions_getFunction(void** function, bbWidgetFunctions* WFS, I32 b
             intAddress = bbDictionary_lookup(WFS->MouseHandler_dict, key);
             *function = WFS->MouseHandler[intAddress];
             return f_Success;
-		default:
+
+        case f_WidgetOnTimer:
+            intAddress = bbDictionary_lookup(WFS->OnTimers_dict, key);
+            *function = WFS->OnTimers[intAddress];
+            return f_Success;
+        default:
 			return f_None;
 	}
 }
@@ -227,7 +239,11 @@ I32 bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, I32 bin, char* key){
         case f_WidgetMouseHandler:
             intAddress = bbDictionary_lookup(WFS->MouseHandler_dict, key);
             return intAddress;
-		default:
+
+        case f_WidgetOnTimer:
+            intAddress = bbDictionary_lookup(WFS->OnTimers_dict, key);
+            return intAddress;
+        default:
 			return f_None;
 	}
 }

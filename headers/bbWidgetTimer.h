@@ -10,10 +10,10 @@
 #include "headers/bbIntTypes.h"
 #include "headers/bbPriorityQueue.h"
 
+
 ///bbWidgetTimer is a wrapper for bbPriorityQueue
 typedef bbPriorityQueue bbWidgetTimer;
 
-///bbWidgetTimerNode contains th
 typedef struct{
     bbPQNode p_PQNode;
     I32 i_widget;

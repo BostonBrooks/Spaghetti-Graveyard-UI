@@ -97,12 +97,16 @@ typedef struct {
 
 typedef struct {
 	bbPool* m_Pool;
-	bbDictionary* m_AddressDict; //reference widgets be key
-	bbDictionary* m_PromptDict; //enter code "key" to click widget at "address"
+    ///reference widgets by key
+	bbDictionary* m_AddressDict;
+    ///enter code "key" to activate widget at "address"
+	bbDictionary* m_PromptDict;
     bbWidgetFunctions* m_Functions;
-
-	bbWidget* m_Decal; //the root widget in the hierarchy
-	bbWidget* m_Prompt; //key events are passed to this widget
+    ///the root widget in the hierarchy
+	bbWidget* m_Decal;
+    ///key events are passed to this widget
+	bbWidget* m_Prompt;
+    ///manages spell casting
     bbWidget* m_SpellBar;
 } bbWidgets;
 

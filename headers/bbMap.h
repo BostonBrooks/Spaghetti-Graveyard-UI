@@ -13,7 +13,9 @@
 #include "headers/bbWidget.h"
 #include "headers/bbFonts.h"
 #include "headers/bbIntTypes.h"
-//#include "headers/bbTimer.h"
+#include "headers/bbPriorityQueue.h"
+#include "headers/bbWidgetTimer.h"
+
 
 typedef struct {
     /// Increased with every update of the map
@@ -37,13 +39,13 @@ typedef struct {
 	//bbSkins* m_Skins;
 
 	//vtables
-    //bbTimer* m_timer;
 
 	//bbElevations* m_Elevations;
 	//bbTerrainSquares* m_Terrain;
 	//bbDrawables* m_Drawables;
 	//bbActors* m_Actors;
 	bbWidgets* m_Widgets;
+    bbWidgetTimer* m_WidgetTimer;
 
 	//bbMapCoords m_Viewpoint;
 	//I32 m_ViewpointDrawable;

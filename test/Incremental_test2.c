@@ -45,7 +45,7 @@ int main (void){
                          mapPath,
                          &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     bbDebug("flag2 = %d\n", flag);
-    bbHere();
+
 // ---------- Animations  ---------- //
 
     flag = bbAnimations_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Animations,
@@ -61,6 +61,8 @@ int main (void){
 // ---------- Widgets  ---------- //
 
     bbWidgets_new(mapInt);
+    //Needed to include RBR to prevent circular reference in header files
+    bbWidgetTimer_new(&g_Game->m_Maps[mapInt]->m_WidgetTimer, mapInt);
     bbWidgetFunctions_new(mapInt);
     bbWidgetFunctions_populate(mapInt);
     bbWidgetFunctions* functions = map->m_Widgets->m_Functions;
@@ -122,7 +124,8 @@ int main (void){
 
     while (1){
 
-
+        if(!paused) bbWidgetTimer_update(g_Game->m_Maps[g_Game->m_CurrentMap]->m_WidgetTimer,
+                                         g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime);
         EventDispatch(g_Game->m_CurrentMap);
         sfRenderWindow_clear(g_Game->m_Window, sfBlue);
         if(!paused) descending_searchVisible(NULL, Decal, bbWidget_onUpdate, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
