@@ -28,9 +28,10 @@ I32 bbWidgetNew_Sphere(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     I32 flag =bbWidget_empty_new(&widget, widgets, sc, parent);
 
 
-    widget->m_String = "Menu / Pause Button";
+    widget->m_String = "nope";
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickText");
+    widget->v_OnTimer = bbWidgetFunctions_getInt(functions, f_WidgetOnTimer, "sphere");
 
     widget->m_AnimationInt[0] = 29; // SPHERE
     widget->m_Frame[0] = 0;         // NOT USED
@@ -57,9 +58,22 @@ I32 bbWidgetClick_Sphere(void* void_mouseEvent, void* void_widget){
 
             bbWidget *newWidget;
             bbWidget_new(&newWidget, g_Game->m_Maps[map]->m_Widgets, type, widget->p_Node.p_Pool.Self, sc);
+
+            bbWidgetTimerNode* node;
+            bbWidgetTimerNode_new(&node, g_Game->m_Maps[map]->m_WidgetTimer);
+
+            node->p_PQNode.p_Queue.Priority = g_Game->m_Maps[map]->misc.m_MapTime + 300;
+            node->i_widget = newWidget->p_Node.p_Pool.Self;
+
+            bbWidgetTimer_add(g_Game->m_Maps[map]->m_WidgetTimer, node);
+
             return f_Break;
         }
     }
     return f_Continue;
 
+}
+///functions->OnTimers[TimerFunction_int](widget, void_timerNode)
+I32 bbWidget_Sphere_onTimer(bbWidget* widget, void* void_timernode){
+    printf("You spawned a sphere 3 seconds ago\n");
 }

@@ -10,6 +10,7 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbMap.h"
+#include "headers/bbWidgetTimer.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
 I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){

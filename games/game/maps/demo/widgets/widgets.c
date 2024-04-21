@@ -44,8 +44,11 @@ I32 bbWidgetFunctions_populate(I32 map){
 
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Textbox, "textbox");
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Prompt, "prompt");
+bbHere();
 
+    bbWidgetFunctions_add(functions, f_WidgetOnTimer, bbWidget_Sphere_onTimer, "sphere");
 
+bbHere();
 
 
 	return f_Success;

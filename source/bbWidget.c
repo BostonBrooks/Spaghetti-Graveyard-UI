@@ -105,9 +105,15 @@ I32 bbWidgetFunctions_new(I32 map) {
 
     const I32 numMouseHandlers = g_Game->m_Maps[map]->p_Constants.Widget_Mouses;
     functions->MouseHandler = calloc(numMouseHandlers,
-                                     sizeof(bbWidget_DrawFunction));
+                                     sizeof(bbWidget_Mouse));
     bbDictionary_new(&functions->MouseHandler_dict, numMouseHandlers);
     functions->MouseHandler_available = 0;
+
+    const I32 numOnTimers = 100; //TODO add to txt file
+    functions->OnTimers = calloc(numOnTimers,
+                                     sizeof(bbWidget_OnTimer));
+    bbDictionary_new(&functions->OnTimers_dict, numOnTimers);
+    functions->OnCommand_available = 0;
 
 	g_Game->m_Maps[map]->m_Widgets->m_Functions = functions;
 
@@ -285,7 +291,6 @@ I32 bbWidget_onTimer(void* void_timerNode, void* void_widget){
     I32 TimerFunction_int = widget->v_OnTimer;
 
     if (TimerFunction_int >= 0) {
-        bbHere();
         functions->OnTimers[TimerFunction_int](widget, void_timerNode);
 
     }
