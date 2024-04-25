@@ -25,7 +25,7 @@ Color_Off='\033[0m'
   ../source/bbMouse.c\
   ../source/bbFonts.c\
   ../source/bbCharacter.c\
-  ../source/bbPriorityQueue.c\
+  ../source/bbDeque.c\
   ../source/bbWidgetTimer.c\
   \
   ../games/game/maps/demo/widgets/widgets.c\

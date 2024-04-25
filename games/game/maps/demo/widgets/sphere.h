@@ -62,7 +62,7 @@ I32 bbWidgetClick_Sphere(void* void_mouseEvent, void* void_widget){
             bbWidgetTimerNode* node;
             bbWidgetTimerNode_new(&node, g_Game->m_Maps[map]->m_WidgetTimer);
 
-            node->p_PQNode.p_Queue.Priority = g_Game->m_Maps[map]->misc.m_MapTime + 300;
+            node->p_Node.Priority = g_Game->m_Maps[map]->misc.m_MapTime + 300;
             node->i_widget = newWidget->p_Node.p_Pool.Self;
 
             bbWidgetTimer_add(g_Game->m_Maps[map]->m_WidgetTimer, node);

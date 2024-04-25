@@ -67,8 +67,8 @@ I32 bbPool_Lookup(void** reference, bbPool* Pool, I32 Address){
 
 	if (return_flag < 0) return return_flag;
 
-	bbAssert(Object->p_Pool.InUse == f_PoolInUse,
-			 "Trying to lookup non-existant member of pool\n");
+	bbAssert(Object->p_Pool.InUse != f_PoolNotInUse,
+			 "Trying to lookup not in use member of pool\n");
 
 	*reference = Object;
 
@@ -77,15 +77,13 @@ I32 bbPool_Lookup(void** reference, bbPool* Pool, I32 Address){
 
 I32 bbPool_NewPool(bbPool** reference, I32 map, I32 SizeOf, I32 Level1, I32 Level2){
 	bbPool* Pool = malloc(sizeof(bbPool));
-	bbAssert(Pool != NULL, "malloc returned null pointer?\n");
+	bbAssert(Pool != NULL, "malloc returned null pointer\n");
 	Pool->m_Map = map;
 	Pool->m_SizeOf = SizeOf;
 	Pool->m_Level1 = Level1;
 	Pool->m_Level2 = Level2;
 	Pool->m_Available.Head = f_PoolNone;
 	Pool->m_Available.Tail = f_PoolNone;
-	Pool->m_InUse.Head = f_PoolNone;
-	Pool->m_InUse.Tail = f_PoolNone;
 	Pool->m_Objects = calloc(Level1, sizeof(void*));
 	for (I32 i = 0; i < Level1; i++){
 		Pool->m_Objects[i] = NULL;
@@ -113,8 +111,6 @@ I32 bbPool_ClearPool(bbPool* Pool){
 
 	Pool->m_Available.Head = f_PoolNone;
 	Pool->m_Available.Tail = f_PoolNone;
-	Pool->m_InUse.Head = f_PoolNone;
-	Pool->m_InUse.Tail = f_PoolNone;
 }
 
 I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address){
@@ -168,12 +164,12 @@ I32 bbPool_IncreasePool(bbPool* Pool, I32 Level1_Address){
 
 		//Level1_Address >= 0, try to initiate lvl2 pool at location Level1_Address >= 0
 	} else {
-
+		bbAssert(0==1, "inreasing a non-empty pool is not yet supported\n");
 	}
 }
 
 I32 bbPool_New(void** RBR, bbPool* Pool, I32 address){
-	bbAssert(address == f_PoolNextAvailable, "Feature not implemented\m");
+	bbAssert(address == f_PoolNextAvailable, "Feature not implemented\n");
 
 	if(Pool->m_Available.Head == f_PoolNone){
 		bbAssert(Pool->m_Available.Tail == f_PoolNone, "Head/Tail mismatch\n");
@@ -184,17 +180,23 @@ I32 bbPool_New(void** RBR, bbPool* Pool, I32 address){
 
 	bbPool_null* Object;
 	I32 flag = bbPool_Lookup_sudo(&Object, Pool, address);
+
 	Pool->m_Available.Head = Object->p_Pool.Next;
 	if (Pool->m_Available.Head == f_PoolNone){
 		Pool->m_Available.Tail = f_PoolNone;
 	} else {
-		//Should be able to remove sudo?
+		/* No more m_InUse
 		bbPool_null* Head;
 		flag = bbPool_Lookup_sudo(&Head, Pool, Pool->m_InUse.Head);
 		Head->p_Pool.Prev = f_PoolNone;
+		 */
 	}
-	Object->p_Pool.InUse = f_PoolInUse;
 
+    Object->p_Pool.InUse = f_PoolInUse;
+	Object->p_Pool.Prev = f_PoolNone;
+	Object->p_Pool.Next = f_PoolNone;
+
+	/* No more m_InUse
 	if (Pool->m_InUse.Head == f_PoolNone){
 		bbAssert(Pool->m_InUse.Head == f_PoolNone, "Head/Tail mismatch\n");
 		Pool->m_InUse.Head = address;
@@ -211,12 +213,16 @@ I32 bbPool_New(void** RBR, bbPool* Pool, I32 address){
 	Object->p_Pool.Prev = Pool->m_InUse.Tail;
 	Object->p_Pool.Next = f_PoolNone;
 	Pool->m_InUse.Tail = address;
+	 */
 	*RBR = Object;
+
 	return f_PoolSuccess;
 
 }
-/** Remove object from pool, place data in. new objects are taken from head
+/**  place onject in available list
+ * new objects are taken from head (may wish to sort available objects)
  * so I guess its best to return them to head
+ * remove from any list before deleting (assert prev, next == -1)
  */
 
 I32 bbPool_Delete(bbPool* Pool, I32 address){
@@ -226,31 +232,9 @@ I32 bbPool_Delete(bbPool* Pool, I32 address){
     I32 i_Prev = Object->p_Pool.Prev;
     I32 i_Next = Object->p_Pool.Next;
 
-    // Remove object from in use list
-    if (i_Prev != f_None && i_Next != f_None){
+	bbAssert(i_Next == f_PoolNone && i_Prev == f_PoolNone,
+			 "trying to delete object in an existing list\n");
 
-        bbPool_Lookup(&Prev, Pool, i_Prev);
-        bbPool_Lookup(&Next, Pool, i_Next);
-
-        Prev->p_Pool.Next = i_Next;
-        Next->p_Pool.Prev = i_Prev;
-
-    } else if (i_Next != f_None) { //i_Prev == f_None
-
-        bbPool_Lookup(&Next, Pool, i_Next);
-        Next->p_Pool.Prev = f_None;
-        Pool->m_InUse.Head = Next->p_Pool.Self;
-
-
-    } else if (i_Prev != f_None) {// i_Next == f_None
-
-        bbPool_Lookup(&Prev, Pool, i_Prev);
-        Prev->p_Pool.Next = f_None;
-        Pool->m_InUse.Tail = Prev->p_Pool.Self;
-    } else { // i_Prev == f_None && i_Next == f_None
-        Pool->m_InUse.Head = f_None;
-        Pool->m_InUse.Tail = f_None;
-    }
 
     Object->p_Pool.InUse = f_PoolNotInUse;
     // Add object to head of list;

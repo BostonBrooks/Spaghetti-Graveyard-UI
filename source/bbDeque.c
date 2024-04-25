@@ -1,6 +1,6 @@
 #include "headers/bbPool.h"
 #include "headers/bbIntTypes.h"
-#include "headers/bbPriorityQueue.h"
+#include "headers/bbDeque.h"
 #include "headers/bbFlags.h"
 #include "headers/bbPrintf.h"
 
@@ -17,20 +17,21 @@ I32 bbPriorityQueue_new(void** RBR, I32 map, I32 SizeOf, I32 Level1, I32 Level2)
     return f_Success;
 }
 
-I32 bbPriorityQueue_existingPool(bbPool* pool){
+I32 bbPriorityQueue_existingPool(void** RBR, bbPool* pool){
     bbPriorityQueue* queue = malloc(sizeof(bbPriorityQueue));
     queue->m_Highest = f_None;
     queue->m_Lowest = f_None;
     queue->p_Pool = pool;
+	*RBR = queue;
     return f_Success;
 }
 
 I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address){
     bbPool* pool = Queue->p_Pool;
-    bbPQNode* node;
+    bbPool_data* node;
     I32 flag = bbPool_New(&node, pool, address);
-    node->p_Queue.Higher = -1;
-    node->p_Queue.Lower = -1;
+    node->Next = -1;
+    node->Prev = -1;
     *RBR = node;
     return flag;
 }
@@ -38,26 +39,26 @@ I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address){
 
 I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     bbPool* pool = Queue->p_Pool;
-    bbPQNode* node;
+    bbPool_data* node;
     bbPool_Lookup(&node, pool, address);
 
-    I32 i_Higher = node->p_Queue.Higher;
-    I32 i_Lower = node->p_Queue.Lower;
+    I32 i_Higher = node->Next;
+    I32 i_Lower = node->Prev;
 
-    bbPQNode* Higher;
-    bbPQNode* Lower;
+    bbPool_data* Higher;
+    bbPool_data* Lower;
 
     if (i_Higher != f_None && i_Lower != f_None){
 
         bbPool_Lookup(&Higher, pool, i_Higher);
         bbPool_Lookup(&Lower, pool, i_Lower);
 
-        Lower->p_Queue.Higher = i_Higher;
-        Higher->p_Queue.Lower = i_Lower;
+        Lower->Next = i_Higher;
+        Higher->Prev = i_Lower;
 
         //its nice to clean these up as they are returned to the pool
-        node->p_Queue.Lower = f_None;
-        node->p_Queue.Higher = f_None;
+        node->Prev = f_None;
+        node->Next = f_None;
         bbPool_Delete(pool, address);
         return f_Success;
     }
@@ -65,12 +66,12 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     if(i_Lower != f_None){ //i_Higher == f_None
 
         bbPool_Lookup(&Lower, pool, i_Lower);
-        Lower->p_Queue.Higher = f_None;
+        Lower->Next = f_None;
         Queue->m_Highest = i_Lower;
 
         //its nice to clean these up as they are returned to the pool
-        node->p_Queue.Higher = f_None;
-        node->p_Queue.Lower = f_None;
+        node->Next = f_None;
+        node->Prev = f_None;
         bbPool_Delete(pool, address);
 
         return f_Success;
@@ -78,12 +79,12 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     if(i_Higher != f_None){ //i_lower == f_None
 
         bbPool_Lookup(&Higher, pool, i_Higher);
-        Higher->p_Queue.Lower = f_None;
+        Higher->Prev = f_None;
         Queue->m_Lowest = i_Higher;
 
         //its nice to clean these up as they are returned to the pool
-        node->p_Queue.Higher = f_None;
-        node->p_Queue.Lower = f_None;
+        node->Next = f_None;
+        node->Prev = f_None;
         bbPool_Delete(pool, address);
 
         return f_Success;
@@ -93,8 +94,8 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     Queue->m_Lowest = f_None;
     Queue->m_Highest = f_None;
 
-    node->p_Queue.Lower = f_None;
-    node->p_Queue.Higher = f_None;
+    node->Prev = f_None;
+    node->Next = f_None;
 
     bbPool_Delete(pool, address);
 
@@ -103,7 +104,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
 I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node) {
 
     bbPool* pool = Queue->p_Pool;
-    bbPQNode* newNode;
+    bbPool_data* newNode;
     I32 flag = bbPool_Lookup(&newNode, pool, i_node);
 
 
@@ -112,56 +113,56 @@ I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node) {
     if (Queue->m_Highest == f_None) {
 
         bbAssert(Queue->m_Lowest == f_None, "head/tail mismatch");
-        Queue->m_Highest = newNode->p_Pool.Self;
-        Queue->m_Lowest = newNode->p_Pool.Self;
-        newNode->p_Queue.Higher = -1;
-        newNode->p_Queue.Lower = -1;
+        Queue->m_Highest = newNode->Self;
+        Queue->m_Lowest = newNode->Self;
+        newNode->Next = -1;
+        newNode->Prev = -1;
 
         return f_Success;
     }
 
-    bbPQNode *Highest;
+    bbPool_data* Highest;
     bbPool_Lookup(&Highest, pool, Queue->m_Highest);
 
-    if (Highest->p_Queue.Priority <= newNode->p_Queue.Priority){
+    if (Highest->Priority <= newNode->Priority){
         //insert newNode as next highest;
-        newNode->p_Queue.Higher = -1;
-        newNode->p_Queue.Lower = Highest->p_Pool.Self;
-        Highest->p_Queue.Higher = newNode->p_Pool.Self;
-        Queue->m_Highest = newNode->p_Pool.Self;
+        newNode->Next = -1;
+        newNode->Prev = Highest->Self;
+        Highest->Next = newNode->Self;
+        Queue->m_Highest = newNode->Self;
 
         return f_Success;
     }
-    bbPQNode* node;
+    bbPool_data* node;
 
-    bbPool_Lookup(&node, pool, Highest->p_Queue.Lower);
+    bbPool_Lookup(&node, pool, Highest->Prev);
 
     while(1) {
-        if (node->p_Queue.Priority <= newNode->p_Queue.Priority) {
+        if (node->Priority <= newNode->Priority) {
 
             //insert newNode after Next
-            bbPQNode* node2;
-            bbPool_Lookup(&node2, pool, node->p_Queue.Higher);
+            bbPool_data* node2;
+            bbPool_Lookup(&node2, pool, node->Next);
 
             //node < newNode < node2
 
-            node->p_Queue.Higher = newNode->p_Pool.Self;
-            newNode->p_Queue.Lower = node->p_Pool.Self;
-            newNode->p_Queue.Higher = node2->p_Pool.Self;
-            node2->p_Queue.Lower = newNode->p_Pool.Self;
+            node->Next = newNode->Self;
+            newNode->Prev = node->Self;
+            newNode->Next = node2->Self;
+            node2->Prev = newNode->Self;
 
 
 
             return f_Success;
         }
-        if (node->p_Queue.Lower == f_None) {
-            node->p_Queue.Lower = newNode->p_Pool.Self;
-            newNode->p_Queue.Higher = node->p_Pool.Self;
-            newNode->p_Queue.Lower = f_None;
-            Queue->m_Lowest = newNode->p_Pool.Self;
+        if (node->Prev == f_None) {
+            node->Prev = newNode->Self;
+            newNode->Next = node->Self;
+            newNode->Prev = f_None;
+            Queue->m_Lowest = newNode->Self;
             return f_Success;
         }
-        bbPool_Lookup(&node, pool, node->p_Queue.Lower);
+        bbPool_Lookup(&node, pool, node->Prev);
     }
 
 }
@@ -175,8 +176,8 @@ I32 bbPriorityQueue_ascendingSearch(void* RBR, bbPriorityQueue* queue, bbQueueFu
 
         flag = bbPool_Lookup(&node, pool, nodeInt);
         flag = myFunc(RBR, node);
-        nodeInt = node->p_PQNode.p_Queue.Higher;
-        if (flag == f_Delete) bbPQNode_delete(queue, node->p_PQNode.p_Pool.Self);
+        nodeInt = node->p_Node.Next;
+        if (flag == f_Delete) bbPQNode_delete(queue, node->p_Node.Self);
         if (flag == f_Break) break;
     }
     return f_Success;
@@ -186,7 +187,7 @@ I32 bbPriorityQueue_ascendingSearch(void* RBR, bbPriorityQueue* queue, bbQueueFu
 I32 bbQueueFunction_print(void* UNUSED, void* node){
 
     bbTestPQNode* testNode = node;
-    printf("NODE: Self = %d, Priority = %d\n", testNode->p_PQNode.p_Pool.Self, testNode->p_PQNode.p_Queue.Priority);
+    printf("NODE: Self = %d, Priority = %d\n", testNode->p_Node.Self, testNode->p_Node.Priority);
     return f_Success;
 }
 
@@ -195,8 +196,8 @@ I32 bbQueueFunction_timer(void* time_ptr, void* node){
     bbTestPQNode* testNode = node;
     timePtr* ptr = time_ptr;
     I32 time = ptr->time;
-    if (testNode->p_PQNode.p_Queue.Priority <= time){
-        printf("NODE: Self = %d, Time = %d\n", testNode->p_PQNode.p_Pool.Self, testNode->p_PQNode.p_Queue.Priority);
+    if (testNode->p_Node.Priority <= time){
+        printf("NODE: Self = %d, Time = %d\n", testNode->p_Node.Self, testNode->p_Node.Priority);
         return f_Delete;
     }
     return f_Break;

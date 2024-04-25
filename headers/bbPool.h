@@ -36,8 +36,11 @@ typedef struct {
 	I32 Self;
 	I32 Prev;
 	I32 Next;
+
+	//InUse == f_PoolNotInUse or InUse!= f_PoolNotInUse, can be used as an array index in an array of linked lists
 	I32 InUse;
 	I32 Map;
+	I32 Priority;
 } bbPool_data;
 
 typedef struct {
@@ -49,7 +52,7 @@ typedef struct {
 	I32 m_Map;
 	I32 m_SizeOf;
 	bbPool_bin m_Available;
-	bbPool_bin m_InUse;
+	bbPool_bin m_InUse; //In use drawables can be in any queue in bbQueue
 	I32 m_Level1;
 	I32 m_Level2;
 	void** m_Objects;

@@ -58,9 +58,12 @@ int main (void){
 
     bbFonts_new(&map->m_Fonts, NULL, 1);
 
+	bbHere();
 // ---------- Widgets  ---------- //
 
     bbWidgets_new(mapInt);
+
+	bbHere();
     //Needed to include RBR to prevent circular reference in header files
     bbWidgetTimer_new(&g_Game->m_Maps[mapInt]->m_WidgetTimer, mapInt);
     bbWidgetFunctions_new(mapInt);
@@ -71,6 +74,8 @@ int main (void){
     I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
     bbWidget* Decal;
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
+
+	bbHere();
     flag = bbWidget_new(&Decal, map->m_Widgets, type, f_None, SC0);
     bbDebug("flag4 = %d\n", flag);
 

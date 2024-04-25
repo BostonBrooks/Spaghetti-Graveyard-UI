@@ -8,14 +8,14 @@
 #define BBWIDGETTIMER_H
 
 #include "headers/bbIntTypes.h"
-#include "headers/bbPriorityQueue.h"
+#include "headers/bbDeque.h"
 
 
 ///bbWidgetTimer is a wrapper for bbPriorityQueue
 typedef bbPriorityQueue bbWidgetTimer;
 
 typedef struct{
-    bbPQNode p_PQNode;
+    bbPool_data p_Node;
     I32 i_widget;
     I32 f_message;
 } bbWidgetTimerNode;

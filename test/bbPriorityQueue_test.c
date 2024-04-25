@@ -1,4 +1,4 @@
-#include "headers/bbPriorityQueue.h"
+#include "headers/bbDeque.h"
 #include "headers/bbPrintf.h"
 
 #include <stdio.h>

@@ -17,7 +17,7 @@
 #include "headers/bbPool.h"
 
 
-
+/*
 typedef struct {
     I32 Higher;
     I32 Lower;
@@ -29,10 +29,10 @@ typedef struct {
     bbPool_data p_Pool;
     bbPQ_data p_Queue;
 } bbPQNode;
-
+*/
 
 typedef struct {
-    bbPQNode p_PQNode;
+    bbPool_data p_Node;
     char* m_string;
     I32 m_integer;
 } bbTestPQNode;
@@ -52,7 +52,7 @@ typedef struct {
 I32 bbPriorityQueue_new(void** RBR, I32 map, I32 SizeOf, I32 level1, I32 Level2);
 
 ///new priority queue uses objects in existing pool
-I32 bbPriorityQueue_existingPool(bbPool* pool);
+I32 bbPriorityQueue_existingPool(void** RBR, bbPool* pool);
 
 ///wrapper to bbPool_New
 I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address);
