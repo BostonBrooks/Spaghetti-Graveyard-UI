@@ -77,9 +77,14 @@ $(function() {
 
 <p><a class="el" href="structbbWidgets.html">bbWidgets</a> are things like menu buttons, text prompts, click to cast spells etc.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &quot;<a class="el" href="bbPool_8h_source.html">headers/bbPool.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="bbSystemIncludes_8h_source.html">headers/bbSystemIncludes.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbPool_8h_source.html">headers/bbPool.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbTree_8h_source.html">headers/bbTree.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbDictionary_8h_source.html">headers/bbDictionary.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbGeometry_8h_source.html">headers/bbGeometry.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbMouse_8h_source.html">headers/bbMouse.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbIntTypes_8h_source.html">headers/bbIntTypes.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbWidget.h:</div>
 <div class="dyncontent">
@@ -104,68 +109,75 @@ Data Structures</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ab907ab2858db208fd57a9dec628d4fed"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ab907ab2858db208fd57a9dec628d4fed">f_WidgetConstructor</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ab907ab2858db208fd57a9dec628d4fed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae3328c82e485c3e2bbf010097560c6e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#aae3328c82e485c3e2bbf010097560c6e">f_WidgetDrawFunction</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:aae3328c82e485c3e2bbf010097560c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7a82fc79429870560b0a2226a4b9600c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a7a82fc79429870560b0a2226a4b9600c">f_WidgetDestructor</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a7a82fc79429870560b0a2226a4b9600c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90c5fee323d149e166907fe176e7fea6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a90c5fee323d149e166907fe176e7fea6">f_WidgetOnCommand</a>&#160;&#160;&#160;3</td></tr>
-<tr class="separator:a90c5fee323d149e166907fe176e7fea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b92537676ef17cd19bca7d5ffce0867"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a5b92537676ef17cd19bca7d5ffce0867">f_WidgetAnimationDraw</a>&#160;&#160;&#160;4</td></tr>
-<tr class="separator:a5b92537676ef17cd19bca7d5ffce0867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b0979fe450a8f470c98a5c18f33ca11"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a0b0979fe450a8f470c98a5c18f33ca11">subwidgetarraysize</a>&#160;&#160;&#160;8</td></tr>
+<tr class="separator:a0b0979fe450a8f470c98a5c18f33ca11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a953f739592f81b8a17b1106dd3783440"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a953f739592f81b8a17b1106dd3783440">f_WidgetConstructor</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:a953f739592f81b8a17b1106dd3783440"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8c4c1dd3615ff9dfbb7034b802c30a7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ab8c4c1dd3615ff9dfbb7034b802c30a7">f_WidgetUpdate</a>&#160;&#160;&#160;1</td></tr>
+<tr class="separator:ab8c4c1dd3615ff9dfbb7034b802c30a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af41630f6a38fed7e833f7668f7f7dcbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#af41630f6a38fed7e833f7668f7f7dcbc">f_WidgetDestructor</a>&#160;&#160;&#160;2</td></tr>
+<tr class="separator:af41630f6a38fed7e833f7668f7f7dcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27d67527f78666242ad95c0b73c74f0e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a27d67527f78666242ad95c0b73c74f0e">f_WidgetOnCommand</a>&#160;&#160;&#160;3</td></tr>
+<tr class="separator:a27d67527f78666242ad95c0b73c74f0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24bb1cde50d730b952847bcae2969b56"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a24bb1cde50d730b952847bcae2969b56">f_WidgetDrawFunction</a>&#160;&#160;&#160;4</td></tr>
+<tr class="separator:a24bb1cde50d730b952847bcae2969b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac24900725193c5d26e2a82c2e4442814"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ac24900725193c5d26e2a82c2e4442814">f_WidgetMouseHandler</a>&#160;&#160;&#160;5</td></tr>
+<tr class="separator:ac24900725193c5d26e2a82c2e4442814"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b01d36f9e67423e658874edb928baa6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a6b01d36f9e67423e658874edb928baa6">f_WidgetOnTimer</a>&#160;&#160;&#160;6</td></tr>
+<tr class="separator:a6b01d36f9e67423e658874edb928baa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:aa45af0f7fe1a393a71da85e1e1587c69"><td class="memItemLeft" align="right" valign="top">typedef int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#aa45af0f7fe1a393a71da85e1e1587c69">bbWidget_Constructor</a>(<a class="el" href="structbbWidget.html">bbWidget</a> **reference, struct <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> screen_coords, int32_t parent)</td></tr>
-<tr class="separator:aa45af0f7fe1a393a71da85e1e1587c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0dc8f2cb85b50e569c1d00a05934480"><td class="memItemLeft" align="right" valign="top">typedef int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ae0dc8f2cb85b50e569c1d00a05934480">bbWidget_DrawFunction</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="separator:ae0dc8f2cb85b50e569c1d00a05934480"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4d8d8df002b62d7bad7943e6af7e3e5"><td class="memItemLeft" align="right" valign="top">typedef int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ab4d8d8df002b62d7bad7943e6af7e3e5">bbWidget_Destructor</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="separator:ab4d8d8df002b62d7bad7943e6af7e3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a619fb734f998a478254c1970f3314910"><td class="memItemLeft" align="right" valign="top">typedef int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a619fb734f998a478254c1970f3314910">bbWidget_OnCommand</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t command, void *data)</td></tr>
-<tr class="separator:a619fb734f998a478254c1970f3314910"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c6a8bbd5a1dea870eab637176cdfb70"><td class="memItemLeft" align="right" valign="top">typedef int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a1c6a8bbd5a1dea870eab637176cdfb70">bbWidget_AnimationDraw</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t i)</td></tr>
-<tr class="separator:a1c6a8bbd5a1dea870eab637176cdfb70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d5087d9d14cae26da71665f88b0e496"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a0d5087d9d14cae26da71665f88b0e496">bbWidget_Constructor</a>(<a class="el" href="structbbWidget.html">bbWidget</a> **reference, void *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> screen_coords, <a class="el" href="structbbWidget.html">bbWidget</a> *parent)</td></tr>
+<tr class="separator:a0d5087d9d14cae26da71665f88b0e496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68aea43fcdb066d3fbcd1dc1d2c8e645"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a68aea43fcdb066d3fbcd1dc1d2c8e645">bbWidget_Update</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *unused)</td></tr>
+<tr class="separator:a68aea43fcdb066d3fbcd1dc1d2c8e645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14e0fd17d95afe479f6a1b78084d94e"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ae14e0fd17d95afe479f6a1b78084d94e">bbWidget_Destructor</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *unused)</td></tr>
+<tr class="separator:ae14e0fd17d95afe479f6a1b78084d94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacefd49260b042ad8274c866f2ac5b66"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#aacefd49260b042ad8274c866f2ac5b66">bbWidget_OnCommand</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *data)</td></tr>
+<tr class="separator:aacefd49260b042ad8274c866f2ac5b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a679d7efdd5ced3f893d3f1088147b0cd"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a679d7efdd5ced3f893d3f1088147b0cd">bbWidget_DrawFunction</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> i)</td></tr>
+<tr class="separator:a679d7efdd5ced3f893d3f1088147b0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a553675282c84496e71f591847535374f"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a553675282c84496e71f591847535374f">bbWidget_Mouse</a>(void *void_mouseEvent, void *void_widget)</td></tr>
+<tr class="separator:a553675282c84496e71f591847535374f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af02465d036670ecdd2276cb08e08d446"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#af02465d036670ecdd2276cb08e08d446">bbWidget_OnTimer</a>(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *void_timerNode)</td></tr>
+<tr class="separator:af02465d036670ecdd2276cb08e08d446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ade0fae7b9c0178b21725665a7b85200f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ade0fae7b9c0178b21725665a7b85200f">bbWidgets_new</a> (int32_t map)</td></tr>
-<tr class="separator:ade0fae7b9c0178b21725665a7b85200f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af458aa69f4072cdedfc1453f1a01ae98"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#af458aa69f4072cdedfc1453f1a01ae98">bbWidgetFunctions_new</a> (int32_t map)</td></tr>
-<tr class="separator:af458aa69f4072cdedfc1453f1a01ae98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b1e1d075ed93daf5376e04585bd5d99"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a7b1e1d075ed93daf5376e04585bd5d99">bbWidgetFunctions_populate</a> (int32_t map)</td></tr>
-<tr class="separator:a7b1e1d075ed93daf5376e04585bd5d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8012b6298081b6223a55ea7ceb952e5"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ad8012b6298081b6223a55ea7ceb952e5">bbWidgetFunctions_add</a> (<a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, int32_t bin, void *pointer, char *key)</td></tr>
-<tr class="separator:ad8012b6298081b6223a55ea7ceb952e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a940f58973b81e648411e78def787a1d5"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a940f58973b81e648411e78def787a1d5">bbWidgetFunctions_getFunction</a> (void **function, <a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, int32_t bin, char *key)</td></tr>
-<tr class="separator:a940f58973b81e648411e78def787a1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6f4e83dc28bc4e3738fb18b3bafcd96"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ab6f4e83dc28bc4e3738fb18b3bafcd96">bbWidgetFunctions_getInt</a> (<a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, int32_t bin, char *key)</td></tr>
-<tr class="separator:ab6f4e83dc28bc4e3738fb18b3bafcd96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0bf3a529b57a8c872f0e62fa4958fac"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ad0bf3a529b57a8c872f0e62fa4958fac">bbWidget_new</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **self, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, int32_t type, int32_t parent)</td></tr>
-<tr class="separator:ad0bf3a529b57a8c872f0e62fa4958fac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782611836c8d3aab5c1bc4708ca8d283"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a782611836c8d3aab5c1bc4708ca8d283">bbWidget_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="separator:a782611836c8d3aab5c1bc4708ca8d283"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a676078a664f0fddf109d10a324bc943c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a676078a664f0fddf109d10a324bc943c">bbWidgets_new</a> (<a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> map)</td></tr>
+<tr class="separator:a676078a664f0fddf109d10a324bc943c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e641fdfc8693ecbe4af521a2fdac105"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a5e641fdfc8693ecbe4af521a2fdac105">bbWidgetFunctions_new</a> (<a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> map)</td></tr>
+<tr class="separator:a5e641fdfc8693ecbe4af521a2fdac105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a33cbcb4d21f45e7dfd5f8d4597e6106a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a33cbcb4d21f45e7dfd5f8d4597e6106a">bbWidgetFunctions_populate</a> (<a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> map)</td></tr>
+<tr class="separator:a33cbcb4d21f45e7dfd5f8d4597e6106a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc9ca32a52e372b85a9c8fd84bea4446"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#abc9ca32a52e372b85a9c8fd84bea4446">bbWidgetFunctions_add</a> (<a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bin, void *pointer, char *key)</td></tr>
+<tr class="separator:abc9ca32a52e372b85a9c8fd84bea4446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a343d57005afcfd649049096c07ec56ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a343d57005afcfd649049096c07ec56ee">bbWidgetFunctions_getFunction</a> (void **function, <a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bin, char *key)</td></tr>
+<tr class="separator:a343d57005afcfd649049096c07ec56ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e0c38978adbcc7a422c76fa04179532"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a1e0c38978adbcc7a422c76fa04179532">bbWidgetFunctions_getInt</a> (<a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *WFS, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bin, char *key)</td></tr>
+<tr class="separator:a1e0c38978adbcc7a422c76fa04179532"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c260ad76b1c4ebea7a7a723a2cc0bb0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a5c260ad76b1c4ebea7a7a723a2cc0bb0">bbWidget_new</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **self, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> type, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> parent, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> SCI)</td></tr>
+<tr class="separator:a5c260ad76b1c4ebea7a7a723a2cc0bb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afac133fc28de3f62a0380fa4b389a1d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#afac133fc28de3f62a0380fa4b389a1d0">bbWidget_draw</a> (void *void_unused, void *void_widget)</td></tr>
+<tr class="separator:afac133fc28de3f62a0380fa4b389a1d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7e04c7db8cbd56a18140ae3a0b6b860"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#ae7e04c7db8cbd56a18140ae3a0b6b860">bbWidget_mouse</a> (void *void_mouseEvent, void *void_widget)</td></tr>
+<tr class="separator:ae7e04c7db8cbd56a18140ae3a0b6b860"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ec797cb5e89060be07cdfc7efdcedf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a6ec797cb5e89060be07cdfc7efdcedf5">bbWidget_onCommand</a> (void *command, void *void_widget)</td></tr>
+<tr class="separator:a6ec797cb5e89060be07cdfc7efdcedf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643214618b5d2fe1aeabe8388fb00f0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a643214618b5d2fe1aeabe8388fb00f0d">bbWidget_onUpdate</a> (void *unused, void *void_widget)</td></tr>
+<tr class="separator:a643214618b5d2fe1aeabe8388fb00f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e45c8625776b20a0781094ff20ec26c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a6e45c8625776b20a0781094ff20ec26c">bbWidget_onTimer</a> (void *void_timerNode, void *void_widget)</td></tr>
+<tr class="separator:a6e45c8625776b20a0781094ff20ec26c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1952bccab9477db4b68f5e8517f4aa02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbWidget_8h.html#a1952bccab9477db4b68f5e8517f4aa02">bbWidget_empty_new</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **reference, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc, <a class="el" href="structbbWidget.html">bbWidget</a> *parent)</td></tr>
+<tr class="memdesc:a1952bccab9477db4b68f5e8517f4aa02"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the default values and add to tree data structure  <a href="bbWidget_8h.html#a1952bccab9477db4b68f5e8517f4aa02">More...</a><br /></td></tr>
+<tr class="separator:a1952bccab9477db4b68f5e8517f4aa02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p ><a class="el" href="structbbWidgets.html">bbWidgets</a> are things like menu buttons, text prompts, click to cast spells etc. </p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a5b92537676ef17cd19bca7d5ffce0867" name="a5b92537676ef17cd19bca7d5ffce0867"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b92537676ef17cd19bca7d5ffce0867">&#9670;&nbsp;</a></span>f_WidgetAnimationDraw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define f_WidgetAnimationDraw&#160;&#160;&#160;4</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab907ab2858db208fd57a9dec628d4fed" name="ab907ab2858db208fd57a9dec628d4fed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab907ab2858db208fd57a9dec628d4fed">&#9670;&nbsp;</a></span>f_WidgetConstructor</h2>
+<a id="a953f739592f81b8a17b1106dd3783440" name="a953f739592f81b8a17b1106dd3783440"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a953f739592f81b8a17b1106dd3783440">&#9670;&nbsp;</a></span>f_WidgetConstructor</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,8 +190,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7a82fc79429870560b0a2226a4b9600c" name="a7a82fc79429870560b0a2226a4b9600c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a82fc79429870560b0a2226a4b9600c">&#9670;&nbsp;</a></span>f_WidgetDestructor</h2>
+<a id="af41630f6a38fed7e833f7668f7f7dcbc" name="af41630f6a38fed7e833f7668f7f7dcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af41630f6a38fed7e833f7668f7f7dcbc">&#9670;&nbsp;</a></span>f_WidgetDestructor</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,22 +204,36 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aae3328c82e485c3e2bbf010097560c6e" name="aae3328c82e485c3e2bbf010097560c6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aae3328c82e485c3e2bbf010097560c6e">&#9670;&nbsp;</a></span>f_WidgetDrawFunction</h2>
+<a id="a24bb1cde50d730b952847bcae2969b56" name="a24bb1cde50d730b952847bcae2969b56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24bb1cde50d730b952847bcae2969b56">&#9670;&nbsp;</a></span>f_WidgetDrawFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define f_WidgetDrawFunction&#160;&#160;&#160;1</td>
+          <td class="memname">#define f_WidgetDrawFunction&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a90c5fee323d149e166907fe176e7fea6" name="a90c5fee323d149e166907fe176e7fea6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90c5fee323d149e166907fe176e7fea6">&#9670;&nbsp;</a></span>f_WidgetOnCommand</h2>
+<a id="ac24900725193c5d26e2a82c2e4442814" name="ac24900725193c5d26e2a82c2e4442814"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac24900725193c5d26e2a82c2e4442814">&#9670;&nbsp;</a></span>f_WidgetMouseHandler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define f_WidgetMouseHandler&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a27d67527f78666242ad95c0b73c74f0e" name="a27d67527f78666242ad95c0b73c74f0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27d67527f78666242ad95c0b73c74f0e">&#9670;&nbsp;</a></span>f_WidgetOnCommand</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -220,71 +246,141 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a6b01d36f9e67423e658874edb928baa6" name="a6b01d36f9e67423e658874edb928baa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b01d36f9e67423e658874edb928baa6">&#9670;&nbsp;</a></span>f_WidgetOnTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define f_WidgetOnTimer&#160;&#160;&#160;6</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab8c4c1dd3615ff9dfbb7034b802c30a7" name="ab8c4c1dd3615ff9dfbb7034b802c30a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8c4c1dd3615ff9dfbb7034b802c30a7">&#9670;&nbsp;</a></span>f_WidgetUpdate</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define f_WidgetUpdate&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0b0979fe450a8f470c98a5c18f33ca11" name="a0b0979fe450a8f470c98a5c18f33ca11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b0979fe450a8f470c98a5c18f33ca11">&#9670;&nbsp;</a></span>subwidgetarraysize</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define subwidgetarraysize&#160;&#160;&#160;8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a1c6a8bbd5a1dea870eab637176cdfb70" name="a1c6a8bbd5a1dea870eab637176cdfb70"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c6a8bbd5a1dea870eab637176cdfb70">&#9670;&nbsp;</a></span>bbWidget_AnimationDraw</h2>
+<a id="a0d5087d9d14cae26da71665f88b0e496" name="a0d5087d9d14cae26da71665f88b0e496"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5087d9d14cae26da71665f88b0e496">&#9670;&nbsp;</a></span>bbWidget_Constructor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int32_t bbWidget_AnimationDraw(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t i)</td>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Constructor(<a class="el" href="structbbWidget.html">bbWidget</a> **reference, void *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> screen_coords, <a class="el" href="structbbWidget.html">bbWidget</a> *parent)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="aa45af0f7fe1a393a71da85e1e1587c69" name="aa45af0f7fe1a393a71da85e1e1587c69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa45af0f7fe1a393a71da85e1e1587c69">&#9670;&nbsp;</a></span>bbWidget_Constructor</h2>
+<a id="ae14e0fd17d95afe479f6a1b78084d94e" name="ae14e0fd17d95afe479f6a1b78084d94e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae14e0fd17d95afe479f6a1b78084d94e">&#9670;&nbsp;</a></span>bbWidget_Destructor</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int32_t bbWidget_Constructor(<a class="el" href="structbbWidget.html">bbWidget</a> **reference, struct <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> screen_coords, int32_t parent)</td>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Destructor(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *unused)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ab4d8d8df002b62d7bad7943e6af7e3e5" name="ab4d8d8df002b62d7bad7943e6af7e3e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4d8d8df002b62d7bad7943e6af7e3e5">&#9670;&nbsp;</a></span>bbWidget_Destructor</h2>
+<a id="a679d7efdd5ced3f893d3f1088147b0cd" name="a679d7efdd5ced3f893d3f1088147b0cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a679d7efdd5ced3f893d3f1088147b0cd">&#9670;&nbsp;</a></span>bbWidget_DrawFunction</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int32_t bbWidget_Destructor(<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_DrawFunction(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> i)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ae0dc8f2cb85b50e569c1d00a05934480" name="ae0dc8f2cb85b50e569c1d00a05934480"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0dc8f2cb85b50e569c1d00a05934480">&#9670;&nbsp;</a></span>bbWidget_DrawFunction</h2>
+<a id="a553675282c84496e71f591847535374f" name="a553675282c84496e71f591847535374f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a553675282c84496e71f591847535374f">&#9670;&nbsp;</a></span>bbWidget_Mouse</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int32_t bbWidget_DrawFunction(<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Mouse(void *void_mouseEvent, void *void_widget)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a619fb734f998a478254c1970f3314910" name="a619fb734f998a478254c1970f3314910"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a619fb734f998a478254c1970f3314910">&#9670;&nbsp;</a></span>bbWidget_OnCommand</h2>
+<a id="aacefd49260b042ad8274c866f2ac5b66" name="aacefd49260b042ad8274c866f2ac5b66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacefd49260b042ad8274c866f2ac5b66">&#9670;&nbsp;</a></span>bbWidget_OnCommand</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int32_t bbWidget_OnCommand(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t command, void *data)</td>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_OnCommand(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af02465d036670ecdd2276cb08e08d446" name="af02465d036670ecdd2276cb08e08d446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af02465d036670ecdd2276cb08e08d446">&#9670;&nbsp;</a></span>bbWidget_OnTimer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_OnTimer(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *void_timerNode)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a68aea43fcdb066d3fbcd1dc1d2c8e645" name="a68aea43fcdb066d3fbcd1dc1d2c8e645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68aea43fcdb066d3fbcd1dc1d2c8e645">&#9670;&nbsp;</a></span>bbWidget_Update</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Update(<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *unused)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -292,32 +388,112 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a782611836c8d3aab5c1bc4708ca8d283" name="a782611836c8d3aab5c1bc4708ca8d283"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a782611836c8d3aab5c1bc4708ca8d283">&#9670;&nbsp;</a></span>bbWidget_draw()</h2>
+<a id="afac133fc28de3f62a0380fa4b389a1d0" name="afac133fc28de3f62a0380fa4b389a1d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afac133fc28de3f62a0380fa4b389a1d0">&#9670;&nbsp;</a></span>bbWidget_draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_draw </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_draw </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_unused</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="ad0bf3a529b57a8c872f0e62fa4958fac" name="ad0bf3a529b57a8c872f0e62fa4958fac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0bf3a529b57a8c872f0e62fa4958fac">&#9670;&nbsp;</a></span>bbWidget_new()</h2>
+<a id="a1952bccab9477db4b68f5e8517f4aa02" name="a1952bccab9477db4b68f5e8517f4aa02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1952bccab9477db4b68f5e8517f4aa02">&#9670;&nbsp;</a></span>bbWidget_empty_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_new </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_empty_new </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> **&#160;</td>
+          <td class="paramname"><em>reference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbWidgets.html">bbWidgets</a> *&#160;</td>
+          <td class="paramname"><em>widgets</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td>
+          <td class="paramname"><em>sc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>parent</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>set the default values and add to tree data structure </p>
+
+</div>
+</div>
+<a id="ae7e04c7db8cbd56a18140ae3a0b6b860" name="ae7e04c7db8cbd56a18140ae3a0b6b860"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7e04c7db8cbd56a18140ae3a0b6b860">&#9670;&nbsp;</a></span>bbWidget_mouse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_mouse </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_mouseEvent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5c260ad76b1c4ebea7a7a723a2cc0bb0" name="a5c260ad76b1c4ebea7a7a723a2cc0bb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c260ad76b1c4ebea7a7a723a2cc0bb0">&#9670;&nbsp;</a></span>bbWidget_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_new </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> **&#160;</td>
           <td class="paramname"><em>self</em>, </td>
@@ -331,14 +507,20 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>type</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>parent</em>&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
+          <td class="paramname"><em>parent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a>&#160;</td>
+          <td class="paramname"><em>SCI</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -350,14 +532,98 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad8012b6298081b6223a55ea7ceb952e5" name="ad8012b6298081b6223a55ea7ceb952e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8012b6298081b6223a55ea7ceb952e5">&#9670;&nbsp;</a></span>bbWidgetFunctions_add()</h2>
+<a id="a6ec797cb5e89060be07cdfc7efdcedf5" name="a6ec797cb5e89060be07cdfc7efdcedf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ec797cb5e89060be07cdfc7efdcedf5">&#9670;&nbsp;</a></span>bbWidget_onCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgetFunctions_add </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_onCommand </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e45c8625776b20a0781094ff20ec26c" name="a6e45c8625776b20a0781094ff20ec26c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e45c8625776b20a0781094ff20ec26c">&#9670;&nbsp;</a></span>bbWidget_onTimer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_onTimer </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_timerNode</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a643214618b5d2fe1aeabe8388fb00f0d" name="a643214618b5d2fe1aeabe8388fb00f0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a643214618b5d2fe1aeabe8388fb00f0d">&#9670;&nbsp;</a></span>bbWidget_onUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_onUpdate </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>unused</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc9ca32a52e372b85a9c8fd84bea4446" name="abc9ca32a52e372b85a9c8fd84bea4446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc9ca32a52e372b85a9c8fd84bea4446">&#9670;&nbsp;</a></span>bbWidgetFunctions_add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetFunctions_add </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *&#160;</td>
           <td class="paramname"><em>WFS</em>, </td>
@@ -365,7 +631,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>bin</em>, </td>
         </tr>
         <tr>
@@ -390,14 +656,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a940f58973b81e648411e78def787a1d5" name="a940f58973b81e648411e78def787a1d5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a940f58973b81e648411e78def787a1d5">&#9670;&nbsp;</a></span>bbWidgetFunctions_getFunction()</h2>
+<a id="a343d57005afcfd649049096c07ec56ee" name="a343d57005afcfd649049096c07ec56ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a343d57005afcfd649049096c07ec56ee">&#9670;&nbsp;</a></span>bbWidgetFunctions_getFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgetFunctions_getFunction </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetFunctions_getFunction </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
           <td class="paramname"><em>function</em>, </td>
@@ -411,7 +677,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>bin</em>, </td>
         </tr>
         <tr>
@@ -430,14 +696,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab6f4e83dc28bc4e3738fb18b3bafcd96" name="ab6f4e83dc28bc4e3738fb18b3bafcd96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6f4e83dc28bc4e3738fb18b3bafcd96">&#9670;&nbsp;</a></span>bbWidgetFunctions_getInt()</h2>
+<a id="a1e0c38978adbcc7a422c76fa04179532" name="a1e0c38978adbcc7a422c76fa04179532"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e0c38978adbcc7a422c76fa04179532">&#9670;&nbsp;</a></span>bbWidgetFunctions_getInt()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgetFunctions_getInt </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetFunctions_getInt </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidgetFunctions.html">bbWidgetFunctions</a> *&#160;</td>
           <td class="paramname"><em>WFS</em>, </td>
@@ -445,7 +711,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>bin</em>, </td>
         </tr>
         <tr>
@@ -464,16 +730,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af458aa69f4072cdedfc1453f1a01ae98" name="af458aa69f4072cdedfc1453f1a01ae98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af458aa69f4072cdedfc1453f1a01ae98">&#9670;&nbsp;</a></span>bbWidgetFunctions_new()</h2>
+<a id="a5e641fdfc8693ecbe4af521a2fdac105" name="a5e641fdfc8693ecbe4af521a2fdac105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e641fdfc8693ecbe4af521a2fdac105">&#9670;&nbsp;</a></span>bbWidgetFunctions_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgetFunctions_new </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetFunctions_new </td>
           <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
           <td></td>
         </tr>
@@ -482,16 +748,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7b1e1d075ed93daf5376e04585bd5d99" name="a7b1e1d075ed93daf5376e04585bd5d99"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b1e1d075ed93daf5376e04585bd5d99">&#9670;&nbsp;</a></span>bbWidgetFunctions_populate()</h2>
+<a id="a33cbcb4d21f45e7dfd5f8d4597e6106a" name="a33cbcb4d21f45e7dfd5f8d4597e6106a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33cbcb4d21f45e7dfd5f8d4597e6106a">&#9670;&nbsp;</a></span>bbWidgetFunctions_populate()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgetFunctions_populate </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetFunctions_populate </td>
           <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
           <td></td>
         </tr>
@@ -500,16 +766,16 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ade0fae7b9c0178b21725665a7b85200f" name="ade0fae7b9c0178b21725665a7b85200f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade0fae7b9c0178b21725665a7b85200f">&#9670;&nbsp;</a></span>bbWidgets_new()</h2>
+<a id="a676078a664f0fddf109d10a324bc943c" name="a676078a664f0fddf109d10a324bc943c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a676078a664f0fddf109d10a324bc943c">&#9670;&nbsp;</a></span>bbWidgets_new()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidgets_new </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgets_new </td>
           <td>(</td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>map</em></td><td>)</td>
           <td></td>
         </tr>

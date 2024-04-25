@@ -67,7 +67,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">fireworks.h File Reference</div></div>
 </div><!--header-->
@@ -80,6 +79,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="bbWidget_8h_source.html">headers/bbWidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbGame_8h_source.html">headers/bbGame.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbMap_8h_source.html">headers/bbMap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbIntTypes_8h_source.html">headers/bbIntTypes.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for fireworks.h:</div>
 <div class="dyncontent">
@@ -88,55 +88,35 @@ Include dependency graph for fireworks.h:</div>
 </div>
 <p><a href="fireworks_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:abb6522d51de3e9c23b8a249339abebd1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#abb6522d51de3e9c23b8a249339abebd1">BBDEBUG</a></td></tr>
-<tr class="separator:abb6522d51de3e9c23b8a249339abebd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac74182a2ee7b37c71996d636c3b8b517"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#ac74182a2ee7b37c71996d636c3b8b517">bbWidget_Fireworks_new</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **reference, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc, int32_t parent)</td></tr>
-<tr class="memdesc:ac74182a2ee7b37c71996d636c3b8b517"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn a null widget on selected map at coordinates mc.  <a href="fireworks_8h.html#ac74182a2ee7b37c71996d636c3b8b517">More...</a><br /></td></tr>
-<tr class="separator:ac74182a2ee7b37c71996d636c3b8b517"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab767bb2f5a3bc4edb47e350888b6270f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#ab767bb2f5a3bc4edb47e350888b6270f">bbWidget_Fireworks_update</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:ab767bb2f5a3bc4edb47e350888b6270f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget.  <a href="fireworks_8h.html#ab767bb2f5a3bc4edb47e350888b6270f">More...</a><br /></td></tr>
-<tr class="separator:ab767bb2f5a3bc4edb47e350888b6270f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec27429296a71cdf0d9b908843b882e0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#aec27429296a71cdf0d9b908843b882e0">bbWidget_Fireworks_onCommand</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t command, void *data)</td></tr>
-<tr class="memdesc:aec27429296a71cdf0d9b908843b882e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="fireworks_8h.html#aec27429296a71cdf0d9b908843b882e0">More...</a><br /></td></tr>
-<tr class="separator:aec27429296a71cdf0d9b908843b882e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a096cdaa54c6c32abbd69966ec416dd3d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a096cdaa54c6c32abbd69966ec416dd3d">bbWidget_Fireworks_delete</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a096cdaa54c6c32abbd69966ec416dd3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="fireworks_8h.html#a096cdaa54c6c32abbd69966ec416dd3d">More...</a><br /></td></tr>
-<tr class="separator:a096cdaa54c6c32abbd69966ec416dd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79f6798f3ae358027ba31a23a2006fab"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a79f6798f3ae358027ba31a23a2006fab">bbWidget_Fireworks_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a79f6798f3ae358027ba31a23a2006fab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="fireworks_8h.html#a79f6798f3ae358027ba31a23a2006fab">More...</a><br /></td></tr>
-<tr class="separator:a79f6798f3ae358027ba31a23a2006fab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05d8e46793b3954387b3902196d3c3e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a05d8e46793b3954387b3902196d3c3e4">bbWidgetNew_Fireworks</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **reference, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc, <a class="el" href="structbbWidget.html">bbWidget</a> *parent)</td></tr>
+<tr class="memdesc:a05d8e46793b3954387b3902196d3c3e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn a null widget on selected map at coordinates mc.  <a href="fireworks_8h.html#a05d8e46793b3954387b3902196d3c3e4">More...</a><br /></td></tr>
+<tr class="separator:a05d8e46793b3954387b3902196d3c3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf1edc2f1101d2783098f4b3f90ca2bc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#abf1edc2f1101d2783098f4b3f90ca2bc">bbWidget_fireworks_update</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:abf1edc2f1101d2783098f4b3f90ca2bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget.  <a href="fireworks_8h.html#abf1edc2f1101d2783098f4b3f90ca2bc">More...</a><br /></td></tr>
+<tr class="separator:abf1edc2f1101d2783098f4b3f90ca2bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c7dbabe8c375801ff92e57edfe1416c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a2c7dbabe8c375801ff92e57edfe1416c">bbWidget_fireworks_onCommand</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *command)</td></tr>
+<tr class="memdesc:a2c7dbabe8c375801ff92e57edfe1416c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="fireworks_8h.html#a2c7dbabe8c375801ff92e57edfe1416c">More...</a><br /></td></tr>
+<tr class="separator:a2c7dbabe8c375801ff92e57edfe1416c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c5f0e18533cc433728609e02e1af0bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a3c5f0e18533cc433728609e02e1af0bf">bbWidget_fireworks_delete</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:a3c5f0e18533cc433728609e02e1af0bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="fireworks_8h.html#a3c5f0e18533cc433728609e02e1af0bf">More...</a><br /></td></tr>
+<tr class="separator:a3c5f0e18533cc433728609e02e1af0bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89ab38a4819a70cada8569cb0230ecda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="fireworks_8h.html#a89ab38a4819a70cada8569cb0230ecda">bbWidget_fireworks_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:a89ab38a4819a70cada8569cb0230ecda"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="fireworks_8h.html#a89ab38a4819a70cada8569cb0230ecda">More...</a><br /></td></tr>
+<tr class="separator:a89ab38a4819a70cada8569cb0230ecda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The functions in this folder define the behavior of an object with class <a class="el" href="structbbWidget.html">bbWidget</a> and type fireworks. </p>
-</div><h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="abb6522d51de3e9c23b8a249339abebd1" name="abb6522d51de3e9c23b8a249339abebd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abb6522d51de3e9c23b8a249339abebd1">&#9670;&nbsp;</a></span>BBDEBUG</h2>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3c5f0e18533cc433728609e02e1af0bf" name="a3c5f0e18533cc433728609e02e1af0bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c5f0e18533cc433728609e02e1af0bf">&#9670;&nbsp;</a></span>bbWidget_fireworks_delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define BBDEBUG</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a096cdaa54c6c32abbd69966ec416dd3d" name="a096cdaa54c6c32abbd69966ec416dd3d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a096cdaa54c6c32abbd69966ec416dd3d">&#9670;&nbsp;</a></span>bbWidget_Fireworks_delete()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget_Fireworks_delete </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_fireworks_delete </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -149,14 +129,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a79f6798f3ae358027ba31a23a2006fab" name="a79f6798f3ae358027ba31a23a2006fab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a79f6798f3ae358027ba31a23a2006fab">&#9670;&nbsp;</a></span>bbWidget_Fireworks_draw()</h2>
+<a id="a89ab38a4819a70cada8569cb0230ecda" name="a89ab38a4819a70cada8569cb0230ecda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89ab38a4819a70cada8569cb0230ecda">&#9670;&nbsp;</a></span>bbWidget_fireworks_draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_Fireworks_draw </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_fireworks_draw </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -169,14 +149,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ac74182a2ee7b37c71996d636c3b8b517" name="ac74182a2ee7b37c71996d636c3b8b517"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac74182a2ee7b37c71996d636c3b8b517">&#9670;&nbsp;</a></span>bbWidget_Fireworks_new()</h2>
+<a id="a2c7dbabe8c375801ff92e57edfe1416c" name="a2c7dbabe8c375801ff92e57edfe1416c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c7dbabe8c375801ff92e57edfe1416c">&#9670;&nbsp;</a></span>bbWidget_fireworks_onCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_Fireworks_new </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_fireworks_onCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a command to the widget / update widget, etc. </p>
+
+</div>
+</div>
+<a id="abf1edc2f1101d2783098f4b3f90ca2bc" name="abf1edc2f1101d2783098f4b3f90ca2bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf1edc2f1101d2783098f4b3f90ca2bc">&#9670;&nbsp;</a></span>bbWidget_fireworks_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_fireworks_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update widget. </p>
+
+</div>
+</div>
+<a id="a05d8e46793b3954387b3902196d3c3e4" name="a05d8e46793b3954387b3902196d3c3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05d8e46793b3954387b3902196d3c3e4">&#9670;&nbsp;</a></span>bbWidgetNew_Fireworks()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetNew_Fireworks </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> **&#160;</td>
           <td class="paramname"><em>reference</em>, </td>
@@ -196,7 +226,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>parent</em>&#160;</td>
         </tr>
         <tr>
@@ -208,62 +238,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Spawn a null widget on selected map at coordinates mc. </p>
-
-</div>
-</div>
-<a id="aec27429296a71cdf0d9b908843b882e0" name="aec27429296a71cdf0d9b908843b882e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec27429296a71cdf0d9b908843b882e0">&#9670;&nbsp;</a></span>bbWidget_Fireworks_onCommand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget_Fireworks_onCommand </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send a command to the widget / update widget, etc. </p>
-
-</div>
-</div>
-<a id="ab767bb2f5a3bc4edb47e350888b6270f" name="ab767bb2f5a3bc4edb47e350888b6270f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab767bb2f5a3bc4edb47e350888b6270f">&#9670;&nbsp;</a></span>bbWidget_Fireworks_update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget_Fireworks_update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update widget. </p>
 
 </div>
 </div>

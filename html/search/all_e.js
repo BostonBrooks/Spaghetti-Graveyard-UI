@@ -1,12 +1,20 @@
 var searchData=
 [
-  ['screenppp_0',['ScreenPPP',['../structbbMapConstants.html#ae9edab3acb162d6aaa4d8f442108b5ad',1,'bbMapConstants']]],
-  ['self_1',['Self',['../structbbPool__data.html#ae34a0845b7d2211c99b41374fc75aa3a',1,'bbPool_data']]],
-  ['skins_2',['Skins',['../structbbMapConstants.html#ac1fa3b6989a4f8798af130dc13b399ed',1,'bbMapConstants']]],
-  ['sprites_3',['Sprites',['../structbbMapConstants.html#a15c904f9f092a5aeb0196f807d9c9e78',1,'bbMapConstants']]],
-  ['sprites_2ecsv_4',['sprites.csv',['../sprites_8csv.html',1,'']]],
-  ['sprites_2ecsv_2edox_5',['sprites.csv.dox',['../sprites_8csv_8dox.html',1,'']]],
-  ['squarespermapi_6',['SquaresPerMapI',['../structbbMapConstants.html#aa67e3ee9358efce1afb286d6e8356f1c',1,'bbMapConstants']]],
-  ['squarespermapj_7',['SquaresPerMapJ',['../structbbMapConstants.html#a49acf7d5e5fb25d504b3204b7a95bc27',1,'bbMapConstants']]],
-  ['structure_8',['Structure',['../Directory.html',1,'']]]
+  ['screenppp_0',['ScreenPPP',['../structbbMapConstants.html#a498fc34fc92c9c690c1261d425574282',1,'bbMapConstants']]],
+  ['self_1',['Self',['../structbbPool__data.html#a61353eca95bfd2c9fe97c3f947e4bd48',1,'bbPool_data']]],
+  ['skins_2',['Skins',['../structbbMapConstants.html#ac43d53382041b5d7e6619f7c7b47d0f7',1,'bbMapConstants']]],
+  ['spellbar_2eh_3',['spellbar.h',['../spellbar_8h.html',1,'']]],
+  ['spellselector_28confused_29_2eh_4',['spellSelector(confused).h',['../spellSelector_07confused_08_8h.html',1,'']]],
+  ['sphere_2eh_5',['sphere.h',['../sphere_8h.html',1,'']]],
+  ['spritedraw_2eh_6',['SpriteDraw.h',['../SpriteDraw_8h.html',1,'']]],
+  ['sprites_7',['Sprites',['../structbbMapConstants.html#ae3ebeb07115d6781f88047e2976e9ef5',1,'bbMapConstants']]],
+  ['sprites_2ecsv_8',['sprites.csv',['../sprites_8csv.html',1,'']]],
+  ['sprites_2ecsv_2edox_9',['sprites.csv.dox',['../sprites_8csv_8dox.html',1,'']]],
+  ['squarespermapi_10',['SquaresPerMapI',['../structbbMapConstants.html#a86a9d14e4f19822b181a9a680859f768',1,'bbMapConstants']]],
+  ['squarespermapj_11',['SquaresPerMapJ',['../structbbMapConstants.html#a774b8f44eaede559786f7c0fa0c9f583',1,'bbMapConstants']]],
+  ['statemachine_28confused_29_2eh_12',['stateMachine(confused).h',['../stateMachine_07confused_08_8h.html',1,'']]],
+  ['string_13',['string',['../structbbTestNode.html#abbe71306fa2501a1de3c8799b33fbb31',1,'bbTestNode']]],
+  ['structure_14',['Structure',['../Directory.html',1,'']]],
+  ['subwidgetarraysize_15',['subwidgetarraysize',['../bbWidget_8h.html#a0b0979fe450a8f470c98a5c18f33ca11',1,'bbWidget.h']]],
+  ['subwidgetsvisible_16',['SubwidgetsVisible',['../structbbTree__data.html#a34cedca197a508b1a8c6d7e177cc991c',1,'bbTree_data']]]
 ];

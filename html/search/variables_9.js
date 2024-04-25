@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['oncommand_5favailable_0',['OnCommand_available',['../structbbWidgetFunctions.html#a3ea3ab3e37b4b8a1be105d25c00acf26',1,'bbWidgetFunctions']]],
-  ['oncommand_5fdict_1',['OnCommand_dict',['../structbbWidgetFunctions.html#aaa2ef8268b51161fa287770e3f4234e4',1,'bbWidgetFunctions']]],
-  ['oncommands_2',['OnCommands',['../structbbWidgetFunctions.html#a77f4e24ac09863bce8bc64a2a9c6ebef',1,'bbWidgetFunctions']]]
+  ['n_5fnumfonts_0',['n_NumFonts',['../structbbFonts.html#a6fa4b820555e5046740b80e3c2bedd86',1,'bbFonts']]],
+  ['next_1',['Next',['../structbbPool__data.html#a9dea86a1f11a1641432361674194be21',1,'bbPool_data::Next()'],['../structbbTree__data.html#a058c6562681cb5b974ab8fd74a50502e',1,'bbTree_data::Next()']]]
 ];

@@ -78,6 +78,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;inttypes.h&gt;</code><br />
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="bbPrintf_8h_source.html">headers/bbPrintf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbIntTypes_8h_source.html">headers/bbIntTypes.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for bbPool.h:</div>
 <div class="dyncontent">
@@ -130,33 +131,33 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a313b3b553c85dc8d94f20e3ec17ca6b8"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a313b3b553c85dc8d94f20e3ec17ca6b8">bbPool_Lookup2</a> (void **return_by_reference, <a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t lvl1, int32_t lvl2)</td></tr>
-<tr class="memdesc:a313b3b553c85dc8d94f20e3ec17ca6b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look up object at location Pool[lvl1][lvl2];.  <a href="bbPool_8h.html#a313b3b553c85dc8d94f20e3ec17ca6b8">More...</a><br /></td></tr>
-<tr class="separator:a313b3b553c85dc8d94f20e3ec17ca6b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abbf31b232180b7bca3e192a9e2f0bb89"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#abbf31b232180b7bca3e192a9e2f0bb89">bbPool_Lookup_sudo</a> (void **return_by_reference, <a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t Address)</td></tr>
-<tr class="memdesc:abbf31b232180b7bca3e192a9e2f0bb89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup object at address, ignoring m_Pool_InUse;.  <a href="bbPool_8h.html#abbf31b232180b7bca3e192a9e2f0bb89">More...</a><br /></td></tr>
-<tr class="separator:abbf31b232180b7bca3e192a9e2f0bb89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4432476e00f7abe70a156d71142484a6"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a4432476e00f7abe70a156d71142484a6">bbPool_Lookup</a> (void **return_by_reference, <a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t Address)</td></tr>
-<tr class="memdesc:a4432476e00f7abe70a156d71142484a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup object at Address, error if m_Pool_InUse == f_PoolInUse.  <a href="bbPool_8h.html#a4432476e00f7abe70a156d71142484a6">More...</a><br /></td></tr>
-<tr class="separator:a4432476e00f7abe70a156d71142484a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44d5db7db15cfffc5395222a6cdfa076"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a44d5db7db15cfffc5395222a6cdfa076">bbPool_NewPool</a> (<a class="el" href="structbbPool.html">bbPool</a> **return_by_reference, int32_t map, int32_t SizeOf, int32_t Level1, int32_t Level2)</td></tr>
-<tr class="memdesc:a44d5db7db15cfffc5395222a6cdfa076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an new pool with object's size = Sizeof.  <a href="bbPool_8h.html#a44d5db7db15cfffc5395222a6cdfa076">More...</a><br /></td></tr>
-<tr class="separator:a44d5db7db15cfffc5395222a6cdfa076"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27db4562872d176dd000fa6cca43159c"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a27db4562872d176dd000fa6cca43159c">bbPool_DeletePool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool)</td></tr>
-<tr class="memdesc:a27db4562872d176dd000fa6cca43159c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete entire pool.  <a href="bbPool_8h.html#a27db4562872d176dd000fa6cca43159c">More...</a><br /></td></tr>
-<tr class="separator:a27db4562872d176dd000fa6cca43159c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9a29a4d71e367a576f5bcba3d409e29"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#ac9a29a4d71e367a576f5bcba3d409e29">bbPool_ClearPool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool)</td></tr>
-<tr class="memdesc:ac9a29a4d71e367a576f5bcba3d409e29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete contents of pool, but keep empty pool.  <a href="bbPool_8h.html#ac9a29a4d71e367a576f5bcba3d409e29">More...</a><br /></td></tr>
-<tr class="separator:ac9a29a4d71e367a576f5bcba3d409e29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7825f8666aa909e83526bc2ab5310a8d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a7825f8666aa909e83526bc2ab5310a8d">bbPool_IncreasePool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t Level1_Address)</td></tr>
-<tr class="memdesc:a7825f8666aa909e83526bc2ab5310a8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate data in pool.  <a href="bbPool_8h.html#a7825f8666aa909e83526bc2ab5310a8d">More...</a><br /></td></tr>
-<tr class="separator:a7825f8666aa909e83526bc2ab5310a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a7a3177660c0b4c75ee30ec81dff3b5"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a3a7a3177660c0b4c75ee30ec81dff3b5">bbPool_New</a> (void **return_by_reference, <a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t address)</td></tr>
-<tr class="memdesc:a3a7a3177660c0b4c75ee30ec81dff3b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create object in pool.  <a href="bbPool_8h.html#a3a7a3177660c0b4c75ee30ec81dff3b5">More...</a><br /></td></tr>
-<tr class="separator:a3a7a3177660c0b4c75ee30ec81dff3b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90875f9bf5d948656ecd2e2b75519cfe"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a90875f9bf5d948656ecd2e2b75519cfe">bbPool_Delete</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool, int32_t address)</td></tr>
-<tr class="memdesc:a90875f9bf5d948656ecd2e2b75519cfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove object from pool.  <a href="bbPool_8h.html#a90875f9bf5d948656ecd2e2b75519cfe">More...</a><br /></td></tr>
-<tr class="separator:a90875f9bf5d948656ecd2e2b75519cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a634faf2e4ffd64f36e92ec3cff829286"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a634faf2e4ffd64f36e92ec3cff829286">bbPool_Lookup2</a> (void **RBR, <a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> lvl1, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> lvl2)</td></tr>
+<tr class="memdesc:a634faf2e4ffd64f36e92ec3cff829286"><td class="mdescLeft">&#160;</td><td class="mdescRight">Look up object at location Pool[lvl1][lvl2];.  <a href="bbPool_8h.html#a634faf2e4ffd64f36e92ec3cff829286">More...</a><br /></td></tr>
+<tr class="separator:a634faf2e4ffd64f36e92ec3cff829286"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c91d2f61fb9685d5c4e0842ddf9c585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a2c91d2f61fb9685d5c4e0842ddf9c585">bbPool_Lookup_sudo</a> (void **RBR, <a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> Address)</td></tr>
+<tr class="memdesc:a2c91d2f61fb9685d5c4e0842ddf9c585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup object at address, ignoring m_Pool_InUse;.  <a href="bbPool_8h.html#a2c91d2f61fb9685d5c4e0842ddf9c585">More...</a><br /></td></tr>
+<tr class="separator:a2c91d2f61fb9685d5c4e0842ddf9c585"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2254f733547917a02d014f9f2369e3cc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a2254f733547917a02d014f9f2369e3cc">bbPool_Lookup</a> (void **RBR, <a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> Address)</td></tr>
+<tr class="memdesc:a2254f733547917a02d014f9f2369e3cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lookup object at Address, error if m_Pool_InUse == f_PoolInUse.  <a href="bbPool_8h.html#a2254f733547917a02d014f9f2369e3cc">More...</a><br /></td></tr>
+<tr class="separator:a2254f733547917a02d014f9f2369e3cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbfe4f0eeb51a5cf8939af244b664a13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#adbfe4f0eeb51a5cf8939af244b664a13">bbPool_NewPool</a> (<a class="el" href="structbbPool.html">bbPool</a> **RBR, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> map, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> SizeOf, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> Level1, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> Level2)</td></tr>
+<tr class="memdesc:adbfe4f0eeb51a5cf8939af244b664a13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an new pool with object's size = Sizeof.  <a href="bbPool_8h.html#adbfe4f0eeb51a5cf8939af244b664a13">More...</a><br /></td></tr>
+<tr class="separator:adbfe4f0eeb51a5cf8939af244b664a13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aacc91b0d398b83527c8d3e8325dc422d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#aacc91b0d398b83527c8d3e8325dc422d">bbPool_DeletePool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool)</td></tr>
+<tr class="memdesc:aacc91b0d398b83527c8d3e8325dc422d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete entire pool.  <a href="bbPool_8h.html#aacc91b0d398b83527c8d3e8325dc422d">More...</a><br /></td></tr>
+<tr class="separator:aacc91b0d398b83527c8d3e8325dc422d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525bc6a7d23f710fcf632c6f7dc39037"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a525bc6a7d23f710fcf632c6f7dc39037">bbPool_ClearPool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool)</td></tr>
+<tr class="memdesc:a525bc6a7d23f710fcf632c6f7dc39037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete contents of pool, but keep empty pool.  <a href="bbPool_8h.html#a525bc6a7d23f710fcf632c6f7dc39037">More...</a><br /></td></tr>
+<tr class="separator:a525bc6a7d23f710fcf632c6f7dc39037"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc1889c71c5a37aad8bc5ca5e02fb46d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#afc1889c71c5a37aad8bc5ca5e02fb46d">bbPool_IncreasePool</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> Level1_Address)</td></tr>
+<tr class="memdesc:afc1889c71c5a37aad8bc5ca5e02fb46d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocate data in pool.  <a href="bbPool_8h.html#afc1889c71c5a37aad8bc5ca5e02fb46d">More...</a><br /></td></tr>
+<tr class="separator:afc1889c71c5a37aad8bc5ca5e02fb46d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a121b150783ee73c958c2f4708cc68d24"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#a121b150783ee73c958c2f4708cc68d24">bbPool_New</a> (void **RBR, <a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> address)</td></tr>
+<tr class="memdesc:a121b150783ee73c958c2f4708cc68d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create object in pool.  <a href="bbPool_8h.html#a121b150783ee73c958c2f4708cc68d24">More...</a><br /></td></tr>
+<tr class="separator:a121b150783ee73c958c2f4708cc68d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac8dbf8203e8dd9d67731c91472cb79a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPool_8h.html#aac8dbf8203e8dd9d67731c91472cb79a">bbPool_Delete</a> (<a class="el" href="structbbPool.html">bbPool</a> *Pool, <a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> address)</td></tr>
+<tr class="memdesc:aac8dbf8203e8dd9d67731c91472cb79a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove object from pool.  <a href="bbPool_8h.html#aac8dbf8203e8dd9d67731c91472cb79a">More...</a><br /></td></tr>
+<tr class="separator:aac8dbf8203e8dd9d67731c91472cb79a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >Pools pre-allocate space for objects in the game to quickly allocate and de-allocate individual objects. </p>
@@ -317,14 +318,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac9a29a4d71e367a576f5bcba3d409e29" name="ac9a29a4d71e367a576f5bcba3d409e29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac9a29a4d71e367a576f5bcba3d409e29">&#9670;&nbsp;</a></span>bbPool_ClearPool()</h2>
+<a id="a525bc6a7d23f710fcf632c6f7dc39037" name="a525bc6a7d23f710fcf632c6f7dc39037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525bc6a7d23f710fcf632c6f7dc39037">&#9670;&nbsp;</a></span>bbPool_ClearPool()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_ClearPool </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_ClearPool </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbPool.html">bbPool</a> *&#160;</td>
           <td class="paramname"><em>Pool</em></td><td>)</td>
@@ -337,14 +338,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a90875f9bf5d948656ecd2e2b75519cfe" name="a90875f9bf5d948656ecd2e2b75519cfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a90875f9bf5d948656ecd2e2b75519cfe">&#9670;&nbsp;</a></span>bbPool_Delete()</h2>
+<a id="aac8dbf8203e8dd9d67731c91472cb79a" name="aac8dbf8203e8dd9d67731c91472cb79a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac8dbf8203e8dd9d67731c91472cb79a">&#9670;&nbsp;</a></span>bbPool_Delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_Delete </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_Delete </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbPool.html">bbPool</a> *&#160;</td>
           <td class="paramname"><em>Pool</em>, </td>
@@ -352,7 +353,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>address</em>&#160;</td>
         </tr>
         <tr>
@@ -367,14 +368,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a27db4562872d176dd000fa6cca43159c" name="a27db4562872d176dd000fa6cca43159c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27db4562872d176dd000fa6cca43159c">&#9670;&nbsp;</a></span>bbPool_DeletePool()</h2>
+<a id="aacc91b0d398b83527c8d3e8325dc422d" name="aacc91b0d398b83527c8d3e8325dc422d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aacc91b0d398b83527c8d3e8325dc422d">&#9670;&nbsp;</a></span>bbPool_DeletePool()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_DeletePool </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_DeletePool </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbPool.html">bbPool</a> *&#160;</td>
           <td class="paramname"><em>Pool</em></td><td>)</td>
@@ -387,14 +388,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a7825f8666aa909e83526bc2ab5310a8d" name="a7825f8666aa909e83526bc2ab5310a8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7825f8666aa909e83526bc2ab5310a8d">&#9670;&nbsp;</a></span>bbPool_IncreasePool()</h2>
+<a id="afc1889c71c5a37aad8bc5ca5e02fb46d" name="afc1889c71c5a37aad8bc5ca5e02fb46d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc1889c71c5a37aad8bc5ca5e02fb46d">&#9670;&nbsp;</a></span>bbPool_IncreasePool()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_IncreasePool </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_IncreasePool </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbPool.html">bbPool</a> *&#160;</td>
           <td class="paramname"><em>Pool</em>, </td>
@@ -402,7 +403,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>Level1_Address</em>&#160;</td>
         </tr>
         <tr>
@@ -417,17 +418,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4432476e00f7abe70a156d71142484a6" name="a4432476e00f7abe70a156d71142484a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4432476e00f7abe70a156d71142484a6">&#9670;&nbsp;</a></span>bbPool_Lookup()</h2>
+<a id="a2254f733547917a02d014f9f2369e3cc" name="a2254f733547917a02d014f9f2369e3cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2254f733547917a02d014f9f2369e3cc">&#9670;&nbsp;</a></span>bbPool_Lookup()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_Lookup </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_Lookup </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
-          <td class="paramname"><em>return_by_reference</em>, </td>
+          <td class="paramname"><em>RBR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -438,7 +439,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>Address</em>&#160;</td>
         </tr>
         <tr>
@@ -453,17 +454,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a313b3b553c85dc8d94f20e3ec17ca6b8" name="a313b3b553c85dc8d94f20e3ec17ca6b8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a313b3b553c85dc8d94f20e3ec17ca6b8">&#9670;&nbsp;</a></span>bbPool_Lookup2()</h2>
+<a id="a634faf2e4ffd64f36e92ec3cff829286" name="a634faf2e4ffd64f36e92ec3cff829286"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a634faf2e4ffd64f36e92ec3cff829286">&#9670;&nbsp;</a></span>bbPool_Lookup2()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_Lookup2 </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_Lookup2 </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
-          <td class="paramname"><em>return_by_reference</em>, </td>
+          <td class="paramname"><em>RBR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -474,13 +475,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>lvl1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>lvl2</em>&#160;</td>
         </tr>
         <tr>
@@ -495,17 +496,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abbf31b232180b7bca3e192a9e2f0bb89" name="abbf31b232180b7bca3e192a9e2f0bb89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbf31b232180b7bca3e192a9e2f0bb89">&#9670;&nbsp;</a></span>bbPool_Lookup_sudo()</h2>
+<a id="a2c91d2f61fb9685d5c4e0842ddf9c585" name="a2c91d2f61fb9685d5c4e0842ddf9c585"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c91d2f61fb9685d5c4e0842ddf9c585">&#9670;&nbsp;</a></span>bbPool_Lookup_sudo()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_Lookup_sudo </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_Lookup_sudo </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
-          <td class="paramname"><em>return_by_reference</em>, </td>
+          <td class="paramname"><em>RBR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -516,7 +517,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>Address</em>&#160;</td>
         </tr>
         <tr>
@@ -531,17 +532,17 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3a7a3177660c0b4c75ee30ec81dff3b5" name="a3a7a3177660c0b4c75ee30ec81dff3b5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a7a3177660c0b4c75ee30ec81dff3b5">&#9670;&nbsp;</a></span>bbPool_New()</h2>
+<a id="a121b150783ee73c958c2f4708cc68d24" name="a121b150783ee73c958c2f4708cc68d24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a121b150783ee73c958c2f4708cc68d24">&#9670;&nbsp;</a></span>bbPool_New()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_New </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_New </td>
           <td>(</td>
           <td class="paramtype">void **&#160;</td>
-          <td class="paramname"><em>return_by_reference</em>, </td>
+          <td class="paramname"><em>RBR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -552,7 +553,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>address</em>&#160;</td>
         </tr>
         <tr>
@@ -567,40 +568,40 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a44d5db7db15cfffc5395222a6cdfa076" name="a44d5db7db15cfffc5395222a6cdfa076"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44d5db7db15cfffc5395222a6cdfa076">&#9670;&nbsp;</a></span>bbPool_NewPool()</h2>
+<a id="adbfe4f0eeb51a5cf8939af244b664a13" name="adbfe4f0eeb51a5cf8939af244b664a13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbfe4f0eeb51a5cf8939af244b664a13">&#9670;&nbsp;</a></span>bbPool_NewPool()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbPool_NewPool </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbPool_NewPool </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbPool.html">bbPool</a> **&#160;</td>
-          <td class="paramname"><em>return_by_reference</em>, </td>
+          <td class="paramname"><em>RBR</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>map</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>SizeOf</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>Level1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td>
           <td class="paramname"><em>Level2</em>&#160;</td>
         </tr>
         <tr>

@@ -80,6 +80,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="bbWidget_8h_source.html">headers/bbWidget.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbGame_8h_source.html">headers/bbGame.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbMap_8h_source.html">headers/bbMap.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbWidgetTimer_8h_source.html">headers/bbWidgetTimer.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for decal.h:</div>
 <div class="dyncontent">
@@ -95,21 +96,21 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4f71a6d246f71d8f6938fdfc12402a51"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a4f71a6d246f71d8f6938fdfc12402a51">bbWidget_Decal_new</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **reference, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc, int32_t parent)</td></tr>
-<tr class="memdesc:a4f71a6d246f71d8f6938fdfc12402a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn a null widget on selected map at coordinates mc.  <a href="decal_8h.html#a4f71a6d246f71d8f6938fdfc12402a51">More...</a><br /></td></tr>
-<tr class="separator:a4f71a6d246f71d8f6938fdfc12402a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d039233461623879041f7fc40b17980"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a3d039233461623879041f7fc40b17980">bbWidget_Decal_update</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a3d039233461623879041f7fc40b17980"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget.  <a href="decal_8h.html#a3d039233461623879041f7fc40b17980">More...</a><br /></td></tr>
-<tr class="separator:a3d039233461623879041f7fc40b17980"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f8616d086418961b668bf17c5d5bfce"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a9f8616d086418961b668bf17c5d5bfce">bbWidget_Decal_onCommand</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, int32_t command, void *data)</td></tr>
-<tr class="memdesc:a9f8616d086418961b668bf17c5d5bfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="decal_8h.html#a9f8616d086418961b668bf17c5d5bfce">More...</a><br /></td></tr>
-<tr class="separator:a9f8616d086418961b668bf17c5d5bfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1db4c01a75e361e87c87fed10ef89cd1"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a1db4c01a75e361e87c87fed10ef89cd1">bbWidget_Decal_delete</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a1db4c01a75e361e87c87fed10ef89cd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="decal_8h.html#a1db4c01a75e361e87c87fed10ef89cd1">More...</a><br /></td></tr>
-<tr class="separator:a1db4c01a75e361e87c87fed10ef89cd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afac013e28c4f57a27175fdcfebcbcbeb"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#afac013e28c4f57a27175fdcfebcbcbeb">bbWidget_Decal_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:afac013e28c4f57a27175fdcfebcbcbeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="decal_8h.html#afac013e28c4f57a27175fdcfebcbcbeb">More...</a><br /></td></tr>
-<tr class="separator:afac013e28c4f57a27175fdcfebcbcbeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd50100ef8a795b5c9ea339739b8f160"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#acd50100ef8a795b5c9ea339739b8f160">bbWidgetNew_Decal</a> (<a class="el" href="structbbWidget.html">bbWidget</a> **reference, <a class="el" href="structbbWidgets.html">bbWidgets</a> *widgets, <a class="el" href="structbbScreenCoordsI.html">bbScreenCoordsI</a> sc, <a class="el" href="structbbWidget.html">bbWidget</a> *parent)</td></tr>
+<tr class="memdesc:acd50100ef8a795b5c9ea339739b8f160"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spawn a null widget on selected map at coordinates mc.  <a href="decal_8h.html#acd50100ef8a795b5c9ea339739b8f160">More...</a><br /></td></tr>
+<tr class="separator:acd50100ef8a795b5c9ea339739b8f160"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019be2ff6d71624bef1deb7a7c02089a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a019be2ff6d71624bef1deb7a7c02089a">bbWidget_Decal_update</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:a019be2ff6d71624bef1deb7a7c02089a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget.  <a href="decal_8h.html#a019be2ff6d71624bef1deb7a7c02089a">More...</a><br /></td></tr>
+<tr class="separator:a019be2ff6d71624bef1deb7a7c02089a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a731429d8c57b74689f5ae40d474efd69"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a731429d8c57b74689f5ae40d474efd69">bbWidget_Decal_onCommand</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *command)</td></tr>
+<tr class="memdesc:a731429d8c57b74689f5ae40d474efd69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="decal_8h.html#a731429d8c57b74689f5ae40d474efd69">More...</a><br /></td></tr>
+<tr class="separator:a731429d8c57b74689f5ae40d474efd69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb7e95eb8c3424726d2460ed1d331f60"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#acb7e95eb8c3424726d2460ed1d331f60">bbWidget_Decal_delete</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:acb7e95eb8c3424726d2460ed1d331f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="decal_8h.html#acb7e95eb8c3424726d2460ed1d331f60">More...</a><br /></td></tr>
+<tr class="separator:acb7e95eb8c3424726d2460ed1d331f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bcb50738892930069b67d2ce2f5068"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="decal_8h.html#a92bcb50738892930069b67d2ce2f5068">bbWidget_Decal_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:a92bcb50738892930069b67d2ce2f5068"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="decal_8h.html#a92bcb50738892930069b67d2ce2f5068">More...</a><br /></td></tr>
+<tr class="separator:a92bcb50738892930069b67d2ce2f5068"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The functions in this folder define the behavior of an object with class <a class="el" href="structbbWidget.html">bbWidget</a> and type NULL. </p>
@@ -129,14 +130,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a1db4c01a75e361e87c87fed10ef89cd1" name="a1db4c01a75e361e87c87fed10ef89cd1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1db4c01a75e361e87c87fed10ef89cd1">&#9670;&nbsp;</a></span>bbWidget_Decal_delete()</h2>
+<a id="acb7e95eb8c3424726d2460ed1d331f60" name="acb7e95eb8c3424726d2460ed1d331f60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb7e95eb8c3424726d2460ed1d331f60">&#9670;&nbsp;</a></span>bbWidget_Decal_delete()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_Decal_delete </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Decal_delete </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -149,14 +150,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="afac013e28c4f57a27175fdcfebcbcbeb" name="afac013e28c4f57a27175fdcfebcbcbeb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afac013e28c4f57a27175fdcfebcbcbeb">&#9670;&nbsp;</a></span>bbWidget_Decal_draw()</h2>
+<a id="a92bcb50738892930069b67d2ce2f5068" name="a92bcb50738892930069b67d2ce2f5068"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92bcb50738892930069b67d2ce2f5068">&#9670;&nbsp;</a></span>bbWidget_Decal_draw()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_Decal_draw </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Decal_draw </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -169,14 +170,64 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a4f71a6d246f71d8f6938fdfc12402a51" name="a4f71a6d246f71d8f6938fdfc12402a51"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f71a6d246f71d8f6938fdfc12402a51">&#9670;&nbsp;</a></span>bbWidget_Decal_new()</h2>
+<a id="a731429d8c57b74689f5ae40d474efd69" name="a731429d8c57b74689f5ae40d474efd69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a731429d8c57b74689f5ae40d474efd69">&#9670;&nbsp;</a></span>bbWidget_Decal_onCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int32_t bbWidget_Decal_new </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Decal_onCommand </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>command</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Send a command to the widget / update widget, etc. </p>
+
+</div>
+</div>
+<a id="a019be2ff6d71624bef1deb7a7c02089a" name="a019be2ff6d71624bef1deb7a7c02089a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019be2ff6d71624bef1deb7a7c02089a">&#9670;&nbsp;</a></span>bbWidget_Decal_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Decal_update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update widget. </p>
+
+</div>
+</div>
+<a id="acd50100ef8a795b5c9ea339739b8f160" name="acd50100ef8a795b5c9ea339739b8f160"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd50100ef8a795b5c9ea339739b8f160">&#9670;&nbsp;</a></span>bbWidgetNew_Decal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetNew_Decal </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> **&#160;</td>
           <td class="paramname"><em>reference</em>, </td>
@@ -196,7 +247,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>parent</em>&#160;</td>
         </tr>
         <tr>
@@ -208,62 +259,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Spawn a null widget on selected map at coordinates mc. </p>
-
-</div>
-</div>
-<a id="a9f8616d086418961b668bf17c5d5bfce" name="a9f8616d086418961b668bf17c5d5bfce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f8616d086418961b668bf17c5d5bfce">&#9670;&nbsp;</a></span>bbWidget_Decal_onCommand()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget_Decal_onCommand </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int32_t&#160;</td>
-          <td class="paramname"><em>command</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>data</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Send a command to the widget / update widget, etc. </p>
-
-</div>
-</div>
-<a id="a3d039233461623879041f7fc40b17980" name="a3d039233461623879041f7fc40b17980"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d039233461623879041f7fc40b17980">&#9670;&nbsp;</a></span>bbWidget_Decal_update()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int32_t bbWidget_Decal_update </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update widget. </p>
 
 </div>
 </div>
