@@ -109,7 +109,7 @@ I32 bbWidgetFunctions_new(I32 map) {
     bbDictionary_new(&functions->MouseHandler_dict, numMouseHandlers);
     functions->MouseHandler_available = 0;
 
-    const I32 numOnTimers = 100; //TODO add to txt file
+    const I32 numOnTimers = 100; //TODO add to txt file Todo would be faster if hard-coded
     functions->OnTimers = calloc(numOnTimers,
                                      sizeof(bbWidget_OnTimer));
     bbDictionary_new(&functions->OnTimers_dict, numOnTimers);
