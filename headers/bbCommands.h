@@ -29,6 +29,7 @@
 #define f_SpellEscape       10
 #define f_SpellAnswer       11
 
+
 //Commands use void pointers, messages use unions
 
 typedef struct{

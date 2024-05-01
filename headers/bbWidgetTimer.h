@@ -8,11 +8,11 @@
 #define BBWIDGETTIMER_H
 
 #include "headers/bbIntTypes.h"
-#include "headers/bbDeque.h"
+#include "headers/bbList.h"
 
 
-///bbWidgetTimer is a wrapper for bbPriorityQueue
-typedef bbPriorityQueue bbWidgetTimer;
+///bbWidgetTimer is a wrapper for bbList
+typedef bbList bbWidgetTimer;
 
 typedef struct{
     bbPool_data p_Node;
@@ -22,27 +22,27 @@ typedef struct{
 
 
 ///create a new timer
-//I32 bbPriorityQueue_new(void** RBR, I32 map, I32 SizeOf, I32 level1, I32 Level2);
+//I32 bbList_new(void** RBR, I32 map, I32 SizeOf, I32 level1, I32 Level2);
 I32 bbWidgetTimer_new (void** RBR, I32 map); //SIZEOF = sizeof(bbWidgetTimerNode)
 
 ///create a new message
-//I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address);
+//I32 bbListNode_new(void** RBR, bbList* Queue, I32 address);
 I32 bbWidgetTimerNode_new(void** RBR, bbWidgetTimer* Timer);
 ///add message to queue
-//bbPQNode_insertAfter(bbPriorityQueue* Queue, bbPQNode* node);
+//bbListNode_insertAfter(bbList* Queue, bbPQNode* node);
 I32 bbWidgetTimer_add(bbWidgetTimer* Timer, bbWidgetTimerNode* node);
 ///remove message from queue
-//I32 bbPQNode_remove(bbPriorityQueue* Queue, I32 address);
+//I32 bbListNode_remove(bbList* Queue, I32 address);
 I32 bbWidgetTimer_remove(bbWidgetTimer* Timer, I32 address);
 
 ///delete message
-//I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address);
+//I32 bbListNode_delete(bbList* Queue, I32 address);
 I32 bbWidgetTimer_delete(bbWidgetTimer* Timer, I32 address);
 
 I32 bbWidgetTimer_update(bbWidgetTimer* Timer, I32 time);
 
 
-/* bbQueueFunction_timer(void* time_ptr, void* node)
+/* bbListFunction_timer(void* time_ptr, void* node)
  * is the basis for a function that calls bbWidget.v_onTimer
  */
 

@@ -115,7 +115,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             sfText_setString(widget->m_Text, widget->m_String);
 
 
-            I32 map = widget->p_Node.p_Pool.Map;
+            I32 map = widget->p_Pool.p_Pool.Map;
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
             bbWidget* subWidget;

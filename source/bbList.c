@@ -1,6 +1,6 @@
 #include "headers/bbPool.h"
 #include "headers/bbIntTypes.h"
-#include "headers/bbDeque.h"
+#include "headers/bbList.h"
 #include "headers/bbFlags.h"
 #include "headers/bbPrintf.h"
 
@@ -8,26 +8,28 @@
 
 
 ///wrapper to bbPool_NewPool
-I32 bbPriorityQueue_new(void** RBR, I32 map, I32 SizeOf, I32 Level1, I32 Level2){
-    bbPriorityQueue* queue = malloc(sizeof(bbPriorityQueue));
-    queue->m_Highest = f_None;
-    queue->m_Lowest = f_None;
-    bbPool_NewPool(&queue->p_Pool, map, SizeOf, Level1, Level2);
-    *RBR = queue;
+I32 bbList_new(void** RBR, I32 map, I32 SizeOf, I32 level1, I32 Level2){
+    bbList* list = malloc(sizeof(bbList));
+	bbAssert(list != NULL, "malloc failed\n");
+    list->m_Highest = f_None;
+    list->m_Lowest = f_None;
+    bbPool_NewPool(&list->p_Pool, map, SizeOf, level1, Level2);
+    *RBR = list;
     return f_Success;
 }
 
-I32 bbPriorityQueue_existingPool(void** RBR, bbPool* pool){
-    bbPriorityQueue* queue = malloc(sizeof(bbPriorityQueue));
-    queue->m_Highest = f_None;
-    queue->m_Lowest = f_None;
-    queue->p_Pool = pool;
-	*RBR = queue;
+I32 bbList_existingPool(void** RBR, bbPool* pool){
+    bbList* list = malloc(sizeof(bbList));
+	bbAssert(list != NULL, "malloc failed\n");
+    list->m_Highest = f_None;
+    list->m_Lowest = f_None;
+    list->p_Pool = pool;
+	*RBR = list;
     return f_Success;
 }
 
-I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address){
-    bbPool* pool = Queue->p_Pool;
+I32 bbListNode_new(void** RBR, bbList* list, I32 address){
+    bbPool* pool = list->p_Pool;
     bbPool_data* node;
     I32 flag = bbPool_New(&node, pool, address);
     node->Next = -1;
@@ -37,8 +39,8 @@ I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address){
 }
 
 
-I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
-    bbPool* pool = Queue->p_Pool;
+I32 bbListNode_delete(bbList* list, I32 address){
+    bbPool* pool = list->p_Pool;
     bbPool_data* node;
     bbPool_Lookup(&node, pool, address);
 
@@ -67,7 +69,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
 
         bbPool_Lookup(&Lower, pool, i_Lower);
         Lower->Next = f_None;
-        Queue->m_Highest = i_Lower;
+        list->m_Highest = i_Lower;
 
         //its nice to clean these up as they are returned to the pool
         node->Next = f_None;
@@ -80,7 +82,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
 
         bbPool_Lookup(&Higher, pool, i_Higher);
         Higher->Prev = f_None;
-        Queue->m_Lowest = i_Higher;
+        list->m_Lowest = i_Higher;
 
         //its nice to clean these up as they are returned to the pool
         node->Next = f_None;
@@ -91,8 +93,8 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
     }
     //(i_Higher == f_None && i_Lower == f_None)
 
-    Queue->m_Lowest = f_None;
-    Queue->m_Highest = f_None;
+    list->m_Lowest = f_None;
+    list->m_Highest = f_None;
 
     node->Prev = f_None;
     node->Next = f_None;
@@ -101,7 +103,7 @@ I32 bbPQNode_delete(bbPriorityQueue* Queue, I32 address){
 
     return f_Success;
 }
-I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node) {
+I32 bbListNode_insertAfter(bbList* Queue, I32 i_node) {
 
     bbPool* pool = Queue->p_Pool;
     bbPool_data* newNode;
@@ -167,37 +169,37 @@ I32 bbPQNode_insertAfter(bbPriorityQueue* Queue, I32 i_node) {
 
 }
 
-I32 bbPriorityQueue_ascendingSearch(void* RBR, bbPriorityQueue* queue, bbQueueFunction* myFunc){
-    bbPool* pool = queue->p_Pool;
-    I32 nodeInt = queue->m_Lowest;
-    bbTestPQNode* node;
+I32 bbList_ascendingSearch(void* RBR, bbList* list, bbListFunction* myFunc){
+    bbPool* pool = list->p_Pool;
+    I32 nodeInt = list->m_Lowest;
+    bbTestListNode* node;
     I32 flag;
     while(nodeInt >= 0){
 
         flag = bbPool_Lookup(&node, pool, nodeInt);
         flag = myFunc(RBR, node);
-        nodeInt = node->p_Node.Next;
-        if (flag == f_Delete) bbPQNode_delete(queue, node->p_Node.Self);
+        nodeInt = node->p_Pool.Next;
+        if (flag == f_Delete) bbListNode_delete(list, node->p_Pool.Self);
         if (flag == f_Break) break;
     }
     return f_Success;
 }
 
 
-I32 bbQueueFunction_print(void* UNUSED, void* node){
+I32 bbListFunction_print(void* UNUSED, void* node){
 
-    bbTestPQNode* testNode = node;
-    printf("NODE: Self = %d, Priority = %d\n", testNode->p_Node.Self, testNode->p_Node.Priority);
+    bbTestListNode* testNode = node;
+    printf("NODE: Self = %d, Priority = %d\n", testNode->p_Pool.Self, testNode->p_Pool.Priority);
     return f_Success;
 }
 
 
-I32 bbQueueFunction_timer(void* time_ptr, void* node){
-    bbTestPQNode* testNode = node;
+I32 bbListFunction_timer(void* time_ptr, void* node){
+    bbTestListNode* testNode = node;
     timePtr* ptr = time_ptr;
     I32 time = ptr->time;
-    if (testNode->p_Node.Priority <= time){
-        printf("NODE: Self = %d, Time = %d\n", testNode->p_Node.Self, testNode->p_Node.Priority);
+    if (testNode->p_Pool.Priority <= time){
+        printf("NODE: Self = %d, Time = %d\n", testNode->p_Pool.Self, testNode->p_Pool.Priority);
         return f_Delete;
     }
     return f_Break;

@@ -16,7 +16,7 @@ gcc -D SFML_STATIC -I ../^
   ../source/bbMouse.c^
   ../source/bbFonts.c^
   ../source/bbCharacter.c^
-  ../source/bbPriorityQueue.c^
+  ../source/bbList.c^
   ../source/bbWidgetTimer.c^
   ../games/game/maps/demo/widgets/widgets.c^
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -w -lm

@@ -3,7 +3,6 @@ digraph "bbGame"
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
   Node1 [label="bbGame",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Constants" ,fontname="Helvetica"];
   Node2 [label="bbGameConstants",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbGameConstants.html",tooltip="contains data about the game?"];
@@ -53,7 +52,7 @@ digraph "bbGame"
   Node21 -> Node17 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_Dimensions\nm_ScreenCoords" ,fontname="Helvetica"];
   Node21 [label="bbScreenCoordsI",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbScreenCoordsI.html",tooltip="Fixed point, 2d coordinates, precision given by bbMap::m_ScreenPPP."];
   Node22 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" m_WidgetTimer" ,fontname="Helvetica"];
-  Node22 [label="bbPriorityQueue",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbPriorityQueue.html",tooltip=" "];
+  Node22 [label="bbList",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbList.html",tooltip=" "];
   Node14 -> Node22 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" p_Pool" ,fontname="Helvetica"];
   Node23 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" misc" ,fontname="Helvetica"];
   Node23 [label="bbMapState",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structbbMapState.html",tooltip=" "];

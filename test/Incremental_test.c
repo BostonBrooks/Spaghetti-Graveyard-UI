@@ -115,12 +115,12 @@ int main (void) {
 
       bbWidget* fireworks;
       type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
-      bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
+      bbWidget_new(&fireworks, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.p_Pool.Self, SCZero);
 
       bbWidget* prompt;
       type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "prompt");
       bbDebug("prompt type = %d\n", type);
-      bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCZero);
+      bbWidget_new(&prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Pool.p_Pool.Self, SCZero);
 
 
 
@@ -142,8 +142,8 @@ int main (void) {
 	uint64_t E0 = &emptyNode->p_Pool;
 	uint64_t E1 = &emptyNode->p_Tree;
 	uint64_t T  = testNode;
-	uint64_t T0 = &testNode->p_Node.p_Pool;
-	uint64_t T1 = &testNode->p_Node.p_Tree;
+	uint64_t T0 = &testNode->p_Pool.p_Pool;
+	uint64_t T1 = &testNode->p_Pool.p_Tree;
 
 	testNode->string = "Hello Poppet";
 
@@ -164,9 +164,9 @@ int main (void) {
 
 	emptyNode->p_Tree.Parent = 193;
 
-	bbDebug("testNode->p_Tree.Parent = %d\n", testNode->p_Node.p_Tree.Parent);
+	bbDebug("testNode->p_Tree.Parent = %d\n", testNode->p_Pool.p_Tree.Parent);
 
-	testNode->p_Node.p_Tree.Parent = 31415926;
+	testNode->p_Pool.p_Tree.Parent = 31415926;
 
 	bbDebug("emptyNode->Node.p_Tree.Parent = %d\n", emptyNode->p_Tree.Parent);
 

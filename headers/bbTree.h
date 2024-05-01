@@ -3,12 +3,12 @@
  * @brief bbTree defines a structure where each member has a parent and a list of daughter nodes.
  * the first element of the member should start with :
  *
- *	bbNode p_Node
+ *	bbNode p_Pool
  *
  *	Any such structure can be referred to as bbNode
  *
  *	bbPool_data p_Pool is the first element of bbNode
- *  bbNode p_Node is the first element of bbTest_Node
+ *  bbNode p_Pool is the first element of bbTest_Node
  *  bbTestNode is an example of the kind of object to be stored in a bbTree
  *
  *  as such bbTestNode can be cast as bbNode and bbNode can be cast as bbPool

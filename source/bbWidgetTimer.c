@@ -6,33 +6,33 @@ I32 bbWidgetTimer_new (void** RBR, I32 map){
     I32 flag;
 
 
-    flag = bbPriorityQueue_new(RBR, map, sizeof(bbWidgetTimerNode), 100, 100);
+    flag = bbList_new(RBR, map, sizeof(bbWidgetTimerNode), 100, 100);
 
 
 }
 
-//I32 bbPQNode_new(void** RBR, bbPriorityQueue* Queue, I32 address);
+//I32 bbListNode_new(void** RBR, bbList* Queue, I32 address);
 I32 bbWidgetTimerNode_new(void** RBR, bbWidgetTimer* Timer){
-    I32 flag = bbPQNode_new(RBR, Timer, f_PoolNextAvailable);
+    I32 flag = bbListNode_new(RBR, Timer, f_PoolNextAvailable);
     return flag;
 }
 
 
 
 I32 bbWidgetTimer_add(bbWidgetTimer* Timer, bbWidgetTimerNode* node){
-    I32 flag = bbPQNode_insertAfter(Timer, node->p_Node.Self);
+    I32 flag = bbListNode_insertAfter(Timer, node->p_Node.Self);
 }
 
 /* not yet implemented / could cause bugs
 I32 bbWidgetTimer_remove(bbWidgetTimer* Timer, I32 address){
-    I32 flag = bbPQNode_remove(Timer, address);
+    I32 flag = bbListNode_remove(Timer, address);
     return flag;
 }
 */
 
 //I32 ;
 I32 bbWidgetTimer_delete(bbWidgetTimer* Timer, I32 address){
-    I32 flag = bbPQNode_delete(Timer, address);
+    I32 flag = bbListNode_delete(Timer, address);
 }
 
 I32 WidgetTimerFunc(void* time_ptr, void* node){
@@ -58,7 +58,7 @@ I32 bbWidgetTimer_update(bbWidgetTimer* Timer, I32 time){
     timePtr timeptr;
     timeptr.time = time;
 
-    bbPriorityQueue_ascendingSearch(&time, Timer, WidgetTimerFunc);
+	bbList_ascendingSearch(&time, Timer, WidgetTimerFunc);
 
     return f_Success;
 }
