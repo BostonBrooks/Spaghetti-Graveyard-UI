@@ -27,7 +27,7 @@ I32 bbWidgetNew_Fireworks(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
-	SCF.x = 20;
+	SCF.x = 40;
 	SCF.y = 315;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
 	widget->m_ScreenCoords = SCI;

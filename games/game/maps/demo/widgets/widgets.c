@@ -10,6 +10,7 @@
 #include "games/game/maps/demo/widgets/drawFunctions/CoolDownDraw.h"
 #include "games/game/maps/demo/widgets/fireworks.h"
 #include "games/game/maps/demo/widgets/decal.h"
+#include "games/game/maps/demo/widgets/viewport.h"
 #include "games/game/maps/demo/widgets/spells/spellbar.h"
 #include "games/game/maps/demo/widgets/MouseClickText.h"
 #include "games/game/maps/demo/widgets/drawFunctions/TextDraw.h"
@@ -34,6 +35,7 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Fireworks, "fireworks");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Textbox, "textbox");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Decal, "decal");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Viewport, "viewport");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Sphere, "sphere");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Prompt, "prompt");

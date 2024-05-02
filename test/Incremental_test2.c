@@ -74,10 +74,13 @@ int main (void){
     I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
     bbWidget* Decal;
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
-
-	bbHere();
     flag = bbWidget_new(&Decal, map->m_Widgets, type, f_None, SC0);
     bbDebug("flag4 = %d\n", flag);
+
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "viewport");
+    bbWidget* Viewport;
+    flag = bbWidget_new(&Viewport, map->m_Widgets, type, Decal->p_Node.p_Pool.Self, SC0);
+    bbDebug("flagZ = %d\n", flag);
 
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
     bbWidget* Spellbar;
@@ -105,12 +108,13 @@ int main (void){
 
     sfRenderWindow_setMouseCursorVisible(g_Game->m_Window, false);
 
+    /*
     bbWidget* fireworks;
     SCF.x = 0; SCF.y = 0;
     SCI = bbScreenCoordsF_getI(SCF, &map->p_Constants);
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
     bbWidget_new(&fireworks, map->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
-
+*/
     I32 paused = 0;
 
     sfText* activeText = sfText_create();
