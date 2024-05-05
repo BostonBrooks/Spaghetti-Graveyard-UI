@@ -19,6 +19,9 @@ I32 bbWidgetNew_Viewport(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 
     bbWidget* widget;
     bbWidget_empty_new(&widget, widgets, sc, parent);
+
+    bbPrintf("viewport -> map = %d\n", widget->p_Node.p_Pool.Map);
+
     I32 flag;
     widget->m_String = "Mock Viewport";
 

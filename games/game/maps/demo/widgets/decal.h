@@ -19,11 +19,14 @@ I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 
     bbWidget* widget;
     bbWidget_empty_new(&widget, widgets, sc, NULL);
+
+    bbPrintf("widget -> map = &d\n", widget->p_Node.p_Pool.Map);
+
     I32 flag;
     widget->m_String = "Decal / Root Widget";
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickSphere");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickDecal");
 
 
     bbScreenCoordsF SCF;
@@ -61,3 +64,12 @@ I32 bbWidget_Decal_delete(bbWidget* widget){}
 I32 bbWidget_Decal_draw(bbWidget* widget){}
 
 
+/// if you click the decal, nothing happens
+I32 bbWidgetClick_Decal(void* void_mouseEvent, void* void_widget){
+    bbMouseEvent* event = void_mouseEvent;
+    if (event->m_type ==  f_MouseLeft) {
+        bbPrintf("You clicked nothing\n");
+    }
+    return f_Break;
+
+}

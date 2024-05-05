@@ -135,6 +135,8 @@ int main (void){
 
     sfText_setString(activeText, activeSpell->m_String);
 
+    bbPrintf("game -> map = %d", g_Game->m_CurrentMap);
+
     while (1){
 
 

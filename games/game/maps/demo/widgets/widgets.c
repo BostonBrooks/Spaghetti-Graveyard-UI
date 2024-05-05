@@ -42,6 +42,7 @@ I32 bbWidgetFunctions_populate(I32 map){
 
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Text, "clickText");
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Sphere, "clickSphere");
+    bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Decal, "clickDecal");
 
 
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Textbox, "textbox");

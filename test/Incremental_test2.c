@@ -131,6 +131,7 @@ int main (void){
 
     sfText_setString(activeText, activeSpell->m_String);
 
+    bbPrintf("map = %d\n", g_Game->m_CurrentMap);
     while (1){
 
         if(!paused) bbWidgetTimer_update(g_Game->m_Maps[g_Game->m_CurrentMap]->m_WidgetTimer,
