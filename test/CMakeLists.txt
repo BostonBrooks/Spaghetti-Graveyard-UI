@@ -14,4 +14,5 @@ add_executable(myprogram Incremental_test.c
         ../source/bbWidget.c
         ../games/game/maps/demo/widgets/widgets.c
         Incremental_test2.c
-        ../headers/bbDeque2.h)
+        ../games/game/maps/demo/widgets/spellbar/spellbar.h
+        ../games/game/maps/demo/widgets/spellbar/spell.h)

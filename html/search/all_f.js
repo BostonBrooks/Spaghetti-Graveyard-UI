@@ -9,5 +9,5 @@ var searchData=
   ['tilespersquare_6',['TilesPerSquare',['../structbbMapConstants.html#a7aab6eb3caa813806d2cecff8d100a56',1,'bbMapConstants']]],
   ['time_7',['time',['../structtimePtr.html#a7ede27552ab8c2802dfcb307d67b4608',1,'timePtr']]],
   ['timeptr_8',['timePtr',['../structtimePtr.html',1,'']]],
-  ['type_9',['type',['../structbbCommandEmpty.html#a8902fca9e711fa02c6b9c080cfa4deee',1,'bbCommandEmpty::type()'],['../structbbCommandPutChar.html#acf0fee0f42cf07a56496dade6debc33b',1,'bbCommandPutChar::type()'],['../structbbCommandPutStr.html#a7f1aaab17644b7f4feccb9c0610f1ae4',1,'bbCommandPutStr::type()'],['../structbbCommandSetStr.html#ac02edc1169cd2d2375311bef00a46105',1,'bbCommandSetStr::type()'],['../structbbCommandSetDim.html#ab6a0e41ac83338cba67922714bbc1fd8',1,'bbCommandSetDim::type()']]]
+  ['type_9',['type',['../structbbCommandEmpty.html#a8902fca9e711fa02c6b9c080cfa4deee',1,'bbCommandEmpty::type()'],['../structbbCommandChar.html#a480e9d8af2a1ab51706f18c8fa6205e0',1,'bbCommandChar::type()'],['../structbbCommandStr.html#a1d63aac1fc6ebbb1e38816e029c3cfd4',1,'bbCommandStr::type()'],['../structbbCommand2I.html#a65408a4a18c59c8d9a26304d53526b80',1,'bbCommand2I::type()']]]
 ];
