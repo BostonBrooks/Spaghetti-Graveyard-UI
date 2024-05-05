@@ -47,11 +47,19 @@
 //bbCommandEmpty
 #define c_RequestClick       14
 
-
+//bbCommand2I
 #define c_ReturnClick        15
+
+//bbCommandStr
 #define c_RequestAnswer      16
+
+//bbCommandStr
 #define c_ReturnAnswer       17
+
+//unknown
 #define c_CastSpell          18
+
+//bbCommandEmpty
 #define c_SetIdle            19
 
 //Commands use void pointers, messages use unions
