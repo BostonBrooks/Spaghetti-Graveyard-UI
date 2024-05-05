@@ -10,7 +10,7 @@ I32 Event_inputChar(char character, I32 map){
     bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
     if (character == '/') {
 
-        bbCommandSetStr cmd;
+        bbCommandStr cmd;
         cmd.type = f_PromptSetQuery;
         cmd.m_str = "Did you just type \'/\'?";
         bbWidget_onCommand(&cmd, prompt);
@@ -24,7 +24,7 @@ I32 Event_inputChar(char character, I32 map){
     }
 
     if(character == '\n'){
-        bbCommandSetStr cmd;
+        bbCommandStr cmd;
         char buffer[128];
         cmd.type = f_PromptReturnAnswer;
         cmd.m_str = buffer;
@@ -32,18 +32,18 @@ I32 Event_inputChar(char character, I32 map){
 
         printf("You entered %s\n", cmd.m_str);
 
-        bbCommandSetStr cmd2;
+        bbCommandStr cmd2;
         cmd2.type = f_SpellAnswer;
         cmd2.m_str = buffer;
 
         bbWidget_onCommand(&cmd2, spellbar);
 
-        bbCommandSetStr cmd3;
+        bbCommandStr cmd3;
         cmd3.type = f_PromptSetQuery;
         cmd3.m_str = "waka waka waka waka waka waka?";
         bbWidget_onCommand(&cmd3, prompt);
 
-        bbCommandSetStr cmd4;
+        bbCommandStr cmd4;
         char buffer2[128];
         sprintf(buffer2, "\n you entered %s", cmd.m_str);
         cmd4.type = f_PromptAddDialogue;
@@ -57,7 +57,7 @@ I32 Event_inputChar(char character, I32 map){
 
     }
 
-    bbCommandPutChar cmd2;
+    bbCommandChar cmd2;
     cmd2.type = f_PromptAddChar;
     cmd2.m_char= character;
     bbWidget_onCommand(&cmd2, prompt);

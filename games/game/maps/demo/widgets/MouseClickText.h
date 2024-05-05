@@ -25,7 +25,7 @@ I32 bbWidgetClick_Text(void* void_mouseEvent, void* void_widget){
             bbPool_Lookup(&dialogueWidget, pool, dialogueInt);
             sprintf(string,"\nYou clicked %s", widget->m_String);
 
-            bbCommandPutStr cmd;
+            bbCommandStr cmd;
             cmd.type = f_CommandPutStr;
             cmd.m_str = string;
             bbWidget_onCommand(&cmd, dialogueWidget);

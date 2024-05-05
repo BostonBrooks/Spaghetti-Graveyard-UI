@@ -13,6 +13,12 @@
 #include "headers/bbMouse.h"
 #include "headers/bbIntTypes.h"
 
+// bbWidget is a state machine
+#define s_Idle              0
+#define s_WaitingForCode    1
+#define s_WaitingForAnswer  2
+#define s_WaitingForClick   3
+
 #define subwidgetarraysize 8
 typedef struct{
 	bbNode p_Node;
@@ -34,7 +40,7 @@ typedef struct{
 	I32 v_DrawFunction[ANIMATIONS_PER_WIDGET];
     I32 m_AnimationStart[ANIMATIONS_PER_WIDGET];
 
-    I32 m_State;
+    I32 s_State;
 	I32 v_OnCommand;
 	I32 v_OnUpdate;
 	I32 v_OnDelete;

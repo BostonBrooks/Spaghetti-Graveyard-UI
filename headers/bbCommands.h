@@ -30,6 +30,30 @@
 #define f_SpellAnswer       11
 
 
+//More recent commands
+
+//bbCommandEmpty
+#define c_RequestCode        10
+
+//bbCommandStr
+#define c_ReturnCode         11
+
+//bbCommandEmpty
+#define c_ActivateSpell      12
+
+//bbCommandEmpty
+#define c_DeactivateSpell    13
+
+//bbCommandEmpty
+#define c_RequestClick       14
+
+
+#define c_ReturnClick        15
+#define c_RequestAnswer      16
+#define c_ReturnAnswer       17
+#define c_CastSpell          18
+#define c_SetIdle            19
+
 //Commands use void pointers, messages use unions
 
 typedef struct{
@@ -40,21 +64,16 @@ typedef struct{
 typedef struct {
     I32 type; // = f_CommandPutChar
     char m_char;
-} bbCommandPutChar;
+} bbCommandChar;
 
 typedef struct {
     I32 type; // = f_CommandPutStr
     char* m_str;
-} bbCommandPutStr;
-
-typedef struct {
-    I32 type; // = f_CommandSetStr
-    char* m_str;
-} bbCommandSetStr;
+} bbCommandStr;
 
 typedef struct {
     I32 type; // = f_CommandSetDim
-    I32 m_rows;
-    I32 m_columns;
-} bbCommandSetDim;
+	I32 m_intx;
+    I32 m_inty;
+} bbCommand2I;
 #endif //BBCOMMANDS_H

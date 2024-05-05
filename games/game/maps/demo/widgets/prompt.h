@@ -62,13 +62,13 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 
     bbWidget* subWidget;
 
-    bbCommandSetDim cmd;
+    bbCommand2I cmd;
     cmd.type = f_CommandSetDim;
     bbScreenCoordsI SCI;
 
     //Dialogue
-    cmd.m_rows = 17;
-    cmd.m_columns = 23;
+    cmd.m_inty = 17;
+    cmd.m_intx = 23;
 
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     SCI.y = 24 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
@@ -77,8 +77,8 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     widget->m_SubwidgetArray[i_dialogue] = subWidget->p_Node.p_Pool.Self;
     bbWidget_onCommand(&cmd, subWidget);
 
-    cmd.m_rows = 3;
-    cmd.m_columns = 23;
+    cmd.m_inty = 3;
+    cmd.m_intx = 23;
 
     //Query
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
@@ -88,8 +88,8 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     widget->m_SubwidgetArray[i_query] = subWidget->p_Node.p_Pool.Self;
     bbWidget_onCommand(&cmd, subWidget);
 
-    cmd.m_rows = 3;
-    cmd.m_columns = 23;
+    cmd.m_inty = 3;
+    cmd.m_intx = 23;
 
     //input
     SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
@@ -110,7 +110,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
     switch (commandEmpty->type) {
 /*        case f_CommandPutChar: {
-            bbCommandPutChar *commandPutChar = data;
+            bbCommandChar *commandPutChar = data;
             bbStr_putChar(widget->m_String, commandPutChar->m_char);
             sfText_setString(widget->m_Text, widget->m_String);
 
@@ -119,7 +119,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
             bbWidget* subWidget;
-            bbCommandPutChar cmd;
+            bbCommandChar cmd;
             cmd.type = f_CommandPutChar;
             cmd.m_char = commandPutChar->m_char;
 
@@ -148,7 +148,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
         }
         */
         case f_PromptSetQuery: {
-            bbCommandSetStr *commandSetString = data;
+            bbCommandStr *commandSetString = data;
             bbStr_setStr(widget->m_String, "");
             sfText_setString(widget->m_Text, widget->m_String);
 
@@ -157,7 +157,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
             bbWidget* subWidget;
-            bbCommandSetStr cmd;
+            bbCommandStr cmd;
 
             //Query
             cmd.type = f_CommandSetStr;
@@ -175,7 +175,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             break;
         }
         case f_PromptAddChar:  {
-            bbCommandPutChar *commandPutChar = data;
+            bbCommandChar *commandPutChar = data;
             bbStr_putChar(widget->m_String, commandPutChar->m_char);
             sfText_setString(widget->m_Text, widget->m_String);
 
@@ -184,7 +184,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
             bbWidget* subWidget;
-            bbCommandPutChar cmd;
+            bbCommandChar cmd;
             cmd.type = f_CommandPutChar;
             cmd.m_char = commandPutChar->m_char;
 
@@ -196,7 +196,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             break;
         }
         case f_PromptReturnAnswer: {     //bbCharacter.h requests current answer, sends to spellbar
-            bbCommandSetStr* cmd = data;
+            bbCommandStr* cmd = data;
 
             //return answer to caller
             cmd->type = f_PromptReturnAnswer;
@@ -209,7 +209,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
             bbWidget* subWidget;
-            bbCommandSetStr cmd2;
+            bbCommandStr cmd2;
 
             //reset answer widget
             cmd2.type = f_CommandSetStr;
@@ -225,9 +225,9 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             break;
         }
         case f_PromptAddDialogue: {
-            bbCommandPutStr *commandPutStr = data;
+            bbCommandStr *commandPutStr = data;
 
-            bbCommandPutStr cmd;
+            bbCommandStr cmd;
             cmd.type = f_CommandPutStr;
             cmd.m_str = commandPutStr->m_str;
 

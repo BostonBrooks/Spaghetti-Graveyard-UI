@@ -81,21 +81,21 @@ I32 bbWidgetCommand_Textbox(bbWidget* widget, void* data){
 
     switch (commandEmpty->type) {
         case f_CommandPutChar: {
-            bbCommandPutChar *commandPutChar = data;
+            bbCommandChar *commandPutChar = data;
             bbStr_putChar(widget->m_String, commandPutChar->m_char);
             bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
             sfText_setString(widget->m_Text, widget->m_String);
             break;
         }
         case f_CommandPutStr: {
-            bbCommandPutStr* commandPutStr = data;
+            bbCommandStr* commandPutStr = data;
             bbStr_putStr(widget->m_String, commandPutStr->m_str);
             bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
             sfText_setString(widget->m_Text, widget->m_String);
             break;
         }
         case f_CommandSetStr: {
-            bbCommandPutStr* commandPutStr = data;
+            bbCommandStr* commandPutStr = data;
             bbStr_setStr(widget->m_String, commandPutStr->m_str);
             bbStr_setBounds(widget->m_String, widget->m_TextColumns, widget->m_TextRows);
             sfText_setString(widget->m_Text, widget->m_String);
@@ -103,11 +103,11 @@ I32 bbWidgetCommand_Textbox(bbWidget* widget, void* data){
         }
         case f_CommandSetDim: {
 
-            bbCommandSetDim* commandSetDim = data;
+            bbCommand2I* commandSetDim = data;
 
 
-            widget->m_TextRows = commandSetDim->m_rows;
-            widget->m_TextColumns = commandSetDim->m_columns;
+            widget->m_TextRows = commandSetDim->m_inty;
+            widget->m_TextColumns = commandSetDim->m_intx;
             break;
         }
         default:
