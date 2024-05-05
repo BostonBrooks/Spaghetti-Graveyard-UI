@@ -62,9 +62,11 @@ I32 bbWidget_mouse(void* void_mouseEvent, void* void_widget){
     I32 map = widget->p_Node.p_Pool.Map;
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
 
-    bbWidget_Mouse* mouseFunction = functions->MouseHandler[widget->v_OnMouse];
-
-    return mouseFunction(void_mouseEvent, void_widget);
+	if (widget->v_OnMouse >= 0) {
+		bbWidget_Mouse *mouseFunction = functions->MouseHandler[widget->v_OnMouse];
+		return mouseFunction(void_mouseEvent, void_widget);
+	}
+	return f_Continue;
 }
 
 
