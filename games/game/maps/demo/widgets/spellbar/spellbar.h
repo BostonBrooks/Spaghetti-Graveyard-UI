@@ -11,7 +11,7 @@
 #include "headers/bbCommands.h"
 
 //typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
-I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 	//construct widget
 	bbWidget* widget;
 	bbPool* pool = widgets->m_Pool;
@@ -41,7 +41,7 @@ I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 	//call constructors for spell buttons
 
 	SCF = bbScreenCoordsI_getF(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-	SCF.x = 80 * widgetScale;
+	SCF.x += 80 * widgetScale;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
 
 

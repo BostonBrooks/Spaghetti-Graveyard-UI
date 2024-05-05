@@ -17,7 +17,8 @@
 #include "games/game/maps/demo/widgets/sphere.h"
 #include "games/game/maps/demo/widgets/textBox.h"
 #include "games/game/maps/demo/widgets/prompt.h"
-
+#include "games/game/maps/demo/widgets/spellbar/spellbar.h"
+#include "games/game/maps/demo/widgets/spellbar/spell.h"
 
 
 
@@ -39,6 +40,8 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Sphere, "sphere");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Prompt, "prompt");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar2, "spellbar");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell, "spell");
 
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Text, "clickText");
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Sphere, "clickSphere");
