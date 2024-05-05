@@ -91,6 +91,13 @@ int main (void){
     flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
     bbDebug("flag5 = %d\n", flag);
 
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellbar");
+	SCF.x = 20;
+	SCF.y = 120;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
+	flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+	bbDebug("flag5.5 = %d\n", flag);
+
     bbWidget* Prompt;
     SCF.x = 30; SCF.y = 24;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
