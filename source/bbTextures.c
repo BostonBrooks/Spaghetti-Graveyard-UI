@@ -18,7 +18,7 @@ I32 _bbTextures_new(bbTextures** self, I32 numTextures){
 I32 texture_load(bbTextures* textures, char* key, I32 address, char* filename,sfBool smooth){
 
 	sfTexture* texture = sfTexture_createFromFile(filename, NULL);
-	bbAssert(texture != NULL, "sfTexture failed to load\n");
+	bbAssert(texture != NULL, "sfTexture failed to load, %s\n", filename);
 	sfTexture_setSmooth(texture, smooth);
 	textures->m_Textures[address] = texture;
 	bbDictionary_add(textures->m_Dictionary, key, address);
