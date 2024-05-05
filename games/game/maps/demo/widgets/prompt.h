@@ -35,7 +35,7 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 
     widget->m_SubwidgetArray[i_spellbar] = g_Game->m_Maps[map]->misc.m_SpellBar_deprecated;
 
-        //TODO value should not be hard coded
+        //TODO value should not be hard coded?
     widget->m_String = calloc(1028, sizeof(char));
     bbStr_setStr(widget->m_String, "prompt");
     widget->m_Text = sfText_create();
@@ -244,6 +244,124 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
             break;
         }
+		case c_RequestCode: {
+
+
+			//set m_String to ""
+			widget->m_String[0] = '\0';
+			sfText_setString(widget->m_Text, widget->m_String);
+			widget->s_State = s_WaitingForCode;
+
+			//set query to "select spell"
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandPutStr;
+			cmd2.m_str = "Select spell";
+
+			//gather data
+			I32 map = widget->p_Node.p_Pool.Map;
+			I32 widget_int;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+
+			// Set Question
+			bbWidget* subWidget;
+			widget_int = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd2, subWidget);
+			//set input to ""
+			bbCommandEmpty cmd3;
+			cmd3.type = c_Clear;
+			widget_int = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd3, subWidget);
+
+			break;
+		}
+		case c_RequestClick: {
+			//set m_String to ""
+			widget->m_String[0] = '\0';
+			sfText_setString(widget->m_Text, widget->m_String);
+			widget->s_State = s_Idle;
+
+
+			//set query to "click to target spell"
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandPutStr;
+			cmd2.m_str = "Click to target spell";
+
+			//gather data
+			I32 map = widget->p_Node.p_Pool.Map;
+			I32 widget_int;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+
+			// Set Question
+			bbWidget* subWidget;
+			widget_int = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd2, subWidget);
+			//set input to ""
+			bbCommandEmpty cmd3;
+			cmd3.type = c_Clear;
+			widget_int = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd3, subWidget);
+
+			break;
+		}
+		case c_RequestAnswer: {
+
+
+			//set m_String to ""
+			widget->m_String[0] = '\0';
+			sfText_setString(widget->m_Text, widget->m_String);
+			widget->s_State = s_WaitingForAnswer;
+
+			bbCommandStr* cmd1 = data;
+
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandSetStr;
+			cmd2.m_str = cmd1->m_str;
+
+			//gather data
+			I32 map = widget->p_Node.p_Pool.Map;
+			I32 widget_int;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+
+			// Set Question
+			bbWidget* subWidget;
+			widget_int = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd2, subWidget);
+			//set input to ""
+			bbCommandEmpty cmd3;
+			cmd3.type = c_Clear;
+			widget_int = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd3, subWidget);
+
+			break;
+		}
+		case c_SetIdle: {
+			//set m_String to ""
+			widget->m_String[0] = '\0';
+			sfText_setString(widget->m_Text, widget->m_String);
+			widget->s_State = s_Idle;
+
+			I32 widget_int;
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+			bbCommandEmpty cmd3;
+			cmd3.type = c_Clear;
+			bbWidget* subWidget;
+
+			widget_int = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd3, subWidget);
+			widget_int = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&subWidget, pool, widget_int);
+			bbWidget_onCommand(&cmd3, subWidget);
+
+			break;
+		}
         default:
         bbDebug("Command not found\n");
     }

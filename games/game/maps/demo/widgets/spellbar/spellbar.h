@@ -22,7 +22,8 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 
 	bbWidgetFunctions* functions = widgets->m_Functions;
 
-	// widget->v_OnMouse = "click widget"
+	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spellbar");
+
 
 	widget->m_String = "Spell Bar";
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
@@ -59,6 +60,28 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidgetClick_Spellbar(void* void_mouseEvent, void* void_widget){
 	// Show/hide spell buttons (may wish to display cooldown bars)
+	bbMouseEvent* event = void_mouseEvent;
+	bbWidget* widget = void_widget;
+	bbScreenCoordsI sc = event->m_ScreenCoords;
+	if (event->m_type == f_MouseLeft) {
+		bbHere();
+		if (bbWidget_containsPoint(widget, event->m_ScreenCoords)) {
+
+			bbPrintf("You clicked the spell bar\n");
+			bbWidget* prompt = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Prompt;
+
+			bbCommandStr cmd;
+			cmd.type = c_RequestAnswer;
+			cmd.m_str = "Did you just click the spellbar?";
+
+
+			bbWidget_onCommand(&cmd, prompt);
+
+			return f_Break;
+		}
+		return f_Continue;
+	}
+	return f_Continue;
 }
 
 //typedef I32 bbWidget_OnCommand (bbWidget* widget, void* data);

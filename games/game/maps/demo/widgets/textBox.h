@@ -110,6 +110,11 @@ I32 bbWidgetCommand_Textbox(bbWidget* widget, void* data){
             widget->m_TextColumns = commandSetDim->m_intx;
             break;
         }
+		case c_Clear: {
+			bbStr_setStr(widget->m_String, "");
+			sfText_setString(widget->m_Text, widget->m_String);
+			break;
+		}
         default:
         bbDebug("Command not found\n");
     }

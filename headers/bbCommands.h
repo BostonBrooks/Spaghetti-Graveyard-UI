@@ -26,6 +26,7 @@
 #define f_PromptReturnAnswer 8
 #define f_PromptAddDialogue  9
 
+
 #define f_SpellEscape       10
 #define f_SpellAnswer       11
 
@@ -33,34 +34,37 @@
 //More recent commands
 
 //bbCommandEmpty
-#define c_RequestCode        10
+#define c_RequestCode        12
+
+//bbCommandEmpty
+#define c_Clear              13
 
 //bbCommandStr
-#define c_ReturnCode         11
+#define c_ReturnCode         14
 
 //bbCommandEmpty
-#define c_ActivateSpell      12
+#define c_ActivateSpell      15
 
 //bbCommandEmpty
-#define c_DeactivateSpell    13
+#define c_DeactivateSpell    16
 
 //bbCommandEmpty
-#define c_RequestClick       14
+#define c_RequestClick       17
 
 //bbCommand2I
-#define c_ReturnClick        15
+#define c_ReturnClick        18
 
 //bbCommandStr
-#define c_RequestAnswer      16
+#define c_RequestAnswer      19
 
 //bbCommandStr
-#define c_ReturnAnswer       17
+#define c_ReturnAnswer       20
 
 //unknown
-#define c_CastSpell          18
+#define c_CastSpell          21
 
 //bbCommandEmpty
-#define c_SetIdle            19
+#define c_SetIdle            22
 
 //Commands use void pointers, messages use unions
 
