@@ -44,7 +44,7 @@ I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
         widget->m_AnimationStart[i] = f_None;
     }
 
-    widget->m_State = f_None;
+    widget->s_State = f_None;
     widget->v_OnCommand = f_None;
     widget->v_OnUpdate = f_None;
     widget->v_OnDelete = f_None;
