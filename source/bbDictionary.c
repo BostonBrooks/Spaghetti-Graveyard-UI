@@ -106,14 +106,16 @@ I32 bbDictionary_lookupIndex(bbDictionary* dict, char* key){
 		if(strcmp(key, entry->m_Key) == 0) return index;
 		index = entry->m_Next;
 	}
-
 	return f_None;
 }
 
 I32 bbDictionary_lookup(bbDictionary* dict, char* key){
 	I32 index = bbDictionary_lookupIndex(dict, key);
+
+    bbAssert(index >= 0, "Dictionary Key not found: %s\n", key);
 	if (index == f_None) return f_None;
 	bbDictionary_entry* entry = bbDictionary_indexLookup(dict, index);
+
 	return entry->m_Value;
 }
 

@@ -110,7 +110,7 @@ int main (void) {
       SCZero.y = 0;
       bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
       bbWidget* widget;
-      I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
+      I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "HUD");
       bbWidget_new(&widget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, f_None, SCZero);
 
       bbWidget* fireworks;
@@ -124,7 +124,7 @@ int main (void) {
 
 
 
-      g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = widget;
+      g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_HUD = widget;
 
       for (I32 i = 0; i < 16; i++){
           bbWidget_draw(widget);
@@ -207,7 +207,7 @@ int main (void) {
     }*/
 
     bbWidgetFunctions* functions = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Functions;
-    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
+    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "HUD");
     bbWidget* Decal;
 
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
@@ -243,7 +243,7 @@ int main (void) {
     sfRenderWindow_display(g_Game->m_Window);
 
     g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime = 0;
-    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = Decal;
+    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_HUD = Decal;
 
     sfSprite* cursor = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites->m_Sprites[229];
     sfVector2i cursorPosI;

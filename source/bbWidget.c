@@ -13,7 +13,7 @@ I32 bbWidgets_new(I32 map){
 	bbPool_NewPool(&widgets->m_Pool, map, sizeof(bbWidget), 100, 100); //todo lvl1 lvl2
 	bbDictionary_new(&widgets->m_AddressDict, 777);
 	bbDictionary_new(&widgets->m_PromptDict, 666);
-	widgets->m_Decal = NULL;
+	widgets->m_HUD = NULL;
 	widgets->m_Prompt = NULL;
 	widgets->m_Functions = NULL;
 

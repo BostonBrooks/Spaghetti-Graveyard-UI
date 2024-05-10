@@ -23,6 +23,7 @@ int main (void){
     I32 flag;
     flag = bbGame_new(&g_Game, GAME_PATH);
     bbDebug("flag0 = %d\n", flag);
+    bbDebug("New Game\n");
     g_Game->m_CurrentMap = 0;;
     I32 mapInt = 0;
     sfRenderWindow_setFramerateLimit(g_Game->m_Window, 60);
@@ -36,10 +37,12 @@ int main (void){
     bbMap* map = g_Game->m_Maps[mapInt];
 
 // ---------- Textures ---------- //
+    bbDebug("Textures\n");
     flag = bbTextures_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Textures,
                           mapPath, g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.Textures);
     bbDebug("flag1 = %d\n", flag);
     // ---------- Sprites  ---------- //
+    bbDebug("Sprites\n");
     flag = bbSprites_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites,
                          g_Game->m_Maps[g_Game->m_CurrentMap]->m_Textures,
                          mapPath,
@@ -47,7 +50,7 @@ int main (void){
     bbDebug("flag2 = %d\n", flag);
 
 // ---------- Animations  ---------- //
-
+    bbDebug("Animations\n");
     flag = bbAnimations_new(&g_Game->m_Maps[g_Game->m_CurrentMap]->m_Animations,
                             g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites,
                             mapPath,
@@ -56,14 +59,12 @@ int main (void){
 
 // ---------- Fonts  ---------- //
 
+    bbDebug("Fonts\n");
     bbFonts_new(&map->m_Fonts, NULL, 1);
 
-	bbHere();
 // ---------- Widgets  ---------- //
-
+    bbDebug("Widgets\n");
     bbWidgets_new(mapInt);
-
-	bbHere();
     //Needed to include RBR to prevent circular reference in header files
     bbWidgetTimer_new(&g_Game->m_Maps[mapInt]->m_WidgetTimer, mapInt);
     bbWidgetFunctions_new(mapInt);
@@ -71,16 +72,19 @@ int main (void){
     bbWidgetFunctions* functions = map->m_Widgets->m_Functions;
 
 // ---------- Spawn Widgets  ---------- //
-    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
-    bbWidget* Decal;
+    bbDebug("Spawn Widgets: HUD\n");
+    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "HUD");
+    bbWidget* HUD;
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
-    flag = bbWidget_new(&Decal, map->m_Widgets, type, f_None, SC0);
+    flag = bbWidget_new(&HUD, map->m_Widgets, type, f_None, SC0);
     bbDebug("flag4 = %d\n", flag);
 
+    bbDebug("Viewport\n");
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "viewport");
     bbWidget* Viewport;
-    flag = bbWidget_new(&Viewport, map->m_Widgets, type, Decal->p_Node.p_Pool.Self, SC0);
+    flag = bbWidget_new(&Viewport, map->m_Widgets, type, HUD->p_Node.p_Pool.Self, SC0);
     bbDebug("flagZ = %d\n", flag);
+    bbDebug("Spellbar\n");
 
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
     bbWidget* Spellbar;
@@ -88,25 +92,19 @@ int main (void){
     SCF.x = 20;
     SCF.y = 720 - 20 - 80 * g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants.WidgetScale;
     bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
-    flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+    flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, HUD->p_Node.p_Pool.Self, SCI);
     bbDebug("flag5 = %d\n", flag);
 
-	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellbar");
-	SCF.x = 20;
-	SCF.y = 120;
-	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
-	flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
-	bbDebug("flag5.5 = %d\n", flag);
-
+    bbDebug("Prompt\n");
     bbWidget* Prompt;
     SCF.x = 30; SCF.y = 24;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "prompt");
-    flag = bbWidget_new(&Prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+    flag = bbWidget_new(&Prompt, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, HUD->p_Node.p_Pool.Self, SCI);
     bbDebug("flag6 = %d\n", flag);
 
     g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime = 0;
-    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = Decal;
+    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_HUD = HUD;
     g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Prompt = Prompt;
     g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar = Spellbar;
 
@@ -120,7 +118,7 @@ int main (void){
     SCF.x = 0; SCF.y = 0;
     SCI = bbScreenCoordsF_getI(SCF, &map->p_Constants);
     type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "fireworks");
-    bbWidget_new(&fireworks, map->m_Widgets, type, Decal->p_Node.p_Pool.Self, SCI);
+    bbWidget_new(&fireworks, map->m_Widgets, type, HUD->p_Node.p_Pool.Self, SCI);
 */
     I32 paused = 0;
 
@@ -145,9 +143,9 @@ int main (void){
                                          g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime);
         EventDispatch(g_Game->m_CurrentMap);
         sfRenderWindow_clear(g_Game->m_Window, sfBlue);
-        if(!paused) descending_searchVisible(NULL, Decal, bbWidget_onUpdate, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
+        if(!paused) descending_searchVisible(NULL, HUD, bbWidget_onUpdate, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
-        descending_searchVisible(NULL, Decal, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
+        descending_searchVisible(NULL, HUD, bbWidget_draw, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Pool);
 
 
         cursorPosI = sfMouse_getPosition(g_Game->m_Window);

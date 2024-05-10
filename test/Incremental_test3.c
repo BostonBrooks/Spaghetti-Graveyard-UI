@@ -81,7 +81,7 @@ int main (void){
     bbWidgetFunctions* functions = map->m_Widgets->m_Functions;
 
 // ---------- Spawn Widgets  ---------- //
-    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "decal");
+    I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "HUD");
     bbWidget* Decal;
     bbScreenCoordsI SC0; SC0.x = 0; SC0.y = 0;
     flag = bbWidget_new(&Decal, map->m_Widgets, type, f_None, SC0);
@@ -104,7 +104,7 @@ int main (void){
     bbDebug("flag6 = %d\n", flag);
 
     g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime = 0;
-    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Decal = Decal;
+    g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_HUD = Decal;
     g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Prompt = Prompt;
     g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar = Spellbar;
 

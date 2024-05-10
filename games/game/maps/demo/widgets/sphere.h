@@ -1,7 +1,7 @@
 /**
  * @file
  * @brief The functions in this file define the behavior of an object with class bbWidget and type Sphere
- * The sphere does nothing, gets spawned on a click to decal
+ * The sphere does nothing, gets spawned on a click to HUD
  * Used to show that clicks are landing in the right position
  *
  */
