@@ -13,7 +13,7 @@
 #include "headers/bbWidgetTimer.h"
 
 ///	Spawn a null widget on selected map at coordinates mc
-I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Layout(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 
 
 
@@ -23,10 +23,10 @@ I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
     bbPrintf("widget -> map = &d\n", widget->p_Node.p_Pool.Map);
 
     I32 flag;
-    widget->m_String = "Decal / Root Widget";
+    widget->m_String = "Layout / Root Widget";
 
     bbWidgetFunctions* functions = widgets->m_Functions;
-    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "clickDecal");
+    widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "layout");
 
 
     bbScreenCoordsF SCF;
@@ -37,13 +37,14 @@ I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_ScreenCoords = SCI;
 
-    SCF.x = 1280;
-    SCF.y = 720;
+    SCF.x = g_Game->m_GraphicsSettings->m_Width;
+    SCF.y = g_Game->m_GraphicsSettings->m_Height;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
 
-    widget->m_AnimationInt[0] = 162; //DECAL_1280
+    widget->m_AnimationInt[0] = bbSprites_lookupInt(g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites,
+													g_Game->m_GraphicsSettings->m_Layout);
     widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
 
 
@@ -52,20 +53,20 @@ I32 bbWidgetNew_Decal(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 }
 
 /// Update widget
-I32 bbWidget_Decal_update(bbWidget* widget){}
+I32 bbWidget_Layout_update(bbWidget* widget){}
 
 /// Send a command to the widget / update widget, etc
-I32 bbWidget_Decal_onCommand(bbWidget* widget, void* command){}
+I32 bbWidget_Layout_onCommand(bbWidget* widget, void* command){}
 
 /// Delete widget
-I32 bbWidget_Decal_delete(bbWidget* widget){}
+I32 bbWidget_Layout_delete(bbWidget* widget){}
 
 /// Draw widget to screen
-I32 bbWidget_Decal_draw(bbWidget* widget){}
+I32 bbWidget_Layout_draw(bbWidget* widget){}
 
 
-/// if you click the decal, nothing happens
-I32 bbWidgetClick_Decal(void* void_mouseEvent, void* void_widget){
+/// if you click the layout, nothing happens
+I32 bbWidgetClick_Layout(void* void_mouseEvent, void* void_widget){
     bbMouseEvent* event = void_mouseEvent;
     if (event->m_type ==  f_MouseLeft) {
         bbPrintf("You clicked nothing\n");

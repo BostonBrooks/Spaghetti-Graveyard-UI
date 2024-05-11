@@ -10,6 +10,7 @@
 #include "headers/bbEngineConstants.h"
 #include "headers/bbGameConstants.h"
 #include "headers/bbMap.h"
+#include "headers/bbGraphicsSettings.h"
 
 #include "headers/bbIntTypes.h"
 
@@ -25,6 +26,7 @@ typedef struct {
 	char* m_FolderPath;
 	char* m_GameName;
 
+	bbGraphicsSettings* m_GraphicsSettings;
 	bbMap* m_Maps[N_MAPS];
 
 } bbGame;

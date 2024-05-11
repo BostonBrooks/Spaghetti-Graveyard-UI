@@ -9,7 +9,7 @@
 #include "games/game/maps/demo/widgets/drawFunctions/SpriteDraw.h"
 #include "games/game/maps/demo/widgets/drawFunctions/CoolDownDraw.h"
 #include "games/game/maps/demo/widgets/fireworks.h"
-#include "games/game/maps/demo/widgets/decal.h"
+#include "games/game/maps/demo/widgets/layout.h"
 #include "games/game/maps/demo/widgets/viewport.h"
 #include "games/game/maps/demo/widgets/spells/spellbar.h"
 #include "games/game/maps/demo/widgets/MouseClickText.h"
@@ -35,7 +35,7 @@ I32 bbWidgetFunctions_populate(I32 map){
 
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Fireworks, "fireworks");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Textbox, "textbox");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Decal, "decal");
+    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Layout, "layout");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Viewport, "viewport");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Sphere, "sphere");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
@@ -45,7 +45,7 @@ I32 bbWidgetFunctions_populate(I32 map){
 
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Text, "clickText");
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Sphere, "clickSphere");
-	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Decal, "clickDecal");
+	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Layout, "layout");
 	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell, "spell");
 	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spellbar, "spellbar");
 

@@ -46,7 +46,7 @@ I32 bbWidget_menuButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -80,7 +80,7 @@ I32 bbWidget_showHideButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -110,7 +110,7 @@ I32 bbWidget_plusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCo
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -163,7 +163,7 @@ I32 bbWidget_minusButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -212,7 +212,7 @@ I32 bbWidget_timesButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenC
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -262,7 +262,7 @@ I32 bbWidget_divideButton_new(bbWidget** reference, bbWidgets* widgets, bbScreen
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -312,7 +312,7 @@ I32 bbWidget_detButton_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoo
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -362,7 +362,7 @@ I32 bbWidget_twoPowerButton_new(bbWidget** reference, bbWidgets* widgets, bbScre
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -411,7 +411,7 @@ I32 bbWidget_squaredButton_new(bbWidget** reference, bbWidgets* widgets, bbScree
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -459,7 +459,7 @@ I32 bbWidget_piNDigitsButton_new(bbWidget** reference, bbWidgets* widgets, bbScr
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
@@ -519,7 +519,7 @@ I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    float widgetScale = g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+    float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
     SCF.x = 10 * 80 * widgetScale;
     SCF.y = 80 * widgetScale;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[spellBar->p_Node.p_Pool.Map]->p_Constants);

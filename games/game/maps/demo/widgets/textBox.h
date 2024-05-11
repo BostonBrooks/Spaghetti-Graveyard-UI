@@ -38,6 +38,7 @@ I32 bbWidgetNew_Textbox(bbWidget** reference, bbWidgets* widgets, bbScreenCoords
     widget->m_TextRows = 1024;
     sfText_setFont(widget->m_Text, g_Game->m_Maps[map]->m_Fonts->m_Fonts[0]);
     sfText_setColor(widget->m_Text, sfBlack);
+	sfText_setCharacterSize(widget->m_Text, g_Game->m_GraphicsSettings->m_TextSize);
 
 
 

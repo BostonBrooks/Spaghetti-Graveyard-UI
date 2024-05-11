@@ -27,14 +27,14 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 
 	widget->m_String = "Spell";
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
-	widget->m_Frame[0] = 2;         // SHOWHIDE
+	widget->m_Frame[0] = 2;         // PLUS
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
 
-	float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+	float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
 	SCF.x = 80 * widgetScale;
 	SCF.y = 80 * widgetScale;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);

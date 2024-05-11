@@ -109,7 +109,7 @@ typedef struct {
 	bbDictionary* m_PromptDict;
     bbWidgetFunctions* m_Functions;
     ///the root widget in the hierarchy
-	bbWidget* m_Decal;
+	bbWidget* m_Layout;
     ///key events are passed to this widget
 	bbWidget* m_Prompt;
     ///manages spell casting

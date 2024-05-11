@@ -1,0 +1,20 @@
+Low definition settings:
+Width: 720
+Height: 480
+Drawable Scale:             1.0
+Widget Scale:               0.7
+Layout:                     LAYOUT_480
+Viewport.mock:              VIEWPORT_480
+Viewport.top:               10.0
+Viewport.left:              10.0
+Viewport.width:             466.0
+Viewport.height:            456.0
+Spellbar.left:              10.0
+Spellbar.bottom:            468.0
+Text.size:					15.0
+Text.columns:				23
+Text.left:                  491.0
+Dialogue.top:               15.0
+Dialogue.rows:              17
+Query.top:                  356.0
+Input.top:                  418.0

@@ -67,33 +67,33 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     bbScreenCoordsI SCI;
 
     //Dialogue
-    cmd.m_inty = 17;
-    cmd.m_intx = 23;
+    cmd.m_inty = g_Game->m_GraphicsSettings->m_DialogueRows;
+    cmd.m_intx = g_Game->m_GraphicsSettings->m_TextColumns;
 
-    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 24 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.x = g_Game->m_GraphicsSettings->m_TextLeft * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = g_Game->m_GraphicsSettings->m_DialogueTop * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[i_dialogue] = subWidget->p_Node.p_Pool.Self;
     bbWidget_onCommand(&cmd, subWidget);
 
     cmd.m_inty = 3;
-    cmd.m_intx = 23;
+    cmd.m_intx = g_Game->m_GraphicsSettings->m_TextColumns;
 
     //Query
-    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 494 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.x = g_Game->m_GraphicsSettings->m_TextLeft * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = g_Game->m_GraphicsSettings->m_QueryTop * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[i_query] = subWidget->p_Node.p_Pool.Self;
     bbWidget_onCommand(&cmd, subWidget);
 
     cmd.m_inty = 3;
-    cmd.m_intx = 23;
+    cmd.m_intx = g_Game->m_GraphicsSettings->m_TextColumns;
 
     //input
-    SCI.x = 881 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
-    SCI.y = 606 * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.x = g_Game->m_GraphicsSettings->m_TextLeft * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
+    SCI.y = g_Game->m_GraphicsSettings->m_InputTop * g_Game->m_Maps[map]->p_Constants.ScreenPPP;
     flag = bbWidget_new(&subWidget, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, widget->p_Node.p_Pool.Self, SCI);
     bbAssert(flag == f_Success, "bad flag from bbWidget_new()\n");
     widget->m_SubwidgetArray[i_answer] = subWidget->p_Node.p_Pool.Self;

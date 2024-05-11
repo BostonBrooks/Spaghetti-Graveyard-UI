@@ -36,7 +36,7 @@ An outline of the basic flow of the program (main.c) follows:
 
 -Load Widgets
     -one widget should be selected to handle text input (the prompt)
-    -one widget should be selected as root (the decal)
+    -one widget should be selected as root (the "layout")
     -one widget should be selected as the current spell.
     (as spell is a type of widget, that is represented by it's "click to activate" icon)
 -Load static Drawables

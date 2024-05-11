@@ -32,18 +32,19 @@ I32 bbWidgetNew_Viewport(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
     bbScreenCoordsF SCF;
     bbScreenCoordsI SCI;
 
-    SCF.x = 21;
-    SCF.y = 21;
+    SCF.x = g_Game->m_GraphicsSettings->m_ViewportLeft;
+    SCF.y = g_Game->m_GraphicsSettings->m_ViewportTop;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_ScreenCoords = SCI;
 
-    SCF.x = 829;
-    SCF.y = 678;
+    SCF.x = g_Game->m_GraphicsSettings->m_ViewportWidth;
+    SCF.y = g_Game->m_GraphicsSettings->m_ViewportHeight;
     SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
     widget->m_Dimensions = SCI;
 
 
-    widget->m_AnimationInt[0] = 230; // VIEWPORT
+    widget->m_AnimationInt[0] = bbSprites_lookupInt(g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites,
+													g_Game->m_GraphicsSettings->m_ViewportMock); // VIEWPORT
     widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
 
     *reference = widget;

@@ -27,6 +27,7 @@ Color_Off='\033[0m'
   ../source/bbCharacter.c\
   ../source/bbList.c\
   ../source/bbWidgetTimer.c\
+  ../source/bbGraphicsSettings.c\
   \
   ../games/game/maps/demo/widgets/widgets.c\
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -lm -w;

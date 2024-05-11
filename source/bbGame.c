@@ -2,27 +2,32 @@
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
 #include "headers/bbIntTypes.h"
+#include "headers/bbGraphicsSettings.h"
 
-
-I32 bbGame_new(bbGame** self, char* folderPath){
+I32 bbGame_new(bbGame** RBR, char* folderPath){
 
 	bbGame* game = calloc(1, sizeof(bbGame));
 	bbAssert(game != NULL, "calloc failed\n");
 
-	strcpy(&game->m_FolderPath, folderPath);
+	game->m_FolderPath = calloc(256, sizeof(char));
+	bbAssert(game->m_FolderPath != NULL, "calloc failed\n");
+	game->m_GameName = calloc(256, sizeof(char));
+	bbAssert(game->m_GameName != NULL, "calloc failed\n");
+	strcpy(game->m_FolderPath, folderPath);
 	char string[256];
 	I32 integer;
 	float floatingPoint;
 
 	sprintf(string, "%s/gamedata.txt", folderPath);
 
+
 	FILE* file = fopen(string, "r");
-	bbAssert(file != NULL, "fopen failed\n")
+	bbAssert(file != NULL, "fopen failed\n");
 
 	fscanf(file, "%[^\n]\n", string);
 	bbAssert(strcmp(string, "GraphicsSettings:") == 0, "bad gamedata.txt file\n");
 	fscanf(file, "Title: \"%[^\"]\"\n", string);
-	strcpy(&game->m_GameName, string);
+	strcpy(game->m_GameName, string);
 	fscanf(file, "Height: %d\n", &integer);
 	game->m_Constants.Height = integer;
 	fscanf(file, "Width: %d\n", &integer);
@@ -40,19 +45,25 @@ I32 bbGame_new(bbGame** self, char* folderPath){
 
 	fclose(file);
 
+	//sprintf(string, "%s/graphics-medium.txt", folderPath);
+	sprintf(string, "%s/graphics-low.txt", folderPath);
+	bbGraphicsSettings_new(&game->m_GraphicsSettings, string);
+	bbGraphicsSettings_print(game->m_GraphicsSettings);
+
 	sfVideoMode mode;
-	mode.height = game->m_Constants.Height;
-	mode.width = game->m_Constants.Width;
+	mode.height = game->m_GraphicsSettings->m_Height;
+	mode.width = game->m_GraphicsSettings->m_Width;
 	mode.bitsPerPixel = 32;
 
-	sfRenderWindow* window = sfRenderWindow_create(mode, &game->m_GameName, sfResize | sfClose, NULL);
+	bbDebug("GameName: %s\n", game->m_GameName);
+	sfRenderWindow* window = sfRenderWindow_create(mode, game->m_GameName, sfResize | sfClose, NULL);
 
 	sfColor beige = COLOUR_BEIGE;
 	sfRenderWindow_clear(window, beige);
 	sfRenderWindow_display(window);
 
 	game->m_Window = window;
-	*self = game;
+	*RBR = game;
 
 	return f_Success;
 }

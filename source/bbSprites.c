@@ -150,8 +150,8 @@ I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMa
 			dimensions.scalex *= constants->DrawableScale;
 			dimensions.scaley *= constants->DrawableScale;
 		} else if (strcmp(scaleBy, "Widget") == 0){
-			dimensions.scalex *= constants->WidgetScale;
-			dimensions.scaley *= constants->WidgetScale;
+			dimensions.scalex *= g_Game->m_GraphicsSettings->m_WidgetScale;
+			dimensions.scaley *= g_Game->m_GraphicsSettings->m_WidgetScale;
 		}
 
 		sprite_load(sprites, key, address, texture, &dimensions);

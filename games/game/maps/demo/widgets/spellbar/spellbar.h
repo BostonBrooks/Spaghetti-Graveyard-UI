@@ -34,7 +34,7 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
 
-	float widgetScale = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants.WidgetScale;
+	float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
 	SCF.x = 80 * widgetScale;
 	SCF.y = 80 * widgetScale;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
