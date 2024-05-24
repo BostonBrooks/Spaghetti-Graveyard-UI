@@ -64,7 +64,7 @@ static I32 bbStr_setBounds(char* str, I32 columns, I32 rows){
 
     I32 i_str = 0;
     I32 i_temp = 0;
-    I32 column = 1;
+    I32 column = 0;
 
     while(1){
 
@@ -84,7 +84,7 @@ static I32 bbStr_setBounds(char* str, I32 columns, I32 rows){
         }
 
 
-        if(str[i_str] == '\n') column = 0;
+        if(str[i_str] == '\n') column = -1;
 
         temp[i_temp] = str[i_str];
         i_str++;

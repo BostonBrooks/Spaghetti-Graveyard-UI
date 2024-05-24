@@ -24,12 +24,11 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 
 	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spellbar");
 
-
 	widget->m_String = "Spell Bar";
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
 	widget->m_Frame[0] = 1;         // SHOWHIDE
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
-
+    widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spellbar");
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
@@ -55,6 +54,8 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 	bbCommandEmpty cmd;
 	cmd.type = c_SetIdle;
 	bbWidget_onCommand(&cmd, widget);
+
+    *reference = widget;
 }
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
@@ -105,11 +106,37 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 		}
 		case c_ReturnCode:
 		{
+            bbCommandStr* cmdStr = command;
+
 			//deactivate current spell
+
+            bbDictionary* codeDict = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_CodeDict;
+            bbWidget* prompt = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Prompt;
+            I32 spellInt = bbDictionary_lookup(codeDict, cmdStr->m_str);
+            if (spellInt == f_None){
+
+                bbCommandStr cmdStr2;
+                cmdStr2.type = f_PromptAddDialogue;
+                cmdStr2.m_str = "\nspell code not recognised";
+                bbWidget_onCommand(&cmdStr2, prompt);
+                bbCommandEmpty cmdEmpty;
+                cmdEmpty.type = c_RequestCode;
+                bbWidget_onCommand(&cmdEmpty, prompt);
+                return f_Success;
+            }
 			//request activate spell given by code
 				//if the above line returns "on cooldown", request code from
 				// prompt
-
+            bbWidget* spell;
+            bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
+            bbPool_Lookup(&spell, pool, spellInt);
+            bbDebug("spell->string = %s\n", spell->m_String);
+            bbCommandStr cmdStr3;
+            cmdStr3.type = f_PromptAddDialogue;
+            char str[128];
+            sprintf(str, "\nYou entered the code for %s", spell->m_String);
+            cmdStr3.m_str = str;
+            bbWidget_onCommand(&cmdStr3, prompt);
 			return f_Success;
 		}
 		case c_ActivateSpell:

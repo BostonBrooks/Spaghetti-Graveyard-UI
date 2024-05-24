@@ -12,7 +12,7 @@ I32 bbWidgets_new(I32 map){
 
 	bbPool_NewPool(&widgets->m_Pool, map, sizeof(bbWidget), 100, 100); //todo lvl1 lvl2
 	bbDictionary_new(&widgets->m_AddressDict, 777);
-	bbDictionary_new(&widgets->m_PromptDict, 666);
+	bbDictionary_new(&widgets->m_CodeDict, 666);
 	widgets->m_Layout = NULL;
 	widgets->m_Prompt = NULL;
 	widgets->m_Functions = NULL;
@@ -259,13 +259,18 @@ I32 bbWidgetFunctions_getInt(bbWidgetFunctions* WFS, I32 bin, char* key){
 I32 bbWidget_onCommand(void* command, void* void_widget){
 
     bbWidget* widget = void_widget;
+
     I32 map = widget->p_Node.p_Pool.Map;
+
+    bbWarning(widget != g_Game->m_Maps[map]->m_Widgets->m_SpellBar, "command sent to spellbar\n");
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
     I32 commandFunction_int = widget->v_OnCommand;
 
         if (commandFunction_int >= 0) {
             functions->OnCommands[commandFunction_int](widget, command);
 
+        } else {
+            printf("widget has no command handler\n");
         }
 
     return f_Continue;

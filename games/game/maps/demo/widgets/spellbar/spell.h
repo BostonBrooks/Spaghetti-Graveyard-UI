@@ -45,6 +45,12 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	bbCommandEmpty cmd;
 	cmd.type = c_SetIdle;
 	bbWidget_onCommand(&cmd, widget);
+
+    bbDictionary* codeDict = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_CodeDict;
+    widget->m_Code = "0";
+    bbDictionary_add(codeDict, widget->m_Code, widget->p_Node.p_Pool.Self);
+
+    return f_Success;
 }
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);

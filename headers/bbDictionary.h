@@ -47,7 +47,7 @@ I32 bbDictionary_add(bbDictionary* dict, char* key, int value);
 I32 bbDictionary_remove(bbDictionary* dict, char* key);
 /// lookup a key in dictionary
 I32 bbDictionary_lookup(bbDictionary* dict, char* key);
-/// remove all key/value pairs in dicitonary
+/// remove all key/value pairs in dictionary
 I32 bbDictionary_clear(bbDictionary* dict);
 /// print all data in dictionary
 I32 bbDictionary_print(bbDictionary* dict);

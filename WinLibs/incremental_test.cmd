@@ -19,6 +19,7 @@ gcc -D SFML_STATIC -I ../^
   ../source/bbList.c^
   ../source/bbWidgetTimer.c^
   ../games/game/maps/demo/widgets/widgets.c^
+  ../source/bbGraphicsSettings.c^
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -w -lm
 a.exe
 

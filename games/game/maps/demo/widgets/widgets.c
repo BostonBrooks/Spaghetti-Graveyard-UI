@@ -11,7 +11,7 @@
 #include "games/game/maps/demo/widgets/fireworks.h"
 #include "games/game/maps/demo/widgets/layout.h"
 #include "games/game/maps/demo/widgets/viewport.h"
-#include "games/game/maps/demo/widgets/spells/spellbar.h"
+//#include "games/game/maps/demo/widgets/spells/spellbar.h"
 #include "games/game/maps/demo/widgets/MouseClickText.h"
 #include "games/game/maps/demo/widgets/drawFunctions/TextDraw.h"
 #include "games/game/maps/demo/widgets/sphere.h"
@@ -38,7 +38,7 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Layout, "layout");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Viewport, "viewport");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Sphere, "sphere");
-    bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
+  //  bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Prompt, "prompt");
 	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar2, "spellbar");
 	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell, "spell");
@@ -52,12 +52,9 @@ I32 bbWidgetFunctions_populate(I32 map){
 
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Textbox, "textbox");
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Prompt, "prompt");
-bbHere();
+    bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spellbar, "spellbar");
 
     bbWidgetFunctions_add(functions, f_WidgetOnTimer, bbWidget_Sphere_onTimer, "sphere");
-
-bbHere();
-
 
 	return f_Success;
 }

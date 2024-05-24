@@ -48,7 +48,7 @@ I32 bbGame_new(bbGame** RBR, char* folderPath){
 	//sprintf(string, "%s/graphics-medium.txt", folderPath);
 	sprintf(string, "%s/graphics-low.txt", folderPath);
 	bbGraphicsSettings_new(&game->m_GraphicsSettings, string);
-	bbGraphicsSettings_print(game->m_GraphicsSettings);
+	//bbGraphicsSettings_print(game->m_GraphicsSettings);
 
 	sfVideoMode mode;
 	mode.height = game->m_GraphicsSettings->m_Height;
@@ -57,7 +57,7 @@ I32 bbGame_new(bbGame** RBR, char* folderPath){
 
 	bbDebug("GameName: %s\n", game->m_GameName);
 	sfRenderWindow* window = sfRenderWindow_create(mode, game->m_GameName, sfResize | sfClose, NULL);
-
+    sfRenderWindow_setFramerateLimit(window, 0);
 	sfColor beige = COLOUR_BEIGE;
 	sfRenderWindow_clear(window, beige);
 	sfRenderWindow_display(window);

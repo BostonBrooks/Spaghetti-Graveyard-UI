@@ -33,7 +33,8 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     sfVector2f positionV2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[map]->p_Constants);
     flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
-    widget->m_SubwidgetArray[i_spellbar] = g_Game->m_Maps[map]->misc.m_SpellBar_deprecated;
+
+    //TODO widget->m_SubwidgetArray[i_spellbar] = g_Game->m_Maps[map]->misc.m_SpellBar_deprecated; is outdated
 
         //TODO value should not be hard coded?
     widget->m_String = calloc(1028, sizeof(char));
@@ -176,24 +177,69 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
         }
         case f_PromptAddChar:  {
             bbCommandChar *commandPutChar = data;
-            bbStr_putChar(widget->m_String, commandPutChar->m_char);
-            sfText_setString(widget->m_Text, widget->m_String);
 
 
             I32 map = widget->p_Node.p_Pool.Map;
             I32 widget_int;
             bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
-            bbWidget* subWidget;
-            bbCommandChar cmd;
-            cmd.type = f_CommandPutChar;
-            cmd.m_char = commandPutChar->m_char;
+            bbWidget* widget1;
+            I32 widgetInt1 = widget->m_SubwidgetArray[i_answer];
+            bbPool_Lookup(&widget1, pool, widgetInt1);
 
-            //input
-            widget_int = widget->m_SubwidgetArray[i_answer];
-            bbPool_Lookup(&subWidget, pool, widget_int);
-            bbWidget_onCommand(&cmd, subWidget);
+            if (commandPutChar->m_char == '\n'){
+                bbWidget* widget2;
+                I32 widgetInt2 = widget->m_SubwidgetArray[i_dialogue];
+                bbPool_Lookup(&widget2, pool, widgetInt2);
 
-            break;
+                char str[128];
+                char promptStr[128];
+                bbStr_setStr(promptStr, widget->m_String);
+                bbCommandStr cmdStr;
+
+                cmdStr.type = f_CommandPutStr;
+                cmdStr.m_str = str;
+                sprintf(str, "\nYou entered %s", widget->m_String);
+                bbWidget_onCommand(&cmdStr, widget2);
+
+                cmdStr.type = f_CommandSetStr;
+                cmdStr.m_str = "";
+                bbWidget_onCommand(&cmdStr, widget1);
+
+                bbStr_setStr(widget->m_String, "");
+                //Send message to spellbar
+
+                bbCommandStr cmdStr2;
+                cmdStr2.m_str = promptStr;
+
+                bbWidget* spellbar = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_SpellBar;
+
+                switch (widget->s_State){
+                    case s_WaitingForCode:
+                        cmdStr2.type = c_ReturnCode;
+                        break;
+                   // case s_WaitingForAnswer:
+                   //     cmdStr2.type = c_ReturnAnswer;
+                   //     break;
+                    default:
+                        cmdStr2.type = c_ReturnCode;
+                        break;
+                }
+                bbWidget_onCommand(&cmdStr2, spellbar);
+                break;
+            } else {
+                bbCommandChar cmd;
+                cmd.type = f_CommandPutChar;
+                cmd.m_char = commandPutChar->m_char;
+
+                //input
+                bbWidget_onCommand(&cmd, widget1);
+
+                bbStr_putChar(widget->m_String, commandPutChar->m_char);
+
+                //bbPrintf("Prompt: %s\n", widget->m_String);
+
+                break;
+            }
         }
         case f_PromptReturnAnswer: {     //bbCharacter.h requests current answer, sends to spellbar
             bbCommandStr* cmd = data;
@@ -254,7 +300,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
 			//set query to "select spell"
 			bbCommandStr cmd2;
-			cmd2.type = f_CommandPutStr;
+			cmd2.type = f_CommandSetStr;
 			cmd2.m_str = "Select spell";
 
 			//gather data
@@ -280,12 +326,12 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 			//set m_String to ""
 			widget->m_String[0] = '\0';
 			sfText_setString(widget->m_Text, widget->m_String);
-			widget->s_State = s_Idle;
+			widget->s_State = s_WaitingForClick;
 
 
 			//set query to "click to target spell"
 			bbCommandStr cmd2;
-			cmd2.type = f_CommandPutStr;
+			cmd2.type = f_CommandSetStr;
 			cmd2.m_str = "Click to target spell";
 
 			//gather data
@@ -363,7 +409,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 			break;
 		}
         default:
-        bbDebug("Command not found\n");
+        bbDebug("Command %d not found\n", commandEmpty->type);
     }
 
 }

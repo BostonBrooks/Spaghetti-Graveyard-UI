@@ -106,7 +106,7 @@ typedef struct {
     ///reference widgets by key
 	bbDictionary* m_AddressDict;
     ///enter code "key" to activate widget at "address"
-	bbDictionary* m_PromptDict;
+	bbDictionary* m_CodeDict;
     bbWidgetFunctions* m_Functions;
     ///the root widget in the hierarchy
 	bbWidget* m_Layout;

@@ -44,6 +44,11 @@ I32 EventDispatch(I32 map){ //TODO reconsider argument
                     Event_inputChar('/', map);
                     break;
                 }
+
+                if (event.key.code == sfKeyNumpad0 || event.key.code == sfKeyNum0){
+                    Event_inputChar('0', map);
+                    break;
+                }
                 if (event.key.shift == sfTrue){
                     switch (event.key.code) {
                         case sfKeyA:

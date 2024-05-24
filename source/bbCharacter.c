@@ -7,6 +7,7 @@
 I32 Event_inputChar(char character, I32 map){
 
     bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+/*
     bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
     if (character == '/') {
 
@@ -56,7 +57,7 @@ I32 Event_inputChar(char character, I32 map){
 
 
     }
-
+*/
     bbCommandChar cmd2;
     cmd2.type = f_PromptAddChar;
     cmd2.m_char= character;

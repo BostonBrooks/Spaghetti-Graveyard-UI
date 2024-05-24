@@ -20,7 +20,7 @@ I32 bbWidgetNew_Layout(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     bbWidget* widget;
     bbWidget_empty_new(&widget, widgets, sc, NULL);
 
-    bbPrintf("widget -> map = &d\n", widget->p_Node.p_Pool.Map);
+    bbPrintf("widget -> map = %d\n", widget->p_Node.p_Pool.Map);
 
     I32 flag;
     widget->m_String = "Layout / Root Widget";

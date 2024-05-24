@@ -14,6 +14,7 @@
 #include "headers/bbWidget.h"
 #include "headers/bbCharacter.h"
 #include "headers/bbIntTypes.h"
+#include "headers/bbCommands.h"
 
 bbGame* g_Game;
 
@@ -28,7 +29,7 @@ int main (void){
     sfRenderWindow_setFramerateLimit(g_Game->m_Window, 60);
     sfVector2i screenPosition;
     screenPosition.x = 0;
-    screenPosition.y = -25;
+    screenPosition.y = 0;
     sfRenderWindow_setPosition(g_Game->m_Window, screenPosition);
     char mapPath[512];
     sprintf(mapPath, "%s/maps/%s", GAME_PATH, &g_Game->m_MapNames[g_Game->m_CurrentMap]);
@@ -81,21 +82,24 @@ int main (void){
     bbWidget* Viewport;
     flag = bbWidget_new(&Viewport, map->m_Widgets, type, Layout->p_Node.p_Pool.Self, SC0);
     bbDebug("flagZ = %d\n", flag);
-
-    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
     bbWidget* Spellbar;
     bbScreenCoordsF SCF;
+    bbScreenCoordsI SCI;
+/*
+    type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellBar");
+
     SCF.x =  g_Game->m_GraphicsSettings->m_SpellbarLeft;
     SCF.y = g_Game->m_GraphicsSettings->m_SpellbarBottom - 80 * g_Game->m_GraphicsSettings->m_WidgetScale;
-    bbScreenCoordsI SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
+    SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
     flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Layout->p_Node.p_Pool.Self, SCI);
     bbDebug("flag5 = %d\n", flag);
-
+*/
 	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spellbar");
 	SCF.x =  g_Game->m_GraphicsSettings->m_SpellbarLeft;
-	SCF.y = 120;
+	SCF.y = g_Game->m_GraphicsSettings->m_SpellbarBottom - 80 * g_Game->m_GraphicsSettings->m_WidgetScale;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[g_Game->m_CurrentMap]->p_Constants);
 	flag = bbWidget_new(&Spellbar, g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets, type, Layout->p_Node.p_Pool.Self, SCI);
+    bbDebug("spellbar->string = %s\n", Spellbar->m_String);
 	bbDebug("flag5.5 = %d\n", flag);
 
     bbWidget* Prompt;
@@ -139,8 +143,50 @@ int main (void){
     sfText_setString(activeText, activeSpell->m_String);
 
     bbPrintf("map = %d\n", g_Game->m_CurrentMap);
+
+
+    bbCommandStr commandPutStr;
+    commandPutStr.type = f_PromptAddDialogue;
+    char commandStr[256];
+    commandPutStr.m_str = commandStr;
+    bbWidget* prompt = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Prompt;
+
+    bbCommandEmpty commandRequestClick;
+    commandRequestClick.type = c_RequestClick;
+
+    bbCommandEmpty cmdRequestCode;
+    cmdRequestCode.type = c_RequestCode;
+
+    bbCommandStr cmdRequestAnswer;
+    cmdRequestAnswer.type = c_RequestAnswer;
+    cmdRequestAnswer.m_str = "What is 5 + 9?";
+
+    sfClock* clock = sfClock_create();
+    sfTime time;
+    float fTime, fFreq;
     while (1){
 
+        if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 0) {
+            time = sfClock_restart(clock);
+            fTime = sfTime_asSeconds(time);
+            fFreq = 360.f / fTime;
+            sprintf(commandStr, "\nfrequency = %f", fFreq);
+            bbWidget_onCommand(&commandPutStr, prompt);
+
+            bbPrintf("spellbar->text = %s\n", g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar->m_String);
+        }
+/*        if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 60){
+            bbWidget_onCommand(&commandRequestClick, prompt);
+        }
+
+        if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 120){
+            bbWidget_onCommand(&cmdRequestCode, prompt);
+        }
+
+        if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 180){
+            bbWidget_onCommand(&cmdRequestAnswer, prompt);
+        }
+*/
         if(!paused) bbWidgetTimer_update(g_Game->m_Maps[g_Game->m_CurrentMap]->m_WidgetTimer,
                                          g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime);
         EventDispatch(g_Game->m_CurrentMap);
