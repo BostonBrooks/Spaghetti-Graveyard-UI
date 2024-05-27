@@ -59,12 +59,11 @@ int main (void){
 
     bbFonts_new(&map->m_Fonts, NULL, 1);
 
-	bbHere();
+
 // ---------- Widgets  ---------- //
 
     bbWidgets_new(mapInt);
 
-	bbHere();
     //Needed to include RBR to prevent circular reference in header files
     bbWidgetTimer_new(&g_Game->m_Maps[mapInt]->m_WidgetTimer, mapInt);
     bbWidgetFunctions_new(mapInt);
@@ -173,7 +172,7 @@ int main (void){
             sprintf(commandStr, "\nfrequency = %f", fFreq);
             bbWidget_onCommand(&commandPutStr, prompt);
 
-            bbPrintf("spellbar->text = %s\n", g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar->m_String);
+            //bbPrintf("spellbar->text = %s\n", g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar->m_String);
         }
 /*        if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 60){
             bbWidget_onCommand(&commandRequestClick, prompt);

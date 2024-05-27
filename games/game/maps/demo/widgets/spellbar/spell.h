@@ -24,7 +24,7 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	bbWidgetFunctions* functions = widgets->m_Functions;
 
 	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell");
-
+	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell");
 	widget->m_String = "Spell";
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
 	widget->m_Frame[0] = 2;         // PLUS
@@ -60,7 +60,7 @@ I32 bbWidgetClick_Spell(void* void_mouseEvent, void* void_widget){
 	bbWidget* widget = void_widget;
 	bbScreenCoordsI sc = event->m_ScreenCoords;
 	if (event->m_type == f_MouseLeft) {
-		bbHere();
+
 		if (bbWidget_containsPoint(widget, event->m_ScreenCoords)) {
 
 			bbPrintf("You clicked the spell\n");
@@ -102,16 +102,20 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 		case c_ActivateSpell:
 		{
 			//activate this spell or return "on cooldown"
+
+			bbPrintf("spell activated\n");
 			return f_Success;
 		}
 		case c_DeactivateSpell:
 		{
 			//deactivate this spell
+			bbPrintf("spell deactivated\n");
 			return f_Success;
 		}
 		case c_RequestClick:
 		{
 			//pass request to spellbar
+			widget->s_State = s_Idle;
 			return f_Success;
 		}
 

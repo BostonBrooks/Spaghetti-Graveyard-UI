@@ -65,7 +65,7 @@ I32 bbWidgetClick_Spellbar(void* void_mouseEvent, void* void_widget){
 	bbWidget* widget = void_widget;
 	bbScreenCoordsI sc = event->m_ScreenCoords;
 	if (event->m_type == f_MouseLeft) {
-		bbHere();
+
 		if (bbWidget_containsPoint(widget, event->m_ScreenCoords)) {
 
 			bbPrintf("You clicked the spell bar\n");
@@ -124,6 +124,7 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
                 bbWidget_onCommand(&cmdEmpty, prompt);
                 return f_Success;
             }
+			bbAssert(spellInt != widget->m_SubwidgetArray[0], "spell is already active even though code was requested?\n");
 			//request activate spell given by code
 				//if the above line returns "on cooldown", request code from
 				// prompt
@@ -137,6 +138,26 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
             sprintf(str, "\nYou entered the code for %s", spell->m_String);
             cmdStr3.m_str = str;
             bbWidget_onCommand(&cmdStr3, prompt);
+
+			//request new spell
+
+			bbCommandEmpty cmdEmpty;
+			cmdEmpty.type = c_ActivateSpell;
+			I32 flag = bbWidget_onCommand(&cmdEmpty, spell);
+			bbDebug("flag = %d\n", flag);
+			if(flag == f_Success){
+
+				I32 lastSpell = widget->m_SubwidgetArray[0];
+				widget->m_SubwidgetArray[0] = spell->p_Node.p_Pool.Self;
+				bbWidget* oldSpell;
+				if (lastSpell >= 0) {
+					bbPool_Lookup(&oldSpell, pool, lastSpell);
+					bbCommandEmpty cmdEmpty2;
+					cmdEmpty2.type = c_DeactivateSpell;
+					bbWidget_onCommand(&cmdEmpty2, oldSpell);
+				}
+			}
+
 			return f_Success;
 		}
 		case c_ActivateSpell:

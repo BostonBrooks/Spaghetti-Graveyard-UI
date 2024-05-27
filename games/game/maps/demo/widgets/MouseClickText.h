@@ -10,7 +10,7 @@
 
 /// if you click the widget, it will printf some text
 I32 bbWidgetClick_Text(void* void_mouseEvent, void* void_widget){
-    bbMouseEvent* event = void_mouseEvent;
+/*    bbMouseEvent* event = void_mouseEvent;
     bbWidget* widget = void_widget;
 
     if (event->m_type == f_MouseLeft) {
@@ -36,5 +36,5 @@ I32 bbWidgetClick_Text(void* void_mouseEvent, void* void_widget){
         }
     }
     return f_Continue;
-
+*/
 }

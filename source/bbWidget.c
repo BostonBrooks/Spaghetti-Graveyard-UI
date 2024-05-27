@@ -267,10 +267,11 @@ I32 bbWidget_onCommand(void* command, void* void_widget){
     I32 commandFunction_int = widget->v_OnCommand;
 
         if (commandFunction_int >= 0) {
-            functions->OnCommands[commandFunction_int](widget, command);
+            return functions->OnCommands[commandFunction_int](widget, command);
 
         } else {
-            printf("widget has no command handler\n");
+            bbDebug("widget %s has no command handler\n", widget->m_String);
+			return f_None;
         }
 
     return f_Continue;
@@ -283,7 +284,7 @@ I32 bbWidget_onUpdate(void* command, void* void_widget){
     I32 updateFunction_int = widget->v_OnUpdate;
 
     if (updateFunction_int >= 0) {
-        bbHere();
+
         functions->Update[updateFunction_int](widget, command);
 
     }
