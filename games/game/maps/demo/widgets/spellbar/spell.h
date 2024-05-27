@@ -50,9 +50,51 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
     widget->m_Code = "0";
     bbDictionary_add(codeDict, widget->m_Code, widget->p_Node.p_Pool.Self);
 
+	*reference = widget;
     return f_Success;
 }
+//typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
+I32 bbWidgetNew_Spell2(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+	//construct widget
+	bbWidget* widget;
+	bbPool* pool = widgets->m_Pool;
+	//there will be one key-value pair for each widget
+	bbDictionary* dict = widgets->m_AddressDict;
+	I32 map = widgets->m_Pool->m_Map;
+	I32 flag = bbWidget_empty_new(&widget, widgets, sc, parent);
 
+	bbWidgetFunctions* functions = widgets->m_Functions;
+
+	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell");
+	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell");
+	widget->m_String = "Spell2";
+	widget->m_AnimationInt[0] = 24; // SPELLBAR
+	widget->m_Frame[0] = 3;         // MINUS?
+	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+
+
+	bbScreenCoordsF SCF;
+	bbScreenCoordsI SCI;
+
+	float widgetScale = g_Game->m_GraphicsSettings->m_WidgetScale;
+	SCF.x = 80 * widgetScale;
+	SCF.y = 80 * widgetScale;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	widget->m_Dimensions = SCI;
+
+	//initialise widget
+
+	bbCommandEmpty cmd;
+	cmd.type = c_SetIdle;
+	bbWidget_onCommand(&cmd, widget);
+
+	bbDictionary* codeDict = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_CodeDict;
+	widget->m_Code = "1";
+	bbDictionary_add(codeDict, widget->m_Code, widget->p_Node.p_Pool.Self);
+
+	*reference = widget;
+	return f_Success;
+}
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidgetClick_Spell(void* void_mouseEvent, void* void_widget){
 

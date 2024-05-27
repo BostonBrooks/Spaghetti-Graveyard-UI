@@ -49,11 +49,21 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 	bbWidget* spell;
 	I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell");
 	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
-	//initialise widget
 
+
+	bbDebug("spell2->self = %d\n", spell->p_Node.p_Pool.Self);
+	bbWidget* spell2;
+	SCF.x += 80 * widgetScale;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell2");
+	bbWidget_new(&spell2, widgets, type, widget->p_Node.p_Pool.Self, SCI);
+
+	bbDebug("spell2->self = %d\n", spell2->p_Node.p_Pool.Self);
 	bbCommandEmpty cmd;
 	cmd.type = c_SetIdle;
 	bbWidget_onCommand(&cmd, widget);
+	bbWidget_onCommand(&cmd, spell);
+	bbWidget_onCommand(&cmd, spell2);
 
     *reference = widget;
 }
