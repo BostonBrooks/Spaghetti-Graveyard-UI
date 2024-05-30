@@ -45,7 +45,22 @@ I32 bbWidgetNew_Viewport(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 
     widget->m_AnimationInt[0] = bbSprites_lookupInt(g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites,
 													g_Game->m_GraphicsSettings->m_ViewportMock); // VIEWPORT
-    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "sprite");
+
+	widget->m_RenderTexture = sfRenderTexture_create(g_Game->m_GraphicsSettings->m_ViewportWidth, g_Game->m_GraphicsSettings->m_ViewportHeight, sfFalse);
+	I32 map = widget->p_Node.p_Pool.Map;
+	bbSprites* sprites = g_Game->m_Maps[map]->m_Sprites;
+	I32 spriteNum = widget->m_AnimationInt[0];
+	sfSprite* sprite = sprites->m_Sprites[spriteNum];
+
+	sfRenderTexture_drawSprite(widget->m_RenderTexture, sprite,NULL);
+	sfRenderTexture_display(widget->m_RenderTexture );
+
+	widget->m_Sprite = sfSprite_create();
+	sfSprite_setTexture(widget->m_Sprite, sfRenderTexture_getTexture(widget->m_RenderTexture), sfTrue);
+
+    widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "rendertexture");
+
+	g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Viewport = widget;
 
     *reference = widget;
     return f_Success;
@@ -55,12 +70,12 @@ I32 bbWidgetNew_Viewport(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 I32 bbWidget_Viewport_update(bbWidget* widget){}
 
 /// Send a command to the widget / update widget, etc
-I32 bbWidget_Viewport_onCommand(bbWidget* widget, void* command){}
+I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){}
 
 /// Delete widget
-I32 bbWidget_Viewport_delete(bbWidget* widget){}
+I32 bbWidgetDelete_Viewport(bbWidget* widget){}
 
 /// Draw widget to screen
-I32 bbWidget_Viewport_draw(bbWidget* widget){}
+I32 bbWidgetDraw_Viewport(bbWidget* widget){}
 
 

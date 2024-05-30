@@ -208,6 +208,38 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 			//check answer and request click
 			bbCommandStr* cmdStr = command;
 			bbDialog("\nyou entered %s\nanswer = %s", cmdStr->m_str, widget->m_String2);
+			bbWidget* spellbar = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_SpellBar;
+
+			if (strcmp(cmdStr->m_str, widget->m_String2) == 0){
+				bbDialog("\nYour answer was correct");
+
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestClick;
+				bbWidget_onCommand(&cmdEmpty, spellbar);
+
+				return f_Success;
+			}
+
+			I32 a, b;
+
+			a = rand() % 12;
+			b = rand() % 12;
+
+			sprintf(widget->m_String2, "%d", a*b);
+
+			bbCommandStr cmdStr2;
+			cmdStr2.type = c_RequestAnswer;
+			char str[128];
+			cmdStr2.m_str = str;
+			bbPrintf("What is %d x %d?", a, b);
+			sprintf(str, "What is %d x %d?", a, b);
+
+
+			bbWidget_onCommand(&cmdStr2, spellbar);
+
+			widget->s_State = s_WaitingForAnswer;
+
+			bbDialog("\nShould be waiting for answer");
 			return f_Success;
 		}
 

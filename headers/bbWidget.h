@@ -33,6 +33,8 @@ typedef struct{
     I32 m_TextRows;
     I32 m_TextColumns;
 	char* m_Code;
+	sfRenderTexture* m_RenderTexture;
+	sfSprite* m_Sprite;
 
 
 	I32 m_AnimationInt[ANIMATIONS_PER_WIDGET];
@@ -115,6 +117,8 @@ typedef struct {
 	bbWidget* m_Prompt;
     ///manages spell casting
     bbWidget* m_SpellBar;
+	///viewport of game world
+	bbWidget* m_Viewport;
 } bbWidgets;
 
 I32 bbWidgets_new(I32 map);

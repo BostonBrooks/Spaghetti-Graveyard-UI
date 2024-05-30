@@ -8,6 +8,7 @@
 #include "games/game/maps/demo/widgets/drawFunctions/FrameDraw.h"
 #include "games/game/maps/demo/widgets/drawFunctions/SpriteDraw.h"
 #include "games/game/maps/demo/widgets/drawFunctions/CoolDownDraw.h"
+#include "games/game/maps/demo/widgets/drawFunctions/RenderTextureDraw.h"
 #include "games/game/maps/demo/widgets/fireworks.h"
 #include "games/game/maps/demo/widgets/layout.h"
 #include "games/game/maps/demo/widgets/viewport.h"
@@ -31,7 +32,9 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Frame, "frame");
     bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Sprite, "sprite");
     bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Cooldown, "cooldown");
-    bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Text, "text");
+	bbWidgetFunctions_add(functions, f_WidgetDrawFunction, bbWidgetDraw_Text, "text");
+	bbWidgetFunctions_add(functions, f_WidgetDrawFunction,
+						  bbWidgetDraw_RenderTexture, "rendertexture");
 
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Fireworks, "fireworks");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Textbox, "textbox");

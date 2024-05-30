@@ -184,7 +184,12 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 		}
 		case c_RequestClick:
 		{
-			//pass request to viewport
+			bbDialog("\nRequested click");
+
+			bbWidget* prompt = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Prompt;
+			bbWidget_onCommand(command, prompt);
+			bbWidget* viewport = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Viewport;
+			bbWidget_onCommand(command, viewport);
 			return f_Success;
 		}
 		case c_ReturnClick:
