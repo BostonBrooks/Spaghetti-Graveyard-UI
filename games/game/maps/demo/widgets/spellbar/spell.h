@@ -26,6 +26,7 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell");
 	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell");
 	widget->m_String = "Spell";
+	widget->m_String2 = calloc(128, sizeof(char));
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
 	widget->m_Frame[0] = 2;         // PLUS
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
@@ -68,9 +69,11 @@ I32 bbWidgetNew_Spell2(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell");
 	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell");
 	widget->m_String = "Spell2";
+	widget->m_String2 = calloc(128, sizeof(char));
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
 	widget->m_Frame[0] = 3;         // MINUS?
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
+
 
 
 	bbScreenCoordsF SCF;
@@ -145,13 +148,40 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 		{
 			//activate this spell or return "on cooldown"
 
-			bbPrintf("spell activated\n");
+			bbWidget* spellbar = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_SpellBar;
+
+			if(widget->p_Node.p_Pool.Self == spellbar->m_SubwidgetArray[0]){
+				bbDialog("\nSpell already activated");
+				return f_None;
+			}
+
+			bbDialog("\nspell activated %s", widget->m_String);
+
+			I32 a, b;
+
+			a = rand() % 12;
+			b = rand() % 12;
+
+			sprintf(widget->m_String2, "%d", a*b);
+
+			bbCommandStr cmdStr;
+			cmdStr.type = c_RequestAnswer;
+			char str[128];
+			cmdStr.m_str = str;
+			sprintf(str, "What is %d x %d?", a, b);
+
+			bbWidget_onCommand(&cmdStr, spellbar);
+
+			widget->s_State = s_WaitingForAnswer;
+
+			bbDialog("\nShould be waiting for answer");
 			return f_Success;
 		}
 		case c_DeactivateSpell:
 		{
 			//deactivate this spell
 			bbPrintf("spell deactivated\n");
+			widget->s_State = s_Idle;
 			return f_Success;
 		}
 		case c_RequestClick:
@@ -176,6 +206,8 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 		case c_ReturnAnswer:
 		{
 			//check answer and request click
+			bbCommandStr* cmdStr = command;
+			bbDialog("\nyou entered %s\nanswer = %s", cmdStr->m_str, widget->m_String2);
 			return f_Success;
 		}
 

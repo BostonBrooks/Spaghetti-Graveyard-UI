@@ -30,6 +30,7 @@ I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     widget->m_Dimensions.y = f_None;
 
     widget->m_String = "Initialised empty widget";
+	widget->m_String2 = NULL;
 
     widget->m_Text = NULL;
     widget->m_TextRows = f_None;

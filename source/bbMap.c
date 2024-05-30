@@ -16,8 +16,8 @@ I32 bbMap_new(bbMap** self, char* folderPath){
 	fscanf(file, "%[^\n]\n", string);
 	bbAssert(strcmp(string, "Map Data:") == 0, "bad mapdata.txt file\n");
 	fscanf(file, "MapName: \"%[^\"]\"\n", string);
-	strcpy(map->m_Name, string);
-	sprintf(string, "%s: %s", g_Game->m_GameName, map->m_Name);
+	strcpy(map->m_String, string);
+	sprintf(string, "%s: %s", g_Game->m_GameName, map->m_String);
 	//Why does this line take so long to take effect?
 	sfRenderWindow_setTitle(g_Game->m_Window, string);
 

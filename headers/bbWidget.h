@@ -28,6 +28,7 @@ typedef struct{
 	bbScreenCoordsI m_ScreenCoords;
 	bbScreenCoordsI m_Dimensions;
 	char* m_String;
+	char* m_String2;
 	sfText* m_Text;
     I32 m_TextRows;
     I32 m_TextColumns;
@@ -135,4 +136,6 @@ I32 bbWidget_onTimer(void* void_timerNode, void* void_widget);
 
 I32 bbWidget_empty_new(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent);
 
+
+void bbDialog(const char* format, ...);
 #endif //BBWIDGET_H

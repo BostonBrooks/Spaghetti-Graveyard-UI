@@ -198,8 +198,8 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
                 cmdStr.type = f_CommandPutStr;
                 cmdStr.m_str = str;
-                sprintf(str, "\nYou entered %s", widget->m_String);
-                bbWidget_onCommand(&cmdStr, widget2);
+                //sprintf(str, "\nYou entered %s", widget->m_String);
+                //bbWidget_onCommand(&cmdStr, widget2);
 
                 cmdStr.type = f_CommandSetStr;
                 cmdStr.m_str = "";
@@ -217,9 +217,9 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
                     case s_WaitingForCode:
                         cmdStr2.type = c_ReturnCode;
                         break;
-                   // case s_WaitingForAnswer:
-                   //     cmdStr2.type = c_ReturnAnswer;
-                   //     break;
+                    case s_WaitingForAnswer:
+                        cmdStr2.type = c_ReturnAnswer;
+                        break;
                     default:
                         cmdStr2.type = c_ReturnCode;
                         break;
@@ -377,6 +377,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 			widget_int = widget->m_SubwidgetArray[i_query];
 			bbPool_Lookup(&subWidget, pool, widget_int);
 			bbWidget_onCommand(&cmd2, subWidget);
+			bbDebug("request answer %s\n", cmd2.m_str);
 			//set input to ""
 			bbCommandEmpty cmd3;
 			cmd3.type = c_Clear;

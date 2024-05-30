@@ -5,6 +5,7 @@
 #include "headers/bbPrintf.h"
 #include "games/game/maps/demo/widgets/emptyWidget.h"
 #include "headers/bbIntTypes.h"
+#include "headers/bbCommands.h"
 
 // g_Game->m_Maps[map]->m_Widgets = widgets; OR return by reference?
 I32 bbWidgets_new(I32 map){
@@ -262,7 +263,7 @@ I32 bbWidget_onCommand(void* command, void* void_widget){
 
     I32 map = widget->p_Node.p_Pool.Map;
 
-    bbWarning(widget != g_Game->m_Maps[map]->m_Widgets->m_SpellBar, "command sent to spellbar\n");
+    //bbWarning(widget != g_Game->m_Maps[map]->m_Widgets->m_SpellBar, "command sent to spellbar\n");
     bbWidgetFunctions* functions = g_Game->m_Maps[map]->m_Widgets->m_Functions;
     I32 commandFunction_int = widget->v_OnCommand;
 
@@ -304,4 +305,21 @@ I32 bbWidget_onTimer(void* void_timerNode, void* void_widget){
     }
 
     return f_Continue;
+}
+
+
+void bbDialog(const char* format, ...){
+	I32 map = g_Game->m_CurrentMap;
+	bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+	char str[128];
+	bbCommandStr cmdStr;
+	cmdStr.type = f_PromptAddDialogue;
+	cmdStr.m_str = str;
+	va_list args;
+	va_start(args, format);
+	vsprintf(cmdStr.m_str, format, args);
+	va_end (args);
+
+	bbWidget_onCommand(&cmdStr, prompt);
+
 }

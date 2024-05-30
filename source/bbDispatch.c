@@ -49,6 +49,42 @@ I32 EventDispatch(I32 map){ //TODO reconsider argument
                     Event_inputChar('0', map);
                     break;
                 }
+				if (event.key.code == sfKeyNumpad1 || event.key.code == sfKeyNum1){
+					Event_inputChar('1', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad2 || event.key.code == sfKeyNum2){
+					Event_inputChar('2', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad3 || event.key.code == sfKeyNum3){
+					Event_inputChar('3', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad4 || event.key.code == sfKeyNum4){
+					Event_inputChar('4', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad5 || event.key.code == sfKeyNum5){
+					Event_inputChar('5', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad6 || event.key.code == sfKeyNum6){
+					Event_inputChar('6', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad7 || event.key.code == sfKeyNum7){
+					Event_inputChar('7', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad8 || event.key.code == sfKeyNum8){
+					Event_inputChar('8', map);
+					break;
+				}
+				if (event.key.code == sfKeyNumpad9 || event.key.code == sfKeyNum9){
+					Event_inputChar('9', map);
+					break;
+				}
                 if (event.key.shift == sfTrue){
                     switch (event.key.code) {
                         case sfKeyA:

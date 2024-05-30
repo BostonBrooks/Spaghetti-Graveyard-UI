@@ -31,7 +31,7 @@ typedef struct {
 
 	char* m_path;  //path to map folder
 
-	char m_Name[128];
+	char m_String[128];
 	bbTextures* m_Textures;
 	bbSprites* m_Sprites;
 	bbAnimations* m_Animations;

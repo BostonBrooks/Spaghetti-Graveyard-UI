@@ -57,7 +57,7 @@ I32 bbGame_new(bbGame** RBR, char* folderPath){
 
 	bbDebug("GameName: %s\n", game->m_GameName);
 	sfRenderWindow* window = sfRenderWindow_create(mode, game->m_GameName, sfResize | sfClose, NULL);
-    sfRenderWindow_setFramerateLimit(window, 0);
+    //sfRenderWindow_setFramerateLimit(window, 120);
 	sfColor beige = COLOUR_BEIGE;
 	sfRenderWindow_clear(window, beige);
 	sfRenderWindow_display(window);

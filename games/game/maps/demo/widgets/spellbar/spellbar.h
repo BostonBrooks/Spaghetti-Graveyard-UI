@@ -66,6 +66,8 @@ I32 bbWidgetNew_Spellbar2(bbWidget** reference, bbWidgets* widgets, bbScreenCoor
 	bbWidget_onCommand(&cmd, spell2);
 
     *reference = widget;
+
+	return f_Success;
 }
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
@@ -133,15 +135,15 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
                 cmdEmpty.type = c_RequestCode;
                 bbWidget_onCommand(&cmdEmpty, prompt);
                 return f_Success;
-            }
-			bbAssert(spellInt != widget->m_SubwidgetArray[0], "spell is already active even though code was requested?\n");
+			}
+
 			//request activate spell given by code
-				//if the above line returns "on cooldown", request code from
+				//if returns "on cooldown", request code from
 				// prompt
             bbWidget* spell;
             bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
             bbPool_Lookup(&spell, pool, spellInt);
-            bbDebug("spell->string = %s\n", spell->m_String);
+            //bbDebug("spell->string = %s\n", spell->m_String);
             bbCommandStr cmdStr3;
             cmdStr3.type = f_PromptAddDialogue;
             char str[128];
@@ -154,7 +156,7 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 			bbCommandEmpty cmdEmpty;
 			cmdEmpty.type = c_ActivateSpell;
 			I32 flag = bbWidget_onCommand(&cmdEmpty, spell);
-			bbDebug("flag = %d\n", flag);
+			//bbDebug("flag = %d\n", flag);
 			if(flag == f_Success){
 
 				I32 lastSpell = widget->m_SubwidgetArray[0];
@@ -193,10 +195,27 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 		case c_RequestAnswer:
 		{
 			//pass request to prompt
+
+			bbCommandStr* cmdStr = command;
+
+			bbWidget* prompt = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Prompt;
+
+			bbWidget_onCommand(cmdStr, prompt);
+
+			//state = waiting for answer?
 			return f_Success;
 		}
 		case c_ReturnAnswer:
 		{
+			bbCommandStr* cmdStr = command;
+
+			//bfbgfbbPrintf("Answer = %s\n", cmdStr->m_str);
+
+			I32 spellInt  = widget->m_SubwidgetArray[0];
+			bbWidget* spell;
+			bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
+			bbPool_Lookup(&spell, pool, spellInt);
+			bbWidget_onCommand(cmdStr, spell);
 			//pass answer to active spell
 			return f_Success;
 		}
