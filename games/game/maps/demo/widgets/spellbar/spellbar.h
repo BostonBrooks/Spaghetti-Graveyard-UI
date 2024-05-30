@@ -190,10 +190,15 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 			bbWidget_onCommand(command, prompt);
 			bbWidget* viewport = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Viewport;
 			bbWidget_onCommand(command, viewport);
+
+			widget->s_State = s_WaitingForClick;
 			return f_Success;
 		}
 		case c_ReturnClick:
 		{
+			if (widget->s_State == s_WaitingForClick){
+				bbDialog("\ncast spell");
+			}
 			//pass click to active spell
 			return f_Success;
 		}

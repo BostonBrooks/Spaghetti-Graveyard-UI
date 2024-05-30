@@ -16,10 +16,19 @@ typedef struct {
 
 typedef struct {
 	///x axis is  right of top left
+	I32 x;
+	///y axis is down from top left
+	I32 y;
+} bbViewportCoordsI;
+
+
+typedef struct {
+	///x axis is  right of top left
 	float x;
 	///y axis is down from top left
 	float y;
 } bbScreenCoordsF;
+
 
 
 bbScreenCoordsF bbScreenCoordsI_getF(bbScreenCoordsI SCI, bbMapConstants* constants);
