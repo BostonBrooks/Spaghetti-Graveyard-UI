@@ -5,7 +5,7 @@ cmake_minimum_required(VERSION 2.6.0)
 
 project(myprogram C)
 include_directories( ../ )
-add_executable(myprogram Incremental_test.c
+add_executable(myprogram Incremental_test2.c
         ../headers/bbList.h
         ../source/bbList.c
         bbPriorityQueue_test.c
@@ -13,7 +13,6 @@ add_executable(myprogram Incremental_test.c
         ../source/bbWidgetTimer.c
         ../source/bbWidget.c
         ../games/game/maps/demo/widgets/widgets.c
-        Incremental_test2.c
         ../games/game/maps/demo/widgets/spellbar/spellbar.h
         ../games/game/maps/demo/widgets/spellbar/spell.h
         ../source/bbGraphicsSettings.c
