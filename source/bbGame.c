@@ -45,8 +45,11 @@ I32 bbGame_new(bbGame** RBR, char* folderPath){
 
 	fclose(file);
 
-	//sprintf(string, "%s/graphics-medium.txt", folderPath);
+#ifdef GRAPHICS_LOW
 	sprintf(string, "%s/graphics-low.txt", folderPath);
+#else
+	sprintf(string, "%s/graphics-medium.txt", folderPath);
+#endif
 	bbGraphicsSettings_new(&game->m_GraphicsSettings, string);
 	//bbGraphicsSettings_print(game->m_GraphicsSettings);
 
