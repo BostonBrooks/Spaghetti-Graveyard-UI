@@ -63,6 +63,7 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Prompt, "prompt");
 	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spellbar, "spellbar");
 	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell, "spell");
+	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Viewport, "viewport");
 
 	//typedef I32 bbWidget_OnTimer (bbWidget* widget, void* void_timerNode);
     bbWidgetFunctions_add(functions, f_WidgetOnTimer, bbWidget_Sphere_onTimer, "sphere");

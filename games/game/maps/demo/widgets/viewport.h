@@ -28,6 +28,7 @@ I32 bbWidgetNew_Viewport(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 
     bbWidgetFunctions* functions = widgets->m_Functions;
     widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "viewport");
+	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "viewport");
 
 
     bbScreenCoordsF SCF;
@@ -72,8 +73,29 @@ I32 bbWidget_Viewport_update(bbWidget* widget){}
 
 /// Send a command to the widget / update widget, etc
 I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
-	bbCommandEmpty* cmd = command;
+	bbCommandEmpty* commandEmpty = command;
 
+	switch (commandEmpty->type){
+		case c_CastSpell:
+		{
+			bbCommand3I* cmd3I = command;
+			bbScreenCoordsI SCI;
+			SCI.x = cmd3I->m_intx;
+			SCI.y = cmd3I->m_inty;
+			I32 spriteNum = cmd3I->m_intz;
+
+			sfRenderTexture* renderTexture = widget->m_RenderTexture;
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbSprites* sprites = g_Game->m_Maps[map]->m_Sprites;
+			sfSprite* sprite = sprites->m_Sprites[spriteNum];
+			sfVector2f position = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[map]->p_Constants);
+			sfSprite_setPosition(sprite, position);
+			sfRenderTexture_drawSprite(renderTexture, sprite, NULL);
+		}
+		default:
+			bbDebug("command not found\n");
+			return f_None;
+	}
 
 }
 

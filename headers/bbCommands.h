@@ -31,6 +31,7 @@
 #define f_SpellAnswer       11
 
 
+
 //More recent commands
 
 //bbCommandEmpty
@@ -60,11 +61,13 @@
 //bbCommandStr
 #define c_ReturnAnswer       20
 
-//unknown
+//bbCommand3I
 #define c_CastSpell          21
 
 //bbCommandEmpty
 #define c_SetIdle            22
+
+
 
 //Commands use void pointers, messages use unions
 
@@ -88,4 +91,12 @@ typedef struct {
 	I32 m_intx;
     I32 m_inty;
 } bbCommand2I;
+
+
+typedef struct {
+	I32 type; // = f_CommandSetDim
+	I32 m_intx;
+	I32 m_inty;
+	I32 m_intz;
+} bbCommand3I;
 #endif //BBCOMMANDS_H

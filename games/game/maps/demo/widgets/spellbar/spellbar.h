@@ -197,7 +197,20 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 		case c_ReturnClick:
 		{
 			if (widget->s_State == s_WaitingForClick){
+				bbCommand2I* cmd2I = command;
 				bbDialog("\ncast spell");
+				bbCommand3I cmd3I;
+				cmd3I.type = c_CastSpell;
+				cmd3I.m_intx = cmd2I->m_intx;
+				cmd3I.m_inty = cmd2I->m_inty;
+				//Sphere
+				cmd3I.m_intz = 29;
+
+				bbWidget* viewport = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_Viewport;
+
+				bbWidget_onCommand(&cmd3I, viewport);
+
+				return f_Success;
 			}
 			//pass click to active spell
 			return f_Success;
