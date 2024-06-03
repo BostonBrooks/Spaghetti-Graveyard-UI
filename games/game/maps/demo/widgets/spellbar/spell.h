@@ -31,6 +31,23 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	widget->m_Frame[0] = 2;         // PLUS
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
+	widget->m_CoolDownStart = 0;
+	widget->m_CoolDownEnd = 3600;
+
+	widget->m_RedRect = sfRectangleShape_create();
+	sfColor RedHalfAlpha;
+	RedHalfAlpha.r = 255;
+	RedHalfAlpha.g = 0;
+	RedHalfAlpha.b = 0;
+	RedHalfAlpha.a = 127;
+	sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+	sfVector2f vector2f;
+	vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+	vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+	widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
@@ -74,7 +91,23 @@ I32 bbWidgetNew_Spell2(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 	widget->m_Frame[0] = 3;         // MINUS?
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
+	widget->m_CoolDownStart = 0;
+	widget->m_CoolDownEnd = 180;
 
+	widget->m_RedRect = sfRectangleShape_create();
+	sfColor RedHalfAlpha;
+	RedHalfAlpha.r = 255;
+	RedHalfAlpha.g = 0;
+	RedHalfAlpha.b = 0;
+	RedHalfAlpha.a = 127;
+	sfRectangleShape_setFillColor(widget->m_RedRect, RedHalfAlpha);
+
+	sfVector2f vector2f;
+	vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	sfRectangleShape_setPosition(widget->m_RedRect, vector2f);
+	vector2f = bbScreenCoordsI_getV2f(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	sfRectangleShape_setSize(widget->m_RedRect, vector2f);
+	widget->v_DrawFunction[1] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "cooldown");
 
 	bbScreenCoordsF SCF;
 	bbScreenCoordsI SCI;
@@ -148,6 +181,11 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 		{
 			//activate this spell or return "on cooldown"
 
+			if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime < widget->m_CoolDownEnd){
+				bbDialog("\nSpell on cooldown");
+				return f_None;
+			}
+
 			bbWidget* spellbar = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_SpellBar;
 
 			if(widget->p_Node.p_Pool.Self == spellbar->m_SubwidgetArray[0]){
@@ -193,7 +231,7 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 
 		case c_ReturnClick:
 		{
-			//cast spell  (/ send command to viewport)
+			bbDialog("\nCast it into the void!");
 			return f_Success;
 		}
 		/* spell usually sends these type of commands

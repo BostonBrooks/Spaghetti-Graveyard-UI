@@ -198,7 +198,18 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 		{
 			if (widget->s_State == s_WaitingForClick){
 				bbCommand2I* cmd2I = command;
-				bbDialog("\ncast spell");
+
+				I32 spellInt = widget->m_SubwidgetArray[0];
+				bbWidget* spell;
+				bbPool* pool = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_Pool;
+				bbPool_Lookup(&spell, pool, spellInt);
+
+				bbDialog("\ncast %s", spell->m_String);
+
+				bbWidget_onCommand(command, spell);
+
+
+				/*
 				bbCommand3I cmd3I;
 				cmd3I.type = c_CastSpell;
 				cmd3I.m_intx = cmd2I->m_intx;
@@ -210,6 +221,7 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 
 				bbWidget_onCommand(&cmd3I, viewport);
 
+				 */
 				return f_Success;
 			}
 			//pass click to active spell
