@@ -79,10 +79,15 @@ static void bbVerbose(const char* format, ...){
 
 #define bbDebug(...) \
 	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
-	printf (__VA_ARGS__);
+	printf (__VA_ARGS__);                                                                      \
 
 #define bbHere() 	printf ("LINE: %d, FILE: %s, FUNCTION: %s\n",\
                       __LINE__, __FILE_NAME__, __func__);
+
+#define bbBreakPoint(...) \
+	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nBREAKPOINT: ", __FILE_NAME__, __func__, __LINE__);\
+	printf (__VA_ARGS__);\
+	getchar();
 
 #endif // BBPRINTF_H
 
