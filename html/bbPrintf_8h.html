@@ -103,6 +103,8 @@ Macros</h2></td></tr>
 <tr class="separator:a7dfbab793b596ebbea40bcfb6ca11cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa77e96efe43a6fc1b747127dfdfbb9e6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPrintf_8h.html#aa77e96efe43a6fc1b747127dfdfbb9e6">bbHere</a>()</td></tr>
 <tr class="separator:aa77e96efe43a6fc1b747127dfdfbb9e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7d752794a7bbe61e058a0528d488293"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bbPrintf_8h.html#ad7d752794a7bbe61e058a0528d488293">bbBreakPoint</a>(...)</td></tr>
+<tr class="separator:ad7d752794a7bbe61e058a0528d488293"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >This header file contains definitions of some wrappers to printf functions. Functions are defined statically and depend on defined macros, So they can be switched on and off on a per-file basis. </p>
@@ -144,6 +146,27 @@ Macros</h2></td></tr>
 
 </div>
 </div>
+<a id="ad7d752794a7bbe61e058a0528d488293" name="ad7d752794a7bbe61e058a0528d488293"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7d752794a7bbe61e058a0528d488293">&#9670;&nbsp;</a></span>bbBreakPoint</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define bbBreakPoint</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">    printf (<span class="stringliteral">&quot;FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nBREAKPOINT: &quot;</span>, __FILE_NAME__, __func__, __LINE__);\</div>
+<div class="line">    printf (__VA_ARGS__);\</div>
+<div class="line">    getchar();</div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a7dfbab793b596ebbea40bcfb6ca11cb8" name="a7dfbab793b596ebbea40bcfb6ca11cb8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7dfbab793b596ebbea40bcfb6ca11cb8">&#9670;&nbsp;</a></span>bbDebug</h2>
 
@@ -160,7 +183,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Value:</b><div class="fragment"><div class="line">    printf (<span class="stringliteral">&quot;FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nDEBUG: &quot;</span>, __FILE_NAME__, __func__, __LINE__);\</div>
-<div class="line">    printf (__VA_ARGS__);</div>
+<div class="line">    printf (__VA_ARGS__);                                                                      \</div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -1,5 +1,8 @@
 /** \page Directory Structure
 
+** There will be one directory for UI and one for the game engine
+
+
 game engine code can be found in /headers and /source.
 
 code and data found in /game contains files associated with one game built from the engine

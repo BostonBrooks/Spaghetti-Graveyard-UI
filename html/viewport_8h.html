@@ -81,6 +81,7 @@ $(function() {
 <code>#include &quot;<a class="el" href="bbGame_8h_source.html">headers/bbGame.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbMap_8h_source.html">headers/bbMap.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="bbWidgetTimer_8h_source.html">headers/bbWidgetTimer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="bbCommands_8h_source.html">headers/bbCommands.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for viewport.h:</div>
 <div class="dyncontent">
@@ -102,15 +103,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a153fc83a844b5eb4448aa06cb15d4c0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a153fc83a844b5eb4448aa06cb15d4c0a">bbWidget_Viewport_update</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
 <tr class="memdesc:a153fc83a844b5eb4448aa06cb15d4c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update widget.  <a href="viewport_8h.html#a153fc83a844b5eb4448aa06cb15d4c0a">More...</a><br /></td></tr>
 <tr class="separator:a153fc83a844b5eb4448aa06cb15d4c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27b4f81de7e0fc86617732b00513f3a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a27b4f81de7e0fc86617732b00513f3a4">bbWidget_Viewport_onCommand</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *command)</td></tr>
-<tr class="memdesc:a27b4f81de7e0fc86617732b00513f3a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="viewport_8h.html#a27b4f81de7e0fc86617732b00513f3a4">More...</a><br /></td></tr>
-<tr class="separator:a27b4f81de7e0fc86617732b00513f3a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a29d64ecc4eb146682b49d033f080f8a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a29d64ecc4eb146682b49d033f080f8a1">bbWidget_Viewport_delete</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a29d64ecc4eb146682b49d033f080f8a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="viewport_8h.html#a29d64ecc4eb146682b49d033f080f8a1">More...</a><br /></td></tr>
-<tr class="separator:a29d64ecc4eb146682b49d033f080f8a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a776341c2fa12d01253482db592ffc0f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a776341c2fa12d01253482db592ffc0f9">bbWidget_Viewport_draw</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
-<tr class="memdesc:a776341c2fa12d01253482db592ffc0f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="viewport_8h.html#a776341c2fa12d01253482db592ffc0f9">More...</a><br /></td></tr>
-<tr class="separator:a776341c2fa12d01253482db592ffc0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1f910a4da10c5d950890ff6cb718f34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#aa1f910a4da10c5d950890ff6cb718f34">bbWidgetCommand_Viewport</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget, void *command)</td></tr>
+<tr class="memdesc:aa1f910a4da10c5d950890ff6cb718f34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send a command to the widget / update widget, etc.  <a href="viewport_8h.html#aa1f910a4da10c5d950890ff6cb718f34">More...</a><br /></td></tr>
+<tr class="separator:aa1f910a4da10c5d950890ff6cb718f34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a669a2958c9d2babef6291200a73e2190"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a669a2958c9d2babef6291200a73e2190">bbWidgetClick_Viewport</a> (void *void_mouseEvent, void *void_widget)</td></tr>
+<tr class="separator:a669a2958c9d2babef6291200a73e2190"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6630b4ced96a7224ad8de861b9af894e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#a6630b4ced96a7224ad8de861b9af894e">bbWidgetDelete_Viewport</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:a6630b4ced96a7224ad8de861b9af894e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Delete widget.  <a href="viewport_8h.html#a6630b4ced96a7224ad8de861b9af894e">More...</a><br /></td></tr>
+<tr class="separator:a6630b4ced96a7224ad8de861b9af894e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa572fa51d1938055d0f7be1926c0d2c2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="viewport_8h.html#aa572fa51d1938055d0f7be1926c0d2c2">bbWidgetDraw_Viewport</a> (<a class="el" href="structbbWidget.html">bbWidget</a> *widget)</td></tr>
+<tr class="memdesc:aa572fa51d1938055d0f7be1926c0d2c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw widget to screen.  <a href="viewport_8h.html#aa572fa51d1938055d0f7be1926c0d2c2">More...</a><br /></td></tr>
+<tr class="separator:aa572fa51d1938055d0f7be1926c0d2c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >The functions in this folder define the behavior of an object with class <a class="el" href="structbbWidget.html">bbWidget</a> and type NULL. </p>
@@ -130,14 +133,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a29d64ecc4eb146682b49d033f080f8a1" name="a29d64ecc4eb146682b49d033f080f8a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29d64ecc4eb146682b49d033f080f8a1">&#9670;&nbsp;</a></span>bbWidget_Viewport_delete()</h2>
+<a id="a153fc83a844b5eb4448aa06cb15d4c0a" name="a153fc83a844b5eb4448aa06cb15d4c0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a153fc83a844b5eb4448aa06cb15d4c0a">&#9670;&nbsp;</a></span>bbWidget_Viewport_update()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Viewport_delete </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Viewport_update </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -146,38 +149,46 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Delete widget. </p>
+<p>Update widget. </p>
 
 </div>
 </div>
-<a id="a776341c2fa12d01253482db592ffc0f9" name="a776341c2fa12d01253482db592ffc0f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a776341c2fa12d01253482db592ffc0f9">&#9670;&nbsp;</a></span>bbWidget_Viewport_draw()</h2>
+<a id="a669a2958c9d2babef6291200a73e2190" name="a669a2958c9d2babef6291200a73e2190"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a669a2958c9d2babef6291200a73e2190">&#9670;&nbsp;</a></span>bbWidgetClick_Viewport()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Viewport_draw </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetClick_Viewport </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
-          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_mouseEvent</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>void_widget</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw widget to screen. </p>
-
 </div>
 </div>
-<a id="a27b4f81de7e0fc86617732b00513f3a4" name="a27b4f81de7e0fc86617732b00513f3a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27b4f81de7e0fc86617732b00513f3a4">&#9670;&nbsp;</a></span>bbWidget_Viewport_onCommand()</h2>
+<a id="aa1f910a4da10c5d950890ff6cb718f34" name="aa1f910a4da10c5d950890ff6cb718f34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1f910a4da10c5d950890ff6cb718f34">&#9670;&nbsp;</a></span>bbWidgetCommand_Viewport()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Viewport_onCommand </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetCommand_Viewport </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em>, </td>
@@ -200,14 +211,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a153fc83a844b5eb4448aa06cb15d4c0a" name="a153fc83a844b5eb4448aa06cb15d4c0a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a153fc83a844b5eb4448aa06cb15d4c0a">&#9670;&nbsp;</a></span>bbWidget_Viewport_update()</h2>
+<a id="a6630b4ced96a7224ad8de861b9af894e" name="a6630b4ced96a7224ad8de861b9af894e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6630b4ced96a7224ad8de861b9af894e">&#9670;&nbsp;</a></span>bbWidgetDelete_Viewport()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidget_Viewport_update </td>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetDelete_Viewport </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
           <td class="paramname"><em>widget</em></td><td>)</td>
@@ -216,7 +227,27 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Update widget. </p>
+<p>Delete widget. </p>
+
+</div>
+</div>
+<a id="aa572fa51d1938055d0f7be1926c0d2c2" name="aa572fa51d1938055d0f7be1926c0d2c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa572fa51d1938055d0f7be1926c0d2c2">&#9670;&nbsp;</a></span>bbWidgetDraw_Viewport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="bbIntTypes_8h.html#ac7566d6ee1bbf95c1bd8107c15405de4">I32</a> bbWidgetDraw_Viewport </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structbbWidget.html">bbWidget</a> *&#160;</td>
+          <td class="paramname"><em>widget</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Draw widget to screen. </p>
 
 </div>
 </div>

@@ -18,4 +18,6 @@ digraph "headers/bbCommands.h"
   Node7 [label="games/game/maps/demo\l/widgets/stateMachine\l(confused).h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stateMachine_07confused_08_8h.html",tooltip=" "];
   Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node8 [label="games/game/maps/demo\l/widgets/textBox.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$textBox_8h.html",tooltip="The functions in this file define the behavior of an object with class bbWidget and type textBox."];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="games/game/maps/demo\l/widgets/viewport.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$viewport_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
 }

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decal_2eh_0',['decal.h',['../decal_8h.html',1,'']]]
+  ['emptywidget_2eh_0',['emptyWidget.h',['../emptyWidget_8h.html',1,'']]]
 ];

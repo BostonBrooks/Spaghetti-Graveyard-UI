@@ -7,13 +7,13 @@ digraph "headers/bbList.h"
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="headers/bbMap.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbMap_8h.html",tooltip="bbMap stores game data pertaining to one map in the game"];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="games/game/maps/demo\l/widgets/decal.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$decal_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
+  Node3 [label="games/game/maps/demo\l/widgets/emptyWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$emptyWidget_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="games/game/maps/demo\l/widgets/emptyWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$emptyWidget_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
+  Node4 [label="games/game/maps/demo\l/widgets/fireworks(old).h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fireworks_07old_08_8h.html",tooltip="The functions in this file define the behavior of an object with class bbWidget and type fireworks."];
   Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="games/game/maps/demo\l/widgets/fireworks(old).h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fireworks_07old_08_8h.html",tooltip="The functions in this file define the behavior of an object with class bbWidget and type fireworks."];
+  Node5 [label="games/game/maps/demo\l/widgets/fireworks.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fireworks_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type fireworks."];
   Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="games/game/maps/demo\l/widgets/fireworks.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$fireworks_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type fireworks."];
+  Node6 [label="games/game/maps/demo\l/widgets/layout.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$layout_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type NULL."];
   Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 [label="games/game/maps/demo\l/widgets/prompt(old).h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$prompt_07old_08_8h.html",tooltip="The functions in this folder define the behavior of an object with class bbWidget and type prompt."];
   Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -38,7 +38,6 @@ digraph "headers/bbList.h"
   Node17 [label="headers/bbGame.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbGame_8h.html",tooltip=" "];
   Node17 -> Node18 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node18 [label="games/game/maps/demo\l/widgets/MouseClickText.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MouseClickText_8h.html",tooltip=" "];
-  Node17 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node19 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node19 [label="games/game/maps/demo\l/widgets/drawFunctions\l/AnimationDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$AnimationDraw_8h.html",tooltip=" "];
   Node17 -> Node20 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -46,9 +45,12 @@ digraph "headers/bbList.h"
   Node17 -> Node21 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node21 [label="games/game/maps/demo\l/widgets/drawFunctions\l/FrameDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$FrameDraw_8h.html",tooltip=" "];
   Node17 -> Node22 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node22 [label="games/game/maps/demo\l/widgets/drawFunctions\l/SpriteDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$SpriteDraw_8h.html",tooltip=" "];
+  Node22 [label="games/game/maps/demo\l/widgets/drawFunctions\l/RenderTextureDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$RenderTextureDraw_8h.html",tooltip=" "];
   Node17 -> Node23 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node23 [label="games/game/maps/demo\l/widgets/drawFunctions\l/TextDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$TextDraw_8h.html",tooltip=" "];
+  Node23 [label="games/game/maps/demo\l/widgets/drawFunctions\l/SpriteDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$SpriteDraw_8h.html",tooltip=" "];
+  Node17 -> Node24 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node24 [label="games/game/maps/demo\l/widgets/drawFunctions\l/TextDraw.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$TextDraw_8h.html",tooltip=" "];
+  Node17 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -62,9 +64,9 @@ digraph "headers/bbList.h"
   Node17 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node15 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node17 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node1 -> Node24 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node24 [label="headers/bbWidgetTimer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbWidgetTimer_8h.html",tooltip=" "];
-  Node24 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node24 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node24 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node25 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 [label="headers/bbWidgetTimer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$bbWidgetTimer_8h.html",tooltip=" "];
+  Node25 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 -> Node16 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node25 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
 }

@@ -71,6 +71,7 @@ If it proves convenient, a wrapper method will be made in this way:
 
   bbObject_methodI(int32_t map, int32_t address, args);
   
+  where int32_t address is the index of the objct in the given pool
   objects in a pool are aware of what map they are included in, so this will not be necessary.
 
 Arguments should have as narrow scope as possible,
@@ -85,5 +86,10 @@ constructors will look like:
 int32_t bbObject_new(bbObject** self, bbObjects* container, ... );
 
 arguments of functions will be in lowerCamelCase
+
+7. Integer Types:
+========================
+
+bbIntTypes.h is a wrapper for inttypes.h, using I32 for 32 bit int and U32 for unsigned 32 bit int
 
 */

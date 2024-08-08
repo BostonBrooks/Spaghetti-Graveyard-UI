@@ -84,6 +84,7 @@ static void bbVerbose(const char* format, ...){
 #define bbHere() 	printf ("LINE: %d, FILE: %s, FUNCTION: %s\n",\
                       __LINE__, __FILE_NAME__, __func__);
 
+//in future, we could enter commands via the console while stopped at a breakpoint
 #define bbBreakPoint(...) \
 	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nBREAKPOINT: ", __FILE_NAME__, __func__, __LINE__);\
 	printf (__VA_ARGS__);\

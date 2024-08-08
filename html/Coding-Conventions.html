@@ -105,13 +105,16 @@ $(function() {
 <p >bbObject_method(bbObject* self, args);</p>
 <p >If it proves convenient, a wrapper method will be made in this way:</p>
 <p >bbObject_methodI(int32_t map, int32_t address, args);</p>
-<p >objects in a pool are aware of what map they are included in, so this will not be necessary.</p>
+<p >where int32_t address is the index of the objct in the given pool objects in a pool are aware of what map they are included in, so this will not be necessary.</p>
 <p >Arguments should have as narrow scope as possible, eg pass dont pass <a class="el" href="structbbMap.html">bbMap</a> when <a class="el" href="structbbMapConstants.html" title="contains data about the map">bbMapConstants</a> will suffice.</p>
 <p >The first argument to a constructor should be a reference to a pointer that will point to the new object.</p>
 <p >Containers have knowledge of what map they are in.</p>
 <p >constructors will look like:</p>
 <p >int32_t bbObject_new(bbObject** self, bbObjects* container, ... );</p>
-<p >arguments of functions will be in lowerCamelCase </p>
+<p >arguments of functions will be in lowerCamelCase</p>
+<h1><a class="anchor" id="autotoc_md6"></a>
+7. Integer Types:</h1>
+<p ><a class="el" href="bbIntTypes_8h.html">bbIntTypes.h</a> is a wrapper for inttypes.h, using I32 for 32 bit int and U32 for unsigned 32 bit int </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <!-- start footer part -->
