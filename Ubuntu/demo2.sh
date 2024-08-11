@@ -10,7 +10,7 @@ Color_Off='\033[0m'
 
  if gcc\
    -I ../ \
-  ../test/Incremental_test2.c\
+  ../test/demo2.c\
   ../source/bbGame.c\
   ../source/bbMap.c\
   ../source/bbDictionary.c\
@@ -29,7 +29,7 @@ Color_Off='\033[0m'
   ../source/bbWidgetTimer.c\
   ../source/bbGraphicsSettings.c\
   \
-  ../games/game/maps/demo/widgets/widgets.c\
+  ../games/game/maps/demo2/widgets/widgets.c\
   -lcsfml-system -lcsfml-graphics -lcsfml-window -g -lm -w;
   then
     echo "Compile Succeeded:"

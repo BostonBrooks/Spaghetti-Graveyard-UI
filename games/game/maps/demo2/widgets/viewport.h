@@ -76,24 +76,8 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 	bbCommandEmpty* commandEmpty = command;
 
 	switch (commandEmpty->type){
-		case c_CastSpell:
-		{
-			bbCommand3I* cmd3I = command;
-			bbScreenCoordsI SCI;
-			SCI.x = cmd3I->m_intx;
-			SCI.y = cmd3I->m_inty;
-			I32 spriteNum = cmd3I->m_intz;
-
-			sfRenderTexture* renderTexture = widget->m_RenderTexture;
-			I32 map = widget->p_Node.p_Pool.Map;
-			bbSprites* sprites = g_Game->m_Maps[map]->m_Sprites;
-			sfSprite* sprite = sprites->m_Sprites[spriteNum];
-			sfVector2f position = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[map]->p_Constants);
-			sfSprite_setPosition(sprite, position);
-			sfRenderTexture_drawSprite(renderTexture, sprite, NULL);
-		}
 		default:
-			bbDebug("command not found\n");
+			bbDebug("Viewport: Command %d not found\n", commandEmpty->type);
 			return f_None;
 	}
 
@@ -101,32 +85,6 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
-	bbMouseEvent* event = void_mouseEvent;
-	bbWidget* widget = void_widget;
-	bbScreenCoordsI sc = event->m_ScreenCoords;
-	if (event->m_type == f_MouseLeft) {
-		if (bbWidget_containsPoint(widget, event->m_ScreenCoords)) {
-
-			bbScreenCoordsI viewportPos = widget->m_ScreenCoords;
-
-			bbScreenCoordsI VPCoords;
-			VPCoords.x = sc.x - viewportPos.x;
-			VPCoords.y = sc.y - viewportPos.y;
-
-			bbCommand2I cmd;
-
-			cmd.type = c_ReturnClick;
-			cmd.m_intx = VPCoords.x;
-			cmd.m_inty = VPCoords.y;
-
-			bbWidget* spellbar = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_SpellBar;
-
-			bbWidget_onCommand(&cmd, spellbar);
-
-			return f_Break;
-		}
-		return f_Continue;
-	}
 	return f_Continue;
 
 }
