@@ -76,6 +76,7 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 	bbCommandEmpty* commandEmpty = command;
 
 	switch (commandEmpty->type){
+
 		default:
 			bbDebug("Viewport: Command %d not found\n", commandEmpty->type);
 			return f_None;
@@ -85,7 +86,19 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
-	return f_Continue;
+	bbMouseEvent* event = void_mouseEvent;
+	bbWidget* widget = void_widget;
+	bbScreenCoordsI sc = event->m_ScreenCoords;
+
+	if (! bbWidget_containsPoint(widget, event->m_ScreenCoords)) return f_Continue;
+	if (event->m_type != f_MouseLeft) return f_Continue;
+	if( widget->s_State != s_WaitingForClick){
+		bbDialog("\nviewport clicked, ignored");
+		return f_Break;
+	}
+
+	bbDialog("\nviewport clicked, send message to spellbar");
+
 
 }
 
