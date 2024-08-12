@@ -113,6 +113,7 @@ I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
 
     bbCommand2I cmd;
     cmd.type = c_ReturnClick;
+    //viewport coords? What about map coords or target drawable?
     cmd.m_intx = event->m_ScreenCoords.x - widget->m_ScreenCoords.x;
     cmd.m_inty = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
 
