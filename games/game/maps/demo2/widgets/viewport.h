@@ -77,6 +77,18 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 
 	switch (commandEmpty->type){
 
+        case c_RequestClick: {
+
+            widget->s_State = s_WaitingForClick;
+            bbDebug("click viewport\n");
+            return f_Success;
+        }
+        case c_CastSpell: {
+
+            //spell sends message to viewport
+            bbDebug("cast spell\n")
+            return f_Success;
+        }
 		default:
 			bbDebug("Viewport: Command %d not found\n", commandEmpty->type);
 			return f_None;
@@ -99,7 +111,17 @@ I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
 
 	bbDialog("\nviewport clicked, send message to spellbar");
 
+    bbCommand2I cmd;
+    cmd.type = c_ReturnClick;
+    cmd.m_intx = event->m_ScreenCoords.x - widget->m_ScreenCoords.x;
+    cmd.m_inty = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
 
+    I32 map = widget->p_Node.p_Pool.Map;
+
+    bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+
+    bbWidget_onCommand(&cmd, spellbar);
+    widget->s_State = s_Idle;
 }
 
 
