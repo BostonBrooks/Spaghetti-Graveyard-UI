@@ -140,7 +140,15 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
             // Text Entered
             if (commandPutChar->m_char == '\n'){
+                if (widget->s_State == s_WaitingForCode){
 
+                } else if (widget->s_State == s_WaitingForAnswer){
+
+                }
+                bbCommandEmpty cmd;
+                cmd.type = c_Clear;
+                bbWidget_onCommand(&cmd, widget1);
+                bbStr_setStr(widget->m_String, "");
             } else {
                 bbCommandChar cmd;
                 cmd.type = f_CommandPutChar;
