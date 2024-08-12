@@ -141,14 +141,27 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             // Text Entered
             if (commandPutChar->m_char == '\n'){
                 if (widget->s_State == s_WaitingForCode){
+                    bbCommandStr cmd;
+                    cmd.type = c_ReturnCode;
+                    cmd.m_str = widget->m_String;
+
+                    bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+                    bbWidget_onCommand(&cmd, spellbar);
 
                 } else if (widget->s_State == s_WaitingForAnswer){
+                    bbCommandStr cmd;
+                    cmd.type = c_ReturnAnswer;
+                    cmd.m_str = widget->m_String;
+
+                    bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+                    bbWidget_onCommand(&cmd, spellbar);
 
                 }
                 bbCommandEmpty cmd;
                 cmd.type = c_Clear;
                 bbWidget_onCommand(&cmd, widget1);
                 bbStr_setStr(widget->m_String, "");
+                break;
             } else {
                 bbCommandChar cmd;
                 cmd.type = f_CommandPutChar;
@@ -163,7 +176,30 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
                 break;
             }
+            break;
+        }
+        case c_RequestAnswer: {
 
+            //set state to waiting for answer
+            //clear widget->m_String
+            //set input to ""
+            //set query to "what is x * y?"
+            break;
+        }
+        case c_RequestClick: {
+            //set state to waiting for click
+            //clear widget->m_String
+            //set input to ""
+            //set query to "click to target spell"
+            break;
+        }
+        case c_RequestCode: {
+
+            //set state to waiting for code
+            //clear widget->m_String
+            //set input to ""
+            //set query to "enter spell code"
+            break;
         }
         default:
         	bbDebug("Prompt: Command %d not found\n", commandEmpty->type);
