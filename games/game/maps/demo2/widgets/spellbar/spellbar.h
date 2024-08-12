@@ -74,6 +74,27 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 	bbCommandEmpty* commandEmpty = command;
 
 	switch (commandEmpty->type) {
+        case c_ReturnCode: {
+
+            //lookup spell, send wakeup message to spell
+            return f_None;
+        }
+
+        case c_ReturnAnswer: {
+
+            //pass answer to current spell
+            return f_None;
+        }
+        case c_ReturnClick: {
+
+            //pass click to current spell
+            return f_None;
+        }
+        case c_SetCurrentSpell: {
+
+            //spell informs spellbar that it is the current spell
+            return f_None;
+        }
 		default:
 			bbDebug("Spellbar: Command %d not found\n", commandEmpty->type);
 			return f_None;

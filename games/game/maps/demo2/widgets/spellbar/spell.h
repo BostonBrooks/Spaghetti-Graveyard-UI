@@ -90,6 +90,22 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 
 	switch (commandEmpty->type) {
 
+        case c_SetCurrentSpell: {
+
+            //if the spell is available, message spellbar to set current spell
+            //request answer from prompt
+            return f_None;
+        }
+        case c_ReturnAnswer: {
+
+            //if answer is correct, request click vie prompt
+            //request click from viewport
+
+            //else ask new question
+        }
+        case c_ReturnClick: {
+            //if spell is ready, send message to viewport to cast spell
+        }
 		default:
 			bbDebug("spell: Command %d not found\n", commandEmpty->type);
 			return f_None;

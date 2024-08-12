@@ -45,7 +45,7 @@
 
 //bbCommandEmpty
 #define c_ActivateSpell      15
-
+#define c_SetCurrentSpell    23
 //bbCommandEmpty
 #define c_DeactivateSpell    16
 
