@@ -77,24 +77,24 @@ typedef struct{
 
 
 typedef struct {
-    I32 type; // = f_CommandPutChar
+    I32 type;
     char m_char;
 } bbCommandChar;
 
 typedef struct {
-    I32 type; // = f_CommandPutStr
+    I32 type;
     char* m_str;
 } bbCommandStr;
 
 typedef struct {
-    I32 type; // = f_CommandSetDim
+    I32 type;
 	I32 m_intx;
     I32 m_inty;
 } bbCommand2I;
 
 
 typedef struct {
-	I32 type; // = f_CommandSetDim
+	I32 type;
 	I32 m_intx;
 	I32 m_inty;
 	I32 m_intz;
