@@ -128,6 +128,35 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
 			break;
 		}
+        // receive char from keyboard:
+        case f_PromptAddChar: {
+            bbCommandChar *commandPutChar = data;
+            I32 map = widget->p_Node.p_Pool.Map;
+            I32 widget_int;
+            bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+            bbWidget* widget1;
+            I32 widgetInt1 = widget->m_SubwidgetArray[i_answer];
+            bbPool_Lookup(&widget1, pool, widgetInt1);
+
+            // Text Entered
+            if (commandPutChar->m_char == '\n'){
+
+            } else {
+                bbCommandChar cmd;
+                cmd.type = f_CommandPutChar;
+                cmd.m_char = commandPutChar->m_char;
+
+                //input
+                bbWidget_onCommand(&cmd, widget1);
+
+                bbStr_putChar(widget->m_String, commandPutChar->m_char);
+
+                //bbPrintf("Prompt: %s\n", widget->m_String);
+
+                break;
+            }
+
+        }
         default:
         	bbDebug("Prompt: Command %d not found\n", commandEmpty->type);
     }
