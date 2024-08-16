@@ -7,11 +7,12 @@
 #define BBINTTYPES
 
 #include <inttypes.h>
-#define I32 int32_t
-#define U32 uint32_t
-#define U8 uint8_t
+#include <stdbool.h>
 
-#define U16 uint16_t
-#define
+#define I32    int32_t
+#define U8     uint8_t
+#define U16    uint16_t
+#define U32    uint32_t
+#define U64    unint64_t
 
 #endif //BBINTTYPES

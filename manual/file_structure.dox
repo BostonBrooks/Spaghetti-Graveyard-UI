@@ -1,7 +1,8 @@
 /** \page Directory Structure
 
 /engine - code used in the game engine
-    /structures - reusable data structures
+    /data - structures containing mostly game data
+    /logic - reusable data structures and algorithms
     /interface - code to support things like buttons and text boxes
     /gameworld - code to support things like the player character and monsters
 
@@ -14,4 +15,13 @@
                           monsters
                 /widgets - code for controlling things like buttons and text
                           boxes
+
+/html - doxygen output
+/manual - doxygen input
+/test - .c files containing int main()
+/Ubuntu - compile scripts for Ubuntu
+/WinLibs - compile scripts for WinLibs
+
+/headers - deprecated
+/source - deprecated
 */

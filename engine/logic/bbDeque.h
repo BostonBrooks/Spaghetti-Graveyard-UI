@@ -1,0 +1,1 @@
+/// push/pop from both ends of queue, used for example in a reactor pattern

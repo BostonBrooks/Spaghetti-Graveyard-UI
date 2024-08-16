@@ -12,7 +12,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <assert.h>
-#include "engine/algorithms/bbIntTypes.h"
+#include "engine/logic/bbIntTypes.h"
+#include "engine/logic/bbString.h"
 
 
 
@@ -63,6 +64,7 @@ static void bbVerbose(const char* format, ...){
 	}
 
 #define bbDebug(...) \
+                     \
 	printf ("FILE: %s,\tFUNCTION: %s,\tLINE: %d,\nDEBUG: ", __FILE_NAME__, __func__, __LINE__);\
 	printf (__VA_ARGS__);                                                                      \
 

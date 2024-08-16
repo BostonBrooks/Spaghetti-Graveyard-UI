@@ -3,15 +3,16 @@
  * This particular implementation allows the pool to expand when needed,
  * to hold a very large number of objects, since it is not known how large
  * the pool will need to be at runtime.
- * TODO lost and confused
+ *
+ * It might be useful to provide a data structure bbPool* pools[maps][types]
+ * to aid in locating objects given an object handle?
 */
 
-#include "engine/algorithms/bbIntTypes.h"
-#include "engine/algorithms/bbTerminal.h"
+#include "engine/logic/bbIntTypes.h"
+#include "engine/logic/bbTerminal.h"
 
 /** @name Pool Error Codes
  * Stuff for passing flags around when using pools
- * TODO: do I want to use signed types if avoidable?
  **/
 ///@{
 #define f_PoolSuccess                    0
@@ -28,11 +29,12 @@
 #define f_PoolCollisionDetected        -11
 ///@}
 
+#define bbHandle                       U64;
 
 typedef struct {
-    U32 address;
-    U32 collision;
-} bbHandle;
+    I32 address;
+    I32 collision;
+} bbHandle_unpacked;
 
 /// any object in a pool must begin with bbPool_data
 typedef struct {
@@ -40,9 +42,9 @@ typedef struct {
     I32 Prev;
     I32 Next;
     I32 Collision;
-    U8 InUse;
     /// an object knows what pool it belongs to
     void* Pool;
+    bool InUse;
 } bbPool_data;
 
 /// a bin is a linked list containing objects

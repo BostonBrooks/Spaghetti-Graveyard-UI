@@ -1,5 +1,5 @@
 /** Loop through event queue and dispatch to handlers
-    This function is the only part of the code that handles sfEvent structures.
+    This function is the only part of the code that handles sfEvent logic.
  */
 
 #ifndef BBDISPATCH_H
