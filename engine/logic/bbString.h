@@ -118,8 +118,9 @@ static I32 bbStr_setBounds(char* str, I32 columns, I32 rows, I32 max){
         i_temp--;
     }
     //Copy output back to str
-
-    bbStr_setStr(str, &temp[i_temp]);
+    //TODO if output is larger than max, the start of the output should be
+    // clipped
+    bbStr_setStr(str, &temp[i_temp], max);
 
     return f_Success;
 }
