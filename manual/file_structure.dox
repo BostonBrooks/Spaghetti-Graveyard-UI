@@ -3,7 +3,7 @@
 /engine - code used in the game engine
     /data - structures containing mostly game data
     /logic - reusable data structures and algorithms
-    /interface - code to support things like buttons and text boxes
+    /userinterface - code to support things like buttons and text boxes
     /gameworld - code to support things like the player character and monsters
 
 /games - games created to run on the engine

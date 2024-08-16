@@ -1,0 +1,3 @@
+/**
+ * @brief for animated widgets
+ */
