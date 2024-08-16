@@ -1,12 +1,17 @@
 /** \page Directory Structure
 
-** There will be one directory for UI and one for the game engine
+/engine - code used in the game engine
+    /algorithms (consider renaming) - code used across multiple modules
+    /interface - code to support things like buttons and text boxes
+    /gameworld - code to support things like the player character and monsters
 
-
-game engine code can be found in /headers and /source.
-
-code and data found in /game contains files associated with one game built from the engine
-
-/trash contains code I got confused about and will re-implement later
-
+/games - games created to run on the engine
+    /game - one such game
+        /graphics - data shared between maps in one game
+        /maps - maps belonging to one game
+            /demo2 - one such map
+                /actors - code for controlling things like player character and
+                          monsters
+                /widgets - code for controlling things like buttons and text
+                          boxes
 */

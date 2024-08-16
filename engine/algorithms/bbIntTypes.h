@@ -9,5 +9,7 @@
 #include <inttypes.h>
 #define I32 int32_t
 #define U32 uint32_t
+#define U8 uint8_t
+
 
 #endif //BBINTTYPES

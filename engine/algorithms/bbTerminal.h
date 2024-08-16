@@ -1,7 +1,8 @@
 /**
  * @brief This header file contains some wrappers to the printf function.
  * These are provided to help with debugging, and can be switched off when no
- * longer needed
+ * longer needed. May have to use only one call to printf for each of the macros
+ * defined below to help with thread safety
  *
 */
 
@@ -14,21 +15,7 @@
 #include "engine/algorithms/bbIntTypes.h"
 
 
-/*
-#define BBDEBUG
-///If BBDEBUG is defined, print a debug message
-static void bbDebug(const char* format, ...){
 
-#ifdef BBDEBUG
-	printf("DEBUG: ");
-	va_list args;
-	va_start(args, format);
-	vprintf(format, args);
-	va_end (args);
-
-#endif  // BBDEBUG
-}
-*/
 
 ///Same as bbDebug but with the DEBUG: tag
 static void bbPrintf(const char* format, ...){
