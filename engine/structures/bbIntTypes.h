@@ -11,5 +11,7 @@
 #define U32 uint32_t
 #define U8 uint8_t
 
+#define U16 uint16_t
+#define
 
 #endif //BBINTTYPES

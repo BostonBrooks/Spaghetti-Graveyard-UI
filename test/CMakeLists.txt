@@ -16,4 +16,5 @@ add_executable(myprogram Incremental_test2.c
         ../games/game/maps/demo/widgets/spellbar/spellbar.h
         ../games/game/maps/demo/widgets/spellbar/spell.h
         ../source/bbGraphicsSettings.c
-        ../source/bbGame.c)
+        ../source/bbGame.c
+        ../engine/structures/bbIntTypes.h)

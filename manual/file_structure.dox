@@ -1,7 +1,7 @@
 /** \page Directory Structure
 
 /engine - code used in the game engine
-    /algorithms (consider renaming) - code used across multiple modules
+    /structures - reusable data structures
     /interface - code to support things like buttons and text boxes
     /gameworld - code to support things like the player character and monsters
 
