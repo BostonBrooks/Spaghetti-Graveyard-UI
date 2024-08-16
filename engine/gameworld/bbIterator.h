@@ -1,3 +1,3 @@
 /**
- * @brief iterate over a subset of actors in gameworld
+ * @brief iterate over a subset of drawables and/or interactables
  */
