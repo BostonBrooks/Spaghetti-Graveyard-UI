@@ -29,28 +29,42 @@
 #define f_PoolCollisionDetected        -11
 ///@}
 
-#define bbHandle                       U64;
+/** bbHandle is a 32bit structure consisting of 2 bits for representing NULL,
+ * and also used for detecting deallocate-reallocate collisions,
+ * and a 30 bit pool index
+**/
+#define bbHandle                       U32
 
 typedef struct {
-    I32 address;
-    I32 collision;
+    /// NULL handle if checking == 0
+    I32 checking;
+    I32 index;
 } bbHandle_unpacked;
+
+// takes a bbHandle and returns an unpacked handle
+bbHandle_unpacked bbHandle_Unpack (bbHandle handle);
+
+// takes an unpacked handle and returns a packed handle;
+bbHandle bbHandle_Pack (bbHandle_unpacked handleUnpacked);
+
+/// returns true if passed a NULL handle;
+bool bbHandle_isNULL(bbHandle handle);
 
 /// any object in a pool must begin with bbPool_data
 typedef struct {
-    I32 Self;
-    I32 Prev;
-    I32 Next;
-    I32 Collision;
+    bbHandle Self;
+
+    bbHandle Prev;
+    bbHandle Next;
+    bool InUse;
     /// an object knows what pool it belongs to
     void* Pool;
-    bool InUse;
 } bbPool_data;
 
 /// a bin is a linked list containing objects
 typedef struct {
-    I32 Head;
-    I32 Tail;
+    bbHandle Head;
+    bbHandle Tail;
 } bbPool_bin;
 
 typedef struct {
@@ -60,11 +74,9 @@ typedef struct {
     U8 m_Class;
     /// how big is the object stored in the pool?
     U16 m_SizeOf;
-    /// list of available spaces for object
+    /// list of available spaces for object to be allocated to
     bbPool_bin m_Available;
-    /// list of in use objects
-    bbPool_bin m_InUse;
-    /// number of chunks
+    /// maximum number of chunks
     I32 m_Level1;
     ///size of chunks
     I32 m_Level2;
@@ -72,24 +84,24 @@ typedef struct {
     void** m_Objects;
 } bbPool;
 
-///Create an new pool with object's size = Sizeof, type is like an enum
+/// create an new pool with object's size = Sizeof, type is like an enum
 I32 bbPool_NewPool(bbPool** RBR, I32 map, I32 type, I32 SizeOf, I32 level1, I32
 level2);
 
-///Delete entire pool
+/// delete entire pool
 I32 bbPool_DeletePool(bbPool* pool);
 
-///Delete contents of pool, but keep empty pool
+/// delete contents of pool, but keep empty pool
 I32 bbPool_ClearPool(bbPool* pool);
 
-///Create object in pool
+/// create object in pool
 I32 bbPool_New(void** RBR, bbPool* pool);
 
-///Remove object from pool
+/// remove object from pool
 I32 bbPool_Delete(bbPool* pool, bbHandle handle);
 
-///Remove object from pool, given its memory address
+/// remove object from pool, given its memory address
 I32 bbPool_DeleteAddress(bbPool_data* address);
 
-///Lookup object at Address, error if m_Pool_InUse == f_PoolInUse
+/// lookup object at Address, error if m_Pool_InUse == f_PoolInUse
 I32 bbPool_Lookup(void** RBR, bbPool* pool, bbHandle handle);

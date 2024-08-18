@@ -14,5 +14,6 @@
 #define U16    uint16_t
 #define U32    uint32_t
 #define U64    unint64_t
+#define U1     bool;
 
 #endif //BBINTTYPES
