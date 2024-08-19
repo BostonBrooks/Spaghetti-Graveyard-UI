@@ -1,10 +1,5 @@
 /** \page Directory Structure
 
-/engine - code used in the game engine
-    /data - structures containing mostly game data
-    /logic - reusable data structures and algorithms
-    /userinterface - code to support things like buttons and text boxes
-    /gameworld - code to support things like the player character and monsters
 
 /games - games created to run on the engine
     /game - one such game
@@ -22,6 +17,6 @@
 /Ubuntu - compile scripts for Ubuntu
 /WinLibs - compile scripts for WinLibs
 
-/headers - deprecated
-/source - deprecated
+/headers - all header files in this repo
+/source - all source files in this repo
 */
