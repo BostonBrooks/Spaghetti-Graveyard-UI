@@ -101,6 +101,7 @@ I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMa
 
 	FILE* file = fopen(string, "r");
 
+	bbAssert(file != NULL, "error loading sprites.csv");
 
 	fscanf(file, "%[^\n]\n", string);
 	bbAssert(strcmp(string,
