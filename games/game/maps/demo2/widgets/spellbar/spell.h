@@ -10,6 +10,7 @@
 #include "headers/bbMap.h"
 #include "headers/bbIntTypes.h"
 #include "headers/bbCommands.h"
+#include <stdlib.h>
 
 //typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
 I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
@@ -32,7 +33,7 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 	widget->m_CoolDownStart = 0;
-	widget->m_CoolDownEnd = 3600;
+	widget->m_CoolDownEnd = 60;
 
 	widget->m_RedRect = sfRectangleShape_create();
 	sfColor RedHalfAlpha;
@@ -90,21 +91,103 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 
 	switch (commandEmpty->type) {
 
-        case c_SetCurrentSpell: {
-
+        case c_ActivateSpell: {
+			bbDialog("\nActivate Spell");
+			I32 map = widget->p_Node.p_Pool.Map;
             //if the spell is available, message spellbar to set current spell
+			if (widget->m_CoolDownEnd > g_Game->m_Maps[map]->misc.m_MapTime){
+
+				bbDialog("\nSpell on cooldown");
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestCode;
+				bbWidget_onCommand(&cmdEmpty, prompt);
+				return f_None;
+
+			}
+
+			widget->s_State = s_WaitingForAnswer;
+
+			bbCommandPtr cmdPtr;
+			cmdPtr.type = c_SetCurrentSpell;
+			cmdPtr.m_ptr = widget;
+			bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+			bbWidget_onCommand(&cmdPtr, spellbar);
+
+
+
+			I32 x = rand()%12;
+			I32 y = rand()%12;
+			sprintf(widget->m_String2, "%d", x + y);
+			char question[512];
+			sprintf(question, "what is %d + %d", x, y);
+
+			bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+			bbCommandStr cmdStr;
+			cmdStr.type = c_RequestAnswer;
+			cmdStr.m_str = question;
+			bbWidget_onCommand(&cmdStr, prompt);
+
             //request answer from prompt
             return f_None;
         }
         case c_ReturnAnswer: {
+			bbCommandStr* cmdStr = command;
+			I32 flag = strcmp(widget->m_String2, cmdStr->m_str);
+			if (flag != 0){
+				bbDialog("\nyou entered %s\nanswer is %s", cmdStr->m_str, widget->m_String2);
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestCode;
+				bbWidget_onCommand(&cmdEmpty, prompt);
+				return f_None;
 
-            //if answer is correct, request click vie prompt
-            //request click from viewport
+			}
+			widget->s_State = s_WaitingForClick;
 
-            //else ask new question
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbCommandEmpty cmdEmpty;
+			cmdEmpty.type = c_RequestClick;
+			bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+			bbWidget_onCommand(&cmdEmpty, prompt);
+			bbWidget* viewport = g_Game->m_Maps[map]->m_Widgets->m_Viewport;
+			bbWidget_onCommand(&cmdEmpty, viewport);
+			return f_None;
         }
         case c_ReturnClick: {
-            //if spell is ready, send message to viewport to cast spell
+            if (widget->s_State != s_WaitingForClick){
+				bbDialog("\nspell click unexpected");
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestCode;
+				bbWidget_onCommand(&cmdEmpty, prompt);
+				return f_None;
+
+			}
+			bbDialog("\nsend spell to viewport");
+
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbCommand2I* cmd2i = command;
+			widget->s_State = s_Idle;
+			bbCommand3I cmd3i;
+			cmd3i.type = c_CastSpell;
+			//pass screen coordinates
+			cmd3i.m_intx = cmd2i->m_intx;
+			cmd3i.m_inty = cmd2i->m_inty;
+			//pass effect type;
+			cmd3i.m_intz = 0;
+			bbWidget* viewport = g_Game->m_Maps[map]->m_Widgets->m_Viewport;
+			bbWidget_onCommand(&cmd3i, viewport);
+
+			bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+			bbCommandEmpty cmdEmpty;
+			cmdEmpty.type = c_RequestCode;
+			bbWidget_onCommand(&cmdEmpty, prompt);
+			return f_None;
+
         }
 		default:
 			bbDebug("spell: Command %d not found\n", commandEmpty->type);

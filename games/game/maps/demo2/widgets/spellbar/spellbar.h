@@ -50,7 +50,7 @@ I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 	I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell");
 	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
 
-
+	widget->m_CurrentSpell = spell;
 
 	bbCommandEmpty cmd;
 	cmd.type = c_SetIdle;
@@ -75,26 +75,83 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 
 	switch (commandEmpty->type) {
         case c_ReturnCode: {
+			bbCommandStr* cmdStr = command;
 
+			bbDialog("\nspellbar\n-> return code\n-> %s", cmdStr->m_str);
+
+			I32 flag = strcmp(cmdStr->m_str, "");
+			if (flag == 0){
+				bbDialog("\n->string empty");
+				//What was the last spell?
+				//if valid:
+				//    spell -> c_ActivateSpell
+			} else {
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbDictionary* dict = g_Game->m_Maps[map]->m_Widgets->m_CodeDict;
+				I32 spellInt = bbDictionary_lookup(dict, cmdStr->m_str);
+				if(spellInt < 0){
+					bbDialog("\nspell not found");
+					bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+					bbCommandEmpty cmdEmpty;
+					cmdEmpty.type = c_RequestCode;
+					bbWidget_onCommand(&cmdEmpty, prompt);
+					return f_None;
+				}
+				bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+				bbWidget* spell;
+				bbPool_Lookup(&spell, pool, spellInt);
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_ActivateSpell;
+
+				bbWidget_onCommand(&cmdEmpty, spell);
+
+			}
             //lookup spell, send wakeup message to spell
             return f_None;
         }
+		case c_SetCurrentSpell: {
+			bbCommandPtr* cmdPtr = command;
+			widget->m_CurrentSpell = cmdPtr->m_ptr;
+			//spell informs spellbar that it is the current spell
+			return f_None;
+		}
 
         case c_ReturnAnswer: {
+			if (widget->m_CurrentSpell == NULL){
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestCode;
+				bbWidget_onCommand(&cmdEmpty, prompt);
+				return f_None;
 
-            //pass answer to current spell
+			}
+			//pass answer to current spell
+			bbCommandStr* cmdStr = command;
+			bbCommandStr newCmdStr;
+			newCmdStr.type = c_ReturnAnswer;
+			newCmdStr.m_str = cmdStr->m_str;
+			bbWidget_onCommand(&newCmdStr, widget->m_CurrentSpell);
+
             return f_None;
         }
         case c_ReturnClick: {
+			if (widget->m_CurrentSpell == NULL){
+				bbDialog("\nno spell selected");
+				I32 map = widget->p_Node.p_Pool.Map;
+				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
+				bbCommandEmpty cmdEmpty;
+				cmdEmpty.type = c_RequestCode;
+				bbWidget_onCommand(&cmdEmpty, prompt);
+				return f_None;
 
-            //pass click to current spell
-            return f_None;
-        }
-        case c_SetCurrentSpell: {
+			}
+			bbDialog("\nrelay click to spell");
+			//pass answer to current spell
+			bbWidget_onCommand(command, widget->m_CurrentSpell);
 
-            //spell informs spellbar that it is the current spell
-            return f_None;
-        }
+			return f_None;
+		}
 		default:
 			bbDebug("Spellbar: Command %d not found\n", commandEmpty->type);
 			return f_None;

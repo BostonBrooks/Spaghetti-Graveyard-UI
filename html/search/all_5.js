@@ -46,6 +46,6 @@ var searchData=
   ['f_5fwidgetupdate_43',['f_WidgetUpdate',['../bbWidget_8h.html#ab8c4c1dd3615ff9dfbb7034b802c30a7',1,'bbWidget.h']]],
   ['file_5fstructure_2edox_44',['file_structure.dox',['../file__structure_8dox.html',1,'']]],
   ['fireworks_28old_29_2eh_45',['fireworks(old).h',['../fireworks_07old_08_8h.html',1,'']]],
-  ['fireworks_2eh_46',['fireworks.h',['../fireworks_8h.html',1,'']]],
-  ['framedraw_2eh_47',['FrameDraw.h',['../FrameDraw_8h.html',1,'']]]
+  ['fireworks_2eh_46',['fireworks.h',['../demo2_2widgets_2fireworks_8h.html',1,'(Global Namespace)'],['../demo_07deprecated_08_2widgets_2fireworks_8h.html',1,'(Global Namespace)']]],
+  ['framedraw_2eh_47',['FrameDraw.h',['../demo2_2widgets_2drawFunctions_2FrameDraw_8h.html',1,'(Global Namespace)'],['../demo_07deprecated_08_2widgets_2drawFunctions_2FrameDraw_8h.html',1,'(Global Namespace)']]]
 ];

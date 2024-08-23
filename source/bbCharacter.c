@@ -59,7 +59,7 @@ I32 Event_inputChar(char character, I32 map){
     }
 */
     bbCommandChar cmd2;
-    cmd2.type = f_PromptAddChar;
+    cmd2.type = c_PutChar;
     cmd2.m_char= character;
     bbWidget_onCommand(&cmd2, prompt);
 

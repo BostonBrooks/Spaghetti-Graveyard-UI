@@ -15,5 +15,5 @@ var searchData=
   ['program_2dflow_12',['Program-Flow',['../Program-Flow.html',1,'']]],
   ['program_2dflow_2edox_13',['Program-Flow.dox',['../Program-Flow_8dox.html',1,'']]],
   ['prompt_28old_29_2eh_14',['prompt(old).h',['../prompt_07old_08_8h.html',1,'']]],
-  ['prompt_2eh_15',['prompt.h',['../prompt_8h.html',1,'']]]
+  ['prompt_2eh_15',['prompt.h',['../demo2_2widgets_2prompt_8h.html',1,'(Global Namespace)'],['../demo_07deprecated_08_2widgets_2prompt_8h.html',1,'(Global Namespace)']]]
 ];

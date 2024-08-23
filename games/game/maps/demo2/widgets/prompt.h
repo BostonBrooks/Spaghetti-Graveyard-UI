@@ -54,6 +54,7 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
     widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "prompt");
 
 
+
     widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "text");
 
 
@@ -102,6 +103,12 @@ I32 bbWidgetNew_Prompt(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 
 
     g_Game->m_Maps[map]->misc.m_ActiveTextbox_deprecated = widget->p_Node.p_Pool.Self;
+
+	bbCommandEmpty cmdEmpty;
+	cmdEmpty.type = c_RequestCode;
+	bbWidget_onCommand(&cmdEmpty, widget);
+
+
     *reference = widget;
     return f_Success;
 }
@@ -129,7 +136,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 			break;
 		}
         // receive char from keyboard:
-        case f_PromptAddChar: {
+        case c_PutChar: {
             bbCommandChar *commandPutChar = data;
             I32 map = widget->p_Node.p_Pool.Map;
             I32 widget_int;
@@ -140,15 +147,19 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
             // Text Entered
             if (commandPutChar->m_char == '\n'){
+				bbDialog("\nYou clicked enter:");
                 if (widget->s_State == s_WaitingForCode){
-                    bbCommandStr cmd;
-                    cmd.type = c_ReturnCode;
-                    cmd.m_str = widget->m_String;
 
-                    bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
-                    bbWidget_onCommand(&cmd, spellbar);
+					bbDialog(" s_WaitingForCode");
+					bbCommandStr cmd;
+					cmd.type = c_ReturnCode;
+					cmd.m_str = widget->m_String;
+
+					bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+					bbWidget_onCommand(&cmd, spellbar);
 
                 } else if (widget->s_State == s_WaitingForAnswer){
+					bbDialog(" s_WaitingForAnswer");
                     bbCommandStr cmd;
                     cmd.type = c_ReturnAnswer;
                     cmd.m_str = widget->m_String;
@@ -156,11 +167,20 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
                     bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
                     bbWidget_onCommand(&cmd, spellbar);
 
-                }
-                bbCommandEmpty cmd;
-                cmd.type = c_Clear;
-                bbWidget_onCommand(&cmd, widget1);
-                bbStr_setStr(widget->m_String, "");
+                }else if (widget->s_State == s_WaitingForClick){
+					bbDialog(" s_WaitingForClick");
+
+
+					strcpy(widget->m_String, "");
+
+					bbCommandEmpty cmd;
+					cmd.type = c_Clear;
+					bbWidget_onCommand(&cmd, widget1);
+
+
+				} else {
+					bbDialog("\n state = %d", widget->s_State);
+				}
                 break;
             } else {
                 bbCommandChar cmd;
@@ -179,28 +199,86 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
             break;
         }
         case c_RequestAnswer: {
+			bbCommandStr *cmdStr = data;
 
-            //set state to waiting for answer
-            //clear widget->m_String
-            //set input to ""
-            //set query to "what is x * y?"
+
+			strcpy(widget->m_String, "");
+			widget->s_State = s_WaitingForAnswer;
+
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+			bbWidget* widget1;
+			I32 widgetInt1 = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+			bbCommandEmpty cmd1;
+			cmd1.type = c_Clear;
+			bbWidget_onCommand(&cmd1, widget1);
+
+			widgetInt1 = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandSetStr;
+			cmd2.m_str = cmdStr->m_str;
+			bbWidget_onCommand(&cmd2, widget1);
+
+
+
+
             break;
         }
+		case c_RequestCode: {
+			strcpy(widget->m_String, "");
+			widget->s_State = s_WaitingForCode;
+
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+			bbWidget* widget1;
+			I32 widgetInt1 = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+			bbCommandEmpty cmd1;
+			cmd1.type = c_Clear;
+			bbWidget_onCommand(&cmd1, widget1);
+
+			widgetInt1 = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandSetStr;
+			cmd2.m_str = "Enter code to select spell";
+			bbWidget_onCommand(&cmd2, widget1);
+
+			break;
+		}
         case c_RequestClick: {
-            //set state to waiting for click
-            //clear widget->m_String
-            //set input to ""
-            //set query to "click to target spell"
-            break;
-        }
-        case c_RequestCode: {
+			strcpy(widget->m_String, "");
+			widget->s_State = s_WaitingForClick;
 
-            //set state to waiting for code
-            //clear widget->m_String
-            //set input to ""
-            //set query to "enter spell code"
+			I32 map = widget->p_Node.p_Pool.Map;
+			bbPool* pool = g_Game->m_Maps[map]->m_Widgets->m_Pool;
+			bbWidget* widget1;
+			I32 widgetInt1 = widget->m_SubwidgetArray[i_answer];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+			bbCommandEmpty cmd1;
+			cmd1.type = c_Clear;
+			bbWidget_onCommand(&cmd1, widget1);
+
+			widgetInt1 = widget->m_SubwidgetArray[i_query];
+			bbPool_Lookup(&widget1, pool, widgetInt1);
+
+
+			bbCommandStr cmd2;
+			cmd2.type = f_CommandSetStr;
+			cmd2.m_str = "Click to cast spell";
+			bbWidget_onCommand(&cmd2, widget1);
             break;
         }
+
         default:
         	bbDebug("Prompt: Command %d not found\n", commandEmpty->type);
     }

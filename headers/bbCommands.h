@@ -67,7 +67,19 @@
 //bbCommandEmpty
 #define c_SetIdle            22
 
+// commands used for spellbar system
 
+
+#define c_PutChar            23
+//#define c_ReturnCode
+//#define c_ActivateSpell
+//#define c_SetCurrentSpell
+//#define c_RequestAnswer
+//#define c_RequestCode
+//#define c_ReturnAnswer
+//#define c_RequestClick
+//#define c_ReturnClick
+//#define c_CastSpell
 
 //Commands use void pointers, messages use unions
 
@@ -92,6 +104,10 @@ typedef struct {
     I32 m_inty;
 } bbCommand2I;
 
+typedef struct {
+	I32 type;
+	void* m_ptr;
+} bbCommandPtr;
 
 typedef struct {
 	I32 type;

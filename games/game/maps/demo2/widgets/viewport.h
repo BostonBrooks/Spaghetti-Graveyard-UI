@@ -84,9 +84,10 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
             return f_Success;
         }
         case c_CastSpell: {
+			bbCommand3I* cmd3i = command;
 
             //spell sends message to viewport
-            bbDebug("cast spell\n")
+            bbDialog("\ncast spell type %d", cmd3i->m_intz);
             return f_Success;
         }
 		default:
@@ -109,20 +110,17 @@ I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
 		return f_Break;
 	}
 
-	bbDialog("\nviewport clicked, send message to spellbar");
 
-    bbCommand2I cmd;
-    cmd.type = c_ReturnClick;
-    //viewport coords? What about map coords or target drawable?
-    cmd.m_intx = event->m_ScreenCoords.x - widget->m_ScreenCoords.x;
-    cmd.m_inty = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
+	bbDialog("\nviewport clicked, cast spell");
+	widget->s_State = s_Idle;
+	bbCommand2I cmd2i;
+	cmd2i.type = c_ReturnClick;
+	cmd2i.m_intx = event->m_ScreenCoords.x - widget->m_ScreenCoords.x;
+	cmd2i.m_intx = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
 
-    I32 map = widget->p_Node.p_Pool.Map;
-
-    bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
-
-    bbWidget_onCommand(&cmd, spellbar);
-    widget->s_State = s_Idle;
+	I32 map = widget->p_Node.p_Pool.Map;
+	bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
+	bbWidget_onCommand(&cmd2i, spellbar);
 }
 
 

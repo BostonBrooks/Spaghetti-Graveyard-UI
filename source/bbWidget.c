@@ -3,7 +3,7 @@
 #include "headers/bbWidget.h"
 #include "headers/bbGame.h"
 #include "headers/bbPrintf.h"
-#include "games/game/maps/demo/widgets/emptyWidget.h"
+#include "games/game/maps/demo2/widgets/emptyWidget.h"
 #include "headers/bbIntTypes.h"
 #include "headers/bbCommands.h"
 

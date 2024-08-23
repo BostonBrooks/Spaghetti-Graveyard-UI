@@ -170,7 +170,7 @@ int main (void){
             fTime = sfTime_asSeconds(time);
             fFreq = 360.f / fTime;
             sprintf(commandStr, "\nfrequency = %f", fFreq);
-            bbWidget_onCommand(&commandPutStr, prompt);
+            //bbWidget_onCommand(&commandPutStr, prompt); //enable print fps
 
             //bbPrintf("spellbar->text = %s\n", g_Game->m_Maps[g_Game->m_CurrentMap]->m_Widgets->m_SpellBar->m_String);
         }

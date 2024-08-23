@@ -35,6 +35,7 @@ typedef struct{
 	char* m_Code;
 	sfRenderTexture* m_RenderTexture;
 	sfSprite* m_Sprite;
+	void* m_CurrentSpell;
 
 
 	I32 m_AnimationInt[ANIMATIONS_PER_WIDGET];

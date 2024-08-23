@@ -11,8 +11,8 @@ Viewport.width:              829.0
 Viewport.height:            678.0
 Spellbar.left:              20.0
 Spellbar.bottom:            700.0
-Text.size:					30.0
-Text.columns:				23
+Text.size:					20.0
+Text.columns:				30
 Text.left:                  881.0
 Dialogue.top:               24.0
 Dialogue.rows:              17
