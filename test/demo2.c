@@ -201,12 +201,12 @@ int main (void){
         sfSprite_setPosition(cursor, cursorPosF);
         sfRenderWindow_drawSprite(g_Game->m_Window, cursor, NULL);
 
-        bbPool_Lookup(&activeSpell,
+        /*bbPool_Lookup(&activeSpell,
                       map->m_Widgets->m_Pool,
                       map->misc.m_ActiveSpell_deprecated);
         sfText_setString(activeText, activeSpell->m_String);
         sfRenderWindow_drawText(g_Game->m_Window, activeText, NULL);
-
+*/
         sfRenderWindow_display(g_Game->m_Window);
 
         if(!paused) g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime += 1;

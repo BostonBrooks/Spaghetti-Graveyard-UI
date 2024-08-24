@@ -147,10 +147,10 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
             // Text Entered
             if (commandPutChar->m_char == '\n'){
-				bbDialog("\nYou clicked enter:");
+				//bbDialog("\nYou clicked enter:");
                 if (widget->s_State == s_WaitingForCode){
 
-					bbDialog(" s_WaitingForCode");
+					//bbDialog(" s_WaitingForCode");
 					bbCommandStr cmd;
 					cmd.type = c_ReturnCode;
 					cmd.m_str = widget->m_String;
@@ -159,7 +159,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 					bbWidget_onCommand(&cmd, spellbar);
 
                 } else if (widget->s_State == s_WaitingForAnswer){
-					bbDialog(" s_WaitingForAnswer");
+					//bbDialog(" s_WaitingForAnswer");
                     bbCommandStr cmd;
                     cmd.type = c_ReturnAnswer;
                     cmd.m_str = widget->m_String;
@@ -168,7 +168,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
                     bbWidget_onCommand(&cmd, spellbar);
 
                 }else if (widget->s_State == s_WaitingForClick){
-					bbDialog(" s_WaitingForClick");
+					//bbDialog(" s_WaitingForClick");
 
 
 					strcpy(widget->m_String, "");
@@ -179,7 +179,7 @@ I32 bbWidgetCommand_Prompt(bbWidget* widget, void* data){
 
 
 				} else {
-					bbDialog("\n state = %d", widget->s_State);
+					//bbDialog("\n state = %d", widget->s_State);
 				}
                 break;
             } else {

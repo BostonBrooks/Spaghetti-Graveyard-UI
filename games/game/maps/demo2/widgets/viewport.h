@@ -87,7 +87,37 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 			bbCommand3I* cmd3i = command;
 
             //spell sends message to viewport
-            bbDialog("\ncast spell type %d", cmd3i->m_intz);
+            //bbDialog("\ncast spell type %d", cmd3i->m_intz);
+
+			bbScreenCoordsI SCI;
+			SCI.x = cmd3i->m_intx;
+			SCI.y = cmd3i->m_inty;
+
+
+			sfVector2f viewportCoords = bbScreenCoordsI_getV2f(SCI, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+
+			sfRenderTexture* renderTexture = widget->m_RenderTexture;
+			sfSprite* sprite;
+			switch (cmd3i->m_intz) {
+				case 1:
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[29];
+					break;
+				case 2:
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[44];
+					break;
+				case 3:
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[57];
+					break;
+				case 4:
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[56];
+					break;
+
+			}
+
+
+			sfSprite_setPosition(sprite, viewportCoords);
+
+			sfRenderTexture_drawSprite(renderTexture, sprite, NULL);
             return f_Success;
         }
 		default:
@@ -106,17 +136,17 @@ I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
 	if (! bbWidget_containsPoint(widget, event->m_ScreenCoords)) return f_Continue;
 	if (event->m_type != f_MouseLeft) return f_Continue;
 	if( widget->s_State != s_WaitingForClick){
-		bbDialog("\nviewport clicked, ignored");
+		//bbDialog("\nviewport clicked, ignored");
 		return f_Break;
 	}
 
 
-	bbDialog("\nviewport clicked, cast spell");
+	//bbDialog("\nviewport clicked, cast spell");
 	widget->s_State = s_Idle;
 	bbCommand2I cmd2i;
 	cmd2i.type = c_ReturnClick;
 	cmd2i.m_intx = event->m_ScreenCoords.x - widget->m_ScreenCoords.x;
-	cmd2i.m_intx = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
+	cmd2i.m_inty = event->m_ScreenCoords.y - widget->m_ScreenCoords.y;
 
 	I32 map = widget->p_Node.p_Pool.Map;
 	bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;

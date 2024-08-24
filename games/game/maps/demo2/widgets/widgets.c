@@ -18,7 +18,10 @@
 #include "games/game/maps/demo2/widgets/textBox.h"
 #include "games/game/maps/demo2/widgets/prompt.h"
 #include "games/game/maps/demo2/widgets/spellbar/spellbar.h"
-#include "games/game/maps/demo2/widgets/spellbar/spell.h"
+#include "games/game/maps/demo2/widgets/spellbar/spell1.h"
+#include "games/game/maps/demo2/widgets/spellbar/spell2.h"
+#include "games/game/maps/demo2/widgets/spellbar/spell3.h"
+#include "games/game/maps/demo2/widgets/spellbar/spell4.h"
 
 
 
@@ -45,13 +48,19 @@ I32 bbWidgetFunctions_populate(I32 map){
   //  bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellBar");
     bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Prompt, "prompt");
 	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spellbar, "spellbar");
-	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell, "spell");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell1, "spell1");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell2, "spell2");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell3, "spell3");
+	bbWidgetFunctions_add(functions, f_WidgetConstructor, bbWidgetNew_Spell4, "spell4");
 
 	//typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Text, "clickText");
     bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Sphere, "clickSphere");
 	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Layout, "layout");
-	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell, "spell");
+	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell1, "spell1");
+	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell2, "spell2");
+	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell3, "spell3");
+	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spell4, "spell4");
 	bbWidgetFunctions_add(functions, f_WidgetMouseHandler, bbWidgetClick_Spellbar, "spellbar");
 	bbWidgetFunctions_add(functions, f_WidgetMouseHandler,
 						  bbWidgetClick_Viewport, "viewport");
@@ -60,7 +69,10 @@ I32 bbWidgetFunctions_populate(I32 map){
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Textbox, "textbox");
     bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Prompt, "prompt");
 	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spellbar, "spellbar");
-	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell, "spell");
+	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell1, "spell1");
+	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell2, "spell2");
+	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell3, "spell3");
+	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Spell4, "spell4");
 	bbWidgetFunctions_add(functions, f_WidgetOnCommand, bbWidgetCommand_Viewport, "viewport");
 
 	//typedef I32 bbWidget_OnTimer (bbWidget* widget, void* void_timerNode);

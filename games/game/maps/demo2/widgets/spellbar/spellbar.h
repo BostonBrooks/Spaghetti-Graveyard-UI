@@ -39,23 +39,37 @@ I32 bbWidgetNew_Spellbar(bbWidget** reference, bbWidgets* widgets, bbScreenCoord
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
 	widget->m_Dimensions = SCI;
 	//call constructors for spell buttons
-
+	bbWidget* spell;
+	I32 type;
+	bbCommandEmpty cmd;
+	cmd.type = c_SetIdle;
 	SCF = bbScreenCoordsI_getF(sc, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+
 	SCF.x += 80 * widgetScale;
 	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
-
-
-
-	bbWidget* spell;
-	I32 type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell");
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell1");
 	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
+	bbWidget_onCommand(&cmd, spell);
+
+	SCF.x += 80 * widgetScale;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell2");
+	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
+
+	SCF.x += 80 * widgetScale;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell3");
+	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
+
+	SCF.x += 80 * widgetScale;
+	SCI = bbScreenCoordsF_getI(SCF, &g_Game->m_Maps[widget->p_Node.p_Pool.Map]->p_Constants);
+	type = bbWidgetFunctions_getInt(functions, f_WidgetConstructor, "spell4");
+	bbWidget_new(&spell, widgets, type, widget->p_Node.p_Pool.Self, SCI);
+	bbWidget_onCommand(&cmd, spell);
 
 	widget->m_CurrentSpell = spell;
 
-	bbCommandEmpty cmd;
-	cmd.type = c_SetIdle;
 	bbWidget_onCommand(&cmd, widget);
-	bbWidget_onCommand(&cmd, spell);
 
     *reference = widget;
 
@@ -77,11 +91,11 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
         case c_ReturnCode: {
 			bbCommandStr* cmdStr = command;
 
-			bbDialog("\nspellbar\n-> return code\n-> %s", cmdStr->m_str);
+			//bbDialog("\nspellbar\n-> return code\n-> %s", cmdStr->m_str);
 
 			I32 flag = strcmp(cmdStr->m_str, "");
 			if (flag == 0){
-				bbDialog("\n->string empty");
+				//bbDialog("\n->string empty");
 				//What was the last spell?
 				//if valid:
 				//    spell -> c_ActivateSpell
@@ -137,7 +151,7 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
         }
         case c_ReturnClick: {
 			if (widget->m_CurrentSpell == NULL){
-				bbDialog("\nno spell selected");
+				//bbDialog("\nno spell selected");
 				I32 map = widget->p_Node.p_Pool.Map;
 				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
 				bbCommandEmpty cmdEmpty;
@@ -146,7 +160,7 @@ I32 bbWidgetCommand_Spellbar(bbWidget* widget, void* command){
 				return f_None;
 
 			}
-			bbDialog("\nrelay click to spell");
+			//bbDialog("\nrelay click to spell");
 			//pass answer to current spell
 			bbWidget_onCommand(command, widget->m_CurrentSpell);
 

@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 //typedef I32 bbWidget_Constructor (bbWidget** reference, void* widgets, bbScreenCoordsI screen_coords, bbWidget* parent);
-I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
+I32 bbWidgetNew_Spell3(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI sc, bbWidget* parent){
 	//construct widget
 	bbWidget* widget;
 	bbPool* pool = widgets->m_Pool;
@@ -24,12 +24,12 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 
 	bbWidgetFunctions* functions = widgets->m_Functions;
 
-	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell");
-	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell");
+	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell3");
+	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell3");
 	widget->m_String = "Spell";
 	widget->m_String2 = calloc(128, sizeof(char));
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
-	widget->m_Frame[0] = 2;         // PLUS
+	widget->m_Frame[0] = 4;         // PLUS
 	widget->v_DrawFunction[0] = bbWidgetFunctions_getInt(functions, f_WidgetDrawFunction, "frame");
 
 	widget->m_CoolDownStart = 0;
@@ -66,7 +66,7 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 	bbWidget_onCommand(&cmd, widget);
 
     bbDictionary* codeDict = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Widgets->m_CodeDict;
-    widget->m_Code = "0";
+    widget->m_Code = "3";
     bbDictionary_add(codeDict, widget->m_Code, widget->p_Node.p_Pool.Self);
 
 	*reference = widget;
@@ -74,7 +74,7 @@ I32 bbWidgetNew_Spell(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI 
 }
 
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
-I32 bbWidgetClick_Spell(void* void_mouseEvent, void* void_widget){
+I32 bbWidgetClick_Spell3(void* void_mouseEvent, void* void_widget){
 
 
 	return f_Continue;
@@ -85,19 +85,19 @@ I32 bbWidgetClick_Spell(void* void_mouseEvent, void* void_widget){
 }
 
 //typedef I32 bbWidget_OnCommand (bbWidget* widget, void* data);
-I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
+I32 bbWidgetCommand_Spell3(bbWidget* widget, void* command){
 
 	bbCommandEmpty* commandEmpty = command;
 
 	switch (commandEmpty->type) {
 
         case c_ActivateSpell: {
-			bbDialog("\nActivate Spell");
+			//bbDialog("\nActivate Spell");
 			I32 map = widget->p_Node.p_Pool.Map;
             //if the spell is available, message spellbar to set current spell
 			if (widget->m_CoolDownEnd > g_Game->m_Maps[map]->misc.m_MapTime){
 
-				bbDialog("\nSpell on cooldown");
+				//bbDialog("\nSpell on cooldown");
 				I32 map = widget->p_Node.p_Pool.Map;
 				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
 				bbCommandEmpty cmdEmpty;
@@ -119,9 +119,9 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 
 			I32 x = rand()%12;
 			I32 y = rand()%12;
-			sprintf(widget->m_String2, "%d", x + y);
+			sprintf(widget->m_String2, "%d", x * y);
 			char question[512];
-			sprintf(question, "what is %d + %d", x, y);
+			sprintf(question, "what is %d x %d", x, y);
 
 			bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
 			bbCommandStr cmdStr;
@@ -158,7 +158,7 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
         }
         case c_ReturnClick: {
             if (widget->s_State != s_WaitingForClick){
-				bbDialog("\nspell click unexpected");
+				//bbDialog("\nspell click unexpected");
 				I32 map = widget->p_Node.p_Pool.Map;
 				bbWidget* prompt = g_Game->m_Maps[map]->m_Widgets->m_Prompt;
 				bbCommandEmpty cmdEmpty;
@@ -167,9 +167,13 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 				return f_None;
 
 			}
-			bbDialog("\nsend spell to viewport");
+			//bbDialog("\nsend spell to viewport");
 
 			I32 map = widget->p_Node.p_Pool.Map;
+
+			widget->m_CoolDownStart = g_Game->m_Maps[map]->misc.m_MapTime;
+			widget->m_CoolDownEnd = g_Game->m_Maps[map]->misc.m_MapTime + 60;
+
 			bbCommand2I* cmd2i = command;
 			widget->s_State = s_Idle;
 			bbCommand3I cmd3i;
@@ -178,7 +182,7 @@ I32 bbWidgetCommand_Spell(bbWidget* widget, void* command){
 			cmd3i.m_intx = cmd2i->m_intx;
 			cmd3i.m_inty = cmd2i->m_inty;
 			//pass effect type;
-			cmd3i.m_intz = 0;
+			cmd3i.m_intz = 3;
 			bbWidget* viewport = g_Game->m_Maps[map]->m_Widgets->m_Viewport;
 			bbWidget_onCommand(&cmd3i, viewport);
 

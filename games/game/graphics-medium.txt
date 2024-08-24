@@ -15,6 +15,6 @@ Text.size:					20.0
 Text.columns:				30
 Text.left:                  881.0
 Dialogue.top:               24.0
-Dialogue.rows:              17
+Dialogue.rows:              23
 Query.top:                  494.0
 Input.top:                  606.0
