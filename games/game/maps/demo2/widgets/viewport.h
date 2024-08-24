@@ -100,16 +100,16 @@ I32 bbWidgetCommand_Viewport(bbWidget* widget, void* command){
 			sfSprite* sprite;
 			switch (cmd3i->m_intz) {
 				case 1:
-					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[29];
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[21];
 					break;
 				case 2:
-					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[44];
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[23];
 					break;
 				case 3:
-					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[57];
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[25];
 					break;
 				case 4:
-					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[56];
+					sprite = g_Game->m_Maps[widget->p_Node.p_Pool.Map]->m_Sprites->m_Sprites[29];
 					break;
 
 			}
@@ -151,6 +151,8 @@ I32 bbWidgetClick_Viewport(void* void_mouseEvent, void* void_widget){
 	I32 map = widget->p_Node.p_Pool.Map;
 	bbWidget* spellbar = g_Game->m_Maps[map]->m_Widgets->m_SpellBar;
 	bbWidget_onCommand(&cmd2i, spellbar);
+
+	return f_Break;
 }
 
 

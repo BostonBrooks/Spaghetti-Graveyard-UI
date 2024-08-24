@@ -26,7 +26,7 @@ I32 bbWidgetNew_Spell4(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 
 	widget->v_OnMouse = bbWidgetFunctions_getInt(functions, f_WidgetMouseHandler, "spell4");
 	widget->v_OnCommand = bbWidgetFunctions_getInt(functions, f_WidgetOnCommand, "spell4");
-	widget->m_String = "Spell";
+	widget->m_String = "Spell4";
 	widget->m_String2 = calloc(128, sizeof(char));
 	widget->m_AnimationInt[0] = 24; // SPELLBAR
 	widget->m_Frame[0] = 5;         // PLUS
@@ -76,12 +76,18 @@ I32 bbWidgetNew_Spell4(bbWidget** reference, bbWidgets* widgets, bbScreenCoordsI
 //typedef I32 bbWidget_Mouse(void* void_mouseEvent, void* void_widget);
 I32 bbWidgetClick_Spell4(void* void_mouseEvent, void* void_widget){
 
+	bbMouseEvent* event = void_mouseEvent;
+	bbWidget* widget = void_widget;
+	bbScreenCoordsI sc = event->m_ScreenCoords;
 
-	return f_Continue;
+	if (! bbWidget_containsPoint(widget, event->m_ScreenCoords)) return f_Continue;
+	if (event->m_type != f_MouseLeft) return f_Continue;
 
-	// if not on cooldown,
-	  // request activate spell via spellbar
+	bbCommandEmpty cmd;
+	cmd.type = c_ActivateSpell;
+	bbWidget_onCommand(&cmd, widget);
 
+	return f_Break;
 }
 
 //typedef I32 bbWidget_OnCommand (bbWidget* widget, void* data);
