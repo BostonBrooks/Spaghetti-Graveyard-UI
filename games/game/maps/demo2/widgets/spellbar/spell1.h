@@ -181,7 +181,7 @@ I32 bbWidgetCommand_Spell1(bbWidget* widget, void* command){
 			I32 map = widget->p_Node.p_Pool.Map;
 
 			widget->m_CoolDownStart = g_Game->m_Maps[map]->misc.m_MapTime;
-			widget->m_CoolDownEnd = g_Game->m_Maps[map]->misc.m_MapTime + 60;
+			widget->m_CoolDownEnd = g_Game->m_Maps[map]->misc.m_MapTime + 180;
 
 			bbCommand2I* cmd2i = command;
 			widget->s_State = s_Idle;
