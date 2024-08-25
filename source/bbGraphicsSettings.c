@@ -42,7 +42,7 @@ I32 bbGraphicsSettings_print(bbGraphicsSettings* settings){
 	bbPrintf("%s definition settings\n", settings->m_GraphicsLevel);
 	bbPrintf("Width: %d\n", settings->m_Width);
 	bbPrintf("Height: %d\n", settings->m_Height);
-	bbPrintf("Screen Scale: %f\n", settings->m_DrawableScale);
+	bbPrintf("Drawable Scale: %f\n", settings->m_DrawableScale);
 	bbPrintf("Widget Scale: %f\n", settings->m_WidgetScale);
 	bbPrintf("Layout: %s\n", settings->m_Layout);
 	bbPrintf("ViewportMock: %s\n", settings->m_ViewportMock);

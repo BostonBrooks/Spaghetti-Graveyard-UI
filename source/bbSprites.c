@@ -57,7 +57,7 @@ I32 sprite_load(bbSprites* sprites, char* key, I32 address,
 	sfSprite_setTextureRect(sprite, rect);
 
 	sfVector2f origin;
-	origin.x = dimensions->originy;
+	origin.x = dimensions->originx;
 	origin.y = dimensions->originy;
 	sfSprite_setOrigin(sprite, origin);
 
@@ -114,6 +114,7 @@ I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMa
 	sprite_dimensions dimensions;
 	char scaleBy[16];
 
+
 	while (fscanf(file,
 		   "%[^,],%d,%[^,],%d,%d,%d,%d,%f,%f,%f,%f,%[^,]%*[^\n]\n",
 		   key,
@@ -129,19 +130,21 @@ I32 bbSprites_new(bbSprites** self, bbTextures* textures, char* folderPath, bbMa
 		   &dimensions.scaley,
 		   scaleBy) == 12 ) {
 
-//		bbDebug("%s,%d,%s,%d,%d,%d,%d,%f,%f,%f,%f,%s\n",
-//				key,
-//				address,
-//				texture_key,
-//				dimensions.left,
-//				dimensions.top,
-//				dimensions.width,
-//				dimensions.height,
-//				dimensions.originx,
-//				dimensions.originy,
-//				dimensions.scalex,
-//				dimensions.scaley,
-//				scaleBy);
+/*
+		printf("%s,%d,%s,%d,%d,%d,%d,%f,%f,%f,%f,%s\n",
+				key,
+				address,
+				texture_key,
+				dimensions.left,
+				dimensions.top,
+				dimensions.width,
+				dimensions.height,
+				dimensions.originx,
+				dimensions.originy,
+				dimensions.scalex,
+				dimensions.scaley,
+				scaleBy);
+*/
 
 
 		sfTexture* texture;

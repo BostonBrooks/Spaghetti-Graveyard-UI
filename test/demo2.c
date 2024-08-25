@@ -24,7 +24,9 @@ int main (void){
     I32 flag;
     flag = bbGame_new(&g_Game, GAME_PATH);
     bbDebug("flag0 = %d\n", flag);
-    g_Game->m_CurrentMap = 0;;
+    float drawableScale = g_Game->m_GraphicsSettings->m_DrawableScale;
+    printf("drawable scale = %f\n", drawableScale);
+    g_Game->m_CurrentMap = 0;
     I32 mapInt = 0;
     sfRenderWindow_setFramerateLimit(g_Game->m_Window, 60);
     sfVector2i screenPosition;
@@ -163,6 +165,9 @@ int main (void){
     sfClock* clock = sfClock_create();
     sfTime time;
     float fTime, fFreq;
+
+    I32 spriteInt = 0;
+
     while (1){
 
         if (g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime % 360 == 0) {
@@ -207,6 +212,18 @@ int main (void){
         sfText_setString(activeText, activeSpell->m_String);
         sfRenderWindow_drawText(g_Game->m_Window, activeText, NULL);
 */
+
+/*        sfSprite* sprt = g_Game->m_Maps[g_Game->m_CurrentMap]->m_Sprites
+                ->m_Sprites[spriteInt];
+        sfVector2f v2f;
+        v2f.x = 200;
+        v2f.y = 200;
+        if (sprt != NULL){
+            sfSprite_setPosition(sprt, v2f);
+            sfRenderWindow_drawSprite(g_Game->m_Window, sprt, NULL);
+        }
+        spriteInt = (spriteInt + 1)%232;*/
+
         sfRenderWindow_display(g_Game->m_Window);
 
         if(!paused) g_Game->m_Maps[g_Game->m_CurrentMap]->misc.m_MapTime += 1;

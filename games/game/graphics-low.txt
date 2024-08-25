@@ -1,7 +1,7 @@
 Low definition settings:
 Width: 720
 Height: 480
-Drawable Scale:             1.0
+Drawable Scale:             0.6
 Widget Scale:               0.7
 Layout:                     LAYOUT_480
 Viewport.mock:              VIEWPORT_480

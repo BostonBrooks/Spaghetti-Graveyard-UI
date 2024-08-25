@@ -25,8 +25,12 @@ I32 bbMap_new(bbMap** self, char* folderPath){
 
 	fscanf(file, "DrawableScale: %f\n", &floatingPoint);
 	map->p_Constants.DrawableScale = floatingPoint;
+    map->p_Constants.DrawableScale =
+            g_Game->m_GraphicsSettings->m_DrawableScale;
 	fscanf(file, "WidgetScale: %f\n", &floatingPoint);
 	map->p_Constants.WidgetScale = floatingPoint;
+    map->p_Constants.WidgetScale =
+            g_Game->m_GraphicsSettings->m_WidgetScale;
 	fscanf(file, "ElevationScale: %d\n", &integer);
 	map->p_Constants.ElevationScale = integer;
 	fscanf(file, "MaxPixelValue: %d\n", &integer);
