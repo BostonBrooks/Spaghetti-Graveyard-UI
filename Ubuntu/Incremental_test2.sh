@@ -8,7 +8,7 @@ Color_Off='\033[0m'
 
  echo -e "Look, a Tortoise:\n${BGreen}\n       _____     ____\n     /      \  |  o |\n    |        |/ ___\| \n    |_________/     \n    |_|_| |_|_|\n//////////////////////////////////////////////////////////////${Color_Off}\n\nAttempting to compile:\n"
 
- if gcc\
+ if gcc -Wno-incompatible-pointer-types\
    -I ../ \
   ../test/Incremental_test2.c\
   ../source/bbGame.c\

@@ -83,22 +83,28 @@ typedef struct {
 	bbWidget_Constructor** Constructors;
 	bbDictionary* Constructor_dict;
 	I32 Constructor_available;
+
 	bbWidget_Update** Update;
 	bbDictionary* Update_dict;
 	I32 Update_available;
+
 	bbWidget_Destructor** Destructors;
 	bbDictionary* Destructor_dict;
 	I32 Destructor_available;
+
 	//includes on click and on prompt?
 	bbWidget_OnCommand** OnCommands;
 	bbDictionary* OnCommand_dict;
 	I32 OnCommand_available;
+
 	bbWidget_DrawFunction** DrawFunction;
 	bbDictionary* DrawFunction_dict;
 	I32 DrawFunction_available;
+
     bbWidget_Mouse** MouseHandler;
     bbDictionary* MouseHandler_dict;
     I32 MouseHandler_available;
+
     bbWidget_Mouse** OnTimers;
     bbDictionary* OnTimers_dict;
     I32 OnTimers_available;
